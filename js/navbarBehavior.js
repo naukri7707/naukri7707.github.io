@@ -37,7 +37,7 @@ $(document).ready(function () {
     function () {
       if ($navbar.css('top') > -HIDDEN + 'px')
       {
-        $navbar.delay('fast').animate({ top: $window.scrollTop() <= HIDDEN << 3 ? -$window.scrollTop() >> 3 : -HIDDEN + 'px' }, 500, 'swing');
+        $navbar.animate({ top: $window.scrollTop() <= HIDDEN << 3 ? -$window.scrollTop() >> 3 : -HIDDEN + 'px' }, 500, 'swing');
       }
     }
   );
