@@ -1,10 +1,9 @@
 $(document).ready(function () {
-
   const HIDDEN = 60;
   const POW = 3;
   const $navbar = $('.navbar');
   const $window = $(window);
-
+  //asddddd
   if ($window.scrollTop() <= (HIDDEN << POW))
   {
     $navbar.css('position', $window.scrollTop() === 0 ? 'relative' : 'fixed')

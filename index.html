@@ -18,9 +18,9 @@
   
 </head>
 
-<body>
+<body id="layout">
   <!--導航列-->
-  <nav class="navbar-expand-lg navbar-dark bg-dark navbar">
+  <nav id="navbar" class=" navbar navbar-expand-lg navbar-dark bg-dark">
   <!--頭像-->
   <a class=" navbar-brand" href="#">
     <img src="/img/gitcat.png" class="avatar active" alt="avatar" onmousedown="return false;">
@@ -73,12 +73,11 @@
     <img src="/img/win10.png" width="100%" height="100%" onmousedown="return false" alt="headerImage">
   </div>
 </header>
-  <div class="container layout-container">
+  <div class="container">
     <div class="row">
       <!--小部件 (左)-->
       <div class="col-md-2">
-        <aside>
-  <div class="sideboard"></div>
+        <aside class="sidebar">
   <!--TODO WidgetBar-->
   <!--*要分左右-->
 </aside>
@@ -116,7 +115,7 @@
       
       <h1 id="使用-gets"><a href="#使用-gets" class="headerlink" title="使用 gets()"></a>使用 gets()</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>gets() 在 C++11 時被棄用，並在 C++14 時被刪除，取代方案為 gets_s() 但 OJ 版本不到 C++11 時會沒有 gets_s()能用。</p>
 <h2 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h2><p>找到 Visual Studio 的 stdio.h ，可以使用 VisualStudio 的前往文件找到，並使用令存新檔找到路徑。使用檔案總管找到 stdio.h 並複製兩份到桌面，一份修改一份備用，編輯桌面上的<br>stdio.h 用搜尋功能搜尋 gets_s 並找到他</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_Success_(<span class="keyword">return</span> != <span class="number">0</span>)</span><br><span class="line">_ACRTIMP <span class="keyword">char</span>* __<span class="function">cdecl <span class="title">gets_s</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	_Out_writes_z_(_Size) <span class="keyword">char</span>* _Buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	_In_                  <span class="keyword">rsize_t</span> _Size</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_Success_(<span class="keyword">return</span> != <span class="number">0</span>)</span><br><span class="line">_ACRTIMP <span class="keyword">char</span>* __<span class="function">cdecl <span class="title">gets_s</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	_Out_writes_z_(_Size) <span class="keyword">char</span>* _Buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	_In_                  <span class="keyword">rsize_t</span> _Size</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>複製他然後在下面貼上並把 gets_s 改成 gets，然後在繼續搜尋到</p>
 
@@ -219,12 +218,32 @@
     </div>
     <div class="post-content">
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
 <h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
 <h1 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h1><p>只有同一組件(不是命名空間)下的類別可以存取</p>
 <h1 id="protected-internal"><a href="#protected-internal" class="headerlink" title="protected internal"></a>protected internal</h1><p>符合 protected 或 internal 任一條件即可進行存取 (自身類別 / 繼承自身的類別 / 同一組件)</p>
 <h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><p>只有自身類別可以存取</p>
+
       <a class="post-more" href="/2019/05/17/存取修飾詞/#more">閱讀更多</a>
+      
       
     </div>
     <div class="post-meta">
@@ -280,8 +299,7 @@
       </div>
       <!--小部件 (右)-->
       <div class="col-md-2">
-        <aside>
-  <div class="sideboard"></div>
+        <aside class="sidebar">
   <!--TODO WidgetBar-->
   <!--*要分左右-->
 </aside>
