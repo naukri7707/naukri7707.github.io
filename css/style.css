@@ -32,6 +32,12 @@ body {
 #layout .container {
   max-width: 100%;
 }
+#layout .background {
+  z-index: -99999;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
 .highlight .gutter {
   background-color: #232323;
   border-right: 1.5px solid #707070;
@@ -114,6 +120,40 @@ body {
 .highlight .code .selector-pseudo {
   color: #dc6d36;
 }
+#index-main .post {
+  max-height: 700px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: 500px;
+  text-overflow: ellipsis;
+  position: relative;
+}
+#index-main .post .more {
+  position: absolute;
+  bottom: 0%;
+  height: 100px;
+  width: 100%;
+  opacity: 0.99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #000, rgba(0,0,0,0));
+}
+#index-main .post .more .more-button {
+  cursor: pointer;
+  padding: 1px 10px;
+  text-align: center;
+  border: 2px 2px 2px 2px;
+  border-radius: 20px;
+  background-color: #1e1e1e;
+  opacity: 0.9;
+  box-shadow: 0 0 20px 0 #1e1e1e;
+}
+#index-main .post .more .more-button:hover {
+  background-color: #0ff;
+  opacity: 1;
+  color: #000;
+}
 .archive {
   margin: 1em auto;
   padding: 30px 50px;
@@ -136,6 +176,10 @@ body {
 .archive .post-archive .post-item .post-title {
   color: #368ccb;
   text-decoration: none;
+}
+#header img {
+  width: 100%;
+  box-shadow: 0 0 20px 0 #1e1e1e;
 }
 #navbar {
   background-color: #181a1b !important;
@@ -220,15 +264,15 @@ body {
 }
 .post {
   margin: 20px auto;
-  padding: 30px 50px;
   background-color: #171717;
+  opacity: 0.97;
   color: #c4c4c4;
-  box-shadow: 0 0 4px 0 #3e3e3e;
   border-radius: 10px;
 }
 .post >.title {
-  font-size: 36px;
-  margin-bottom: 16px;
+  padding: 10px 30px 0 30px;
+  zoom: 0.8;
+  font-size: 52px;
 }
 .post >.title .link {
   display: inline;
@@ -239,38 +283,19 @@ body {
   color: #368ccb;
 }
 .post >.title .time {
-  font-size: 18px;
+  font-size: 22px;
   color: #a4a4a4;
 }
 .post >.title .separator {
   margin: 4px auto;
   width: 100%;
-  border-bottom: 2px solid rgba(255,255,255,0.7);
+  border-bottom: 3px solid rgba(255,255,255,0.7);
+}
+.post .content {
+  padding: 10px 30px 0 30px;
+  zoom: 0.8;
 }
 .post .content a {
   color: #368ccb;
   text-decoration: none;
-}
-.post .more a {
-  display: inline-block;
-  line-height: 1em;
-  padding: 6px 15px;
-  border-radius: 15px;
-  background: color-background;
-  color: color-grey;
-  text-align: center;
-  text-shadow: 0 1px #fff;
-  text-decoration: none;
-}
-.post .more a:hover {
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  text-shadow: 0 1px #000;
-}
-.post .meta {
-  color: #bababa;
-}
-.post:first-child {
-  margin-top: 20px;
 }
