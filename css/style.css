@@ -38,6 +38,7 @@ body {
   position: fixed;
 }
 #layout #messageField {
+  user-select: none;
   position: fixed;
   width: 100%;
   height: 50px;
@@ -52,13 +53,12 @@ body {
   align-items: center;
 }
 #layout #messageField p {
-  user-select: none;
   background: #000;
   color: #fff;
   padding: 5px 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 50px 20px #17302e;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 .highlight .gutter {
   background-color: #232323;
@@ -251,8 +251,13 @@ body {
   height: 70px;
   padding: 0px 24px;
   box-shadow: 0 0 20px 0 #393939;
-  position: relative;
+  position: fixed;
   z-index: 99999;
+  transition: 0.7s;
+  top: -50px;
+}
+#navbar:hover {
+  transform: translateY(50px);
 }
 #navbar .navbar-brand {
   padding: 0px 0px;
@@ -343,6 +348,9 @@ body {
   color: #c4c4c4;
   text-decoration: none;
 }
+.post >.title .link:hover ~.separator {
+  transform: scaleX(0);
+}
 .post >.title .link:hover {
   color: #368ccb;
 }
@@ -351,6 +359,7 @@ body {
   color: #a4a4a4;
 }
 .post >.title .separator {
+  transition: 0.7s;
   margin: 4px auto;
   width: 100%;
   border-bottom: 3px solid rgba(255,255,255,0.7);
