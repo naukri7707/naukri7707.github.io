@@ -25,14 +25,13 @@ function readMore() {
 }
 
 // 程式碼複製
-$('.highlight tr').each(function () {
-
-  $(this).append('<td class="copy-button" onclick="copyCode()">複製</td>');
+$('.highlight tr .code').each(function () {
+  $(this).append('<td class="copy-button" onclick="copyCode()">Copy</td>');
 });
 
 function copyCode() {
   var code;
-  $(event.target).parent().find('.code .line').each(function () {
+  $(event.target).parent().find('.line').each(function () {
     code += $(this)[0].innerText + "\n";
   });
   Copy(code);
@@ -44,7 +43,7 @@ function Copy(text) {
   document.body.appendChild(tmp);
   tmp.select();
   document.execCommand("Copy");
-  alert('複製成功');
+  showMessage('複製成功');
   tmp.remove();
 }
 
