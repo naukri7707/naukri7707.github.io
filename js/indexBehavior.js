@@ -47,3 +47,4 @@ function Copy(text) {
   alert('複製成功');
   tmp.remove();
 }
+
