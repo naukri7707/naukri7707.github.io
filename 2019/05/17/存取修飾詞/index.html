@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Naukri&#39;s Blog</title>
-  
-  <!-- Google Analytics -->
-  <meta name="google-site-verification" content="Xl6ILac3vA_Uk3OURVO1Qsm6arpq-14A7nyzaYwFhR4">
-  
-  <!-- Font Awesome -->
-  <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Bootstrap & JQuery -->
   <link rel="stylesheet" href="/lib/bootstrap/bootstrap.css">
   <script src="/lib/jquery.min.js"></script>
   <script src="/lib/bootstrap/bootstrap.js"></script>
-  <!-- Custom -->
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Icon -->
+  <title>Naukri&#39;s Blog</title>
   
   <link rel="icon" href="/img/favicon.ico">
   
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  
+  <!-- ArticleBehavior -->
+  <script src="/js/articleBehavior.js"></script>
+  
 </head>
 <!-- TODO 縮放修正 -->
-<!-- TODO　msgField 阻擋元素 -->
 
 <body id="layout">
   <div>
@@ -85,20 +88,31 @@
     <div class="container">
       <div class="row">
         <!--小部件 (左)-->
-        <div class="col-md-2">
-          <aside class="sidebar">
-  <!--TODO WidgetBar-->
-  <!--*要分左右-->
-</aside>
-        </div>
-        <!--貼文...-->
-        <div class="col-md-8">
-          <article class="post">
+      </div>
+      <!--貼文...-->
+      <div class="col-md-8">
+        <main id="post-main">
+  
+<!-- TODO 底部不圓滑 -->
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/OOP/">OOP</a></li></ul>
+<article class="article">
   <header class="title">
-    存取修飾詞
-    <time class="time"> -2019-05-17</time>
+    <a class="link" href="/2019/05/17/存取修飾詞/">
+      <p class="title-text">存取修飾詞</p>
+    </a>
     <div class="separator"></div>
+    <div class="info">
+      
+      <i class="fas fa-tags"></i>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+      
+      <time class="time">
+        <i class="far fa-calendar-alt"></i>
+        2019-05-17
+      </time>
+    </div>
   </header>
+  
   <div class="content">
     <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
 <h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
@@ -113,22 +127,33 @@
 
 
   </div>
+  
 </article>
-        </div>
-        <!--小部件 (右)-->
-        <div class="col-md-2">
-          <aside class="sidebar">
+</main>
+      </div>
+      <!--小部件 (右)-->
+      <div class="col-md-2">
+        <aside class="sidebar">
   <!--TODO WidgetBar-->
   <!--*要分左右-->
+  
+<div id="tag-cloud">
+  <h3 class="title">
+    標籤雲
+  </h3>
+  <div class="content">
+    <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+  </div>
+</div>
+
 </aside>
-        </div>
       </div>
     </div>
-    <!--底部-->
-    <footer>
+  </div>
+  <!--底部-->
+  <footer>
   <!--TODO footer-->
 </footer>
 </body>
-<script src="/js/layoutBehavior.js"></script>
 
 </html>

@@ -1,7 +1,14 @@
-const $msg = $('#messageField>p');
+$(function () {
+  const $msgField = $('#messageField');
+  const $msg = $msgField.children('p');
 
-$msg.fadeOut(0);
+  $msgField.css('display', 'none');
+  $msg.fadeOut(0);
 
-function showMessage(msg) {
-  $msg.text(msg).fadeIn().delay(300).fadeOut('swing');
-}
+  function showMessage(msg) {
+    $msgField.css('display', 'flex');
+    $msg.text(msg).fadeIn('fast').delay(300).fadeOut('swing', () => {
+      $msgField.css('display', 'none');
+    });
+  }
+});

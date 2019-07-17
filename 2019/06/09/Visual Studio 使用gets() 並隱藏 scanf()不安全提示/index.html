@@ -4,25 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Naukri&#39;s Blog</title>
-  
-  <!-- Google Analytics -->
-  <meta name="google-site-verification" content="Xl6ILac3vA_Uk3OURVO1Qsm6arpq-14A7nyzaYwFhR4">
-  
-  <!-- Font Awesome -->
-  <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Bootstrap & JQuery -->
   <link rel="stylesheet" href="/lib/bootstrap/bootstrap.css">
   <script src="/lib/jquery.min.js"></script>
   <script src="/lib/bootstrap/bootstrap.js"></script>
-  <!-- Custom -->
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Icon -->
+  <title>Naukri&#39;s Blog</title>
   
   <link rel="icon" href="/img/favicon.ico">
   
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  
+  <!-- ArticleBehavior -->
+  <script src="/js/articleBehavior.js"></script>
+  
 </head>
 <!-- TODO 縮放修正 -->
-<!-- TODO　msgField 阻擋元素 -->
 
 <body id="layout">
   <div>
@@ -85,20 +88,28 @@
     <div class="container">
       <div class="row">
         <!--小部件 (左)-->
-        <div class="col-md-2">
-          <aside class="sidebar">
-  <!--TODO WidgetBar-->
-  <!--*要分左右-->
-</aside>
-        </div>
-        <!--貼文...-->
-        <div class="col-md-8">
-          <article class="post">
+      </div>
+      <!--貼文...-->
+      <div class="col-md-8">
+        <main id="post-main">
+  
+<!-- TODO 底部不圓滑 -->
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Visual-Studio/">Visual Studio</a></li></ul>
+<article class="article">
   <header class="title">
-    Visual Studio 使用gets() 並隱藏 scanf()不安全提示
-    <time class="time"> -2019-06-09</time>
+    <a class="link" href="/2019/06/09/Visual Studio 使用gets() 並隱藏 scanf()不安全提示/">
+      <p class="title-text">Visual Studio 使用gets() 並隱藏 scanf()不安全提示</p>
+    </a>
     <div class="separator"></div>
+    <div class="info">
+      
+      <time class="time">
+        <i class="far fa-calendar-alt"></i>
+        2019-06-09
+      </time>
+    </div>
   </header>
+  
   <div class="content">
     <h1 id="使用-gets"><a href="#使用-gets" class="headerlink" title="使用 gets()"></a>使用 gets()</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>gets() 在 C++11 時被棄用，並在 C++14 時被刪除，取代方案為 gets_s() 但 OJ 版本不到 C++11 時會沒有 gets_s()能用。</p>
 <h2 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h2><p>找到 Visual Studio 的 stdio.h ，可以使用 VisualStudio 的前往文件找到，並使用令存新檔找到路徑。使用檔案總管找到 stdio.h 並複製兩份到桌面，一份修改一份備用，編輯桌面上的 stdio.h 用搜尋功能搜尋 gets_s 並找到他</p>
@@ -109,6 +120,8 @@
 
 <p>一樣複製一份然後把 get_s 改成 gets</p>
 <p>儲存檔案，然後將他覆蓋掉原本的 stdio.h 就可以了。</p>
+<a id="more"></a>
+
 <hr>
 <h1 id="隱藏-scanf-不安全提示"><a href="#隱藏-scanf-不安全提示" class="headerlink" title="隱藏 scanf()不安全提示"></a>隱藏 scanf()不安全提示</h1><p>在程式碼最上面輸入以下程式碼</p>
 <figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable:4996)</span></span><br></pre></td></tr></table></figure>
@@ -116,22 +129,33 @@
 <p>如果嫌每次都要重新輸入太麻煩可以將它包到 stdio.h 裡面，<br>具體做法和上面一樣找到 stdio.h 然後修改。</p>
 
   </div>
+  
 </article>
-        </div>
-        <!--小部件 (右)-->
-        <div class="col-md-2">
-          <aside class="sidebar">
+</main>
+      </div>
+      <!--小部件 (右)-->
+      <div class="col-md-2">
+        <aside class="sidebar">
   <!--TODO WidgetBar-->
   <!--*要分左右-->
+  
+<div id="tag-cloud">
+  <h3 class="title">
+    標籤雲
+  </h3>
+  <div class="content">
+    <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+  </div>
+</div>
+
 </aside>
-        </div>
       </div>
     </div>
-    <!--底部-->
-    <footer>
+  </div>
+  <!--底部-->
+  <footer>
   <!--TODO footer-->
 </footer>
 </body>
-<script src="/js/layoutBehavior.js"></script>
 
 </html>
