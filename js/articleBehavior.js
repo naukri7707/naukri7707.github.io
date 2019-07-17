@@ -20,7 +20,7 @@ function readMore() {
 
 // 程式碼複製效果
 function copyCode() {
-  var code;
+  var code = "";
   $(event.target).parent().find('.line').each(function () {
     code += $(this)[0].innerText + "\n";
   });
@@ -34,6 +34,6 @@ function Copy(text) {
   document.body.appendChild(tmp);
   tmp.select();
   document.execCommand("Copy");
-  showMessage('複製成功');
   tmp.remove();
+  showMessage('複製成功');
 }
