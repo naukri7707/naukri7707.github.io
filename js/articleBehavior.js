@@ -2,8 +2,8 @@
 $(function () {
   // 動態嵌入程式碼複製按鈕
   $('.highlight').find('.code').append('<td class="copy-button" onclick="copyCode()">Copy</td>');
-  //
-  $('.category-list').each(function () {
+  // 分類頁籤首尾項特效
+  $('.category-bar .category-list').each(function () {
     const $linkList = $(this).find('.category-list-link');
     $linkList.first().addClass('first-link');
     $linkList.last().addClass('last-link');
