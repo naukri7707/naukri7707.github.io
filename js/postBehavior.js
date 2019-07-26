@@ -3,10 +3,10 @@ $(function () {
   // 動態嵌入程式碼複製按鈕
   $('.highlight').find('.code').append('<td class="copy-button" onclick="copyCode()">Copy</td>');
   // 分類頁籤首尾項特效
-  $('.post-meta .category-list').each(function () {
-    const $linkList = $(this).find('.category-list-link');
-    $linkList.first().addClass('first-link');
-    $linkList.last().addClass('last-link');
+  $('.post-meta .meta-list').each(function () {
+    const $linkList = $(this).find('.meta-list-link');
+   // $linkList.first().addClass('first-link');
+    // $linkList.last().addClass('last-link current-link').removeAttr('href');
   });
 });
 
@@ -15,8 +15,6 @@ function readMore() {
   $(event.target).parents('.post-inner').find('.hidden-content').css('display', 'block');
   $(event.target).parent().remove();
 }
-
-
 
 // 程式碼複製效果
 function copyCode() {
