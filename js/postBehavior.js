@@ -2,12 +2,6 @@
 $(function () {
   // 動態嵌入程式碼複製按鈕
   $('.highlight').find('.code').append('<td class="copy-button" onclick="copyCode()">Copy</td>');
-  // 分類頁籤首尾項特效
-  $('.post-meta .meta-list').each(function () {
-    const $linkList = $(this).find('.meta-list-link');
-   // $linkList.first().addClass('first-link');
-    // $linkList.last().addClass('last-link current-link').removeAttr('href');
-  });
 });
 
 // 閱讀更多效果

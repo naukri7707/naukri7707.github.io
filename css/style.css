@@ -549,16 +549,83 @@ html body #error404 .content a:hover {
   margin-bottom: 0px;
 }
 .sidebar .widget .title {
-  font-size: 26px;
-}
-.tag-cloud .title {
+  display: inline-block;
   color: #f0ffff;
+  font-size: 26px;
   text-decoration: none;
   user-select: none;
-  cursor: pointer;
 }
-.tag-cloud .title:hover {
+.sidebar .widget .title:hover {
   color: #ff0;
+  animation: shake 0.3s 1;
+}
+@-moz-keyframes shake {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(-2px, 2px);
+  }
+}
+@-webkit-keyframes shake {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(-2px, 2px);
+  }
+}
+@-o-keyframes shake {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(-2px, 2px);
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(-2px, 2px);
+  }
 }
 .tag-cloud .content a {
   display: inline-block;
@@ -578,18 +645,6 @@ html body #error404 .content a:hover {
 .categories:hover {
   background-color: rgba(128,128,128,0.15);
 }
-.categories .title {
-  text-decoration: none;
-  color: #f0ffff;
-  width: 100%;
-  display: inline-block;
-}
-.categories .title:hover {
-  background-color: #368ccb;
-  color: #000;
-  opacity: 1;
-  font-weight: bold;
-}
 .categories .content {
   overflow: hidden;
 }
@@ -606,9 +661,10 @@ html body #error404 .content a:hover {
   zoom: 95%;
   font-size: 22px;
   position: relative;
+  white-space: nowrap;
 }
 .categories .content .category-list .category-list-item:hover {
-  animation-name: fill;
+  background-color: rgba(128,128,128,0.15);
 }
 .categories .content .category-list .category-list-item:before {
   position: absolute;
@@ -650,7 +706,6 @@ html body #error404 .content a:hover {
   opacity: 1;
   font-weight: bold;
   font-size: 100%;
-  padding-right: 100%;
 }
 .categories .content .category-list .category-list-item .category-list-count {
   display: inline;
@@ -658,6 +713,7 @@ html body #error404 .content a:hover {
   padding-left: 5px;
   color: #808080;
   font-size: 80%;
+  padding-right: 100%;
 }
 .categories .content .category-list .category-list-item .category-list-count:before {
   content: ' (';
