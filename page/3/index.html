@@ -123,6 +123,74 @@
   <div class="post-inner">
     <header class="title">
       
+      <a class="link" href="/2019/05/17/存取修飾詞 copy 18/">
+        <p class="title-text" title="存取修飾詞">存取修飾詞</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-05-17
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
+<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
+<h1 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h1><p>只有同一組件(不是命名空間)下的類別可以存取</p>
+<h1 id="protected-internal"><a href="#protected-internal" class="headerlink" title="protected internal"></a>protected internal</h1><p>符合 protected 或 internal 任一條件即可進行存取 (自身類別 / 繼承自身的類別 / 同一組件)</p>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><p>只有自身類別可以存取</p>
+      <div class="hidden-content">
+        <h2 id="ConsoleApp1"><a href="#ConsoleApp1" class="headerlink" title="ConsoleApp1"></a>ConsoleApp1</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">int</span> publicInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">int</span> protectedInt;</span><br><span class="line">		<span class="keyword">internal</span> <span class="keyword">int</span> internalInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">internal</span> <span class="keyword">int</span> protectedInternalInt;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> privateInt;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></span><br><span class="line">	&#123;</span><br><span class="line">		MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass3</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (同一組件、繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ConsoleApp2"><a href="#ConsoleApp2" class="headerlink" title="ConsoleApp2"></a>ConsoleApp2</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ConsoleApp1; <span class="comment">//引用ConsoleApp1.dll</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp2</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//不同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass4</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">private</span> MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//不同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass5</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="存取修飾詞" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/物件導向/" title="物件導向 (22)">
+          <div class="meta-list-link-text">
+            物件導向
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/物件導向/觀念/" title="觀念 (22)">
+          <div class="meta-list-link-text">
+            觀念
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            存取修飾詞
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
       <a class="link" href="/2019/05/17/存取修飾詞 copy 17/">
         <p class="title-text" title="存取修飾詞">存取修飾詞</p>
       </a>
@@ -259,143 +327,75 @@
   <div class="post-inner">
     <header class="title">
       
-      <a class="link" href="/2019/05/17/存取修飾詞 copy 18/">
-        <p class="title-text" title="存取修飾詞">存取修飾詞</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-05-17
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
-<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
-<h1 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h1><p>只有同一組件(不是命名空間)下的類別可以存取</p>
-<h1 id="protected-internal"><a href="#protected-internal" class="headerlink" title="protected internal"></a>protected internal</h1><p>符合 protected 或 internal 任一條件即可進行存取 (自身類別 / 繼承自身的類別 / 同一組件)</p>
-<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><p>只有自身類別可以存取</p>
-      <div class="hidden-content">
-        <h2 id="ConsoleApp1"><a href="#ConsoleApp1" class="headerlink" title="ConsoleApp1"></a>ConsoleApp1</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">int</span> publicInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">int</span> protectedInt;</span><br><span class="line">		<span class="keyword">internal</span> <span class="keyword">int</span> internalInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">internal</span> <span class="keyword">int</span> protectedInternalInt;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> privateInt;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></span><br><span class="line">	&#123;</span><br><span class="line">		MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass3</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (同一組件、繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="ConsoleApp2"><a href="#ConsoleApp2" class="headerlink" title="ConsoleApp2"></a>ConsoleApp2</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ConsoleApp1; <span class="comment">//引用ConsoleApp1.dll</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp2</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//不同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass4</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">private</span> MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//不同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass5</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="存取修飾詞" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/物件導向/" title="物件導向 (22)">
-          <div class="meta-list-link-text">
-            物件導向
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/物件導向/觀念/" title="觀念 (22)">
-          <div class="meta-list-link-text">
-            觀念
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            存取修飾詞
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/2019/05/17/存取修飾詞 copy 2/">
-        <p class="title-text" title="存取修飾詞">存取修飾詞</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-05-17
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
-<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
-<h1 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h1><p>只有同一組件(不是命名空間)下的類別可以存取</p>
-<h1 id="protected-internal"><a href="#protected-internal" class="headerlink" title="protected internal"></a>protected internal</h1><p>符合 protected 或 internal 任一條件即可進行存取 (自身類別 / 繼承自身的類別 / 同一組件)</p>
-<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><p>只有自身類別可以存取</p>
-      <div class="hidden-content">
-        <h2 id="ConsoleApp1"><a href="#ConsoleApp1" class="headerlink" title="ConsoleApp1"></a>ConsoleApp1</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">int</span> publicInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">int</span> protectedInt;</span><br><span class="line">		<span class="keyword">internal</span> <span class="keyword">int</span> internalInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">internal</span> <span class="keyword">int</span> protectedInternalInt;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> privateInt;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></span><br><span class="line">	&#123;</span><br><span class="line">		MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass3</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (同一組件、繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="ConsoleApp2"><a href="#ConsoleApp2" class="headerlink" title="ConsoleApp2"></a>ConsoleApp2</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ConsoleApp1; <span class="comment">//引用ConsoleApp1.dll</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp2</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//不同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass4</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">private</span> MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//不同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass5</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="存取修飾詞" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/物件導向/" title="物件導向 (22)">
-          <div class="meta-list-link-text">
-            物件導向
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/物件導向/觀念/" title="觀念 (22)">
-          <div class="meta-list-link-text">
-            觀念
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            存取修飾詞
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
       <a class="link" href="/2019/05/17/存取修飾詞 copy 21/">
+        <p class="title-text" title="存取修飾詞">存取修飾詞</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-05-17
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>任何類別皆可存取</p>
+<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><p>只有自身類別或繼承自身的類別可以存取</p>
+<h1 id="internal"><a href="#internal" class="headerlink" title="internal"></a>internal</h1><p>只有同一組件(不是命名空間)下的類別可以存取</p>
+<h1 id="protected-internal"><a href="#protected-internal" class="headerlink" title="protected internal"></a>protected internal</h1><p>符合 protected 或 internal 任一條件即可進行存取 (自身類別 / 繼承自身的類別 / 同一組件)</p>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><p>只有自身類別可以存取</p>
+      <div class="hidden-content">
+        <h2 id="ConsoleApp1"><a href="#ConsoleApp1" class="headerlink" title="ConsoleApp1"></a>ConsoleApp1</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">int</span> publicInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">int</span> protectedInt;</span><br><span class="line">		<span class="keyword">internal</span> <span class="keyword">int</span> internalInt;</span><br><span class="line">		<span class="keyword">protected</span> <span class="keyword">internal</span> <span class="keyword">int</span> protectedInternalInt;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> privateInt;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></span><br><span class="line">	&#123;</span><br><span class="line">		MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass3</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 可以存取 (同一組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (同一組件、繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ConsoleApp2"><a href="#ConsoleApp2" class="headerlink" title="ConsoleApp2"></a>ConsoleApp2</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ConsoleApp1; <span class="comment">//引用ConsoleApp1.dll</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp2</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//不同組件、非繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass4</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">private</span> MyClass1 c = <span class="keyword">new</span> MyClass1();</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// c.publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 不可存取 (非繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// c.internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.protectedInternalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// c.privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//不同組件、繼承自MyClass1</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass5</span> : <span class="title">MyClass1</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>		&#123;</span><br><span class="line">			<span class="comment">// publicInt 可以存取</span></span><br><span class="line">			<span class="comment">// protectedInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// internalInt 不可存取 (不同組件)</span></span><br><span class="line">			<span class="comment">// protectedInternalInt 可以存取 (繼承自MyClass1)</span></span><br><span class="line">			<span class="comment">// privateInt 不可存取</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="存取修飾詞" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/物件導向/" title="物件導向 (22)">
+          <div class="meta-list-link-text">
+            物件導向
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/物件導向/觀念/" title="觀念 (22)">
+          <div class="meta-list-link-text">
+            觀念
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            存取修飾詞
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/2019/05/17/存取修飾詞 copy 20/">
         <p class="title-text" title="存取修飾詞">存取修飾詞</p>
       </a>
       
