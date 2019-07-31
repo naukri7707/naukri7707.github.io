@@ -3,18 +3,15 @@ var pervScrollTop = 0;
 $(function () {
   const $navbar = $('#navbar');
   $(window).scroll(function () {
-    if ($(window).scrollTop() <= pervScrollTop)
-    {
+    if ($(window).scrollTop() <= pervScrollTop) {
       $navbar.css('transform', 'translateY(0)');
     }
-    else
-    {
+    else {
       $navbar.css('transform', 'translateY(-' + $navbar.css('height') + ')');
     }
     pervScrollTop = $(window).scrollTop();
   });
 });
-
 
 function showMessage(msg) {
   const $msgField = $('#messageField');
