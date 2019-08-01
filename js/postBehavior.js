@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   // 動態嵌入程式碼複製按鈕
   $(".highlight")
     .find(".code")
@@ -10,7 +10,7 @@ function readMore() {
   $(event.target)
     .parents(".post-inner")
     .find(".hidden-content")
-    .css("display", "block");
+    .slideDown();
   $(event.target)
     .parent()
     .remove();
@@ -22,7 +22,7 @@ function copyCode() {
   $(event.target)
     .parent()
     .find(".line")
-    .each(function() {
+    .each(function () {
       code += $(this)[0].innerText + "\n";
     });
   Copy(code);
