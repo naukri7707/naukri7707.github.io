@@ -88,145 +88,45 @@
   <div class="wrapper">
     <main id="main">
       
-<article id="this 和 event.target 的差異" class="post">
+<article class="post">
   <div class="post-meta">
     <ul class="meta-list">
-      
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/網頁設計/" title="網頁設計 (1)">
-          <div class="meta-list-link-text">
-            網頁設計
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/網頁設計/jQuery/" title="jQuery (1)">
-          <div class="meta-list-link-text">
-            jQuery
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            this 和 event.target 的差異
-          </div>
-        </a>
+        <a class="meta-list-link tag-style current-link">jQuery</a>
       </li>
     </ul>
   </div>
   <div class="post-inner">
-    <header class="title">
+    <div class= "archives">
       
-      <a class="link" href="/2019/05/18/this 和 event.target 的差異/">
-        <p class="title-text" title="this 和 event.target 的差異">this 和 event.target 的差異</p>
-      </a>
       
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-05-18
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>運行冒泡階段 (Bubbling Phase)</p>
-<hr>
-<h2 id="event-target"><a href="#event-target" class="headerlink" title="event.target"></a>event.target</h2><p>運行目標階段 (Target Phase)</p>
-<h2 id="階段參考"><a href="#階段參考" class="headerlink" title="階段參考"></a>階段參考</h2><p><a href="https://www.w3.org/TR/DOM-Level-3-Events/#event-flow" target="_blank" rel="noopener"><img src="/image/eventflow.jpg" alt="eventflow" title="階段參考"></a></p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="阻止冒泡事件的方法"><a href="#阻止冒泡事件的方法" class="headerlink" title="阻止冒泡事件的方法"></a>阻止冒泡事件的方法</h1><blockquote>
-<h2 id="原始程式碼"><a href="#原始程式碼" class="headerlink" title="原始程式碼"></a>原始程式碼</h2></blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-TW"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>MyFirstScript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">      $().ready(function() &#123;</span><br><span class="line">        $("div, p, span").click(function() &#123;</span><br><span class="line">          $(this).css("background-color", "green");</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      div</span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        p</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<body>
-    <div style="background-color : green">
-        div
-        <p>
-            p
-            <span>span</span>
-        </p>
+      
+      
+          </ul>
+        </li>
+      </ul>
+      
+      <a class="archive-list-title" href="/archives/2019">2019</a>
+      <ul class="archive-list">
+        <li class="archive-list-item">
+          <a class="archive-list-link" href="/archives/2019/05">5月</a>
+          <ul class="archive-list-child">
+      
+            <li class="archive-list-item">
+              <a class="archive-list-link" href="/2019/05/18/this 和 event.target 的差異/">this 和 event.target 的差異</a>
+              
+              <span class="archive-list-tags">
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+              </span>
+              
+            </li>
+      
+          </ul>
+        </li>
+      </ul>
     </div>
-</body>
-
-<hr>
-<blockquote>
-<h2 id="使用-event-target"><a href="#使用-event-target" class="headerlink" title="使用 event.target"></a>使用 event.target</h2></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div, p, span"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(event.target).css(<span class="string">"background-color"</span>, <span class="string">"green"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<body>
-    <div>
-        div
-        <p>
-            p
-            <span style="background-color : green">span</span>
-        </p>
-    </div>
-</body>
-
-<hr>
-<blockquote>
-<h2 id="直接-return"><a href="#直接-return" class="headerlink" title="直接 return"></a>直接 return</h2></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div, p, span"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).css(<span class="string">"background-color"</span>, <span class="string">"green"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<body>
-    <div>
-        div
-        <p>
-            p
-            <span style="background-color : green">span</span>
-        </p>
-    </div>
-</body>
-
-<hr>
-<blockquote>
-<h2 id="用-event-stopPropagation"><a href="#用-event-stopPropagation" class="headerlink" title="用 event.stopPropagation();"></a>用 event.stopPropagation();</h2></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div, p, span"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).css(<span class="string">"background-color"</span>, <span class="string">"green"</span>);</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<body>
-    <div>
-        div
-        <p>
-            p
-            <span style="background-color : green">span</span>
-        </p>
-    </div>
-</body>
-
-<hr>
-<blockquote>
-<h2 id="用-if-判斷"><a href="#用-if-判斷" class="headerlink" title="用 if 判斷"></a>用 if 判斷</h2></blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div, p, span"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ($(<span class="keyword">this</span>).is(<span class="string">"p"</span>)) $(<span class="keyword">this</span>).css(<span class="string">"background-color"</span>, <span class="string">"green"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<body>
-    <div>
-        div
-        <p style="background-color : green">
-            p
-            <span>span</span>
-        </p>
-    </div>
-</body>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
   </div>
 </article>
-
-
     </main>
     <aside id="sidebar" class="sidebar">
       
