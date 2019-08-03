@@ -1,4 +1,4 @@
-var pervScrollTop = 0;
+var pervScrollTop = $(window).scrollTop();
 
 $(function () {
   const $navbar = $('#navbar');
