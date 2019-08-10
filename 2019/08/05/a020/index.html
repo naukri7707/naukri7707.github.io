@@ -87,7 +87,7 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="a001: 哈囉" class="post">
+      <article id="a020: 身份證檢驗" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -110,7 +110,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a001: 哈囉
+            a020: 身份證檢驗
           </div>
         </a>
       </li>
@@ -120,7 +120,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a001: 哈囉">a001: 哈囉</p>
+      <p class="title-text" title="a020: 身份證檢驗">a020: 身份證檢驗</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -130,29 +130,46 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-01
+          2019-08-05
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>學習所有程式語言的第一個練習題<br>請寫一個程式，可以讀入指定的字串，並且輸出指定的字串。</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>我國的身份證字號有底下這樣的規則，因此對於任意輸入的身份證字號可以有一些基本的判斷原則，請您來判斷一個身份證字號是否是正常的號碼(不代表確有此號、此人)。</p>
+<p>(1) 英文代號以下表轉換成數字</p>
+<pre><code>A=10 台北市     J=18 新竹縣     S=26 高雄縣
+B=11 台中市     K=19 苗栗縣     T=27 屏東縣
+C=12 基隆市     L=20 台中縣     U=28 花蓮縣
+D=13 台南市     M=21 南投縣     V=29 台東縣
+E=14 高雄市     N=22 彰化縣     W=32 金門縣
+F=15 台北縣     O=35 新竹市     X=30 澎湖縣
+G=16 宜蘭縣     P=23 雲林縣     Y=31 陽明山
+H=17 桃園縣     Q=24 嘉義縣     Z=33 連江縣
+I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, 個位數乘９再加上十位數的數字</p>
+<p>  (3) 各數字從右到左依次乘１、２、３、４．．．．８</p>
+<p>  (4) 求出(2),(3) 及最後一碼的和</p>
+<p>  (5) (4)除10 若整除，則為 real，否則為 fake</p>
+<p> 例： T112663836</p>
+<p>2 + 7*9 + 1*8 + 1*7 + 2*6 + 6*5 + 6*4 + 3*3 + 8*2 + 3*1 + 6 = 180</p>
+<p>除以 10 整除，因此為 real </p>
 <hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入指定的文字</p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>一組身份證號碼</p>
 <blockquote>
-<p>world<br>C++<br>mary</p>
+<p>T112663836<br>S154287863</p>
 </blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出指定的文字</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出 real or fake</p>
 <blockquote>
-<p>hello, world<br>hello, C++<br>hello, mary</p>
+<p>real<br>fake</p>
 </blockquote>
 <hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的輸入輸出</p>
-<a id="more"></a>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><a id="more"></a>
 <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span> , s) == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"hello, %s\n"</span>, s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sum, eng[<span class="number">26</span>] = &#123; <span class="number">10</span> ,<span class="number">11</span> ,<span class="number">12</span> ,<span class="number">13</span> ,<span class="number">14</span> ,<span class="number">15</span> ,<span class="number">16</span> ,<span class="number">17</span> ,<span class="number">34</span> ,<span class="number">18</span> ,<span class="number">19</span> ,<span class="number">20</span> ,<span class="number">21</span></span><br><span class="line">                    ,<span class="number">22</span> ,<span class="number">35</span> ,<span class="number">23</span> ,<span class="number">24</span> ,<span class="number">25</span> ,<span class="number">26</span> ,<span class="number">27</span> ,<span class="number">28</span> ,<span class="number">29</span> ,<span class="number">32</span> ,<span class="number">30</span> ,<span class="number">31</span> ,<span class="number">33</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> input[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (gets(input) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = eng[input[<span class="number">0</span>] - <span class="string">'A'</span>] / <span class="number">10</span> + (eng[input[<span class="number">0</span>] - <span class="string">'A'</span>] % <span class="number">10</span>) * <span class="number">9</span></span><br><span class="line">            + (input[<span class="number">8</span>] - <span class="string">'0'</span>) + (input[<span class="number">9</span>] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">            sum += (input[i] - <span class="string">'0'</span>) * (<span class="number">9</span> - i);</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">10</span> == <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">"real"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"fake"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    print(<span class="string">'hello, '</span>+s)</span><br></pre></td></tr></table></figure>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">eng = [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">34</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>,</span><br><span class="line">       <span class="number">22</span>, <span class="number">35</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">32</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">33</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fs <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    s = fs[:<span class="number">-1</span>]</span><br><span class="line">    sum = eng[ord(s[<span class="number">0</span>])-ord(<span class="string">'A'</span>)]</span><br><span class="line">    sum = sum // <span class="number">10</span> + (sum % <span class="number">10</span>) * <span class="number">9</span></span><br><span class="line">    num = list(map(int, s[<span class="number">1</span>:]))</span><br><span class="line">    mult = <span class="number">8</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> num[:<span class="number">-2</span>]:</span><br><span class="line">        sum += n * mult</span><br><span class="line">        mult -= <span class="number">1</span></span><br><span class="line">    sum += num[<span class="number">-2</span>] + num[<span class="number">-1</span>]</span><br><span class="line">    print(<span class="string">"real"</span> <span class="keyword">if</span> <span class="keyword">not</span>(sum % <span class="number">10</span>) <span class="keyword">else</span> <span class="string">"fake"</span>)</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
