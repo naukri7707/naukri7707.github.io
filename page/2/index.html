@@ -96,12 +96,12 @@
   <div class="wrapper">
     <main id="main">
       
-<article id="a020: 身份證檢驗" class="post">
+<article id="a021: 大數運算" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -109,7 +109,84 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            a021: 大數運算
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/2019/08/10/a021/">
+        <p class="title-text" title="a021: 大數運算">a021: 大數運算</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-10
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>我們都知道電腦擅長於各種數字的計算，可是，我們又知道各種程式語言的變數又都有上限，比如整數隻有216 或 232 個。如果要計算更大的數字時又該如何計算呢? 就交給聰明的您來解決囉。</p>
+<p>以 + 代表加法<br>以 - 代表減法<br>以 * 代表乘法<br>以 / 代表除法 (取商數)</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>兩個正整數的運算式，運算元及運算子之間以空格隔開</p>
+<blockquote>
+<p>2222222222222222222222222 + 1111111111111111111111111<br>2222222222222222222222222 - 1111111111111111111111111<br>2222222222222222222222222 * 1111111111111111111111111<br>2222222222222222222222222 / 1111111111111111111111111</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>兩個正整數的運算結果，總長度不超過 500 個位數</p>
+<blockquote>
+<p>3333333333333333333333333<br>1111111111111111111111111<br>2469135802469135802469135308641975308641975308642<br>2</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>用字串模擬直式運算，除法部分先將除數位移到和被除數同位，再用連續的大數減法模擬除法除回來。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 550</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> Length, First;</span><br><span class="line">    <span class="keyword">char</span> String[MAX + <span class="number">1</span>];</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line">Node input1, input2;</span><br><span class="line"><span class="keyword">char</span> op, nag;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">toDigit</span><span class="params">(Node* src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    src-&gt;Length = <span class="built_in">strlen</span>(src-&gt;String);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; i &lt; src-&gt;Length; i++)</span><br><span class="line">        src-&gt;String[MAX - i] = src-&gt;String[src-&gt;Length - i - <span class="number">1</span>] - <span class="string">'0'</span>;</span><br><span class="line">    src-&gt;First = MAX - i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; MAX - i &gt;= <span class="number">0</span>; i++)</span><br><span class="line">        src-&gt;String[MAX - i] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">cmp</span><span class="params">(Node* lhs, Node* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lhs-&gt;Length &gt; rhs-&gt;Length)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (lhs-&gt;Length &lt; rhs-&gt;Length)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (lhs-&gt;String[lhs-&gt;First] == rhs-&gt;String[rhs-&gt;First] &amp;&amp; i &lt; lhs-&gt;Length)</span><br><span class="line">            i++;</span><br><span class="line">        <span class="keyword">if</span> (lhs-&gt;String[lhs-&gt;First] &gt;= rhs-&gt;String[rhs-&gt;First])</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cale</span><span class="params">(Node* lhs, Node* rhs, Node* sum, <span class="keyword">char</span> op)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (op)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = MAX; i &gt;= lhs-&gt;First; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            sum-&gt;String[i] += lhs-&gt;String[i] + rhs-&gt;String[i];</span><br><span class="line">            <span class="keyword">if</span> (sum-&gt;String[i] &gt;= <span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sum-&gt;String[i - <span class="number">1</span>]++;</span><br><span class="line">                sum-&gt;String[i] -= <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum-&gt;String[sum-&gt;First - <span class="number">1</span>] &gt; <span class="number">0</span>)</span><br><span class="line">            sum-&gt;First--;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = MAX; i &gt;= lhs-&gt;First; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            sum-&gt;String[i] += lhs-&gt;String[i] - rhs-&gt;String[i];</span><br><span class="line">            <span class="keyword">if</span> (sum-&gt;String[i] &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sum-&gt;String[i - <span class="number">1</span>]--;</span><br><span class="line">                sum-&gt;String[i] += <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lhs-&gt;Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; rhs-&gt;Length; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                sum-&gt;String[MAX - (i + j)] += lhs-&gt;String[MAX - i] * rhs-&gt;String[MAX - j];</span><br><span class="line">                <span class="keyword">if</span> (sum-&gt;String[MAX - (i + j)] &gt;= <span class="number">10</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    sum-&gt;String[MAX - (i + j) - <span class="number">1</span>] += sum-&gt;String[MAX - (i + j)] / <span class="number">10</span>;</span><br><span class="line">                    sum-&gt;String[MAX - (i + j)] %= <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'/'</span>:</span><br><span class="line">        <span class="keyword">if</span> (nag) <span class="keyword">return</span>;</span><br><span class="line">        sum-&gt;First = MAX;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, gap = lhs-&gt;Length - rhs-&gt;Length;</span><br><span class="line">        <span class="keyword">if</span> (lhs-&gt;Length &gt; rhs-&gt;Length)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; rhs-&gt;Length; i++)</span><br><span class="line">                rhs-&gt;String[lhs-&gt;First + i] = rhs-&gt;String[rhs-&gt;First + i];</span><br><span class="line">            <span class="keyword">for</span> (; lhs-&gt;First + i &lt;= MAX; i++)</span><br><span class="line">                rhs-&gt;String[lhs-&gt;First + i] = <span class="number">0</span>;</span><br><span class="line">            rhs-&gt;Length = lhs-&gt;Length;</span><br><span class="line">            rhs-&gt;First = MAX - rhs-&gt;Length + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= gap; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = sum-&gt;First; i &lt; MAX; i++)</span><br><span class="line">                sum-&gt;String[i] = sum-&gt;String[i + <span class="number">1</span>];</span><br><span class="line">            sum-&gt;String[MAX] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (cmp(lhs, rhs) == <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = MAX; i &gt;= lhs-&gt;First; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    lhs-&gt;String[i] -= rhs-&gt;String[i];</span><br><span class="line">                    <span class="keyword">if</span> (lhs-&gt;String[i] &lt; <span class="number">0</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        lhs-&gt;String[i - <span class="number">1</span>]--;</span><br><span class="line">                        lhs-&gt;String[i] += <span class="number">10</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (lhs-&gt;String[lhs-&gt;First] == <span class="number">0</span> &amp;&amp; lhs-&gt;Length &gt; <span class="number">1</span>)</span><br><span class="line">                    lhs-&gt;First++, lhs-&gt;Length--;</span><br><span class="line">                sum-&gt;String[MAX]++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = MAX; i &gt; rhs-&gt;First; i--)</span><br><span class="line">                rhs-&gt;String[i] = rhs-&gt;String[i - <span class="number">1</span>];</span><br><span class="line">            sum-&gt;First--;</span><br><span class="line">            rhs-&gt;String[rhs-&gt;First++] = <span class="number">0</span>;</span><br><span class="line">            rhs-&gt;Length--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s %c %s"</span>, input1.String, &amp;op, input2.String) == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Node* lhs, * rhs, sum = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        toDigit(&amp;input1), toDigit(&amp;input2);</span><br><span class="line">        <span class="keyword">if</span> (cmp(&amp;input1, &amp;input2) == <span class="number">1</span>)</span><br><span class="line">            lhs = &amp;input1, rhs = &amp;input2, nag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            lhs = &amp;input2, rhs = &amp;input1, nag = <span class="number">1</span>;</span><br><span class="line">        cale(lhs, rhs, &amp;sum, op);</span><br><span class="line">        <span class="keyword">while</span> (sum.String[sum.First] == <span class="number">0</span>)</span><br><span class="line">            sum.First++;</span><br><span class="line">        <span class="keyword">if</span> (sum.First &gt; MAX || (nag &amp;&amp; op == <span class="string">'/'</span>))</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (nag &amp;&amp; op == <span class="string">'-'</span>)</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = sum.First; i &lt;= MAX; i++)</span><br><span class="line">                sum.String[i] += <span class="string">'0'</span>;</span><br><span class="line">            <span class="built_in">puts</span>(&amp;sum.String[sum.First]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fs <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    print(eval(fs.replace(<span class="string">"/"</span>, <span class="string">"//"</span>)))</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="a020: 身份證檢驗" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -193,7 +270,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -201,7 +278,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -272,7 +349,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -280,7 +357,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -350,7 +427,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -358,7 +435,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -473,7 +550,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -481,7 +558,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -551,7 +628,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -559,7 +636,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -628,7 +705,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -636,7 +713,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -714,7 +791,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -722,7 +799,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -790,7 +867,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (23)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -798,7 +875,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (23)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -861,84 +938,6 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
   </div>
 </article>
 
-<article id="a003: 兩光法師占卜術" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (22)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (22)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            a003: 兩光法師占卜術
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/2019/08/01/a003/">
-        <p class="title-text" title="a003: 兩光法師占卜術">a003: 兩光法師占卜術</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-01
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>兩光法師時常替人占卜，由於他算得又快有便宜，因此生意源源不絕，時常大排長龍，他想算 得更快一點，因此找了你這位電腦高手幫他用電腦來加快算命的速度。</p>
-<p>他的占卜規則很簡單，規則是這樣的，輸入一個日期，然後依照下面的公式：<br>M=月<br>D=日<br>S=(M*2+D)%3  </p>
-<p>得到 S 的值，再依照 S 的值從 0 到 2 分別給與 普通、吉、大吉 等三種不同的運勢</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>月份及日期</p>
-<blockquote>
-<p>1 1<br>1 2</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>運勢</p>
-<blockquote>
-<p>普通<br>吉</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的四則和邏輯判斷</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, d, s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;d) == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		s = (m * <span class="number">2</span> + d) % <span class="number">3</span>;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"普通"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (s == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"吉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"大吉"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fs <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    a, b = map(int, fs.split())</span><br><span class="line">    s = (a * <span class="number">2</span> + b) % <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'普通'</span>)</span><br><span class="line">    <span class="keyword">elif</span> s == <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">'吉'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'大吉'</span>)</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
@@ -969,7 +968,7 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">22</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">23</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">23</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
