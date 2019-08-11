@@ -92,22 +92,22 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="Visual Studio 使用gets() 並隱藏 scanf()不安全提示" class="post">
+      <article id="a095: 麥哲倫的陰謀" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/解決方案/" title="解決方案 (2)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (26)">
           <div class="meta-list-link-text">
-            解決方案
+            線上解題
           </div>
         </a>
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/解決方案/Visual-Studio/" title="Visual Studio (1)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (26)">
           <div class="meta-list-link-text">
-            Visual Studio
+            ZeroJudge
           </div>
         </a>
       </li>
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            Visual Studio 使用gets() 並隱藏 scanf()不安全提示
+            a095: 麥哲倫的陰謀
           </div>
         </a>
       </li>
@@ -125,39 +125,76 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="Visual Studio 使用gets() 並隱藏 scanf()不安全提示">Visual Studio 使用gets() 並隱藏 scanf()不安全提示</p>
+      <p class="title-text" title="a095: 麥哲倫的陰謀">a095: 麥哲倫的陰謀</p>
       
       <div class="separator"></div>
       <div class="info">
         
         <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-06-09
+          2019-08-11
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="使用-gets"><a href="#使用-gets" class="headerlink" title="使用 gets()"></a>使用 gets()</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>gets() 在 C++11 時被棄用，並在 C++14 時被刪除，取代方案為 gets_s() 但 OJ 版本不到 C++11 時會沒有 gets_s()能用。</p>
-<h2 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a>解決方案</h2><p>找到 Visual Studio 的 stdio.h ，可以使用 VisualStudio 的前往文件找到，並使用令存新檔找到路徑。使用檔案總管找到 stdio.h 並複製兩份到桌面，一份修改一份備用，編輯桌面上的 stdio.h 用搜尋功能搜尋 gets_s 並找到他</p>
-<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_Success_(<span class="keyword">return</span> != <span class="number">0</span>)</span><br><span class="line">_ACRTIMP <span class="keyword">char</span>* __<span class="function">cdecl <span class="title">gets_s</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	_Out_writes_z_(_Size) <span class="keyword">char</span>* _Buffer,</span></span></span><br><span class="line"><span class="function"><span class="params">	_In_                  <span class="keyword">rsize_t</span> _Size</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>複製他然後在下面貼上並把 gets_s 改成 gets，然後在繼續搜尋到</p>
-<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__DEFINE_CPP_OVERLOAD_SECURE_FUNC_0_0(</span><br><span class="line">	<span class="keyword">char</span>*, gets_s,</span><br><span class="line">	<span class="keyword">char</span>, _Buffer)</span><br><span class="line"></span><br><span class="line">	_Check_return_</span><br><span class="line">	_ACRTIMP <span class="keyword">int</span> __cdecl _getw(</span><br><span class="line">		_Inout_ FILE* _Stream</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
-
-<p>一樣複製一份然後把 get_s 改成 gets</p>
-<p>儲存檔案，然後將他覆蓋掉原本的 stdio.h 就可以了。</p>
-<a id="more"></a>
-
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>在禁忌的貝殼城裡存在著一座監獄</p>
+<p>有N個犯人被關在裡頭</p>
+<p>我們只知道 …..</p>
+<p>“他們都帶著帽子” </p>
+<p>這是一頂神奇的帽子</p>
+<p>稱作 “廬山帽”</p>
+<p>是貝殼城裡的特產</p>
+<p>分為紅色及白色兩種 </p>
+<p>凡是帶上 “廬山帽” 的人 ……</p>
+<p>就會 “不識廬山真面目” !!!!</p>
+<p>而監獄內的所有犯人都被配帶了這一頂可怕的帽子 0.0</p>
+<p>而邪惡的所長麥哲倫想到了一個邪惡又沒有良心的鬼計畫：</p>
+<p>“ 猜帽子 “</p>
+<p>只要能猜出自己的帽子顏色即可立即出獄</p>
+<p>但猜錯者須以死謝罪 </p>
+<p>而你可以假設監獄裡的犯人都跟羅賓一樣絕頂聰明</p>
+<p>不會有想要以死謝罪的白痴行為</p>
+<p>因此</p>
+<p>在N個犯人的監獄中，麥哲倫所長將M頂紅帽配給其中的犯人</p>
+<p>請問最少需要幾天，監獄內的所有犯人均可以確定自己的帽子顏色後出獄</p>
+<p>PS. 犯人並不知道共有幾頂紅帽，只知道紅帽至少有一頂，而且不可互相討論 = =</p>
 <hr>
-<h1 id="隱藏-scanf-不安全提示"><a href="#隱藏-scanf-不安全提示" class="headerlink" title="隱藏 scanf()不安全提示"></a>隱藏 scanf()不安全提示</h1><p>在程式碼最上面輸入以下程式碼</p>
-<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable:4996)</span></span><br></pre></td></tr></table></figure>
-
-<p>如果嫌每次都要重新輸入太麻煩可以將它包到 stdio.h 裡面，<br>具體做法和上面一樣找到 stdio.h 然後修改。</p>
-
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入兩數N，M （1 &lt; M &lt;= N &lt; 2<sup>31</sup>）</p>
+<p>代表N個犯人，M頂紅帽 </p>
+<blockquote>
+<p>10 1<br>10 2</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出最少幾天所有犯人均可以確定自己的帽子顏色後出獄</p>
+<blockquote>
+<p>2<br>3</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>重點在紅帽的數量，白帽不會影響邏輯判斷</p>
+<ol>
+<li><p>如果只有1頂，紅帽人看到其他人都是白帽，就能確定自己是紅帽，他就能確定自己是紅帽離開。<br>第 2 天白帽人發現戴紅帽人走了，就能確定自己是白帽離開。</p>
+</li>
+<li><p>如果有2頂，紅帽人的只會看到 1 個人戴紅帽(另一個在他頭上)。<br>第 2 天，紅帽人發現另一個戴紅帽的不走 = 有人也戴紅帽，但剩下的都是白帽人，所以自己頭上的一定是紅帽，兩個紅帽人的就能確定自己是紅帽離開。<br>第 3 天，白帽人發現戴紅帽人走了，就能確定自己是白帽離開。</p>
+</li>
+<li><p>如果有3頂，紅帽人的就會看到 2 個人戴紅帽(最後一個在他頭上)。<br>第 2 天，(不重要)<br>第 3 天，這時候紅帽人會發現如果自己戴的是白帽，那看到的兩個紅帽人所看到的情況應該是”狀況2”，但他們第2天都沒有離開，代表還有人戴紅帽，但剩下的都是白帽人，所以自己頭上的一定是紅帽，三個紅帽人的就能確定自己是紅帽離開。<br>第 4 天，白帽人發現戴紅帽人走了，就能確定自己是白帽離開。</p>
+</li>
+<li><p>之後情況同理類推。</p>
+</li>
+</ol>
+<p>觀察上面的情況可以發現，紅帽人能確認自己是紅帽並離開的天數是他”看見”的紅帽數 + 1，白帽人能確認自己是白帽並離開的天數是他看見紅帽人離開的天數 + 1，而紅帽人”看見”的紅帽數 + 1 = 紅帽的總數(看不到自己頭上的)，所以可以得到結論：</p>
+<blockquote>
+<p>紅帽人離開天數 = 紅帽數<br>全部離開天數 = 白帽人離開天數 = 紅帽人離開天數 + 1 = 紅帽數 + 1</p>
+</blockquote>
+<p>唯一要注意的是：如果紅帽數 = 總人數，就不會有白帽人，也就是紅帽人 = 總人數，這時候</p>
+<blockquote>
+<p>全部離開天數 =  紅帽人離開天數 = 紅帽數</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n == m ? m : m + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
@@ -201,7 +238,7 @@
     
     <div class="content">
     
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-gets"><span class="toc-text">使用 gets()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解決方案"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#隱藏-scanf-不安全提示"><span class="toc-text">隱藏 scanf()不安全提示</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
     </div>
   </div>
   <div class="post-progress">
