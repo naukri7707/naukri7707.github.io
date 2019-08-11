@@ -28,7 +28,7 @@
   
   <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
   
-  <nav id="navbar">
+  <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
     <div class="nav-item-avatar">
       <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
@@ -83,7 +83,12 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img src="/img/win10.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
 </header>
   <div class="wrapper">
     <main id="main">
@@ -216,10 +221,11 @@
 <script>
   const $toc = $($(".post-toc").parent());
   const $rate = $(".post-progress-rate");
+  const width = $toc.width();
   var pos = $toc.offset();
   $(window).scroll(function () {
     if ($(window).scrollTop() + 70 > pos.top) {
-      $toc.css('top', $(window).scrollTop() - pos.top + 70);
+      $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
     }
     else if ($(window).scrollTop() <= pos.top) {
       $toc.css('top', 0).css('position', 'relative');
