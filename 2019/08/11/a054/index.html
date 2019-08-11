@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="a005: Eva 的回家作業" class="post">
+      <article id="a054: 電話客服中心" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a005: Eva 的回家作業
+            a054: 電話客服中心
           </div>
         </a>
       </li>
@@ -125,39 +125,63 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a005: Eva 的回家作業">a005: Eva 的回家作業</p>
+      <p class="title-text" title="a054: 電話客服中心">a054: 電話客服中心</p>
       
       <div class="separator"></div>
       <div class="info">
         
         <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-01
+          2019-08-11
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>Eva的家庭作業裡有很多數列填空練習。填空練習的要求是：已知數列的前四項，填出第五項。因 為已經知道這些數列只可能是等差或等比數列，她決定寫一個程式來完成這些練習。</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>很多銀行及公司設立了電話客服中心來服務他們的客戶。為了加速身份的查核，常常會要求打電話進來的客戶輸入他的身份證號碼。可是電話上只有數字鍵，要輸入身份證號碼的第一個字母有點麻煩，因此有的語音系統會要求來電者輸入後 9 碼，再根據後 9 碼來推算可能的英文字母。</p>
+<p>很多人都知道，身份證號碼的最後一碼是「檢查碼」，它是用前 9 碼所推算出來的，其推算的規則如下：</p>
+<p>先依照下表將英文字母轉換為 2 位數字，再加上第 2 到第 9 位的 8 位數字一共有 10 位數字。</p>
+<pre><code>台北市 A 10   彰化縣 N 22  
+台中市 B 11   新竹市 O 35  
+基隆市 C 12   雲林縣 P 23  
+台南市 D 13   嘉義縣 Q 24  
+高雄市 E 14   台南縣 R 25  
+台北縣 F 15   高雄縣 S 26  
+宜蘭縣 G 16   屏東縣 T 27  
+桃園縣 H 17   花蓮縣 U 28  
+嘉義市 I 34   台東縣 V 29  
+新竹縣 J 18   金門縣 W 32  
+苗栗縣 K 19   澎湖縣 X 30  
+台中縣 L 20   陽明山 Y 31  
+南投縣 M 21   連江縣 Z 33  </code></pre><p>由左至右，第一位乘 1，第二位乘 9，第三位乘 8，第四位乘 7…，以此類推，最後一位乘 1。<br>求各位相對數字乘積的總和 s。<br>求 s 的個位數 m。<br>檢查碼 c = 10 - m 。<br>假設某人的身份證號碼前 9 碼為 F13024567，那麼他的最後一位檢查碼的計算過程如下：</p>
+<pre><code>   F       1    3    0    2    4    5    6    7
+ 1    5    1    3    0    2    4    5    6    7
+×1   ×9   ×8   ×7   ×6   ×5   ×4   ×3   ×2   ×1
+-----------------------------------------------------
+ 1 + 45 +  8 + 21 +  0 + 10 + 16 + 15 + 12 +  7 = 135
+ 檢查碼 = 10 - (135 % 10) = 5</code></pre><p>根據上面的規則，A12345678、M12345678 和 W12345678 這三個號碼的檢查碼都是 9。因此，如果在電話上所輸入的後 9 碼是 123456789 時，它的第一位英文字母可能是 A，也可能是 M 或 W。</p>
 <hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>第一行是數列的數目t（0 &lt;= t &lt;= 20）。 以下每行均包含四個整數，表示數列的前四項。 約定數列的前五項均為不大於105的自然數，等比數列的比值也是自然數。</p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入有若干筆測試資料，每筆一行，含有一個身份證號碼的後 9 碼。</p>
 <blockquote>
-<p>2<br>1 2 3 4<br>1 2 4 8  </p>
+<p>130245675<br>123456789</p>
 </blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對輸入的每個數列，輸出它的前五項。</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對於每筆測試資料，將可能的第一位大寫字母依字母順序輸出於一行。</p>
 <blockquote>
-<p>1 2 3 4 5<br>1 2 4 8 16</p>
+<p>FS<br>AMW</p>
 </blockquote>
 <hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>利用等差數列每個值的差皆相同的特性判斷</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>先把英文對應的數字處理用</p>
+<blockquote>
+<p>n = n / 10 + n % 10</p>
+</blockquote>
+<p>處理成身分證驗證用的檢查碼並見表</p>
+<p>將第1~9位數字轉成檢查碼並加總，之後再分別加上A~Z的檢查碼並 %10 判斷是否整除，是就輸出</p>
 <a id="more"></a>
 <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">5</span>], kase;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kase);</span><br><span class="line">	<span class="keyword">while</span> (kase--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d"</span>, &amp;num[<span class="number">0</span>], &amp;num[<span class="number">1</span>], &amp;num[<span class="number">2</span>], &amp;num[<span class="number">3</span>]);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (num[<span class="number">1</span>] - num[<span class="number">0</span>] == num[<span class="number">3</span>] - num[<span class="number">2</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			num[<span class="number">4</span>] = num[<span class="number">3</span>] + num[<span class="number">1</span>] - num[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			num[<span class="number">4</span>] = num[<span class="number">3</span>] * num[<span class="number">1</span>] / num[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d\n"</span>, num[<span class="number">0</span>], num[<span class="number">1</span>], num[<span class="number">2</span>], num[<span class="number">3</span>], num[<span class="number">4</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">_ = sys.stdin.readline()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fs <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    s = fs.split()</span><br><span class="line">    n1, n2, n3, n4 = map(int, s)</span><br><span class="line">    <span class="keyword">if</span>(n1 - n2 == n3 - n4):</span><br><span class="line">        print(s[<span class="number">0</span>] + <span class="string">" "</span> + s[<span class="number">1</span>] + <span class="string">" "</span> + s[<span class="number">2</span>] +</span><br><span class="line">              <span class="string">" "</span> + s[<span class="number">3</span>] + <span class="string">" "</span> + str(n4 + n2 - n1))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(s[<span class="number">0</span>] + <span class="string">" "</span> + s[<span class="number">1</span>] + <span class="string">" "</span> + s[<span class="number">2</span>] +</span><br><span class="line">              <span class="string">" "</span> + s[<span class="number">3</span>] + <span class="string">" "</span> + str(int(n4 * n2 / n1)))</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sum, eng[<span class="number">26</span>] = &#123; <span class="number">10</span> ,<span class="number">11</span> ,<span class="number">12</span> ,<span class="number">13</span> ,<span class="number">14</span> ,<span class="number">15</span> ,<span class="number">16</span> ,<span class="number">17</span> ,<span class="number">34</span> ,<span class="number">18</span> ,<span class="number">19</span> ,<span class="number">20</span> ,<span class="number">21</span></span><br><span class="line">                    ,<span class="number">22</span> ,<span class="number">35</span> ,<span class="number">23</span> ,<span class="number">24</span> ,<span class="number">25</span> ,<span class="number">26</span> ,<span class="number">27</span> ,<span class="number">28</span> ,<span class="number">29</span> ,<span class="number">32</span> ,<span class="number">30</span> ,<span class="number">31</span> ,<span class="number">33</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> input[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">        eng[i] = eng[i] / <span class="number">10</span> + (eng[i] % <span class="number">10</span>) * <span class="number">9</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span>, input) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = (input[<span class="number">7</span>] - <span class="string">'0'</span>) + (input[<span class="number">8</span>] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)</span><br><span class="line">            sum += (input[i] - <span class="string">'0'</span>) * (<span class="number">8</span> - i);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!((sum + eng[i]) % <span class="number">10</span>))</span><br><span class="line">                <span class="built_in">putchar</span>(<span class="string">'A'</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
@@ -201,7 +225,7 @@
     
     <div class="content">
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-text">Python</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
     </div>
   </div>
   <div class="post-progress">
