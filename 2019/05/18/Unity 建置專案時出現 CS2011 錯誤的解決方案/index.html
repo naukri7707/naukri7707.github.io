@@ -180,7 +180,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">27</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">37</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">37</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
@@ -214,42 +214,29 @@
   const $rate = $(".post-progress-rate");
   const width = $toc.width();
   var pos = $toc.offset();
+
+  setTOCPosition();
+  
   $(window).scroll(function () {
-    if ($(window).scrollTop() + 70 > pos.top) {
-      $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
-    }
-    else if ($(window).scrollTop() <= pos.top) {
-      $toc.css('top', 0).css('position', 'relative');
-    }
+    setTOCPosition();
     var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
-    if (r > 99)
-      r = 100;
-    else if (r < 1)
-      r = 0;
-    else
-      r = r.toFixed(1);
-    $rate.text(r + '%');
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
   });
 
    $('.widget').each(function () {
-    if($(this) === $toc) return false;
     $(this).find('.title').click(function () {
       $content = $(this).siblings('.content');
       if ($content.css('display') === 'none') {
         $content.slideDown(400 , function () {
           pos = $toc.offset();
+          setTOCPosition();
         });
       }
       else {
         $content.slideUp(400 , function () {
           pos = $toc.offset();
+          setTOCPosition();
         });
-      }
-      if ($(this).scrollTop() + 70 > pos.top) {
-      $toc.animate('top', $(this).scrollTop() - pos.top + 70);
-      }
-      else if ($(this).scrollTop() <= pos.top) {
-        $toc.animate.css('position', 'relative').animate('top', 0);
       }
     });
   });
@@ -258,13 +245,22 @@
     const $target = $($(this).attr("href"));
     $("html,body").animate(
       {
-        scrollTop: $target.offset().top - 50
+        scrollTop: $target.offset().top - 60
       },
       "fast","swing"
     );
-    // TODO GET fOcus
+    // TODO GET focus
     return false;
   });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
 
   function goTop () {
     $("html,body").animate(
@@ -286,21 +282,6 @@
 </script>
 
 
-<script>
-  $('.widget').each(function () {
-    if(!$(this).attr("onclick")) {
-      $(this).find('.title').click(function () {
-        $content = $(this).siblings('.content');
-        if ($content.css('display') === 'none') {
-          $content.slideDown();
-        }
-        else {
-          $content.slideUp();
-        }
-      });
-    }
-  });
-</script>
     </aside>
   </div>
   <footer id="footer">
