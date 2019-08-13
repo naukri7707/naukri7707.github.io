@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="a244: 新手訓練 ~ for + if" class="post">
+      <article id="a410: 解方程" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a244: 新手訓練 ~ for + if
+            a410: 解方程
           </div>
         </a>
       </li>
@@ -125,7 +125,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a244: 新手訓練 ~ for + if">a244: 新手訓練 ~ for + if</p>
+      <p class="title-text" title="a410: 解方程">a410: 解方程</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -135,35 +135,27 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-12
+          2019-08-13
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>內容就是<del>~</del> </p>
-<p>希望學到for迴圈和剛開始coding的學弟好好加油!!!! </p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>話說同學們正在學習二元一次方程組。<br>　　二元一次方程組的練習題鋪天蓋地地湧向同學們，同學們正苦惱於一次次地四則運算、移項、合併同類項等等。<br>　　他們知道你很聰明，想請你幫他們編一個解二元一次方程組的程序。<br>　　我們假定二元一次方程組的一般格式如下：(a,b,c,d,e,f為常數,x,y為未知數)<br>　　　　ax+by=c<br>　　　　dx+ey=f<br>　　程序讀入a,b,c,d,e,f後，輸出解。<br>　　當然，方程組也有可能存在無解或有無窮解的情況：如果(x,y)沒有相對應的實數對滿足方程組則無解；相反，如果(x,y)有多組對應的實數對滿足方程組則有無數解。<br>　　如果無解，就輸出“No answer”；如果有無窮解，就輸出“Too many”。</p>
 <hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>第一行有一個正整數N，</p>
-<p>代表接下來有N行每行有三個正整數 a , b , c    </p>
-<p> ( 1 &lt;= b , c &lt;= 2147483647 )</p>
-<p> ( 1 &lt;= a &lt;= 4 ) </p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入僅1行，包含6個整數，a,b,c,d,e,f。輸入數據保證正確。</p>
 <blockquote>
-<p>4<br>1 2 3<br>2 2 3<br>3 2 3<br>4 2 3</p>
+<p>1 1 2 1 -1 0</p>
 </blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>如果 a = 1  請輸出  b+c </p>
-<p>如果 a = 2  請輸出  b-c </p>
-<p>如果 a = 3  請輸出  b*c </p>
-<p>如果 a = 4  請輸出  b/c  </p>
-<p>結果請用整數輸出 </p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>如果有解，那麼第1行先輸出“x=”，再輸出x的值，第2行先輸出“y=”，再輸出y的值，均保留2位小數，請參照樣例輸出。<br>　　如果無解或有無數解則按要求輸出“No answer”或“Too many”。</p>
 <blockquote>
-<p>5<br>-1<br>6<br>0</p>
+<p>x=1.00<br>y=1.00</p>
 </blockquote>
 <hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的三元運算子判斷。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>把二元一次方程式轉成程式碼。</p>
 <a id="more"></a>
 <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> b, c;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %lld %lld"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a == <span class="number">1</span> ? b + c : a == <span class="number">2</span> ? b - c : a == <span class="number">3</span> ? b * c : b / c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> a, b, c, d, e, f, x, y;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %lf %lf %lf %lf %lf %lf"</span>, &amp;a, &amp;b, &amp;c, &amp;d, &amp;e, &amp;f);</span><br><span class="line">    <span class="keyword">if</span> (a * e == d * b)</span><br><span class="line">        <span class="built_in">puts</span>(b * f == e * c ? <span class="string">"Too many"</span> : <span class="string">"No answer"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x=%.2lf\ny=%.2lf\n"</span>, (c * e - b * f) / (a * e - d * b), (d * c - a * f) / (b * d - a * e));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>

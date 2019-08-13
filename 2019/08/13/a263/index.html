@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="a244: 新手訓練 ~ for + if" class="post">
+      <article id="a263: 日期差幾天" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a244: 新手訓練 ~ for + if
+            a263: 日期差幾天
           </div>
         </a>
       </li>
@@ -125,7 +125,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a244: 新手訓練 ~ for + if">a244: 新手訓練 ~ for + if</p>
+      <p class="title-text" title="a263: 日期差幾天">a263: 日期差幾天</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -135,35 +135,31 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-12
+          2019-08-13
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>內容就是<del>~</del> </p>
-<p>希望學到for迴圈和剛開始coding的學弟好好加油!!!! </p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給你兩個日期，問這兩個日期相差幾天。</p>
 <hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>第一行有一個正整數N，</p>
-<p>代表接下來有N行每行有三個正整數 a , b , c    </p>
-<p> ( 1 &lt;= b , c &lt;= 2147483647 )</p>
-<p> ( 1 &lt;= a &lt;= 4 ) </p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入有多筆測資，每筆測資有兩行，每行有三個整數依序是年、月、日。輸入以 EOF 作為結束，題目保證不會有不符合的測資出現。</p>
 <blockquote>
-<p>4<br>1 2 3<br>2 2 3<br>3 2 3<br>4 2 3</p>
+<p>2011 10 19<br>2011 10 18</p>
 </blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>如果 a = 1  請輸出  b+c </p>
-<p>如果 a = 2  請輸出  b-c </p>
-<p>如果 a = 3  請輸出  b*c </p>
-<p>如果 a = 4  請輸出  b/c  </p>
-<p>結果請用整數輸出 </p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出兩個日期差幾天。</p>
 <blockquote>
-<p>5<br>-1<br>6<br>0</p>
+<p>1</p>
 </blockquote>
 <hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的三元運算子判斷。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>把日期轉換成自西元0年0月0日至該日的總天數再相減即可，要注意閏年在處理時有分兩部分 : </p>
+<ol>
+<li>到去年為止共經過幾個閏年</li>
+<li>今年有閏年嗎 ? 是否經過</li>
+</ol>
 <a id="more"></a>
 <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> b, c;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %lld %lld"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a == <span class="number">1</span> ? b + c : a == <span class="number">2</span> ? b - c : a == <span class="number">3</span> ? b * c : b / c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ABS(x) (x) &lt; 0 ? -(x) : (x)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> Year, Month, Day;</span><br><span class="line">&#125;Date;</span><br><span class="line"></span><br><span class="line">Date f, t;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> month[] = &#123; <span class="number">0</span> , <span class="number">31</span>, <span class="number">59</span>, <span class="number">90</span>, <span class="number">120</span>, <span class="number">151</span>, <span class="number">181</span>, <span class="number">212</span>, <span class="number">243</span>, <span class="number">273</span>, <span class="number">304</span>, <span class="number">334</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> fDays, tDays , gap;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Days</span><span class="params">(Date src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src.Year * <span class="number">365</span> + (src.Year - <span class="number">1</span>) / <span class="number">4</span> - (src.Year - <span class="number">1</span>) / <span class="number">100</span> + (src.Year - <span class="number">1</span>) / <span class="number">400</span> + month[src.Month - <span class="number">1</span>] + src.Day</span><br><span class="line">        + ((!(src.Year % <span class="number">4</span>) &amp;&amp; (src.Year % <span class="number">100</span>) || !(src.Year % <span class="number">400</span>)) &amp;&amp; src.Month &gt; <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d %d %d"</span>, &amp;f.Year, &amp;f.Month, &amp;f.Day, &amp;t.Year, &amp;t.Month, &amp;t.Day) == <span class="number">6</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        gap = Days(f) - Days(t);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ABS(gap));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
