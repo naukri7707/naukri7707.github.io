@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper">
     <main id="main">
-      <article id="a248: 新手訓練 ~ 陣列應用" class="post">
+      <article id="a738: 最大公約數" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a248: 新手訓練 ~ 陣列應用
+            a738: 最大公約數
           </div>
         </a>
       </li>
@@ -125,7 +125,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a248: 新手訓練 ~ 陣列應用">a248: 新手訓練 ~ 陣列應用</p>
+      <p class="title-text" title="a738: 最大公約數">a738: 最大公約數</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -135,37 +135,28 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-12
+          2019-08-13
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>大家都知道，小算盤的小數運算只能算出小數點後三十幾位</p>
-<p>但好奇的桑葉想知道更精準的小數值 </p>
-<p>請你幫可憐的桑葉做出可以算出精準的小數運算的程式</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小海豚要上初中了，也會了一點程序設計。海豚爸爸想起大約30年前上高一的時候自己第一次摸電腦。現在難以想像一下那種心情，那時候一個中國大陸一個大學畢業生（很稀罕的哦）月工資只有60元RMB，而一台蘋果II要6000元RMB。海豚爸爸有生以來輸入電腦的第一個程序，就是“最大公約數”。</p>
 <hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每次輸入有三個正整數 a , b , N </p>
-<p>1&lt;= a , b &lt;= 2147483647      1 &lt;= N &lt;= 10000  </p>
-<p>( 輸入不會超過1000筆 ) </p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每行2個數a, b     0 &lt; a, b &lt; 1000000000</p>
+<p>EOF結束</p>
 <blockquote>
-<p>18467 41 10<br>26500 6334 10<br>15724 19169 10<br>10 5 3</p>
+<p>30 24<br>2 4</p>
 </blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出 a / b 的小數運算結果 </p>
-<p>精準到小數點後N位</p>
-<p>第N位以後請無條件捨去</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對每對 a,b 輸出其最大公約數</p>
 <blockquote>
-<p>450.4146341463<br>4.1837701294<br>0.8202827481<br>2.000</p>
+<p>6<br>2</p>
 </blockquote>
 <hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>除法每當要算下一位小數時會把餘數 * 10 當成被除數繼續給除數除。<br>所以能得到以下公式 : </p>
-<blockquote>
-<p>這次的被除數 = (上次的餘數 % 除數) * 10</p>
-</blockquote>
-<p>程式部分先把小數點以上的輸出，以下的就用剛才得到的公式配合迴圈去求即可。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>和<a href="/線上解題/ZeroJudge/a024/" title="a024">這題</a>完全一樣，用輾轉相除法做。</p>
 <a id="more"></a>
 <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a, b, n;</span><br><span class="line"><span class="keyword">char</span> output[<span class="number">10010</span>], * oTop;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d"</span>, &amp;a, &amp;b, &amp;n) == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        oTop = output;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d."</span>, a / b);</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            a %= b;</span><br><span class="line">            a = (a &lt;&lt; <span class="number">3</span>) + (a &lt;&lt; <span class="number">1</span>);</span><br><span class="line">            *oTop++ = (a / b) + <span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        *oTop = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="built_in">puts</span>(output);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) \</span></span><br><span class="line">    x = x ^ y,     \</span><br><span class="line">    y = x ^ y,     \</span><br><span class="line">    x = x ^ y</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n)</span><br><span class="line">        &#123;</span><br><span class="line">            m %= n;</span><br><span class="line">            SWAP(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
