@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  <title>Naukri&#39;s Blog</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="b510: M 皇后 N 城堡" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (63)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (63)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b510: M 皇后 N 城堡
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <!-- TODO 標題過長完整顯示 -->
+      <p class="title-text" title="b510: M 皇后 N 城堡">b510: M 皇后 N 城堡</p>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-14
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>在一個(M+N) x (M+N) 的棋盤上放M 個皇后 N 個城堡，皇后可走直走斜(八個方向的米字)，城堡只能走直(四個方向的十字)，所有的棋子互相不能吃掉對方。輸出有幾種合法的放法。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>相加不大於10 的正整數M 和 N，表示在(M+N) x (M+N) 的棋盤上放置M 個皇后 N 個城堡。</p>
+<blockquote>
+<p>3 1</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出總共有多少種安全的放法，記得答案輸出完加上換行</p>
+<blockquote>
+<p>8</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>用一個二維矩陣模擬棋盤，之後用dfs窮舉所有可能性。</p>
+<p>每次都找陣列為元素值為0的地方放棋子，下棋後將這個棋子可以吃到的位置+1 (城堡十字、皇后米字)，重複此情況直到棋子下完(一個解)或是沒地方放棋子(無法繼續)時返回。</p>
+<p>回收棋子時一樣找到他們能吃到的位置將它們-1減回來。</p>
+<h4 id="例外情況"><a href="#例外情況" class="headerlink" title="例外情況"></a>例外情況</h4><blockquote>
+<p>如果先放下城堡，又要在它的斜角處放皇后時，會因為記錄城堡時只調整十字區域的關係而無法正確的判斷，因此當要放皇后時，要反過來往左上和右上區間檢查是否有城堡存在，如果有就跳過這個。</p>
+</blockquote>
+<h4 id="剪枝和優化"><a href="#剪枝和優化" class="headerlink" title="剪枝和優化"></a>剪枝和優化</h4><ol>
+<li><p>如果下棋時該位置元素 &gt; 0 代表有至少一個棋子能吃到它，所以可以直接跳過這個元素。</p>
+</li>
+<li><p>由於城堡和皇后都可以吃橫向的棋子，所以當某一行(row)已經有棋子時就不可能能放另一顆，故放完之後可以直接跳到下一行繼續窮舉。</p>
+</li>
+<li><p>因為是由上而下進行判斷，且剪枝時已經把同一row的情況剪掉了，所以在規劃二為矩陣時，可以只調整目標位置可以吃到的左下、下、右下區間(城堡只需調整下)。</p>
+</li>
+</ol>
+<p>雖然說棋盤最大值為10，但似乎沒有極端測資(Ex: 2皇后 8城堡)，所以測試時不要用極端測資做測試。</p>
+<a id="more"></a>
+<hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max, count, table[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == max)</span><br><span class="line">    &#123;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; max; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (table[i][j])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; max; k++)</span><br><span class="line">            table[k][j]++;</span><br><span class="line">        <span class="keyword">if</span> (m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i - <span class="number">1</span>, l = j - <span class="number">1</span>; k &gt;= <span class="number">0</span> &amp;&amp; l &gt;= <span class="number">0</span>; k--, l--)</span><br><span class="line">                <span class="keyword">if</span> (table[k][l] == <span class="number">-1</span>) <span class="keyword">goto</span> end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i - <span class="number">1</span>, l = j + <span class="number">1</span>; k &gt;= <span class="number">0</span> &amp;&amp; l &lt; max; k--, l++)</span><br><span class="line">                <span class="keyword">if</span> (table[k][l] == <span class="number">-1</span>) <span class="keyword">goto</span> end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j - <span class="number">1</span>; k &lt; max &amp;&amp; l &gt;= <span class="number">0</span>; k++, l--)</span><br><span class="line">                table[k][l]++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j + <span class="number">1</span>; k &lt; max &amp;&amp; l &lt; max; k++, l++)</span><br><span class="line">                table[k][l]++;</span><br><span class="line">            dfs(i + <span class="number">1</span>, m - <span class="number">1</span>, n);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j - <span class="number">1</span>; k &lt; max &amp;&amp; l &gt;= <span class="number">0</span>; k++, l--)</span><br><span class="line">                table[k][l]--;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j + <span class="number">1</span>; k &lt; max &amp;&amp; l &lt; max; k++, l++)</span><br><span class="line">                table[k][l]--;</span><br><span class="line">        end:;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n)</span><br><span class="line">            table[i][j] = <span class="number">-1</span>, dfs(i + <span class="number">1</span>, m, n - <span class="number">1</span>), table[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; max; k++)</span><br><span class="line">            table[k][j]--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        max = m + n, count = <span class="number">0</span>;</span><br><span class="line">        dfs(<span class="number">0</span>, m, n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">63</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+    <div class="content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  <div class="post-progress">
+    <span class="post-progress-gotop" onclick="goTop()">
+    <i class="fas fa-chevron-up"></i>
+    </span>
+    <span class="post-progress-rate">
+      0%
+    </span>
+    <span class="post-progress-gobot" onclick="goBot()">
+    <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
+<script>
+  const $toc = $($(".post-toc").parent());
+  const $rate = $(".post-progress-rate");
+  const width = $toc.width();
+  var pos = $toc.offset();
+
+  setTOCPosition();
+  
+  $(window).scroll(function () {
+    setTOCPosition();
+    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+  });
+
+   $('.widget').each(function () {
+    $(this).find('.title').click(function () {
+      $content = $(this).siblings('.content');
+      if ($content.css('display') === 'none') {
+        $content.slideDown(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+      else {
+        $content.slideUp(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+    });
+  });
+
+  $(".toc-link").click(function() {
+    const $target = $($(this).attr("href"));
+    $("html,body").animate(
+      {
+        scrollTop: $target.offset().top - 60
+      },
+      "fast","swing"
+    );
+    // TODO GET focus
+    return false;
+  });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
+
+  function goTop () {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      "fast", "swing"
+    );
+  }
+
+  function goBot () {
+    $("html,body").animate(
+      {
+        scrollTop: $('body').height() - $(window).height()
+      },
+      "fast", "swing"
+    );
+  }
+</script>
+
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>

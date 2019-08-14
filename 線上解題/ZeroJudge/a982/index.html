@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  <title>Naukri&#39;s Blog</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="a982: 迷宮問題#1" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (63)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (63)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            a982: 迷宮問題#1
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <!-- TODO 標題過長完整顯示 -->
+      <p class="title-text" title="a982: 迷宮問題#1">a982: 迷宮問題#1</p>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-14
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>給你一個NXN格的迷宮, 迷宮中以#代表障礙物, 以.代表路, 你固定在(2,2)出發, 目的地是(n-1,n-1), 求包括起點和終點, 最少路徑的長度。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>N(N不超過100)</p>
+<p>N行N列由#和.組成的迷宮 </p>
+<blockquote>
+<p>9<br>#########<br>#.......#<br>#.#####.#<br>#.......#<br>##.#.####<br>#..#.#..#<br>#.##.##.#<br>#.......#<br>#########  </p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>一個正整數, 代表最短路徑的長度,  如果不可能到達終點, 則印出No solution! </p>
+<blockquote>
+<p>13</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>基礎BFS題目，因為測資不大所以直接在矩陣上模擬 Dijkstra 演算法</p>
+<p>具體流程如下 : </p>
+<ol start="0">
+<li>先把地圖導入二維陣列，障礙物設成-1，空地設為任一最大步驟數(邊長 * 邊長)不會達到的極大值。</li>
+<li>將起點位置設為 1</li>
+<li>遍歷整個陣列，如果遇到 1 就將它周圍大於 1 的數字改為 2</li>
+<li>繼續遍歷，遇到 2 就將它周圍大於 2 的數字改為 3</li>
+<li>之後同理，不斷遍歷陣列直到終點不為極大值即是答案。</li>
+</ol>
+<p>由於題目有可能會有無法抵達終點的情況，所以如果遍歷完一輪但陣列沒有發生改變就代表已經沒有路了，跳出迴圈並輸出”No solution!”。</p>
+<a id="more"></a>
+<hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-4ms-112KB"><a href="#AC-4ms-112KB" class="headerlink" title="AC (4ms, 112KB)"></a>AC (4ms, 112KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 2147483647</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> table[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, end, now;</span><br><span class="line">    <span class="keyword">char</span> tmp, moving;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;tmp);</span><br><span class="line">                table[i][j] = tmp == <span class="string">'#'</span> ? <span class="number">-1</span> : MAX;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        end = n - <span class="number">2</span>, now = <span class="number">0</span>, moving = table[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (table[end][end] == MAX &amp;&amp; moving)</span><br><span class="line">        &#123;</span><br><span class="line">            moving = <span class="number">0</span>, now++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= end; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= end; j++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (table[i][j] == now)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span> (table[i][j + <span class="number">1</span>] &gt; now) table[i][j + <span class="number">1</span>] = now + <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span> (table[i][j - <span class="number">1</span>] &gt; now) table[i][j - <span class="number">1</span>] = now + <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span> (table[i + <span class="number">1</span>][j] &gt; now) table[i + <span class="number">1</span>][j] = now + <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span> (table[i - <span class="number">1</span>][j] &gt; now) table[i - <span class="number">1</span>][j] = now + <span class="number">1</span>;</span><br><span class="line">                        moving = <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (moving)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, table[end][end]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"No solution!"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/OOP/" style="font-size: 10px;">OOP</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/">物件導向</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/物件導向/觀念/">觀念</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/">網頁設計</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁設計/jQuery/">jQuery</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">63</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">63</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/">解決方案</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Unity/">Unity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/解決方案/Visual-Studio/">Visual Studio</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+    <div class="content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  <div class="post-progress">
+    <span class="post-progress-gotop" onclick="goTop()">
+    <i class="fas fa-chevron-up"></i>
+    </span>
+    <span class="post-progress-rate">
+      0%
+    </span>
+    <span class="post-progress-gobot" onclick="goBot()">
+    <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
+<script>
+  const $toc = $($(".post-toc").parent());
+  const $rate = $(".post-progress-rate");
+  const width = $toc.width();
+  var pos = $toc.offset();
+
+  setTOCPosition();
+  
+  $(window).scroll(function () {
+    setTOCPosition();
+    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+  });
+
+   $('.widget').each(function () {
+    $(this).find('.title').click(function () {
+      $content = $(this).siblings('.content');
+      if ($content.css('display') === 'none') {
+        $content.slideDown(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+      else {
+        $content.slideUp(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+    });
+  });
+
+  $(".toc-link").click(function() {
+    const $target = $($(this).attr("href"));
+    $("html,body").animate(
+      {
+        scrollTop: $target.offset().top - 60
+      },
+      "fast","swing"
+    );
+    // TODO GET focus
+    return false;
+  });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
+
+  function goTop () {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      "fast", "swing"
+    );
+  }
+
+  function goBot () {
+    $("html,body").animate(
+      {
+        scrollTop: $('body').height() - $(window).height()
+      },
+      "fast", "swing"
+    );
+  }
+</script>
+
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>
