@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a038: 數字翻轉" class="post">
+      <article id="b511: 換銅板" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a038: 數字翻轉
+            b511: 換銅板
           </div>
         </a>
       </li>
@@ -125,7 +125,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a038: 數字翻轉">a038: 數字翻轉</p>
+      <p class="title-text" title="b511: 換銅板">b511: 換銅板</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -135,32 +135,46 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-11
+          2019-08-15
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>輸入任意數字，並將其數字全部倒轉</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>輸入不同面值的銅板，然後輸入一個金額，將全部可能的找零方式列出。譬如有 3 種銅板面值分別是 1元、5 元、10 元，假設要湊出 17 元，如果把找零方法表示成 “(1 元個數,5 元個數,10 元個數)”，總共會有下列幾種方法</p>
+<p>(2,1,1)<br>(2,3,0)<br>(7,0,1)<br>(7,2,0)<br>(12,1,0)<br>(17,0,0)  </p>
+<p>排列順序的規則: 例如 (7,0,1) 先於 (12,1,0) 因為 7 比 12 小；而 (7,0,1) 和 (7,2,0) 的順序，因為第一個數目 7 和 7 相等，這時候就要比第二個數目，而由於 0 小於 2 所以 (7,0,1) 先於 (7,2,0)。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入包含一個整數，不超過 2<sup>31</sup></p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入有三行<br>第一行一個數字 N 代表有幾種不同面值的銅板 (N &lt;= 5)<br>第二行就是 N 個整數，表示 N 種對應的銅板面值<br>第三行一個數字是要需要找零的金額</p>
+<p>銅板面值和金額都是不超過100的正整數。（補充 by liouzhou_101）</p>
 <blockquote>
-<p>12345</p>
+<p>3<br>1 5 10<br>17 </p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出翻轉過後的數字</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>列出每一種找零方法，用括號框住每個銅板的數量，數量之間用逗號隔開，每一種找零方法後面要換行。不同的找零方法的排列順序要依照題目的規定。</p>
 <blockquote>
-<p>54321</p>
+<p>(2,1,1)<br>(2,3,0)<br>(7,0,1)<br>(7,2,0)<br>(12,1,0)<br>(17,0,0)</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><ol>
-<li>因為輸入會有多餘的0，所以先用整數去接輸入值過濾掉前面多餘的0</li>
-<li>將整數用轉成字串後反轉</li>
-<li>反轉後前面可能又會有多餘的0，所以再將字串轉成整數後輸出</li>
-</ol>
-<p>具體步驟為：輸入 &rarr; 轉整，去掉前面的0 &rarr; 轉回字串 &rarr; 反轉字串 &rarr; 再轉整，去掉前面的0(原始字串後面的0) &rarr; 再轉回字串輸出。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>把它想像成一棵樹，錢的種類數就是層數，錢的數量則是該子節點的數量，以範例測資為例就會變成 :</p>
+<pre><code>[]             (根)
+[0 1 2 ... 17] (1元 =&gt; 個這層有17節點)
+[0 1 2 ... 4]  (5元 =&gt; 這層有 17 * 4 = 68 個節點)
+[0 1]          (10元 =&gt; 這層有 68 * 2 = 136 個節點)
+
+如果依序走訪第 2 第 3 第 0 個節點，那(2,3,0)走訪的結果就為 1 * 2 + 5 * 3 + 10 * 0 = 17 元。</code></pre><p>由於輸出排序為</p>
+<blockquote>
+<p>(0,0,0) &rarr; (0,0,n) &rarr; (0,n,n) &rarr; (n,n,n)</p>
+</blockquote>
+<p>所以用前序走訪的方式來走訪整個樹，到底部時就判斷走訪的結果是否為目標值。</p>
+<p>剪枝 : </p>
+<blockquote>
+<p>因為每在走訪時同一層的結果只會越來越大，所以當該層的走訪結果大於目標值時，當前和其後面的節點都必大於目標值，故可直接返回上一層。</p>
+</blockquote>
+<p>同樣以範例測資為例：</p>
+<p>當走訪至 (10,2) 節點時，因為是採用前序走訪的方式，所以 (10,1) 和其子節點都已經走訪過了，只剩 (10,2) , (10,3) , (10,4) 沒走訪，而 (10,2) 節點結果為 1 * 10 + 5 * 2 = 25，超過目標值 17，而 (10 , 3) , (10 , 4) 節點又大於 (10 , 2)，也就必定大於目標值，所以可以直接返回上一層 (也就是從 (11) 開始繼續走訪 )。</p>
 <a id="more"></a>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-128KB"><a href="#AC-2ms-128KB" class="headerlink" title="AC (2ms, 128KB)"></a>AC (2ms, 128KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> input;</span><br><span class="line"><span class="keyword">char</span> src[<span class="number">15</span>], rev[<span class="number">15</span>], * output;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;input) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(src, <span class="string">" %d"</span>, input);</span><br><span class="line">        output = &amp;rev[<span class="number">14</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; src[i]; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            *output-- = src[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, atoi(++output));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-112KB"><a href="#AC-2ms-112KB" class="headerlink" title="AC (2ms, 112KB)"></a>AC (2ms, 112KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> strfmt[<span class="number">6</span>][<span class="number">20</span>] = &#123; <span class="string">""</span> , <span class="string">"(%d)\n"</span> , <span class="string">"(%d,%d)\n"</span> , <span class="string">"(%d,%d,%d)\n"</span> , <span class="string">"(%d,%d,%d,%d)\n"</span>  , <span class="string">"(%d,%d,%d,%d,%d)\n"</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> n, m, max, coin[<span class="number">5</span>], cont[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> sum, <span class="keyword">int</span> lv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; sum &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (lv &lt; max)</span><br><span class="line">            dfs(sum, lv + <span class="number">1</span>);</span><br><span class="line">        sum += coin[lv];</span><br><span class="line">        cont[lv]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum == m)</span><br><span class="line">        <span class="built_in">printf</span>(strfmt[n], cont[<span class="number">0</span>], cont[<span class="number">1</span>], cont[<span class="number">2</span>], cont[<span class="number">3</span>], cont[<span class="number">4</span>]);</span><br><span class="line">    cont[lv] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;coin[i]);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;m);</span><br><span class="line">        max = n - <span class="number">1</span>;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
