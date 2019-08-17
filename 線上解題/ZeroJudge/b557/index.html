@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a006: 一元二次方程式" class="post">
+      <article id="b557: 直角三角形" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a006: 一元二次方程式
+            b557: 直角三角形
           </div>
         </a>
       </li>
@@ -125,49 +125,50 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a006: 一元二次方程式">a006: 一元二次方程式</p>
+      <p class="title-text" title="b557: 直角三角形">b557: 直角三角形</p>
       
       <div class="separator"></div>
       <div class="info">
         
         <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-01
+          2019-08-17
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>求一元二次方程式 ax2+bx+c=0 的根</p>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入三個整數 a, b, c</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>你今天有 N 個長度不等的木棒，而你想知道這些木棒能組合出幾種直角三角形。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有一數字 T ，代表有幾組測試資料 (1&lt;=T&lt;= 50)</p>
+<p>每組測試資料包含兩行</p>
+<p>第一行有一數字 N ，代表有幾根木棒 (1&lt;=N&lt;=100)</p>
+<p>第二行有N個數字 a_i 以空白隔開，代表木棒的長度(1&lt;=a_i&lt;=100)</p>
 <blockquote>
-<p>1 3 -10<br>1 0 0<br>1 1 1</p>
+<p>3<br>3<br>3 4 5<br>6<br>3 3 4 4 5 5<br>3<br>3 4 6</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>Two different roots x1=?? , x2=??</p>
-<p>Two same roots x=??</p>
-<p>No real root</p>
-<p>PS: 答案均為整數，若有兩個根則大者在前</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於每筆測試資料輸出一行，每行包含一個數字 x 代表可以組成幾種直角三角形。</p>
 <blockquote>
-<p>Two different roots x1=2 , x2=-5<br>Two same roots x=0<br>No real root</p>
+<p>1<br>8<br>0</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>利用 </p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><ol>
+<li><p>每種相同組合的出現個數為該組合的各棍子個數相乘</p>
 <blockquote>
-<p>s = b^2 - 4ac</p>
+<p>假設: 5cm 兩個 4cm 兩個 3cm 三個<br>那組合出△543的次數就會是 2 * 2 * 3 = 12次</p>
 </blockquote>
-<p>判斷是否有實根，<br>若有則再判斷兩根</p>
-<blockquote>
-<p>(-b + √s) / 2a<br>(-b - √s) / 2a</p>
-</blockquote>
-<p>值是否相同</p>
+</li>
+<li><p>計算過程中會頻繁的出現 1&sup2; ~ 100&sup2;，所以在程式開始時先打好 1~100的次方表，之後直接取用。</p>
+</li>
+<li><p>採用基數排序的方式儲存，所以陣列中會有部分元素為 0，沒有棍子就不可能產生組合，用continue 跳過避免無謂的計算。</p>
 <a id="more"></a>
+</li>
+</ol>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-140KB"><a href="#AC-2ms-140KB" class="headerlink" title="AC (2ms, 140KB)"></a>AC (2ms, 140KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a, b, c, s, sr, x1, x2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c) == <span class="number">3</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		s = (b * b) - (<span class="number">4</span> * a * c);</span><br><span class="line">		<span class="keyword">if</span> (s &lt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"No real root\n"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		sr = <span class="built_in">sqrt</span>(s);</span><br><span class="line">		x1 = (-b + sr) / (<span class="number">2</span> * a);</span><br><span class="line">		x2 = (-b - sr) / (<span class="number">2</span> * a);</span><br><span class="line">		<span class="keyword">if</span> (sr)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Two different roots x1=%d , x2=%d\n"</span>, x1, x2);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Two same roots x=%d\n"</span>, x1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><h6 id="AC-20ms-3-4MB"><a href="#AC-20ms-3-4MB" class="headerlink" title="AC (20ms, 3.4MB)"></a>AC (20ms, 3.4MB)</h6><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> fs <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    a, b, c = map(int, fs.split())</span><br><span class="line">    s = (b * b) - (<span class="number">4</span> * a * c)</span><br><span class="line">    <span class="keyword">if</span>(s &lt; <span class="number">0</span>):</span><br><span class="line">        print(<span class="string">"No real root"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        sr = s ** <span class="number">0.5</span></span><br><span class="line">        x1 = int((-b + sr) / (<span class="number">2</span> * a))</span><br><span class="line">        x2 = int((-b - sr) / (<span class="number">2</span> * a))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(sr):</span><br><span class="line">            print(<span class="string">"Two different roots x1="</span> + str(x1) +<span class="string">" , x2="</span> + str(x2))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"Two same roots x="</span> + str(x1))</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-6ms-100KB"><a href="#AC-6ms-100KB" class="headerlink" title="AC (6ms, 100KB)"></a>AC (6ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> kase, n, tmp, p2List[<span class="number">110</span>], count;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAX; i++)</span><br><span class="line">        p2List[i] = i * i;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kase);</span><br><span class="line">    <span class="keyword">while</span> (kase--)</span><br><span class="line">    &#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">list</span>[MAX + <span class="number">1</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;tmp);</span><br><span class="line">            <span class="built_in">list</span>[tmp]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = MAX; i &gt; <span class="number">2</span>; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">list</span>[i]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt; <span class="number">1</span>; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!<span class="built_in">list</span>[j]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = j - <span class="number">1</span>; k; k--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">list</span>[k] &amp;&amp; p2List[i] == p2List[j] + p2List[k])</span><br><span class="line">                        count += <span class="built_in">list</span>[i] * <span class="built_in">list</span>[j] * <span class="built_in">list</span>[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
@@ -211,7 +212,7 @@
     
     <div class="content">
     
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python"><span class="toc-text">Python</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
     </div>
   </div>
   <div class="post-progress">
