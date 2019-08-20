@@ -96,12 +96,164 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="C/C++ Online Judge本地測試模組" class="post">
+<article id="b604: Center of Symmetry" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b604: Center of Symmetry
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/b604/">
+        <p class="title-text" title="b604: Center of Symmetry">b604: Center of Symmetry</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-20
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>Given a set of n points in a plane with integer coordinates (xi, yi), i = 1, 2, . . . , n. Your task is to decide whether the set of points has a center of symmetry or not.</p>
+<p>A set of points S has a center of symmetry if there exists a point s (not necessarily in S) such that for every point p in S there exists a point q in S such that p - s = s - q.<br><a href="https://zerojudge.tw/ShowImage?id=886" target="_blank" rel="noopener"><img src="https://zerojudge.tw/ShowImage?id=886" alt="img1" title="圖1"></a></p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>For each case, the first line contains a number n, 1 &lt;= n &lt;= 10000. The subsequent n</p>
+<p>lines contain two integers, which are the x and y coordinates of the point. Every point is unique and -10000000 &lt;= x, y &lt;= 10000000. A line with 0 (n = 0) signifies the end of input. A figure shown below is the sample input.</p>
+<blockquote>
+<p>8<br>1 10<br>3 6<br>6 8<br>6 2<br>3 -4<br>1 0<br>-2 -2<br>-2 4<br>0</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>For each set of input data print “yes” if the set of points has a center of symmetry and “no” otherwise.</p>
+<blockquote>
+<p>yes</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>題目大概的意思是 : 給你 n 個點，所有的點是否都有另一個在中心的對面的點存在。</p>
+<p>先找出中心點，取所有點至中心點的距離，如果距離有不成對的 (沒有和他一樣的) 情況就代表他沒有對稱於中心的另一個點。</p>
+<p>因為沒有要用於計算，距離取曼哈頓距離就行了。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-12ms-552KB"><a href="#AC-12ms-552KB" class="headerlink" title="AC (12ms, 552KB)"></a>AC (12ms, 552KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ABS(x) ((x) &lt; 0 ? -(x) : (x))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">&#125;Point;</span><br><span class="line"></span><br><span class="line">Point pList[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Point* lhs, <span class="keyword">const</span> Point* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs-&gt;x - rhs-&gt;x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, pLen;</span><br><span class="line">    <span class="keyword">char</span> allPair;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span> &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        Point midPoint = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">        pLen = <span class="number">0</span>, allPair = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %lf %lf"</span>, &amp;pList[pLen].x, &amp;pList[pLen].y);</span><br><span class="line">            midPoint.x += pList[pLen].x;</span><br><span class="line">            midPoint.y += pList[pLen++].y;</span><br><span class="line">        &#125;</span><br><span class="line">        midPoint.x /= n, midPoint.y /= n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            pList[i].x = ABS(pList[i].x - midPoint.x) + ABS(pList[i].y - midPoint.y);</span><br><span class="line">        qsort(pList, n, <span class="keyword">sizeof</span>(Point), cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i += <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (pList[i].x != pList[i - <span class="number">1</span>].x)</span><br><span class="line">            &#123;</span><br><span class="line">                allPair = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(allPair ? <span class="string">"yes"</span> : <span class="string">"no"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="b603: 拋物線方程式" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b603: 拋物線方程式
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/b603/">
+        <p class="title-text" title="b603: 拋物線方程式">b603: 拋物線方程式</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-20
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>給你頂點與拋物線上一點座標，列出該方程式。例如頂點座標 1 2 線上一點座標 0 5 可以推算出 1y = 3x^2 – 6x + 5<br>(係數如果是1不必省略，每一項係數都為整數，y項係數為正整數)</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>四個整數 x1 y1 x2 y2 前兩個為頂點座標(x1, y1)，後兩個為拋物線上一點座標 (x2, y2)</p>
+<blockquote>
+<p>1 2 0 5<br>1 9 18 60</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出 ay = bx^2 + cx + d 的式子，a為正整數，b, c, d 為整數，a, b, c, d 為 1 時不必省略，等號和加號前後有空白</p>
+<blockquote>
+<p>1y = 3x^2 + -6x + 5<br>17y = 3x^2 + -6x + 156</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的數學公式轉程式碼。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) x^=(y^=(x^=y))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  x1, x2, y1, y2, g, a, b, c, d;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d"</span>, &amp;x1, &amp;x2, &amp;y1, &amp;y2) == <span class="number">4</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        a = (y1 - x1) * (y1 - x1);</span><br><span class="line">        b = (y2 - x2);</span><br><span class="line">        g = gcd(a, b);</span><br><span class="line">        b /= g;</span><br><span class="line">        a /= g;</span><br><span class="line">        c = <span class="number">-2</span> * b * x1;</span><br><span class="line">        d = b * x1 * x1 + a * x2;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%dy = %dx^2 + %dx + %d\n"</span>, a, b, c, d);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="Naukri Local Judge Mod" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -119,7 +271,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            C/C++ Online Judge本地測試模組
+            Naukri Local Judge Mod
           </div>
         </a>
       </li>
@@ -128,8 +280,8 @@
   <div class="post-inner">
     <header class="title">
       
-      <a class="link" href="/線上解題/本地測試模組/C&C++ Online Judge本地測試模組/">
-        <p class="title-text" title="C/C++ Online Judge本地測試模組">C/C++ Online Judge本地測試模組</p>
+      <a class="link" href="/線上解題/本地測試模組/Naukri Local Judge Mod/">
+        <p class="title-text" title="Naukri Local Judge Mod">Naukri Local Judge Mod</p>
       </a>
       
       <div class="separator"></div>
@@ -291,7 +443,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -299,7 +451,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -367,7 +519,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -375,7 +527,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -497,7 +649,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -505,7 +657,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -571,7 +723,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -579,7 +731,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -651,7 +803,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -659,7 +811,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -738,7 +890,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -746,7 +898,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -812,7 +964,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (75)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -820,7 +972,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (74)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -901,177 +1053,6 @@
   </div>
 </article>
 
-<article id="b512: 高維度稀疏向量" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b512: 高維度稀疏向量
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b512/">
-        <p class="title-text" title="b512: 高維度稀疏向量">b512: 高維度稀疏向量</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-15
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>輸入兩個向量，計算向量內積值。兩個向量的內積，是各項相乘然後加總。例如 [1,2,3] 和 [4,5,6] 內積是 1<em>4+2</em>5+3*6 = 32</p>
-<p>我們考慮高維度的稀疏向量，也就是大多數的元素都是零，只有少數不為零。資料的表示方式如下 dim1: value1     dim2: value2    dim3:value3 … 0:0  最後以 0:0 結束。例如</p>
-<p>向量 [0,5,0,0,9,0,0,33] 是一個 8 維向量，可表示成<br>2:5     5:9     8:33      0:0</p>
-<p>值為 0 的維度都可以忽略不需描述，只需記錄非零的維度。利用上述的表示法，讀取兩個向量，然後算出它們的內積。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入兩行，分別對應到兩個整數向量。向量維度最高不超過 2 的 31 次方。記憶體用量不超過 32 MB。每一行都是以 0:0 結束</p>
-<blockquote>
-<p>1:5 1000:55 1000000:555 0:0<br>10:6 10000:66 100000:666 1000000:2 0:0 </p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>內積值<br>最後記得換行</p>
-<blockquote>
-<p>1110 </p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>輸入HashTable時由於dim不超過2<sup>31</sup>所以直接把輸入的dim當作當key。</p>
-<p>因為輸入的value不為負值且兩項量的任意dim最多都只會出現一次，而只有在都出現時該dim才會是需要計算成內積的，所以用負負得正的觀念，第一次存入value時存-value，第二次又出現(兩個向量都有)時再 *-value，就會變成正值，最後在輸出時沒出現過的會是0，只出現過一次的會是負值，出現過兩次的才是正值。就可以過濾出兩項量都出現的情況，最後將過濾出的值相加即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-6ms-608KB"><a href="#AC-6ms-608KB" class="headerlink" title="AC (6ms, 608KB)"></a>AC (6ms, 608KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Hash</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> Key;</span><br><span class="line">    <span class="keyword">int</span> Value;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Hash</span>* <span class="title">Next</span>;</span></span><br><span class="line">&#125;Hash;</span><br><span class="line"></span><br><span class="line">Hash HashTable[<span class="number">1024</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">AddHash</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Hash* now = &amp;HashTable[key &amp; <span class="number">1023</span>];</span><br><span class="line">    <span class="keyword">while</span> (now-&gt;Key != key)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (now-&gt;Next == <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            now = now-&gt;Next = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Hash));</span><br><span class="line">            now-&gt;Key = key;</span><br><span class="line">            now-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">            now-&gt;Value = -value;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        now = now-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    now-&gt;Value *= -value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getInner</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    Hash* now, * tmp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1024</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (HashTable[i].Next != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            now = HashTable[i].Next;</span><br><span class="line">            <span class="keyword">do</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (now-&gt;Value &gt; <span class="number">0</span>)</span><br><span class="line">                    res += now-&gt;Value;</span><br><span class="line">                tmp = now;</span><br><span class="line">                now = now-&gt;Next;</span><br><span class="line">                <span class="built_in">free</span>(tmp);</span><br><span class="line">            &#125; <span class="keyword">while</span> (now != <span class="literal">NULL</span>);</span><br><span class="line">            HashTable[i].Next = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, v = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d:%d"</span>, &amp;n, &amp;m) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n + m)</span><br><span class="line">            AddHash(n, m);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (v)</span><br><span class="line">            v = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, getInner()), v = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="b511: 換銅板" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (73)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (72)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b511: 換銅板
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b511/">
-        <p class="title-text" title="b511: 換銅板">b511: 換銅板</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-15
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>輸入不同面值的銅板，然後輸入一個金額，將全部可能的找零方式列出。譬如有 3 種銅板面值分別是 1元、5 元、10 元，假設要湊出 17 元，如果把找零方法表示成 “(1 元個數,5 元個數,10 元個數)”，總共會有下列幾種方法</p>
-<p>(2,1,1)<br>(2,3,0)<br>(7,0,1)<br>(7,2,0)<br>(12,1,0)<br>(17,0,0)  </p>
-<p>排列順序的規則: 例如 (7,0,1) 先於 (12,1,0) 因為 7 比 12 小；而 (7,0,1) 和 (7,2,0) 的順序，因為第一個數目 7 和 7 相等，這時候就要比第二個數目，而由於 0 小於 2 所以 (7,0,1) 先於 (7,2,0)。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入有三行<br>第一行一個數字 N 代表有幾種不同面值的銅板 (N &lt;= 5)<br>第二行就是 N 個整數，表示 N 種對應的銅板面值<br>第三行一個數字是要需要找零的金額</p>
-<p>銅板面值和金額都是不超過100的正整數。（補充 by liouzhou_101）</p>
-<blockquote>
-<p>3<br>1 5 10<br>17 </p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>列出每一種找零方法，用括號框住每個銅板的數量，數量之間用逗號隔開，每一種找零方法後面要換行。不同的找零方法的排列順序要依照題目的規定。</p>
-<blockquote>
-<p>(2,1,1)<br>(2,3,0)<br>(7,0,1)<br>(7,2,0)<br>(12,1,0)<br>(17,0,0)</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>把它想像成一棵樹，錢的種類數就是層數，錢的數量則是該子節點的數量，以範例測資為例就會變成 :</p>
-<pre><code>[]             (根)
-[0 1 2 ... 17] (1元 =&gt; 個這層有17節點)
-[0 1 2 ... 4]  (5元 =&gt; 這層有 17 * 4 = 68 個節點)
-[0 1]          (10元 =&gt; 這層有 68 * 2 = 136 個節點)
-
-如果依序走訪第 2 第 3 第 0 個節點，那(2,3,0)走訪的結果就為 1 * 2 + 5 * 3 + 10 * 0 = 17 元。</code></pre><p>由於輸出排序為</p>
-<blockquote>
-<p>(0,0,0) &rarr; (0,0,n) &rarr; (0,n,n) &rarr; (n,n,n)</p>
-</blockquote>
-<p>所以用前序走訪的方式來走訪整個樹，到底部時就判斷走訪的結果是否為目標值。</p>
-<p>剪枝 : </p>
-<blockquote>
-<p>因為每在走訪時同一層的結果只會越來越大，所以當該層的走訪結果大於目標值時，當前和其後面的節點都必大於目標值，故可直接返回上一層。</p>
-</blockquote>
-<p>同樣以範例測資為例：</p>
-<p>當走訪至 (10,2) 節點時，因為是採用前序走訪的方式，所以 (10,1) 和其子節點都已經走訪過了，只剩 (10,2) , (10,3) , (10,4) 沒走訪，而 (10,2) 節點結果為 1 * 10 + 5 * 2 = 25，超過目標值 17，而 (10 , 3) , (10 , 4) 節點又大於 (10 , 2)，也就必定大於目標值，所以可以直接返回上一層 (也就是從 (11) 開始繼續走訪 )。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-112KB"><a href="#AC-2ms-112KB" class="headerlink" title="AC (2ms, 112KB)"></a>AC (2ms, 112KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> strfmt[<span class="number">6</span>][<span class="number">20</span>] = &#123; <span class="string">""</span> , <span class="string">"(%d)\n"</span> , <span class="string">"(%d,%d)\n"</span> , <span class="string">"(%d,%d,%d)\n"</span> , <span class="string">"(%d,%d,%d,%d)\n"</span>  , <span class="string">"(%d,%d,%d,%d,%d)\n"</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> n, m, max, coin[<span class="number">5</span>], cont[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> sum, <span class="keyword">int</span> lv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; sum &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (lv &lt; max)</span><br><span class="line">            dfs(sum, lv + <span class="number">1</span>);</span><br><span class="line">        sum += coin[lv];</span><br><span class="line">        cont[lv]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum == m)</span><br><span class="line">        <span class="built_in">printf</span>(strfmt[n], cont[<span class="number">0</span>], cont[<span class="number">1</span>], cont[<span class="number">2</span>], cont[<span class="number">3</span>], cont[<span class="number">4</span>]);</span><br><span class="line">    cont[lv] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;coin[i]);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;m);</span><br><span class="line">        max = n - <span class="number">1</span>;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
@@ -1102,7 +1083,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">73</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">72</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">75</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">74</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

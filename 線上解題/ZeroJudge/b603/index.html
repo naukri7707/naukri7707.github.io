@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a225: 明明愛排列" class="post">
+      <article id="b603: 拋物線方程式" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a225: 明明愛排列
+            b603: 拋物線方程式
           </div>
         </a>
       </li>
@@ -125,7 +125,7 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a225: 明明愛排列">a225: 明明愛排列</p>
+      <p class="title-text" title="b603: 拋物線方程式">b603: 拋物線方程式</p>
       
       <div class="separator"></div>
       <div class="info">
@@ -135,28 +135,27 @@
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-12
+          2019-08-20
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>可惜，沒有下一題叫做「列排愛明明」，明明系列即將在這裡告一段落，謝謝大家這幾天來的支持！</p>
-<p>明明喜歡把數字排成一列－－用他自己的方式！<br>他首先先看個位數，把個位數由小到大排。接著，如果個位數字一樣的話，他會將這些數字，由大至小排。<br>例如，如果數字有 38 106 98 26 13 46 51 的話，那麼 51 會排最前面，因為個位數字 1 是其中最小的一個。<br>而 106 26 46 這三個數字，個位數同樣都是 6，所以明明會直接將他們由大至小排，也就是 106 46 26。<br>所以，排好之後是：51 13 106 46 26 98 38，請你幫他輸出最終結果吧！</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>給你頂點與拋物線上一點座標，列出該方程式。例如頂點座標 1 2 線上一點座標 0 5 可以推算出 1y = 3x^2 – 6x + 5<br>(係數如果是1不必省略，每一項係數都為整數，y項係數為正整數)</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>有多組測試資料，以 EOF 結束。<br>每組測試資料以一個 n(&lt;=1000) 開始，表示明明拿到了幾個數字。接著有 n 個以空白隔開的整數。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>四個整數 x1 y1 x2 y2 前兩個為頂點座標(x1, y1)，後兩個為拋物線上一點座標 (x2, y2)</p>
 <blockquote>
-<p>7<br>38 106 98 26 13 46 51<br>6<br>1 2 3 4 5 0<br>5<br>98 76 12 34 55<br>6<br>33 33 88 88 83 38</p>
+<p>1 2 0 5<br>1 9 18 60</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請輸出排序後的結果，以空白隔開。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出 ay = bx^2 + cx + d 的式子，a為正整數，b, c, d 為整數，a, b, c, d 為 1 時不必省略，等號和加號前後有空白</p>
 <blockquote>
-<p>51 13 106 46 26 98 38<br>0 1 2 3 4 5<br>12 34 55 76 98<br>83 33 33 88 88 38</p>
+<p>1y = 3x^2 + -6x + 5<br>17y = 3x^2 + -6x + 156</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>兩整數比較時，先 % 10 取個位數判斷，一樣的話則判斷整數大小。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的數學公式轉程式碼。</p>
 <a id="more"></a>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-4ms-92KB"><a href="#AC-4ms-92KB" class="headerlink" title="AC (4ms, 92KB)"></a>AC (4ms, 92KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, <span class="built_in">list</span>[<span class="number">1010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>* lhs, <span class="keyword">const</span> <span class="keyword">void</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = *(<span class="keyword">int</span>*)lhs % <span class="number">10</span> - *(<span class="keyword">int</span>*)rhs % <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> res ? res : *(<span class="keyword">int</span>*)rhs - *(<span class="keyword">int</span>*)lhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">list</span>[i]);</span><br><span class="line">        qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="built_in">list</span>[i]);</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) x^=(y^=(x^=y))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  x1, x2, y1, y2, g, a, b, c, d;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d"</span>, &amp;x1, &amp;x2, &amp;y1, &amp;y2) == <span class="number">4</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        a = (y1 - x1) * (y1 - x1);</span><br><span class="line">        b = (y2 - x2);</span><br><span class="line">        g = gcd(a, b);</span><br><span class="line">        b /= g;</span><br><span class="line">        a /= g;</span><br><span class="line">        c = <span class="number">-2</span> * b * x1;</span><br><span class="line">        d = b * x1 * x1 + a * x2;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%dy = %dx^2 + %dx + %d\n"</span>, a, b, c, d);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
