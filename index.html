@@ -277,6 +277,8 @@
 </li>
 <li><p>main.c 的 main() 會被用巨集定義成 __main_()、 judge.c 的 main() 則會被定義成 __judge_()，這些是為了先載入模組的必要定義，模組載入後會自己呼叫 __main_() 和 __judge_() ，不必擔心。</p>
 </li>
+<li><p>如果 main.c 和 judge.c 的函式撞名，系統會報錯並顯示該函式已經在 judge.obj 定義過了，這時候只要把 judge.c 裡面的撞名函式前面加上 static 前綴即可。</p>
+</li>
 </ul>
 
     </div>

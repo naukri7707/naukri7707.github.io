@@ -3,6 +3,18 @@ $(function () {
   $(".highlight")
     .find(".code")
     .append('<td class="copy-button" onclick="copyCode()">Copy</td>');
+
+  $("a").click(function () {
+    const $target = $($(this).attr("href"));
+    $("html,body").animate(
+      {
+        scrollTop: $target.offset().top - 60
+      },
+      "fast", "swing"
+    );
+    // TODO GET focus
+    return false;
+  });
 });
 
 // 閱讀更多效果

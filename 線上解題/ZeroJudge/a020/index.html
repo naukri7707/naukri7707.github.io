@@ -265,18 +265,6 @@ I=34 嘉義市     R=25 台南縣</code></pre><p>  (2) 英文轉成的數字, �
     });
   });
 
-  $(".toc-link").click(function() {
-    const $target = $($(this).attr("href"));
-    $("html,body").animate(
-      {
-        scrollTop: $target.offset().top - 60
-      },
-      "fast","swing"
-    );
-    // TODO GET focus
-    return false;
-  });
-
   function setTOCPosition() {
     if ($(window).scrollTop() + 55 > pos.top) {
         $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
