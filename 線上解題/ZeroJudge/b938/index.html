@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a215: 明明愛數數" class="post">
+      <article id="b938: kevin 愛殺殺" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a215: 明明愛數數
+            b938: kevin 愛殺殺
           </div>
         </a>
       </li>
@@ -125,34 +125,49 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a215: 明明愛數數">a215: 明明愛數數</p>
+      <p class="title-text" title="b938: kevin 愛殺殺">b938: kevin 愛殺殺</p>
       
       <div class="separator"></div>
       <div class="info">
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-12
+          2019-08-21
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>明明是一個愛數（ㄕㄨˇ）數（ㄕㄨˋ）的好學生，這天媽媽叫他從 n 開始數，下一個數字是 n+1，再下一個數字是 n+2，以此類推。媽媽想知道，明明數了幾個數字之後，他數過的這些數字的總和會超過 m。請幫助明明的媽媽吧。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>kevin 身為工具人 + 一日隊輔</p>
+<p>一定要帶給隊員們最大的娛樂</p>
+<p>所以他帶了一個活動 叫 盲人摸象</p>
+<p>一開始 n 個人站成一列</p>
+<p>編號為 1 ~ n</p>
+<p>每次 kevin 都會叫編號 k 的人 把他後面的人殺掉</p>
+<p>但是… 人實在太多了 0u0</p>
+<p>隊伍蔓延了 1公里多</p>
+<p>而kevin視力很差 看不了那麼遠</p>
+<p>所以請你告訴 kevin 被殺掉的是誰</p>
+<p>如果 這個這個人已經死了 or 他是最後一個人</p>
+<p>請輸出 “0u0 …… ?”</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入以 EOF 結束。每一筆測試資料有兩個數字，分別為 n 和 m，其中 m-n 不會超過 10^5。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的第一行 有2個整數 n, m (1 &lt;= n, m &lt;= 10 ^ 6)</p>
+<p>代表有 n 個人 站成一排 編號為 1~n</p>
+<p>接下來一行有 m 個數字 k1 k2 … km (1 &lt;= k &lt;= n)</p>
+<p>代表 kevin 要殺掉 第k個人的下一個人</p>
 <blockquote>
-<p>1 5<br>5 10<br>100 1000</p>
+<p>5 4<br>1 1 5 4</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出如題目敘述。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每次輸出被殺掉的人的編號</p>
+<p>如果不合法 輸出”0u0 …… ?”</p>
 <blockquote>
-<p>3<br>2<br>10</p>
+<p>2<br>3<br>0u0 …… ?<br>5</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單迴圈判斷，注意n &gt; m 和 負數的情況。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>給每個元素一個整數指向他下一次要殺的編號，如果把他殺了，就將目標改成該死者的目標。</p>
 <a id="more"></a>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-88KB"><a href="#AC-2ms-88KB" class="headerlink" title="AC (2ms, 88KB)"></a>AC (2ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, sum, count;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = n , count = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (sum &lt;= m)</span><br><span class="line">            sum += n + count++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-0-3s-7-7MB"><a href="#AC-0-3s-7-7MB" class="headerlink" title="AC (0.3s, 7.7MB)"></a>AC (0.3s, 7.7MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1000010</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> Next;</span><br><span class="line">    <span class="keyword">char</span> Alive;</span><br><span class="line">&#125;Player;</span><br><span class="line"></span><br><span class="line">Player <span class="built_in">list</span>[MAX];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">list</span>[i].Alive = <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">list</span>[i].Next = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">list</span>[n + <span class="number">1</span>].Alive = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, k; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;k);</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">list</span>[k].Alive &amp;&amp; <span class="built_in">list</span>[<span class="built_in">list</span>[k].Next].Alive)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">list</span>[k].Next);</span><br><span class="line">                <span class="built_in">list</span>[<span class="built_in">list</span>[k].Next].Alive = <span class="number">0</span>;</span><br><span class="line">                <span class="built_in">list</span>[k].Next = <span class="built_in">list</span>[<span class="built_in">list</span>[k].Next].Next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"0u0 ...... ?"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
