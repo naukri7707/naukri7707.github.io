@@ -96,12 +96,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="b759: 我明明就有說過= =" class="post">
+<article id="b762: 英國聯蒙" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -109,7 +109,96 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b762: 英國聯蒙
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/b762/">
+        <p class="title-text" title="b762: 英國聯蒙">b762: 英國聯蒙</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/流程控制/">流程控制</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-21
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>隨著時代來到曉責元6666年，世界第87次戰爭開打了。<br>而在這次大戰中特別強勢的 國際蘿莉保護王朝 (Expansive National Guardianship Loli Analysis Neighborly Dynasty ，簡稱ENGLAND)<br>掌握了相當大部分的勢力，為了與他們的對手沉澱國抗衡，他們這次打算邀請蒙古和他們聯手作戰，然而語言的橫溝(GENERATION GAP)是難以跨越的，<br>除了將句子重新排序外，我們透過系統統一發出的戰鬥線報可以得知每一個士兵的戰鬥狀況，<br>系統發出的線報有分成三種:</p>
+<ol>
+<li>“Get_Kill” 代表士兵剛剛英勇的殺死了一名敵人</li>
+<li>“Get_Assist” 代表士兵機靈的剛剛透過協助別人撿到了一個助攻</li>
+<li>“Die” 代表士兵掛了ORZ<br>你的工作就是接收指令，並發送線報回王朝，線報的規則如下:</li>
+<li>若是擊殺了一名敵人，並且連續擊殺( 即擊殺之間沒有死亡 ) 未滿3次，則輸出一行”You have slain an enemie.”</li>
+<li>若是連續擊殺累計3次，則輸出一行”KILLING SPREE!”</li>
+<li>若是連續擊殺累計4次，則輸出一行”RAMPAGE~”</li>
+<li>若是連續擊殺累計5次，則輸出一行”UNSTOPPABLE!”</li>
+<li>若是連續擊殺累計6次，則輸出一行”DOMINATING!”</li>
+<li>若是連續擊殺累計7次，則輸出一行”GUALIKE!”</li>
+<li>若是連續擊殺累計8次以上，則輸出一行”LEGENDARY!”</li>
+<li>若是在連續擊殺未滿3次時死亡，則輸出一行”You have been slained.”</li>
+<li>若是在連續擊殺累計3次以上時死亡，則輸出一行”SHUTDOWN.”</li>
+</ol>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入有兩行，第一行有一數字N，代表共有N條指令 ( N &lt;= 40 )<br>第2~N+1行為指令，保證指令只會有提敘中列舉出的三種</p>
+<blockquote>
+<p>11<br>Get_Kill<br>Get_Kill<br>Get_Assist<br>Get_Assist<br>Get_Kill<br>Die<br>Get_Kill<br>Get_Assist<br>Get_Kill<br>Die<br>Get_Kill</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>照著國際蘿莉保護王朝的規則輸出線報，並在最後一行輸出士兵目前為止的戰績( 擊殺次數 / 死亡次數 / 助攻次數 )</p>
+<blockquote>
+<p>You have slain an enemie.<br>You have slain an enemie.<br>KILLING SPREE!<br>SHUTDOWN.<br>You have slain an enemie.<br>You have slain an enemie.<br>You have been slained.<br>You have slain an enemie.<br>6/2/3</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的流程處理，因為狀態的字串長度皆不同所以可以用字串長度判斷簡化程式，另外要注意處理連殺 &gt; 8 的情況。</p>
+<p>本題原本打算用 gets() 去接字串但範例輸入的第 5 行有奇怪的 Tab 混進去了，不知道作者是想表達裡面有 Tab 或是單純手誤，所以最後改用 scanf(“%s”)</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> rowKill[][<span class="number">30</span>] = &#123; <span class="string">""</span>, <span class="string">"You have slain an enemie."</span>, <span class="string">"You have slain an enemie."</span>, <span class="string">"KILLING SPREE!"</span>,</span><br><span class="line">                 <span class="string">"RAMPAGE~"</span>, <span class="string">"UNSTOPPABLE!"</span>, <span class="string">"DOMINATING!"</span>, <span class="string">"GUALIKE!"</span>, <span class="string">"LEGENDARY!"</span> &#125;, str[<span class="number">15</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, act, k, d, a, rk;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        k = d = a = rk = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %s"</span>, str);</span><br><span class="line">            act = <span class="built_in">strlen</span>(str);</span><br><span class="line">            <span class="keyword">if</span> (act == <span class="number">8</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                k++, rk++;</span><br><span class="line">                <span class="built_in">puts</span>(rowKill[rk &lt; <span class="number">8</span> ? rk : <span class="number">8</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (act == <span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                a++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">puts</span>(rk &lt; <span class="number">3</span> ? <span class="string">"You have been slained."</span> : <span class="string">"SHUTDOWN."</span>);</span><br><span class="line">                d++, rk = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d/%d/%d\n"</span>, k, d, a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="b759: 我明明就有說過= =" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -175,7 +264,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -183,7 +272,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -248,7 +337,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -256,7 +345,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -326,7 +415,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -334,7 +423,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -409,7 +498,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -417,7 +506,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -510,7 +599,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -518,7 +607,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -586,7 +675,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -594,7 +683,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -657,7 +746,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -847,7 +936,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (91)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -855,7 +944,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (90)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -918,141 +1007,9 @@
   </div>
 </article>
 
-<article id="b592: The Tower of Hanoi" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (90)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (89)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b592: The Tower of Hanoi
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b592/">
-        <p class="title-text" title="b592: The Tower of Hanoi">b592: The Tower of Hanoi</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/河內塔/">河內塔</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-19
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <blockquote>
-<p>本題和 <a href="/線上解題/ZeroJudge/a268/" title="a268">a268</a> 基本上是同一題，只是那題測資比較變態要取MOD，但題目是敘述是中文，可以移駕過去看完題目再回來解。</p>
-</blockquote>
-<h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>The Tower of Hanoi problem is a popular one in computer science. Brieﬂy speaking, the problem is to transfer all the disks from peg-A to peg-C using peg-B as intermediate one in such a way that at no stage a larger disk is above a smaller disk. The minimum number of moves is required for this task.</p>
-<p>It is so well studied that one can find the sequence of moves for smaller number of disks such as 3 or 4. A trivial computer program can find the case of large number of disks also. Here we have made your task little bit difcult by making the problem more ﬂexible. Here the disks can be placed in any peg initially.</p>
-<p>If more than one disk is in a certain peg, then they will be in a valid arrangement (larger disk will not be on smaller ones). We will give you two such arrangements of disks. Your task is to find out the minimum number of moves which will transform the first arrangement into the second one. Of course you always have to maintain the constraint that smaller disks must be upon the larger ones.</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>The input data consists of several test cases. Each test case contains three lines.</p>
-<p>The first line contains a positive number n, 1 &lt;= n &lt;= 30, which denotes the number of disks. The two arrangements are denoted by the next two lines. Each arrangement will be represented by n integers. The value of integer is 1, 2 or 3, which denote the disk is placed in peg-A, peg-B and peg-C respectively. For example, if the i-th (1 &lt;= i &lt;= n) integer is 1, the i-th disk is in peg-A. The figure shown below is an example of test case. It can be described as follows and the minimum number of moves is 6.</p>
-<p>4<br>1 1 1 1<br>1 2 2 1</p>
-<p><img src="https://zerojudge.tw/ShowImage?id=881" alt="img1" title="圖1"></p>
-<p>Input is terminated by a case where the value of n is zero. This case should not be processed.</p>
-<blockquote>
-<p>4<br>1 1 1 1<br>1 2 2 1<br>3<br>1 1 1<br>2 2 2<br>3<br>1 2 3<br>3 2 1<br>4<br>1 1 1 1<br>1 1 1 1<br>0</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>For each test case, output the minimum number of moves as specified in the problem statement.</p>
-<blockquote>
-<p>6<br>7<br>3<br>0</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>本題要使用DP來做，所以先我們把規律整理好。</p>
-<h2 id="河內塔的規律"><a href="#河內塔的規律" class="headerlink" title="河內塔的規律"></a>河內塔的規律</h2><ol>
-<li><p>由於大盤絕不在小盤上面的關係，所以每一柱都會是排序好的，只是中間會有空缺。</p>
-</li>
-<li><p>當你要將一個高度為n的塔完整地從A柱移動至B柱時的最少步驟必為 2<sup>n</sup> - 1<br>Ex: 移動高度為 3 的塔</p>
-<blockquote>
-<p>零　　　　一　　　　二　　　三　　　　四　　　　五　　　　六　　　七<br>1 x x　　x x x　　x x x　　x x x　　x x x　　x x x　　x x x　　x 1 x<br>2 x x　　2 x x　　x x x　　x x 1　　x x 1　　x x x　　x 2 x　　x 2 x<br>3 x x　　3 1 x　　3 1 2　　3 x 2　　x 3 2　　1 3 2　　1 3 x　　x 3 x  </p>
-</blockquote>
-<p>會是2<sup>n</sup>-1是因為每要移動高度為n的塔，都必須先把高度為n-1的塔搬開，移動盤子n，再把搬開的n-1塔般回n上，而要移動盤子n-1又要移動n-2塔…以此類推直到n為盤子1時，移動他只需要一步(上面沒有盤子了)，接者再逆推回去<br>n = 2塔：[塔1] + 1 + [塔1] = 1 + 1 + 1 = 3、<br>n = 3塔：[塔2] + 1 + [塔2] = 3 + 1 + 3 = 7、<br>n = 4塔：[塔3] + 1 + [塔3] = 7 + 1 + 7 = 15、<br>之後以此類推 ([]為移動該塔的步驟數)<br>然後就能發現 塔n = 2<sup>n-1</sup> * 2 + 1 也就等於 2<sup>n</sup> - 1。</p>
-</li>
-<li><p>想移動下面的盤子一定要先把上面的盤子都移開，所以最下面的盤子一定是最後一個動的。</p>
-</li>
-<li><p>因為河內塔只有三根柱子、且大盤不能放到小盤上，所以如果你要把第n盤從A柱移動到B柱時，那你就必須要把所有比n還小的盤子都放到C柱上，換句話說，所有比n小的盤子都必須要移動到不是盤子n原本的柱或目標柱(也就是剩下的那柱)，而如果n原本的柱子就是目標柱，那就要把比n小的盤子堆到n所在的柱子上，維持塔的完整性，這樣之後下面的盤子才動的了。</p>
-</li>
-<li><p>承1和4，既然已經排序好、且比n小的都在C柱上，那C柱就一定會有一個n-1的子塔(從 n-1 ~ 1，排好、且中間無空缺的塔)</p>
-</li>
-</ol>
-<h2 id="規律分析"><a href="#規律分析" class="headerlink" title="規律分析"></a>規律分析</h2><ol>
-<li><p>因為最下面的最後才能動，所以DP要由上而下</p>
-</li>
-<li><p>每要移動n就會把n以上的盤子堆成一座n-1的子塔</p>
-</li>
-<li><p>隨著不斷的DP，要移動的就越底層，子塔就會越高</p>
-</li>
-<li><p>n子塔的位子要在 不是n+1盤子的位子或目的地的最後一處，如果盤子的位置和目的地相同，那n子塔則也要和他們在相同位子，這裡有個技巧，用如果用1,2,3來表示柱子，這時候</p>
-<blockquote>
-<p>[n子塔的位子] = 6 - [n-1盤當前位子] - [n-1盤目標位子]</p>
-</blockquote>
-<p>至於原因…因為 1 + 2 + 3 = 6，所以6減任意兩數(柱)就必然會剩下最後一個沒被用到的數(柱)，而當 6 - 2 - 2時輸出為 2，一樣符合條件，不過 當前位子 = 目標位子 的情況在實作時都會在前面被過濾掉就是了。</p>
-</li>
-<li><p>所以DP要做的就是從底部開始找出每層的目標位置，再從頂部開始把每層移動至目標位置 (子塔會在配合移動時越建越高，最後高度必是底部 - 1 ~ 1)。</p>
-</li>
-</ol>
-<p>到此為止是快速求出混亂河內塔還原回一個完整塔所需步驟的方法，但根據題目的目標也可能是混亂的，所以排好之後又要打亂，但好消息是打亂遠比還原輕鬆得多，從底部開始，如果”盤n”的目標柱跟當前柱不一樣，就把”塔n-1”搬到剩下的柱，把”盤n”移至目標位置，如此反覆直到最頂層即可。</p>
-<h2 id="一些雜項"><a href="#一些雜項" class="headerlink" title="一些雜項"></a>一些雜項</h2><ol>
-<li><p>本題 DP 的其實就是這 4 個部分 : 做好的子塔的高度和位置、要移動的盤子的初始位置和目標位置，然後從上到下排好、再從下到上放到目標位置。</p>
-</li>
-<li><p>從頂層開始起始陣列有可能會連續好幾個一樣<br>Ex:</p>
-<blockquote>
-<p>1 x x<br>2 x x<br>3 x x<br>x 4 x<br>x x 5  </p>
-</blockquote>
-<p>這時候直接把3開始當子塔可以省掉一些判斷時間。</p>
-</li>
-<li><p>從底部開始陣列有可能起始位置 = 目標位置，這些都是不用排的，一樣可以在開始過濾掉。</p>
-</li>
-<li><p>雖然上面多次提到要移動子塔，但由於子塔一定只會在某一柱上，所以不用真的把陣列的元素都改到子塔位置，用一個元素代表子塔位置即可。</p>
-</li>
-<li><p>河內塔邏輯比較複雜，多用紙筆模擬幾次情境會比較好理解上述的規律和流程。</p>
-</li>
-</ol>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-1ms-88KB"><a href="#AC-1ms-88KB" class="headerlink" title="AC (1ms, 88KB)"></a>AC (1ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> steps;</span><br><span class="line"><span class="keyword">int</span> step[<span class="number">35</span>], n, base;</span><br><span class="line"><span class="keyword">char</span> now[<span class="number">35</span>], to[<span class="number">35</span>], end[<span class="number">35</span>], curr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; i++)</span><br><span class="line">        step[i] = <span class="number">1</span> &lt;&lt; i;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span> &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        steps = <span class="number">0</span>, base = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;now[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;end[i]);</span><br><span class="line">        <span class="keyword">while</span> (now[n] == end[n] &amp;&amp; n)</span><br><span class="line">            n--;</span><br><span class="line">        <span class="keyword">if</span> (n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (now[base + <span class="number">1</span>] == now[<span class="number">1</span>] &amp;&amp; base &lt; n - <span class="number">1</span>)</span><br><span class="line">                base++;</span><br><span class="line">            to[n] = end[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt; <span class="number">1</span>; i--)</span><br><span class="line">                to[i - <span class="number">1</span>] = now[i] == to[i] ? to[i] : <span class="number">6</span> - now[i] - to[i];</span><br><span class="line">            curr = now[base];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = base + <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (now[i] == to[i]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (now[i] + to[i] + curr == <span class="number">6</span>)</span><br><span class="line">                    steps++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    steps += step[base], base = i - <span class="number">1</span>, curr = <span class="number">6</span> - now[i] - to[i];</span><br><span class="line">            &#125;</span><br><span class="line">            curr = to[n - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = base; i; i--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (curr == end[i]) <span class="keyword">continue</span>;</span><br><span class="line">                curr = <span class="number">6</span> - curr - end[i];</span><br><span class="line">                steps += step[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%llu\n"</span>, steps);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
-  <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+  <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
 </div>
 
     </main>
@@ -1080,7 +1037,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">90</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">89</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">91</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">90</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

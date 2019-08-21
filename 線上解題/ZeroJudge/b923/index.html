@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a053: Sagit's 計分程式" class="post">
+      <article id="" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a053: Sagit&#39;s 計分程式
+            
           </div>
         </a>
       </li>
@@ -125,42 +125,42 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a053: Sagit's 計分程式">a053: Sagit's 計分程式</p>
+      <p class="title-text" title=""></p>
       
       <div class="separator"></div>
       <div class="info">
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-11
+          2019-08-21
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>sagit 是一位高中電腦老師，這學期正在教學生寫C++程式。他的評分標準是依照每一位學生在 ZeroJudge 系統上解出的題數，去計算出對應的得分。為了不讓分數落差太大，因此他並不是採取每一題固定得分的方式，而是隨著題數增加而調整每題的得分。規則如下：</p>
-<ol>
-<li>答對題數在 0~10 者，每題給6分。</li>
-<li>題數在 11~20 者，從第11題開始，每題給2分。(前10題還是每題給6分)</li>
-<li>題數在 21~40 者，從第21題開始，每題給1分。</li>
-<li>題數在 40 以上者，一律100分。</li>
-</ol>
-<p>如此一來，只要寫10題，就可以得到60分，寫20題，就可以得到80分，不過要得到滿分100分，則是要寫到40題，所以同學們分數的差距就大大地減少了。 </p>
-<p>不過問題來了，雖然學生們因為這樣的計分公式而大大地提升了及格率，但因為 sagit 有600多位學生，一個一個去計算真的是一件很吃重的工作，所以現在想請你幫他寫個程式解決這個問題。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>我想要請你實作stack的幾種操作</p>
+<p>1.刪除堆頂元素</p>
+<p>2.輸出頂端元素</p>
+<p>3.丟數字進堆疊</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每組測資只有一個整數 N (0&lt;=N&lt;=100)，代表學生在 ZeroJudge 系統上解出的題數。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有一個n (n &lt;= 100000)</p>
+<p>接下來有n行</p>
+<p>每一行一開始有一個數字，代表哪一種操作</p>
+<p>如果數字為1，代表刪除操作</p>
+<p>如果數字為2，請輸出當前stack的頂端元素</p>
+<p>如果數字為3，請在讀入一個整數丟進堆疊</p>
 <blockquote>
-<p>10<br>40</p>
+<p>5<br>3 10<br>3 15<br>2<br>1<br>2</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>印出該位同學的得分。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於每個操作2請輸出一個數字</p>
 <blockquote>
-<p>60<br>100</p>
+<p>15<br>10</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的if else判斷</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>測資不大，直接開n的大值大小的陣列來模擬 stack 即可。</p>
 <a id="more"></a>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">10</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n * <span class="number">6</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n &lt; <span class="number">20</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="number">60</span> + (n - <span class="number">10</span>) * <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n &lt; <span class="number">40</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="number">80</span> + n - <span class="number">20</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"100"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-80KB"><a href="#AC-2ms-80KB" class="headerlink" title="AC (2ms, 80KB)"></a>AC (2ms, 80KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="built_in">stack</span>[<span class="number">100001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, sTop;</span><br><span class="line">    <span class="keyword">char</span> cmd;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sTop = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;cmd);</span><br><span class="line">            <span class="keyword">if</span> (cmd == <span class="string">'1'</span>)</span><br><span class="line">                sTop--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="string">'2'</span>)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">stack</span>[sTop]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">stack</span>[++sTop]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
