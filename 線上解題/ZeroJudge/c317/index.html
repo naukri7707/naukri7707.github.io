@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a414: 位元運算之進位篇" class="post">
+      <article id="c317: 硬幣問題！前傳" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a414: 位元運算之進位篇
+            c317: 硬幣問題！前傳
           </div>
         </a>
       </li>
@@ -125,37 +125,39 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a414: 位元運算之進位篇">a414: 位元運算之進位篇</p>
+      <p class="title-text" title="c317: 硬幣問題！前傳">c317: 硬幣問題！前傳</p>
       
       <div class="separator"></div>
       <div class="info">
         
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/位元運算/">位元運算</a></li></ul>
-        
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-13
+          2019-08-23
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>一個數在電腦裡遞增時需要進位幾次。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小明買了 X 元的商品，要付錢發現他只有兩種硬幣，幣值分別為 a 元和 b 元。</p>
+<p>他希望用最少的硬幣湊到「剛好」X 元，請告訴小明最少需要用多少硬幣。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的每一行有一個十進制正整數 N (1&lt;=N&lt;=2147483647)。<br>輸入的最後一行有一個 0，代表輸入的結束，這個數字請勿做任何處理。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有一個整數 N (N &lt;= 1,000)，表示接下來會有 N 筆輸入</p>
+<p>接下來 N 行，每一行有三個整數 X, a, b 表示小明要用 a, b 兩種幣值的硬幣湊出 X 元</p>
+<p>(1000&gt;= X &gt;= a &gt;= b &gt;= 1)</p>
 <blockquote>
-<p>1<br>4<br>7<br>17<br>0</p>
+<p>3<br>258 24 20<br>144 11 3<br>309 24 9</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於每個正整數 N ，請輸出以二進制計算 N+1 時所需的進位次數。 </p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>如果可以剛好湊到 X 元，請輸出最少需要的硬幣數量。</p>
+<p>如果沒辦法剛好湊到，請輸出 -1。</p>
 <blockquote>
-<p>1<br>0<br>3<br>1</p>
+<p>-1<br>16<br>16</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>迴圈判斷最低位元，當最低位元為1時count++、並將輸入右移1位元，當最低位元為0時代表到這位元就不會進位了，跳出迴圈輸出答案。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>由於硬幣只有兩種，故若能形成目標值，額度較大的硬幣數越多，則需要用到的硬幣就越少。</p>
+<p>因題目規定a &gt;= b，所以先找到 a 硬幣最多需要幾個才會超過目標值(x)，之後迴圈用 a 去遞 x 並將其用b試除，若餘0代表可用這兩種硬幣達成目標值，再加上上面的規則，因此該組合即為答案，輸出該組合的硬幣數即可。</p>
 <a id="more"></a>
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-0-1s-100KB"><a href="#AC-0-1s-100KB" class="headerlink" title="AC (0.1s, 100KB)"></a>AC (0.1s, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, count;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">            count++, n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, target, coin1, coin2, i, sum, count;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %d %d"</span>, &amp;target, &amp;coin1, &amp;coin2);</span><br><span class="line">            i = target / coin1, count = <span class="number">-1</span>;</span><br><span class="line">            sum = coin1 * (i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span> (; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            &#123;</span><br><span class="line">                sum -= coin1;</span><br><span class="line">                <span class="keyword">if</span> ((target - sum) % coin2 == <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    count = i + (target - sum) / coin2;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
   </div>
