@@ -169,12 +169,11 @@
 <hr>
 <h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>背包問題的變種，如果只看第二類女生其實就是單純的背包問題。</p>
 <p>而既然已經知道第二類女生的解決方案，那就想辦法將第一類女生轉換成第二類來計算。</p>
-<p>已經知道第一類女生即使只陪她一單位時間也能拿到對應比例的好感度，那我們就可以將其視為 </p>
+<p>已經知道第一類女生即使只陪她一單位時間也能拿到對應比例的好感度，那把該女生切成n個1單位時間來計算結果也會是一樣的，如此一來，第一類女生時間為s、好感度為v，就能將她看做</p>
 <blockquote>
-<p>原S<sub>i</sub>個 “S<sub>i</sub> = 1 , V<sub>i</sub> = 原S<sub>i</sub>/原V<sub>i</sub> , p = 2”的女生</p>
+<p>s個 &quot;s<sub>i</sub> = 1 , v<sub>i</sub> = v/s , p = 2&quot;的女生</p>
 </blockquote>
-<p>Ex: “S<sub>i</sub> = 5 , V<sub>i</sub> = 10 , p = 1” 就可以看作 5個 “S<sub>i</sub> = 1 , V<sub>i</sub> = 2 , p = 2” 的女生。</p>
-<p>可以把第一類女生轉化成第二類之後，剩下就是經典的背包問題了。</p>
+<p>Ex: &quot;s<sub>i</sub> = 5 , v<sub>i</sub> = 10 , p = 1&quot; 就可以看作 5個 &quot;s<sub>i</sub> = 1 , v<sub>i</sub> = 2 , p = 2&quot; 的女生。<br>可以把第一類女生轉化成第二類之後，剩下就是經典的背包問題了。</p>
 <p>注意！第一類女生轉第二類女生時好感度會用到除法且不保證整除。</p>
       <div class="hidden-content">
         <hr>
