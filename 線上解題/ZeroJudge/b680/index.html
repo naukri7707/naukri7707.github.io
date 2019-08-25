@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (128)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (127)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -145,25 +145,25 @@
 </ol>
 <p>分組及賽道編排的的方法如下：</p>
 <ol>
-<li>常態分組：方法是使用 S 型的分配，比如說選手共有31 人，每8 人一組(因為每組要8個賽道) 。步驟流程可以依照下列的方法實施。</li>
+<li>常態分組：方法是使用 S 型的分配，比如說選手共有 31 人，每 8 人一組(因為每組要 8 個賽道) 。步驟流程可以依照下列的方法實施。</li>
 </ol>
 <ul>
 <li>依照個人最佳成績排序。</li>
-<li>總人數/8 = 總組數。如31 / 8 = 4 ，必須分四組。</li>
-<li>如分4組，每個人的分組依成績排序，設定為 123443211234…..，依照這個規則填滿為止。</li>
+<li>總人數/8 = 總組數。如 31 / 8 = 4 ，必須分四組。</li>
+<li>如分 4 組，每個人的分組依成績排序，設定為 123443211234…..，依照這個規則填滿為止。</li>
 </ul>
 <ol start="2">
-<li>賽道編排：在每個分組上面，成績越好的，越往中間集中。方法就是分組排序號，以45362718的順序排賽道。</li>
+<li>賽道編排：在每個分組上面，成績越好的，越往中間集中。方法就是分組排序號，以 45362718 的順序排賽道。</li>
 </ol>
 <hr>
 <h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><ol>
-<li>第一個數字N代表共有幾位選手，N&lt;= 200 ，且N必為8的倍數。</li>
-<li>每列有兩項資料，用空白隔開1 10.80，1代表選手，80是他的最佳成績。假設每一位選手的最佳成績不重複。<blockquote>
+<li>第一個數字 N 代表共有幾位選手，N&lt;= 200 ，且 N 必為 8 的倍數。</li>
+<li>每列有兩項資料，用空白隔開 1 10.80，1 代表選手，80 是他的最佳成績。假設每一位選手的最佳成績不重複。<blockquote>
 <p>16<br>1 10.80<br>2 10.35<br>3 10.02<br>4 10.44<br>5 11.32<br>6 09.93<br>7 11.52<br>8 11.53<br>9 12.34<br>10 11.42<br>11 10.32<br>12 10.28<br>13 12.21<br>14 12.54<br>15 12.26<br>16 13.40</p>
 </blockquote>
 </li>
 </ol>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每列共有資料兩個部分，第一個資料代表分組，後面8筆資料代表選手所排的賽道順序。如：1 15 10 2 6 11 5 13 16，最前面的1代表第一組，15 10 2 6 11 5 13 16都是選手編號，順序就是賽道的順序，最左邊為第1道，最右邊為第8道。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每列共有資料兩個部分，第一個資料代表分組，後面 8 筆資料代表選手所排的賽道順序。如：1 15 10 2 6 11 5 13 16，最前面的 1 代表第一組，15 10 2 6 11 5 13 16 都是選手編號，順序就是賽道的順序，最左邊為第 1 道，最右邊為第 8 道。</p>
 <blockquote>
 <p>1 15 10 2 6 11 5 13 16<br>2 9 7 4 3 12 1 8 14</p>
 </blockquote>
@@ -173,16 +173,19 @@
 </li>
 <li><p>分組</p>
 <ul>
-<li>簡單一點可以用個計數器12344321的往陣列丟，輸出時判斷就好但這樣效率不好，要先用一個迴圈分好組、再用兩個迴圈輸出，時間複雜度是O(n + n&sup2;)</li>
-<li>也能用數學一點的方式解，觀察規律發現他們會以每兩組數做一個循環，然後循環4次，第 1 組出現在每個循環中的頭和尾、2 組在頭 + 1、尾 - 1…，按照這個規律可已讓時間複雜度降至時間複雜度是O(n)。</li>
+<li>簡單一點可以用個計數器 12344321 的往陣列丟，輸出時判斷就好但這樣效率不好，要先用一個迴圈分好組、再用兩個迴圈輸出，時間複雜度是 O(n + n&sup2;)</li>
+<li>也能用數學一點的方式解，觀察規律發現他們會以每兩組數做一個循環，然後循環 4 次，第 1 組出現在每個循環中的頭和尾、2 組在頭 + 1、尾 - 1…，按照這個規律可已讓時間複雜度降至時間複雜度是 O(n)。</li>
 </ul>
 </li>
-<li><p>輸出，輸出時按照45362718的順序把分好組的選手排入賽道即可。</p>
+<li><p>輸出，輸出時按照 45362718 的順序把分好組的選手排入賽道即可。</p>
 </li>
 </ol>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 210</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> Num;</span><br><span class="line">    <span class="keyword">double</span> Record;</span><br><span class="line">&#125;Runner;</span><br><span class="line"></span><br><span class="line">Runner <span class="built_in">list</span>[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Runner* lhs, <span class="keyword">const</span> Runner* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs-&gt;Record &gt; rhs-&gt;Record ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, g, g2, g4, g6, g8;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %lf"</span>, &amp;<span class="built_in">list</span>[i].Num, &amp;<span class="built_in">list</span>[i].Record);</span><br><span class="line">        qsort(<span class="built_in">list</span> + <span class="number">1</span>, n, <span class="keyword">sizeof</span>(Runner), cmp);</span><br><span class="line">        g = n &gt;&gt; <span class="number">3</span>, g2 = g &lt;&lt; <span class="number">1</span>, g4 = g &lt;&lt; <span class="number">2</span>, g6 = g2 + g4, g8 = n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= g; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d %d %d %d %d\n"</span>, i, <span class="built_in">list</span>[g6 + i].Num, <span class="built_in">list</span>[g4 + i].Num, <span class="built_in">list</span>[g2 + i].Num, <span class="built_in">list</span>[i].Num,</span><br><span class="line">                <span class="built_in">list</span>[g2 + <span class="number">1</span> - i].Num, <span class="built_in">list</span>[g4 + <span class="number">1</span> - i].Num, <span class="built_in">list</span>[g6 + <span class="number">1</span> - i].Num, <span class="built_in">list</span>[g8 + <span class="number">1</span> - i].Num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -198,7 +201,7 @@
     
     <div class="content" style="display:none">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 12px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 16px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
     </div>
   </div>
 </div>
@@ -212,7 +215,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">128</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">127</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

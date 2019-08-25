@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (128)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (127)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -145,7 +145,7 @@
 <hr>
 <h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>多組測資以 EOF 結束</p>
 <p>每組測資開始有兩個正整數 n,m (n&lt;=500, m&lt;=100000)</p>
-<p>接下來 n 行有 n 個不超過100的正整數依序代表每個食物的飽足度 </p>
+<p>接下來 n 行有 n 個不超過 100 的正整數依序代表每個食物的飽足度</p>
 <p>接下來 m 行每行有四個數字 x1,y1,x2,y2 (1 &lt;= x1 &lt;= x2 &lt;= n, 1 &lt;= y1 &lt;= y2 &lt;= n)</p>
 <p>代表你想要吃掉食物的範圍</p>
 <blockquote>
@@ -157,7 +157,7 @@
 </blockquote>
 <hr>
 <h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p><a href="/線上解題/ZeroJudge/a693/" title="a693">吞食天地</a> 的加強版，從一維變成二維，但解題邏輯一樣是建立總飽足度陣列之後用數學去取得目標區間。</p>
-<h2 id="建立總飽足度的二維陣列"><a href="#建立總飽足度的二維陣列" class="headerlink" title="建立總飽足度的二維陣列"></a>建立總飽足度的二維陣列</h2><p>總飽讀度計算流程(sum為總飽足度矩陣)：</p>
+<h2 id="建立總飽足度的二維陣列"><a href="#建立總飽足度的二維陣列" class="headerlink" title="建立總飽足度的二維陣列"></a>建立總飽足度的二維陣列</h2><p>總飽讀度計算流程(sum 為總飽足度矩陣)：</p>
 <pre><code>. . . .
 . . . .
 . . s .  如果要計算 s 點
@@ -165,30 +165,30 @@
 
 1 1 . .
 1 1 . .
-1 1 0 .   + 先加上 sum[s.X - 1][s.Y] 
+1 1 0 .   + 先加上 sum[s.X - 1][s.Y]
 . . . .    (數字為該區域飽足度被計算到的次數)
 
 2 2 1 .
 2 2 1 .
-1 1 0 .  再加上 sum[s.X][s.Y - 1] 
+1 1 0 .  再加上 sum[s.X][s.Y - 1]
 . . . .    (這時候由於 2 的區域飽足感被重複加了兩次，所以待會要減掉)
 
 1 1 1 .
-1 1 1 .  
-1 1 0 .  減到 sum[s.X -1][s.Y - 1] 
-. . . .  
+1 1 1 .
+1 1 0 .  減到 sum[s.X -1][s.Y - 1]
+. . . .
 
 1 1 1 .
-1 1 1 .  
+1 1 1 .
 1 1 1 .  最後加上 s點本身的飽足感即可。
 . . . .</code></pre><p>觀察上面流程得到以下公式</p>
 <blockquote>
-<p>sum[s.X][s.Y] = sum[s.X - 1][s.Y] + sum[s.X][s.Y - 1] - sum[s.X - 1][s.Y - 1] + s點的飽足感</p>
+<p>sum[s.X][s.y] = sum[s.X - 1][s.y] + sum[s.X][s.y - 1] - sum[s.X - 1][s.y - 1] + s 點的飽足感</p>
 </blockquote>
 <h2 id="取得-s-點到-e-點的區域飽足度"><a href="#取得-s-點到-e-點的區域飽足度" class="headerlink" title="取得 s 點到 e 點的區域飽足度"></a>取得 s 點到 e 點的區域飽足度</h2><p>計算流程範例 :</p>
 <pre><code> . . . . .
  . s 0 0 .
- . 0 0 0 .  如果要計算 s 到 e 區域的的飽足度 
+ . 0 0 0 .  如果要計算 s 到 e 區域的的飽足度
  . 0 0 e .       (也就是 s + e + 0 區域)
  . . . . .
 
@@ -196,32 +196,35 @@
  1 1 1 1 .
  1 1 1 1 .  先加上 sum[e.X][e.Y] 點的飽足度
  1 1 1 1 .
- . . . . . 
+ . . . . .
 
  0 1 1 1 .
  0 1 1 1 .
  0 1 1 1 .  減掉 sum[e.X][s.Y - 1] 點的飽足度
  0 1 1 1 .
- . . . . . 
+ . . . . .
 
 -1 0 0 0 .
  0 1 1 1 .
  0 1 1 1 .  減掉 sum[s.X - 1][e.Y] 點的飽足度
  0 1 1 1 .
- . . . . . 
+ . . . . .
 
  0 0 0 0 .
  0 1 1 1 .
  0 1 1 1 .  加上 sum[s.X - 1][s.Y - 1] 點的飽足度，就會得到目標區域
  0 1 1 1 .
- . . . . . </code></pre><p>觀察上面流程得到以下公式</p>
+ . . . . .</code></pre><p>觀察上面流程得到以下公式</p>
 <blockquote>
-<p>s 到 e 點的總飽和度 = sum[e.X][e.Y] - sum[e.X][s.Y - 1] - sum[s.X - 1][e.Y] + sum[s.X - 1][s.Y - 1]</p>
+<p>s 到 e 點的總飽和度 = sum[e.X][e.y] - sum[e.X][s.y - 1] - sum[s.X - 1][e.y] + sum[s.X - 1][s.y - 1]</p>
 </blockquote>
 <p>計算後輸出答案即可。</p>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-68ms-728KB"><a href="#AC-68ms-728KB" class="headerlink" title="AC (68ms, 728KB)"></a>AC (68ms, 728KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sum[<span class="number">510</span>][<span class="number">510</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, sX, sY, eX, eY;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;sum[i][j]);</span><br><span class="line">                sum[i][j] += sum[i - <span class="number">1</span>][j] + sum[i][j - <span class="number">1</span>] - sum[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;sX, &amp;sY, &amp;eX, &amp;eY);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum[eX][eY] - sum[eX][sY - <span class="number">1</span>] - sum[sX - <span class="number">1</span>][eY] + sum[sX - <span class="number">1</span>][sY - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -237,7 +240,7 @@
     
     <div class="content" style="display:none">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 12px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 16px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
     </div>
   </div>
 </div>
@@ -251,7 +254,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">128</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">127</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

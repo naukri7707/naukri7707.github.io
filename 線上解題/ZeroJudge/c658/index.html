@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  <title>Naukri&#39;s Blog</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="c658: 小新的提款卡密碼" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            c658: 小新的提款卡密碼
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <!-- TODO 標題過長完整顯示 -->
+      <p class="title-text" title="c658: 小新的提款卡密碼">c658: 小新的提款卡密碼</p>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/">Hash</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-25
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小新習慣將提款卡的密碼寫在卡片上，因為怕被盜領，小新做了如下的動作：</p>
+<ol>
+<li>密碼數字是一個完全平方數。</li>
+<li>將此數字重新排列後才寫在卡片上。<br>由於提款機輸入密碼時有次數的限制，請您先將可能的密碼列出。</li>
+</ol>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>數字每行是一個 4 ~ 10 位數的數字。<br>數字內不含 0</p>
+<blockquote>
+<p>1269<br>3133</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請將輸入的數字重新排列後，依序輸出符合條件的密碼。<br>如果找不到密碼請輸出 0</p>
+<blockquote>
+<p>1296 2916 9216<br>0</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>因為題目表明沒有 0 且位數是再 4~10 位數，所以在建表的時候，只需要建 36~99999 的平方項，且如果該項為 0 可直接跳過不紀錄。<br>而這題原本想建好表之後用 DFS 配合 BinarySearch 查表來解，無奈 10! 的可能性過多，最後 3 筆測資 TLE，所以改用 HashTable 來做。</p>
+<p>根據題意只要是由 1,2,6,9 四個字組合而成的數，都要輸出 { 1296、2916、9216 } 三個，所以將它們視為一組答案，而既然他們是一組答案又要使用 HashTable 來做，1296、2916、9216 就應該共用一個 HashKey，所以在製成 HashKey 時，用基數排序紀錄每個數有幾個，再將它們打成 HashKey，如此一來不管原本是多少，只要構成的字元一樣，得到的 HashKey 就會是一樣的。</p>
+<p>將表建好之後只要每次將輸入的字串打成 HashKey 查表，若有查到相同的答案則輸出，若否則代表這組數字組合無法組合成完全平方數，輸出 0。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-33ms-7-3MB"><a href="#AC-33ms-7-3MB" class="headerlink" title="AC (33ms, 7.3MB)"></a>AC (33ms, 7.3MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Hash</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> Key, vLen;</span><br><span class="line">    <span class="keyword">char</span> Values[<span class="number">40</span>][<span class="number">11</span>];</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Hash</span>* <span class="title">Next</span>;</span></span><br><span class="line">&#125;Hash;</span><br><span class="line"></span><br><span class="line">Hash* pList[<span class="number">32768</span>];</span><br><span class="line">Hash** now;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> tmp;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> key, pLen;</span><br><span class="line"><span class="keyword">char</span> value[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">APHash</span><span class="params">(<span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; src[i]; i++)</span><br><span class="line">        str[src[i] - <span class="string">'0'</span>]++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">9</span>; i; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &amp; <span class="number">1</span>)</span><br><span class="line">            hash ^= (~((hash &lt;&lt; <span class="number">11</span>) ^ (str[i]) ^ (hash &gt;&gt; <span class="number">5</span>)));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            hash ^= ((hash &lt;&lt; <span class="number">7</span>) ^ (str[i]) ^ (hash &gt;&gt; <span class="number">3</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (hash &amp; <span class="number">0x7FFFFFFF</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addHash</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> square)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sprintf</span>(value, <span class="string">"%lld"</span>, square);</span><br><span class="line">    key = APHash(value);</span><br><span class="line">    now = &amp;pList[key &amp; <span class="number">32767</span>];</span><br><span class="line">    <span class="keyword">while</span> (*now)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ((*now)-&gt;Key == key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">strcpy</span>((*now)-&gt;Values[(*now)-&gt;vLen++], value);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        now = &amp;(*now)-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    (*now) = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Hash));</span><br><span class="line">    (*now)-&gt;Key = key;</span><br><span class="line">    (*now)-&gt;vLen = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">strcpy</span>((*now)-&gt;Values[<span class="number">0</span>], value);</span><br><span class="line">    (*now)-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getAns</span><span class="params">(<span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    key = APHash(src);</span><br><span class="line">    now = &amp;pList[key &amp; <span class="number">32767</span>];</span><br><span class="line">    <span class="keyword">while</span> (*now)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> ((*now)-&gt;Key == key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (*now)-&gt;vLen; i++)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%s "</span>, (*now)-&gt;Values[i]);</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        now = &amp;(*now)-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">long</span> <span class="keyword">long</span> i = <span class="number">34</span>; i &lt; <span class="number">100000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = i * i;</span><br><span class="line">        <span class="keyword">while</span> (tmp % <span class="number">10</span>)</span><br><span class="line">            tmp /= <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span> (!tmp)</span><br><span class="line">            addHash(i * i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span>, value) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        getAns(value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+    <div class="content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  <div class="post-progress">
+    <span class="post-progress-gotop" onclick="goTop()">
+    <i class="fas fa-chevron-up"></i>
+    </span>
+    <span class="post-progress-rate">
+      0%
+    </span>
+    <span class="post-progress-gobot" onclick="goBot()">
+    <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
+<script>
+  const $toc = $($(".post-toc").parent());
+  const $rate = $(".post-progress-rate");
+  const width = $toc.width();
+  var pos = $toc.offset();
+
+  setTOCPosition();
+  
+  $(window).scroll(function () {
+    setTOCPosition();
+    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+  });
+
+   $('.widget').each(function () {
+    $(this).find('.title').click(function () {
+      $content = $(this).siblings('.content');
+      if ($content.css('display') === 'none') {
+        $content.slideDown(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+      else {
+        $content.slideUp(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+    });
+  });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
+
+  function goTop () {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      "fast", "swing"
+    );
+  }
+
+  function goBot () {
+    $("html,body").animate(
+      {
+        scrollTop: $('body').height() - $(window).height()
+      },
+      "fast", "swing"
+    );
+  }
+</script>
+
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>

@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (128)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (127)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -145,14 +145,14 @@
 <p>已知 rilak 讀每個章節可以讓他在考試中獲得的分數不同。</p>
 <p>另外，同一個章節每多讀一遍，可以獲得的分數都會比上一遍還少。</p>
 <p>假設第 i 個章節，rilak 讀第一遍可以獲得 Si 的分數，之後每一遍都會比上一遍少 Di 的分數</p>
-<p>舉例來說，Si = 7, Di=3，第一到三遍依序可以獲得 7 分、 4 分、1分，接下來無論讀幾遍都不會獲得分數(增加 0 分)</p>
+<p>舉例來說，Si = 7, Di=3，第一到三遍依序可以獲得 7 分、 4 分、1 分，接下來無論讀幾遍都不會獲得分數(增加 0 分)</p>
 <p>rilak 想知道他最多可以獲得多少分？</p>
 <hr>
 <h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有兩個數 N T，N 代表章節數，T 代表有多少單位的時間。</p>
 <p>接下來 N 行，每行都有兩個數 Si Di</p>
 <p>Si 代表第 i 個章節讀第一遍可以獲得的分數，</p>
 <p>Di 代表第 i 個章節多讀一遍比上一遍少得多少分。</p>
-<p>對於100%的測資，保證 </p>
+<p>對於 100%的測資，保證</p>
 <p>1&lt;=N&lt;=1000</p>
 <p>1&lt;=T&lt;=1000</p>
 <p>1&lt;=Si&lt;=500</p>
@@ -165,11 +165,14 @@
 <p>26</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>每次都取最大值，加進總分後將最大值遞減，如此循環直到時間歸0。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>每次都取最大值，加進總分後將最大值遞減，如此循環直到時間歸 0。</p>
 <p>標準的 heap sort 題，不過由於測資薄弱，就算每次都遍歷整個陣列找最大值也能輕鬆過就是了。</p>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) (x)^=((y)^=((x)^=(y)))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> score, dec;</span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line">Node heap[<span class="number">1010</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> last, now, base, derived;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapNode</span><span class="params">(<span class="keyword">int</span> lhs, <span class="keyword">int</span> rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    SWAP(heap[lhs].score, heap[rhs].score), SWAP(heap[lhs].dec, heap[rhs].dec);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insNode</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    last++;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;heap[last].score, &amp;heap[last].dec);</span><br><span class="line">    now = last, base = now &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (base &amp;&amp; heap[now].score &gt; heap[base].score)</span><br><span class="line">        swapNode(now, base), now &gt;&gt;= <span class="number">1</span>, base &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    now = <span class="number">1</span>, derived = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span> (derived &lt;= last)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (heap[derived].score &lt; heap[derived + <span class="number">1</span>].score &amp;&amp; derived &lt; last)</span><br><span class="line">            derived++;</span><br><span class="line">        <span class="keyword">if</span> (heap[derived].score &lt; heap[now].score)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        swapNode(now, derived), now = derived, derived &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, t, ans;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;t) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ans = last = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">            insNode();</span><br><span class="line">        <span class="keyword">while</span> (t--)</span><br><span class="line">        &#123;</span><br><span class="line">            ans += heap[<span class="number">1</span>].score;</span><br><span class="line">            heap[<span class="number">1</span>].score -= heap[<span class="number">1</span>].dec;</span><br><span class="line">            heapify();</span><br><span class="line">            <span class="keyword">if</span> (last &amp;&amp; heap[last].score &lt;= <span class="number">0</span>)</span><br><span class="line">                last--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -185,7 +188,7 @@
     
     <div class="content" style="display:none">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 12px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 16px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
     </div>
   </div>
 </div>
@@ -199,7 +202,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">128</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">127</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

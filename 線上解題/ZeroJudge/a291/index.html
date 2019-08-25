@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (128)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (127)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -138,19 +138,19 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>我們常用數字密碼鎖來保護重要的東西，但要是不小心忘了密碼麻煩就大了！<br>以四位數字的密碼鎖為例，我們最多要嘗試10^4=10000次才能解鎖。這時候要是<br>有辦法知道目前嘗試的密碼錯了幾個字，那解鎖的速度就快多了。請寫一個程式，<br>可以判斷每組數字跟正確答案差了幾個字。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>我們常用數字密碼鎖來保護重要的東西，但要是不小心忘了密碼麻煩就大了！<br>以四位數字的密碼鎖為例，我們最多要嘗試 10^4=10000 次才能解鎖。這時候要是<br>有辦法知道目前嘗試的密碼錯了幾個字，那解鎖的速度就快多了。請寫一個程式，<br>可以判斷每組數字跟正確答案差了幾個字。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>多筆輸入。<br>第一行有四個介於0-9之間的數字，代表正確的密碼<br>第二行有一個整數n，1&lt;=n&lt;=10000，代表接下來嘗試n組密碼<br>接下來有n行，每行有四個介於0-9之間的數字，每行各代表一組嘗試的密碼。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>多筆輸入。<br>第一行有四個介於 0-9 之間的數字，代表正確的密碼<br>第二行有一個整數 n，1&lt;=n&lt;=10000，代表接下來嘗試 n 組密碼<br>接下來有 n 行，每行有四個介於 0-9 之間的數字，每行各代表一組嘗試的密碼。</p>
 <blockquote>
-<p>1 2 3 4<br>4<br>1 1 4 5<br>1 2 4 3<br>1 1 4 4<br>4 3 2 1  </p>
+<p>1 2 3 4<br>4<br>1 1 4 5<br>1 2 4 3<br>1 1 4 4<br>4 3 2 1</p>
 <p>1 1 1 5<br>4<br>1 1 1 1<br>0 9 2 8<br>1 5 2 3<br>1 1 5 1</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出n行。<br>對於每組嘗試的密碼，若有p個數字的值正確，且在正確的位子上，<br>另外有q個數字的值正確，但不在正確的位子上，<br>輸出pAqB。<br>範例見測資。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出 n 行。<br>對於每組嘗試的密碼，若有 p 個數字的值正確，且在正確的位子上，<br>另外有 q 個數字的值正確，但不在正確的位子上，<br>輸出 pAqB。<br>範例見測資。</p>
 <blockquote>
 <p>1A1B<br>2A2B<br>2A0B<br>0A4B<br>3A0B<br>0A0B<br>1A1B<br>2A2B</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>開兩個陣列ansCount和testCount分別保留ans和test無法完全配對的數字。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>開兩個陣列 ansCount 和 testCount 分別保留 ans 和 test 無法完全配對的數字。</p>
 <p>再來用迴圈判斷，<br>判斷時會有三種情況</p>
 <ol>
 <li>完全配對 (A)<blockquote>
@@ -158,18 +158,21 @@
 </blockquote>
 </li>
 <li>無法配對，且無法和之前無法配對的數字配對<blockquote>
-<p>把他記錄進無法配對的陣列 </p>
+<p>把他記錄進無法配對的陣列</p>
 </blockquote>
 </li>
 <li>無法配對，但可以和之前無法配對的數字配對 (B)<blockquote>
-<p>B+1 , 把和他配對的數字刪掉 </p>
+<p>B+1 , 把和他配對的數字刪掉</p>
 </blockquote>
 </li>
 </ol>
-<p>最後輸出得到的A和B即可。</p>
+<p>最後輸出得到的 A 和 B 即可。</p>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-0-2s-96KB"><a href="#AC-0-2s-96KB" class="headerlink" title="AC (0.2s, 96KB)"></a>AC (0.2s, 96KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> ans[<span class="number">4</span>], test[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d %d"</span>, &amp;ans[<span class="number">0</span>], &amp;ans[<span class="number">1</span>], &amp;ans[<span class="number">2</span>], &amp;ans[<span class="number">3</span>], &amp;n) == <span class="number">5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">char</span> ansCount[<span class="number">10</span>] = &#123; <span class="number">0</span> &#125;, testCount[<span class="number">10</span>] = &#123; <span class="number">0</span> &#125;, a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %d %d %d"</span>, &amp;test[<span class="number">0</span>], &amp;test[<span class="number">1</span>], &amp;test[<span class="number">2</span>], &amp;test[<span class="number">3</span>]);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (test[i] == ans[i])</span><br><span class="line">                    a++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ansCount[test[i]])</span><br><span class="line">                        b++, ansCount[test[i]]--;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        testCount[test[i]]++;</span><br><span class="line">                    <span class="comment">//</span></span><br><span class="line">                    <span class="keyword">if</span> (testCount[ans[i]])</span><br><span class="line">                        b++, testCount[ans[i]]--;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        ansCount[ans[i]]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%dA%dB\n"</span>, a, b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -185,7 +188,7 @@
     
     <div class="content" style="display:none">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 12px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 16px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
     </div>
   </div>
 </div>
@@ -199,7 +202,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">128</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">127</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (128)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (127)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -141,9 +141,9 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>在一個(M+N) x (M+N) 的棋盤上放M 個皇后 N 個城堡，皇后可走直走斜(八個方向的米字)，城堡只能走直(四個方向的十字)，所有的棋子互相不能吃掉對方。輸出有幾種合法的放法。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>在一個(M+N) x (M+N) 的棋盤上放 M 個皇后 N 個城堡，皇后可走直走斜(八個方向的米字)，城堡只能走直(四個方向的十字)，所有的棋子互相不能吃掉對方。輸出有幾種合法的放法。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>相加不大於10 的正整數M 和 N，表示在(M+N) x (M+N) 的棋盤上放置M 個皇后 N 個城堡。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>相加不大於 10 的正整數 M 和 N，表示在(M+N) x (M+N) 的棋盤上放置 M 個皇后 N 個城堡。</p>
 <blockquote>
 <p>3 1</p>
 </blockquote>
@@ -152,9 +152,9 @@
 <p>8</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>用一個二維矩陣模擬棋盤，之後用dfs窮舉所有可能性。</p>
-<p>每次都找陣列為元素值為0的地方放棋子，下棋後將這個棋子可以吃到的位置+1 (城堡十字、皇后米字)，重複此情況直到棋子下完(一個解)或是沒地方放棋子(無法繼續)時返回。</p>
-<p>回收棋子時一樣找到他們能吃到的位置將它們-1減回來。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>用一個二維矩陣模擬棋盤，之後用 dfs 窮舉所有可能性。</p>
+<p>每次都找陣列為元素值為 0 的地方放棋子，下棋後將這個棋子可以吃到的位置+1 (城堡十字、皇后米字)，重複此情況直到棋子下完(一個解)或是沒地方放棋子(無法繼續)時返回。</p>
+<p>回收棋子時一樣找到他們能吃到的位置將它們-1 減回來。</p>
 <h4 id="例外情況"><a href="#例外情況" class="headerlink" title="例外情況"></a>例外情況</h4><blockquote>
 <p>如果先放下城堡，又要在它的斜角處放皇后時，會因為記錄城堡時只調整十字區域的關係而無法正確的判斷，因此當要放皇后時，要反過來往左上和右上區間檢查是否有城堡存在，如果有就跳過這個。</p>
 </blockquote>
@@ -163,13 +163,16 @@
 </li>
 <li><p>由於城堡和皇后都可以吃橫向的棋子，所以當某一行(row)已經有棋子時就不可能能放另一顆，故放完之後可以直接跳到下一行繼續窮舉。</p>
 </li>
-<li><p>因為是由上而下進行判斷，且剪枝時已經把同一row的情況剪掉了，所以在規劃二為矩陣時，可以只調整目標位置可以吃到的左下、下、右下區間(城堡只需調整下)。</p>
+<li><p>因為是由上而下進行判斷，且剪枝時已經把同一 row 的情況剪掉了，所以在規劃二為矩陣時，可以只調整目標位置可以吃到的左下、下、右下區間(城堡只需調整下)。</p>
 </li>
 </ol>
-<p>雖然說棋盤最大值為10，但似乎沒有極端測資(Ex: 2皇后 8城堡)，所以測試時不要用極端測資做測試。</p>
+<p>雖然說棋盤最大值為 10，但似乎沒有極端測資(Ex: 2 皇后 8 城堡)，所以測試時不要用極端測資做測試。</p>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max, count, table[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == max)</span><br><span class="line">    &#123;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; max; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (table[i][j])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; max; k++)</span><br><span class="line">            table[k][j]++;</span><br><span class="line">        <span class="keyword">if</span> (m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i - <span class="number">1</span>, l = j - <span class="number">1</span>; k &gt;= <span class="number">0</span> &amp;&amp; l &gt;= <span class="number">0</span>; k--, l--)</span><br><span class="line">                <span class="keyword">if</span> (table[k][l] == <span class="number">-1</span>) <span class="keyword">goto</span> end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i - <span class="number">1</span>, l = j + <span class="number">1</span>; k &gt;= <span class="number">0</span> &amp;&amp; l &lt; max; k--, l++)</span><br><span class="line">                <span class="keyword">if</span> (table[k][l] == <span class="number">-1</span>) <span class="keyword">goto</span> end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j - <span class="number">1</span>; k &lt; max &amp;&amp; l &gt;= <span class="number">0</span>; k++, l--)</span><br><span class="line">                table[k][l]++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j + <span class="number">1</span>; k &lt; max &amp;&amp; l &lt; max; k++, l++)</span><br><span class="line">                table[k][l]++;</span><br><span class="line">            dfs(i + <span class="number">1</span>, m - <span class="number">1</span>, n);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j - <span class="number">1</span>; k &lt; max &amp;&amp; l &gt;= <span class="number">0</span>; k++, l--)</span><br><span class="line">                table[k][l]--;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>, l = j + <span class="number">1</span>; k &lt; max &amp;&amp; l &lt; max; k++, l++)</span><br><span class="line">                table[k][l]--;</span><br><span class="line">        end:;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n)</span><br><span class="line">            table[i][j] = <span class="number">-1</span>, dfs(i + <span class="number">1</span>, m, n - <span class="number">1</span>), table[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = i + <span class="number">1</span>; k &lt; max; k++)</span><br><span class="line">            table[k][j]--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        max = m + n, count = <span class="number">0</span>;</span><br><span class="line">        dfs(<span class="number">0</span>, m, n);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -185,7 +188,7 @@
     
     <div class="content" style="display:none">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 12px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 16px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 18px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 12px;">大數</a> <a href="/tags/字串處理/" style="font-size: 18px;">字串處理</a> <a href="/tags/建表/" style="font-size: 14px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/河內塔/" style="font-size: 12px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 16px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 14px;">質數</a>
     </div>
   </div>
 </div>
@@ -199,7 +202,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">128</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">127</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
