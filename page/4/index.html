@@ -96,12 +96,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="c221: A+B problem (駭客題)" class="post">
+<article id="c268: 簡單的三角形" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -109,7 +109,92 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            c268: 簡單的三角形
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/c268/">
+        <p class="title-text" title="c268: 簡單的三角形">c268: 簡單的三角形</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-23
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>電仁今天以國手的身份來到了某間學校擔任特別講師。由於他覺得下面的學員們實在是太弱了，他決定先從簡單的三角形開始教起。”三角形是由三條線段順次首尾相連，或不共線的三點兩兩連接，所組成的一個閉合的平面圖形，是最基本的多邊形…”電仁發現即使使用了那麼淺白的文字說明，下面的學員們似乎還是不懂他在講甚麼。於是他想到了個好辦法，讓學生們實際拿東西拼成三角形就可以加深大家的印象了!電仁晚上回到自己的宿舍，決定從宿舍拿一些長條形的磁鐵隔天帶去學校給學生們拿來拼三角形(他在宿舍門前按門鈴時不小心釋放身體裡的電流把門鈴燒壞了，這又是另一個故事了…)</p>
+<p>電仁拿了 n 根長磁鐵條前往學校，在路上時他想到一件可怕的事：會不會這些長磁鐵條中沒有任何 3 根磁鐵條能拼成一個三角形啊!畢竟構成三角形需要滿足一個基本性質，也就是任兩邊的和要大於第三邊。如果他只拿了長度為 1,5,10,20 的四根磁鐵，不管拿哪 3 條出來都無法構成三角形!由於電仁可能帶著許多磁鐵條，沒辦法迅速心算驗證，請你幫忙判斷電仁帶的 n 根磁鐵條中，有沒有任何 3 根可以構成一個三角形。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有一個整數 T 代表有 T 筆資料。接下來兩行是第一筆資料：第一行有一個整數 n 代表電仁帶了幾根磁鐵條；第二行有 n 個整數 ai 代表每一根磁鐵條的長度。再接下來兩行是第二筆測試資料，依此類推。</p>
+<p>(T≦5,1≦n≦5*10<sup>7</sup>,1≦ai≦10<sup>9</sup>)</p>
+<blockquote>
+<p>3<br>3<br>3 4 5<br>4<br>1 5 10 20<br>3<br>10 10 10</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出共 T 行。對於每一筆資料輸出一行代表這筆資料的 n 根磁鐵條中，有沒有任何 3 根可以構成一個三角形。有的話輸出 YES，否則輸出 NO。</p>
+<blockquote>
+<p>YES<br>NO<br>YES</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>先把當有 n 個磁鐵條時，能夠&quot;不&quot;組合成三角形的的最小長度組合列出來</p>
+<blockquote>
+<p>n = 3 {1, 1, 2}<br>n = 4 {1, 1, 2, 3}<br>n = 5 {1, 1, 2, 3, 5}<br>n = 6 {1, 1, 2, 3, 5, 8}<br>…</p>
+</blockquote>
+<p>發現最小組合剛好是費式數列，而當 n 為 45 時數列末項為 1134903170 (費式數列第 45 項)</p>
+<blockquote>
+<p>n = 45 {1, 1, 2, 3, ….701408733, 1134903170}</p>
+</blockquote>
+<p>由於輸入說明中磁鐵條最長為 10<sup>9</sup>，但當有 45 條磁鐵條時，必須有長度大於 1134903170 的磁鐵條才可能&quot;不&quot;形成三角形，所以當 n &gt;= 45 時必定會形成三角形。</p>
+<p>既然已經知道在這題 n &gt;= 45 時必定會形成三角形，那麼當 n &gt;= 45 時就不必對該筆測資進行判斷，輸出 YES 後把該筆測資的磁鐵條長度資料全部捨棄掉讀取下筆測資即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-38ms-1-1MB"><a href="#AC-38ms-1-1MB" class="headerlink" title="AC (38ms, 1.1MB)"></a>AC (38ms, 1.1MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t, n, <span class="built_in">list</span>[<span class="number">50</span>];</span><br><span class="line"><span class="keyword">char</span> s[MAX + <span class="number">10</span>], isTriangle;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* lhs, <span class="keyword">const</span> <span class="keyword">int</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *lhs - *rhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;t) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (t--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">            <span class="keyword">if</span> (n &gt; <span class="number">44</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                getchar();</span><br><span class="line">                <span class="keyword">do</span></span><br><span class="line">                &#123;</span><br><span class="line">                    s[MAX - <span class="number">2</span>] = <span class="number">-1</span>;</span><br><span class="line">                &#125; <span class="keyword">while</span> (fgets(s, MAX, <span class="built_in">stdin</span>)[MAX - <span class="number">2</span>] != EOF);</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                isTriangle = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">                    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">list</span>[i]);</span><br><span class="line">                qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">list</span>[i - <span class="number">2</span>] + <span class="built_in">list</span>[i - <span class="number">1</span>] &gt; <span class="built_in">list</span>[i])</span><br><span class="line">                    &#123;</span><br><span class="line">                        isTriangle = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">puts</span>(isTriangle ? <span class="string">"YES"</span> : <span class="string">"NO"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="c221: A+B problem (駭客題)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -175,7 +260,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -183,7 +268,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -323,7 +408,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -331,7 +416,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -394,7 +479,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -402,7 +487,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -466,7 +551,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -474,7 +559,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -547,7 +632,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -555,7 +640,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -622,7 +707,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -630,7 +715,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -696,7 +781,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -704,7 +789,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -767,7 +852,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -775,7 +860,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -819,95 +904,22 @@
 <blockquote>
 <ol>
 <li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
+<li>I don’t say swear words!</li>
 </ol>
 </blockquote>
-<ol start="2">
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-<li>I don’t say swear words!</li>
-</ol>
 <hr>
 <h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的迴圈。</p>
       <div class="hidden-content">
         <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d. I don't say swear words!\n"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="b969: hello, everyone" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b969: hello, everyone
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b969/">
-        <p class="title-text" title="b969: hello, everyone">b969: hello, everyone</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-22
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>給你一串人名，請你一一向他們問好。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有二行。第一行含有要問候的人名，人名之間以空白隔開，人名中不含空白。第二行含有問候語。</p>
-<blockquote>
-<p>john mary jacob david<br>hello</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於每一個所提供的人名，請輸出 問候語 + “, “ + 人名 於一行。請參考範例輸出。</p>
-<blockquote>
-<p>hello, john<br>hello, mary<br>hello, jacob<br>hello, david</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的字串處理。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> name[MAX], hello[MAX], * hs, * h;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fgets(name, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    fgets(hello, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    h = hello + <span class="built_in">strlen</span>(hello);</span><br><span class="line">    *h++ = <span class="string">','</span>, * h++ = <span class="string">' '</span>;</span><br><span class="line">    hs = h;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; name[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (name[i] == <span class="string">' '</span>)</span><br><span class="line">            * h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello), h = hs;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            *h++ = name[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
@@ -947,7 +959,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">133</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">132</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

@@ -96,12 +96,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="b944: 好想上廁所(男廁篇)" class="post">
+<article id="b969: hello, everyone" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -109,7 +109,78 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b969: hello, everyone
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/b969/">
+        <p class="title-text" title="b969: hello, everyone">b969: hello, everyone</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-22
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>給你一串人名，請你一一向他們問好。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有二行。第一行含有要問候的人名，人名之間以空白隔開，人名中不含空白。第二行含有問候語。</p>
+<blockquote>
+<p>john mary jacob david<br>hello</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於每一個所提供的人名，請輸出 問候語 + “, “ + 人名 於一行。請參考範例輸出。</p>
+<blockquote>
+<p>hello, john<br>hello, mary<br>hello, jacob<br>hello, david</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的字串處理。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> name[MAX], hello[MAX], * hs, * h;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fgets(name, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    fgets(hello, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    h = hello + <span class="built_in">strlen</span>(hello);</span><br><span class="line">    *h++ = <span class="string">','</span>, * h++ = <span class="string">' '</span>;</span><br><span class="line">    hs = h;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; name[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (name[i] == <span class="string">' '</span>)</span><br><span class="line">            * h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello), h = hs;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            *h++ = name[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="b944: 好想上廁所(男廁篇)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -194,7 +265,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -202,7 +273,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -280,7 +351,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -288,7 +359,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -355,7 +426,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -363,7 +434,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -446,7 +517,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -454,7 +525,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -525,7 +596,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -533,7 +604,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -611,7 +682,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -619,7 +690,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -716,7 +787,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -724,7 +795,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -792,7 +863,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -800,7 +871,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -867,82 +938,6 @@
   </div>
 </article>
 
-<article id="b860: 獨角蟲進化計算器" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b860: 獨角蟲進化計算器
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b860/">
-        <p class="title-text" title="b860: 獨角蟲進化計算器">b860: 獨角蟲進化計算器</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/流程控制/">流程控制</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-21
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>在 Pokémon Go 遊戲中，獨角蟲 (Weedle) 是滿地爬的常見寶可夢。儘管稀有性不足，但是因為它只要 12 顆糖果就可以進化，所以常常被玩家大量補捉並進化，以賺取每次進化所得到的 500 XP 經驗值。</p>
-<p>在遊戲中，每補獲一隻獨角蟲可以得到 3 顆糖果，每傳送一隻獨角蟲或是它所進化成的鐵殼蛹 (Kakuna) 給教授可以得到 1 顆糖果，每完成一隻獨角蟲的進化也可以得到一顆糖果。</p>
-<p>給你文文目前所擁有的糖果及獨角蟲數量，(假設文文已經把所有的鐵殼蛹或由它再進化而成的大針蜂 (Beedrill)傳送給教授以換取糖果了，而且他會留下足夠的獨角蟲以儘可能進行最多的進化)，請你幫他計算一下他現在可以完成幾隻獨角蟲的進化。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，含有糖果數量 c (0 ≤ c ≤ 30000)、及所擁有的獨角蟲數量 w (0 ≤ w ≤ 10000)。</p>
-<blockquote>
-<p>19 5</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出可進化的獨角蟲數量。</p>
-<blockquote>
-<p>2</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>小麻煩的流程控制，記得在沒糖果的時候還可以拿獨角仙去換。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> candy, weedle, kakuna, count, min;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;candy, &amp;weedle) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        kakuna = count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            min = candy / <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">if</span> (weedle &lt; min)</span><br><span class="line">                min = weedle;</span><br><span class="line">            <span class="keyword">if</span> (min)</span><br><span class="line">            &#123;</span><br><span class="line">                candy -= <span class="number">11</span> * min;</span><br><span class="line">                weedle -= min;</span><br><span class="line">                kakuna += min;</span><br><span class="line">                count += min;</span><br><span class="line">            &#125;</span><br><span class="line">            candy += kakuna;</span><br><span class="line">            kakuna = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (candy &lt; <span class="number">12</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                weedle -= <span class="number">12</span> - candy;</span><br><span class="line">                candy = <span class="number">12</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">while</span> (weedle &gt; <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">&raquo;</a>
@@ -973,7 +968,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">133</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">132</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

@@ -97,7 +97,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (132)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (133)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -105,7 +105,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (131)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (132)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -138,7 +138,7 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>天干，是中國古代的一種文字計序符號，共10個字: 甲、乙、丙、丁、戊、己、庚、辛、壬、癸，循環使用。( wiki )<br>地支是指木星軌道被分成的十二個部分，記為子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥。木星的公轉週期大約為十二年，所以中國古代用木星來紀年，故而稱為「歲星」。後來又將這十二個部分命名，這就是「地支」。( wiki )<br>.....<br>西元1906年(丙午年) 於德國柏林召開的國際無線電通信大會中，決定以「SOS」為國際求救信號（1908年7月1日起正式使用）( wiki )<br>.....<br>給您若干個西元年，請算出其天干地支。  1800 &lt;= y &lt;= 2018</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>天干，是中國古代的一種文字計序符號，共 10 個字: 甲、乙、丙、丁、戊、己、庚、辛、壬、癸，循環使用。( wiki )<br>地支是指木星軌道被分成的十二個部分，記為子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥。木星的公轉週期大約為十二年，所以中國古代用木星來紀年，故而稱為「歲星」。後來又將這十二個部分命名，這就是「地支」。( wiki )<br>.....<br>西元 1906 年(丙午年) 於德國柏林召開的國際無線電通信大會中，決定以「SOS」為國際求救信號（1908 年 7 月 1 日起正式使用）( wiki )<br>.....<br>給您若干個西元年，請算出其天干地支。 1800 &lt;= y &lt;= 2018</p>
 <hr>
 <h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><blockquote>
 <p>1906<br>1895</p>
@@ -147,11 +147,14 @@
 <p>丙午<br>乙未</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>先找到小於1800年的最後一個甲子年: 1744 年</p>
-<p>我們知道一甲子為60年，所以將n設為 (輸入值 - 1744) % 60，<br>然後我們又知道天干10年一輪、地支12年一輪，將n分別 %10、%12 即是該年的天干地支。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>先找到小於 1800 年的最後一個甲子年: 1744 年</p>
+<p>我們知道一甲子為 60 年，所以將 n 設為 (輸入值 - 1744) % 60，<br>然後我們又知道天干 10 年一輪、地支 12 年一輪，將 n 分別 %10、%12 即是該年的天干地支。</p>
 <a id="more"></a>
+
 <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> sky[][<span class="number">4</span>] = &#123; <span class="string">"甲"</span>, <span class="string">"乙"</span>, <span class="string">"丙"</span>, <span class="string">"丁"</span>, <span class="string">"戊"</span>, <span class="string">"己"</span>, <span class="string">"庚"</span>, <span class="string">"辛"</span>, <span class="string">"壬"</span>, <span class="string">"癸"</span> &#125;;</span><br><span class="line"><span class="keyword">char</span> grd[][<span class="number">4</span>] = &#123; <span class="string">"子"</span>, <span class="string">"丑"</span>, <span class="string">"寅"</span>, <span class="string">"卯"</span>, <span class="string">"辰"</span>, <span class="string">"巳"</span>, <span class="string">"午"</span>, <span class="string">"未"</span>, <span class="string">"申"</span>, <span class="string">"酉"</span>, <span class="string">"戌"</span>, <span class="string">"亥"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        n = (n - <span class="number">1744</span>) % <span class="number">60</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s%s\n"</span>, sky[n % <span class="number">10</span>], grd[n % <span class="number">12</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
     
   </div>
@@ -181,7 +184,7 @@
     
     <div class="content" style="display:none">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">132</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">131</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">133</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">132</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
