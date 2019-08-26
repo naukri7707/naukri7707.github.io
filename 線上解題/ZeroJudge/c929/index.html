@@ -92,7 +92,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="a738: 最大公約數" class="post">
+      <article id="c929: 蝸牛老師的點名單-續" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -115,7 +115,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            a738: 最大公約數
+            c929: 蝸牛老師的點名單-續
           </div>
         </a>
       </li>
@@ -125,36 +125,40 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="a738: 最大公約數">a738: 最大公約數</p>
+      <p class="title-text" title="c929: 蝸牛老師的點名單-續">c929: 蝸牛老師的點名單-續</p>
       
       <div class="separator"></div>
       <div class="info">
         
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li></ul>
+        
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-13
+          2019-08-26
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小海豚要上初中了，也會了一點程序設計。海豚爸爸想起大約 30 年前上高一的時候自己第一次摸電腦。現在難以想像一下那種心情，那時候一個中國大陸一個大學畢業生（很稀罕的哦）月工資只有 60 元 RMB，而一台蘋果 II 要 6000 元 RMB。海豚爸爸有生以來輸入電腦的第一個程序，就是“最大公約數”。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>繼第一堂課之後同學們因為太無聊了，開始在他們的名字之間空格改成各種不同的字串，例如” and “(不含引號)，假設有兩位同學名字分別是”apple”及”banana”則他們會把點名單寫成”apple and banana”(不含引號)，蝸牛老師很頭痛，希望你幫他寫一個程式把大家的名字分成一行一行的。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每行 2 個數 a, b 0 &lt; a, b &lt; 1000000000</p>
-<p>EOF 結束</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行為一個字串 s 代表大家名字中間的字串，第二行為蝸牛老師拿到的點名單。(字元範圍為 ASCII 32~126) 字串長度皆小於 1000</p>
 <blockquote>
-<p>30 24<br>2 4</p>
+<p>範例一:<br>and<br>appleandbanana</p>
+<p>範例二<br>,<br>baluteshih ,leo , alan</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對每對 a,b 輸出其最大公約數</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請將同學們名字分成一行一行輸出。</p>
 <blockquote>
-<p>6<br>2</p>
+<p>範例一:<br>apple<br>banana</p>
+<p>範例二:<br>baluteshih<br>leo<br>&nbsp;alan</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>和<a href="/線上解題/ZeroJudge/a024/" title="a024">這題</a>完全一樣，用輾轉相除法做。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的字串處理。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) \</span></span><br><span class="line">    x = x ^ y,     \</span><br><span class="line">    y = x ^ y,     \</span><br><span class="line">    x = x ^ y</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n)</span><br><span class="line">        &#123;</span><br><span class="line">            m %= n;</span><br><span class="line">            SWAP(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-92KB"><a href="#AC-2ms-92KB" class="headerlink" title="AC (2ms, 92KB)"></a>AC (2ms, 92KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 2000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> oLen;</span><br><span class="line"><span class="keyword">char</span> spilt[SIZE], input[SIZE], output[SIZE];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">strspt</span><span class="params">(<span class="keyword">int</span>* idx, <span class="keyword">char</span>* spilt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; spilt[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (input[*idx + i] != spilt[i] || !input[*idx + i])</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    *idx += i - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    gets(spilt), gets(input);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; input[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (strspt(&amp;i, spilt))</span><br><span class="line">            output[oLen++] = <span class="string">'\n'</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            output[oLen++] = input[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(output);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
