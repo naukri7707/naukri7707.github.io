@@ -96,12 +96,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="c435: MAX ! MAX ! MAX !" class="post">
+<article id="c440: Bert Love QQ !" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -109,7 +109,103 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            c440: Bert Love QQ !
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/c440/">
+        <p class="title-text" title="c440: Bert Love QQ !">c440: Bert Love QQ !</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-24
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>bert307 從全國賽後，得到了一種神奇的魔力～～</p>
+<p>當他看到一個字串( String ) ，就會找尋其中的子序列 [ QAQ ]！</p>
+<p>當找到一個 [ QAQ ]，Bert 就會 QQ 一次！</p>
+<p>現在請寫個程式算一算 bert307 會 QQ 幾次～～</p>
+<p>如果你不知道什麼是子序列，以下舉個範例：</p>
+<p>子序列：字串當中由左到右挑取字元所構成的字串。</p>
+<p>例如 algo 的子序列一共是： Ø（空集合）, a, l, g, o, al, ag, ao, lg, lo, go, alg, alo, ago, lgo, algo 。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>單筆輸入~~</p>
+<p>輸入只有一串字串 ( 長度 &lt;= 100000 )</p>
+<p>字串只包含大寫字母 &quot; A &quot; ~ &quot; Z &quot;</p>
+<blockquote>
+<p>// Input 1<br>QAQAQYSYIOIKKK</p>
+<p>// Input 2<br>QAQQQZZYNOAAA</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>寫一個程式算出 Bert 會 QQ 幾次～～</p>
+<blockquote>
+<p>// Output 1<br>4</p>
+<p>// Ouput 2<br>3</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>由於子序列只包含 Q 和 A，所以其他字元皆不會有想結果，不用理會它們。</p>
+<p>先舉幾個例子當參考</p>
+<ul>
+<li><p>QQQAQ = 3*1</p>
+</li>
+<li><p>QQQAQQ = 3*2</p>
+</li>
+<li><p>QQQAAQQ = 3*2 + 3*2</p>
+</li>
+<li><p>QQQAQAQQ = 3*3 + 4*2</p>
+</li>
+<li><p>QQQAQAQQAAQQQ = 3*6 + 4*5 + 6*3 + 6*3</p>
+</li>
+</ul>
+<p>發現要如果要計算 QAQ 子序列總量，就是當遇到 A 的時候把左邊的 Q 和右邊的 Q 相乘，然後把所有遇到 A 的情況相加即是答案。</p>
+<p>但這樣子太難給程式計算了，所以在寫程式時要把邏輯反轉一下當變成&quot;遇到 Q 的時候，會新產生多少個 QAQ 子序列&quot;。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-188KB"><a href="#AC-2ms-188KB" class="headerlink" title="AC (2ms, 188KB)"></a>AC (2ms, 188KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> input[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sumQ = <span class="number">0</span>, leftQ = <span class="number">0</span>;</span><br><span class="line">    gets(input);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; input[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (input[i] == <span class="string">'Q'</span>)</span><br><span class="line">            sumQ++, ans += leftQ;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (input[i] == <span class="string">'A'</span>)</span><br><span class="line">            leftQ += sumQ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="c435: MAX ! MAX ! MAX !" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -184,7 +280,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -192,7 +288,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -264,7 +360,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -272,7 +368,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -343,7 +439,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -351,7 +447,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -418,7 +514,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -426,7 +522,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -494,7 +590,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -502,7 +598,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -565,7 +661,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -573,7 +669,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -642,7 +738,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -650,7 +746,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -714,7 +810,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (140)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -722,7 +818,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (139)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -796,86 +892,6 @@
   </div>
 </article>
 
-<article id="c350: “綠白黃” 四校聯課" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (139)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (138)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            c350: “綠白黃” 四校聯課
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/c350/">
-        <p class="title-text" title="c350: “綠白黃” 四校聯課">c350: “綠白黃” 四校聯課</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-24
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>～大家期待已久，史無前例的四校聯課終於展開～</p>
-<p>由沉澱主辦的四校聯課<br>邀請了 “ 綠綠 ” “ 白白 ” “ 黃黃 ” 三間友校一同參與<br>而在最後一天，三間友校為了表達謝意<br>將她們的電話送給沉澱的學長們～～</p>
-<p>但事情沒有學長想像中的簡單～～他們只將其中 N 個人的電話給了學長，並開出了以下條件：<img src="https://zerojudge.tw/jscripts/tinymce/plugins/emoticons/img/smiley-smile.gif" alt="smile"><img src="https://zerojudge.tw/jscripts/tinymce/plugins/emoticons/img/smiley-laughing.gif" alt="laughing"></p>
-<pre><code>1. 每 K 個電話可以要其他 W 個學姊/妹的電話
-2. 用過的電話不可再使用
-3. 換到的電話視為新的電話（也就是可以再拿去換）</code></pre><hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>單筆輸入<br>輸入只有三個整數 N, K, W (N, K, W &lt;= 10^4, 且 W &lt; K)<br>代表一開始學長拿到的電話數及學姊給的限制 K 及 Ｗ</p>
-<blockquote>
-<p>// Example 1<br>6 5 1</p>
-<p>// Example 2<br>144 188 87</p>
-<p>// Example 3<br>9 3 2</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出只有一行一個整數。<br>代表學長總共可以拿到的電話總數。<br>答案範圍保證在 int 範圍。</p>
-<blockquote>
-<p>// Example 1<br>7</p>
-<p>// Example 2<br>144</p>
-<p>// Example 3<br>23</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>每將 k 個可用的電話號碼拿去交換，可用的電話號碼會減 k 個，能用的加 w 個，根據題意 k &gt; w，所以可以看成每交換一次，能用的電話號碼會減少 (k-w) 個。</p>
-<p>利用除法判斷剩下的電話號碼(n)有幾組 k 能交換，然後一次減掉 (k-w) * 組數，如此循環直到 n / k = 0 代表無法再交換了，跳出迴圈輸出答案。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-112KB"><a href="#AC-2ms-112KB" class="headerlink" title="AC (2ms, 112KB)"></a>AC (2ms, 112KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k, w, m, sum, gap;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d %d"</span>, &amp;n, &amp;k, &amp;w);</span><br><span class="line">    sum = n, gap = k - w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n / k; i; i = n / k)</span><br><span class="line">        sum += w * i, n -= gap * i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
@@ -906,7 +922,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">139</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">138</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">140</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">139</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
