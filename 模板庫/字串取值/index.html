@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  <title>Naukri&#39;s Blog</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="[模板] 字串取值" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (3)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 字串取值
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <!-- TODO 標題過長完整顯示 -->
+      <p class="title-text" title="[模板] 字串取值">[模板] 字串取值</p>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="getInt"><a href="#getInt" class="headerlink" title="getInt()"></a>getInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getInt</span><span class="params">(<span class="keyword">int</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*src == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getUInt"><a href="#getUInt" class="headerlink" title="getUInt()"></a>getUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getUInt</span><span class="params">(<span class="keyword">int</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getLongLong"><a href="#getLongLong" class="headerlink" title="getLongLong()"></a>getLongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getLongLong</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*src == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getULongLong"><a href="#getULongLong" class="headerlink" title="getULongLong()"></a>getULongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getULongLong</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getDouble"><a href="#getDouble" class="headerlink" title="getDouble()"></a>getDouble()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getDouble</span><span class="params">(<span class="keyword">double</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> nag;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*src == <span class="string">'-'</span>)</span><br><span class="line">        nag = <span class="number">1</span>, *dst = *++src ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        nag = <span class="number">0</span>, *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = *dst * <span class="number">10</span> + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">if</span> (*src == <span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">register</span> <span class="keyword">double</span> m = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst += (*src ^ <span class="string">'0'</span>) * (m *= <span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nag)* dst = -*dst;</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本組模板為字串取值模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><h3 id="dst"><a href="#dst" class="headerlink" title="dst"></a>dst</h3><p>本參數用來接收格式化後的數值。</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>本參數為來源字串。</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>該函數返回最後一個格式化數字的下一位元指標，如果過濾字元時檢索到空字元 (&#39;\0&#39;)，則返回一個空指標。</p>
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getInt</span><span class="params">(<span class="keyword">int</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*src == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> input[<span class="number">1000</span>] = <span class="string">"123 20 0 -17"</span>, * st = input;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">while</span> (st = getInt(&amp;val, st))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h4><blockquote>
+<p>123<br>20<br>0<br>-17</p>
+</blockquote>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>為了加快速度，過濾字元時使用 (ch &lt; &#39;0&#39; (有號為&#39;-&#39;))、判斷數字使用 (ch &gt;= &#39;0&#39;) 作為字元判斷依據如果字串中包含不符合條件的字元請自行修改判斷式或採用以下嚴格判斷的方式避免錯誤。</p>
+<h4 id="過濾字元"><a href="#過濾字元" class="headerlink" title="過濾字元"></a>過濾字元</h4><p>有號</p>
+<blockquote>
+<p>(((ch = *buffer++) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;) &amp;&amp; ch != &#39;-&#39;)</p>
+</blockquote>
+<p>無號</p>
+<blockquote>
+<p>((ch = *buffer++) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;)</p>
+</blockquote>
+<h4 id="判斷數字"><a href="#判斷數字" class="headerlink" title="判斷數字"></a>判斷數字</h4><blockquote>
+<p>((ch = *buffer++) &gt;= &#39;0&#39; &amp;&amp; ch &lt;= &#39;9&#39;)</p>
+</blockquote>
+
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.33px;">DFS</a> <a href="/tags/DP/" style="font-size: 16.67px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 13.33px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 10px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 13.33px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 13.33px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.67px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.33px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/模板/" style="font-size: 13.33px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.67px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 15px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 10px;">背包問題</a> <a href="/tags/質數/" style="font-size: 13.33px;">質數</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">161</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">160</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+    <div class="content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模板"><span class="toc-text">模板</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#getInt"><span class="toc-text">getInt()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getUInt"><span class="toc-text">getUInt()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getLongLong"><span class="toc-text">getLongLong()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getULongLong"><span class="toc-text">getULongLong()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getDouble"><span class="toc-text">getDouble()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#參數"><span class="toc-text">參數</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dst"><span class="toc-text">dst</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#src"><span class="toc-text">src</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回值"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實例"><span class="toc-text">實例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事項"><span class="toc-text">注意事項</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  <div class="post-progress">
+    <span class="post-progress-gotop" onclick="goTop()">
+    <i class="fas fa-chevron-up"></i>
+    </span>
+    <span class="post-progress-rate">
+      0%
+    </span>
+    <span class="post-progress-gobot" onclick="goBot()">
+    <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
+<script>
+  const $toc = $($(".post-toc").parent());
+  const $rate = $(".post-progress-rate");
+  const width = $toc.width();
+  var pos = $toc.offset();
+
+  setTOCPosition();
+  
+  $(window).scroll(function () {
+    setTOCPosition();
+    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+  });
+
+   $('.widget').each(function () {
+    $(this).find('.title').click(function () {
+      $content = $(this).siblings('.content');
+      if ($content.css('display') === 'none') {
+        $content.slideDown(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+      else {
+        $content.slideUp(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+    });
+  });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
+
+  function goTop () {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      "fast", "swing"
+    );
+  }
+
+  function goBot () {
+    $("html,body").animate(
+      {
+        scrollTop: $('body').height() - $(window).height()
+      },
+      "fast", "swing"
+    );
+  }
+</script>
+
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>
