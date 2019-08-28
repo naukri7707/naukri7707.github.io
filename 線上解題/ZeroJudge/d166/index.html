@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  
+  <title>d166: 反轉表 | Naukri&#39;s Blog</title>
+  
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="d166: 反轉表" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (166)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (165)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d166: 反轉表
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <!-- TODO 標題過長完整顯示 -->
+      <p class="title-text" title="d166: 反轉表">d166: 反轉表</p>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-28
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>由 1 開始之連續數字 a1.a2.a3…an 相對有一反轉表：b1.b2…bm。其 bm 代表意思為：數字 m 的位置前面有幾個比大個個數。</p>
+<p>2 3 6 4 0 2 2 1 0<br>第 1 個 2 為 1 前面有 2 個比它大的數<br>第 2 個 3 為 2 前面有 3 個比它大的數<br>第 3 個 6 為 3 前面有 6 個比它大的數….以此類推<br>所以答案為<br>5 9 1 8 2 6 4 7 3<br>數字 1 前面有 2 個比它大的數 5 9<br>數字 2 前面有 3 個比它大的數 5 9 8</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的每一行含有一個由 m 個數所組成的數列(反轉表) 1&lt;=m&lt;=50，</p>
+<p>單獨一個 -1 在一行代表測試資料的結束</p>
+<blockquote>
+<p>2 3 6 4 0 2 2 1 0</p>
+<p>-1</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請輸出從 1 到 m 所代表的數列</p>
+<blockquote>
+<p>5 9 1 8 2 6 4 7 3</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>從小到大將項目數新增至陣列，並在前面保留輸入值個元素讓後面更大的元素可以放進去。</p>
+<p>以測資為範例</p>
+<ol>
+<li><blockquote>
+<p>[輸入] <font color="red">2</font> 3 6 4 0 2 2 1 0<br>[答案] 0 0 <font color="red">1</font> 0 0 0 0 0 0</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 <font color="red">3</font> 6 4 0 2 2 1 0<br>[答案] 0 0 1 0 <font color="red">2</font> 0 0 0 0</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 <font color="red">6</font> 4 0 2 2 1 0<br>[答案] 0 0 1 0 2 0 0 0 <font color="red">3</font></p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 <font color="red">4</font> 0 2 2 1 0<br>[答案] 0 0 1 0 2 0 <font color="red">4</font> 0 3</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 4 <font color="red">0</font> 2 2 1 0<br>[答案] <font color="red">5</font> 0 1 0 2 0 4 0 3</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 4 0 <font color="red">2</font> 2 1 0<br>[答案] 5 0 1 0 2 <font color="red">6</font> 4 0 3</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 4 0 2 <font color="red">2</font> 1 0<br>[答案] 5 0 1 0 2 6 4 <font color="red">7</font> 3</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 4 0 2 2 <font color="red">1</font> 0<br>[答案] 5 0 1 <font color="red">8</font> 2 6 4 7 3</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>[輸入] 2 3 6 4 0 2 2 1 <font color="red">0</font><br>[答案] 5 <font color="red">9</font> 1 8 2 6 4 7 3</p>
+</blockquote>
+</li>
+</ol>
+<a id="more"></a>
+
+<hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 55</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> input[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst, <span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*src++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    *dst = *src ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++src &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*src ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> src;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (gets(input) &amp;&amp; input[<span class="number">0</span>] != <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span>* st = input;</span><br><span class="line">        <span class="keyword">int</span> ans[MAX] = &#123; <span class="number">0</span> &#125;, tmp, j;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; st = getUInt(&amp;tmp, st); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; tmp || ans[j]; j++)</span><br><span class="line">                <span class="keyword">if</span> (!ans[j]) tmp--;</span><br><span class="line">            ans[j] = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; ans[i]; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 16.67px;">DFS</a> <a href="/tags/DP/" style="font-size: 18.33px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 13.33px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 11.67px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 13.33px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 13.33px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.67px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.33px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/模板/" style="font-size: 13.33px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.67px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 15px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 11.67px;">背包問題</a> <a href="/tags/質數/" style="font-size: 13.33px;">質數</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">166</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">165</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+    <div class="content">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-text">C</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  <div class="post-progress">
+    <span class="post-progress-gotop" onclick="goTop()">
+    <i class="fas fa-chevron-up"></i>
+    </span>
+    <span class="post-progress-rate">
+      0%
+    </span>
+    <span class="post-progress-gobot" onclick="goBot()">
+    <i class="fas fa-chevron-down"></i>
+    </span>
+  </div>
+</div>
+<script>
+  const $toc = $($(".post-toc").parent());
+  const $rate = $(".post-progress-rate");
+  const width = $toc.width();
+  var pos = $toc.offset();
+
+  setTOCPosition();
+  
+  $(window).scroll(function () {
+    setTOCPosition();
+    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+  });
+
+   $('.widget').each(function () {
+    $(this).find('.title').click(function () {
+      $content = $(this).siblings('.content');
+      if ($content.css('display') === 'none') {
+        $content.slideDown(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+      else {
+        $content.slideUp(400 , function () {
+          pos = $toc.offset();
+          setTOCPosition();
+        });
+      }
+    });
+  });
+
+  function setTOCPosition() {
+    if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
+    }
+    else {
+        $toc.css('top', 0).css('position', 'relative');
+    }
+  }
+
+  function goTop () {
+    $("html,body").animate(
+      {
+        scrollTop: 0
+      },
+      "fast", "swing"
+    );
+  }
+
+  function goBot () {
+    $("html,body").animate(
+      {
+        scrollTop: $('body').height() - $(window).height()
+      },
+      "fast", "swing"
+    );
+  }
+</script>
+
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>
