@@ -98,6 +98,58 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id=" 模板表" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+             模板表
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/模板庫/模板表/">
+        <p class="title-text" title=" 模板表"> 模板表</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h2 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h2><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="字串賦值"><a href="#字串賦值" class="headerlink" title="字串賦值"></a><a href="/模板庫/字串賦值/">字串賦值</a></h2><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h2><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
+<h2 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h2><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
+
+    </div>
+    
+  </div>
+</article>
+
 <article id="[模板] 字串賦值" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -139,10 +191,10 @@
       </div>
     </header>
     
-    <div class="content">
+    <div class="content  toc-article">
       <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="setInt"><a href="#setInt" class="headerlink" title="setInt()"></a>setInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">13</span>], * st = tmp + <span class="number">12</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="setUInt"><a href="#setUInt" class="headerlink" title="setUInt()"></a>setUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">11</span>], * st = tmp + <span class="number">10</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h2 id="setUInt"><a href="#setUInt" class="headerlink" title="setUInt()"></a>setUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">11</span>], * st = tmp + <span class="number">10</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="setLongLong"><a href="#setLongLong" class="headerlink" title="setLongLong()"></a>setLongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setLongLong</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">22</span>], * st = tmp + <span class="number">21</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -160,7 +212,10 @@
 <p>2147483647 -2147483648<br>-2147483647</p>
 </blockquote>
 <h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><p>無</p>
-
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
     </div>
     
   </div>
@@ -314,57 +369,6 @@
     </div>
     <div class="more">
       <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id=" 模板表" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
-          <div class="meta-list-link-text">
-            模板庫
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-             模板表
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/模板庫/模板表/">
-        <p class="title-text" title=" 模板表"> 模板表</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-27
-        </time>
-      </div>
-    </header>
-    
-    <div class="content">
-      <h2 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h2><p>本組模板為字串模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，另外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
-<h2 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h2><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
-<h2 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h2><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
-
     </div>
     
   </div>
