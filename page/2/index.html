@@ -91,13 +91,169 @@
   <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
-    Naukri&#39;s Blog
+      Naukri&#39;s Blog
     </div>
   </div>
 </header>
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="d485: 我愛偶數" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d485: 我愛偶數
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d485/">
+        <p class="title-text" title="d485: 我愛偶數">d485: 我愛偶數</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-29
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>文文很喜歡偶數，他甚至有收集偶數的習慣。你給他一個範圍的連續整數，他就會把其中的偶數留下來收藏。如今他又拿到了一個範圍的整數，請問他這次收藏了幾個偶數？對文文來說，0 也算是一個偶數哦！</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，其中含有兩個由空白隔開的整數 a, b (0 ≤ a ≤ b ≤ 2147483647)。</p>
+<blockquote>
+<p>1 4</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出一個整數，代表 a 與 b 之間 (含 a 與 b) 一共有多少個偶數。</p>
+<blockquote>
+<p>2</p>
+</blockquote>
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p>你可以只用算術運算子，而不用 if 指令來完成這題嗎？</p>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><ol>
+<li>先不考慮首末兩項，中間項目總數 = (max - min) + 1</li>
+<li>而如果末項為奇數，那 ((max - 1) - min) + 1 和 (max - min) + 1 的總偶數項不會變，同理套用到首項。</li>
+<li>偶數的出現頻率為每兩項出現一次，所以假設首末兩項皆為偶數，那偶數出現的總次數 = Floor((max - min) / 2) + 1，</li>
+<li>任何整數和位元 AND(&#39;&amp;&#39;)做運算，若該數為偶數則值恆為 0 ，反之則為 1 。</li>
+</ol>
+<p>運用上面的想法，整理出公式</p>
+<blockquote>
+<p>偶數次數 = (max - (max &amp; 1) - (min + (min &amp; 1))) / 2 + 1<br> = (max - min - (max &amp; 1) - (min &amp; 1)) / 2 + 1</p>
+</blockquote>
+<p>將輸入套入公式輸出即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (m - n - (m &amp; <span class="number">1</span>) - (n &amp; <span class="number">1</span>)) / <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d483: hello, world" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d483: hello, world
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d483/">
+        <p class="title-text" title="d483: hello, world">d483: hello, world</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-29
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>Hello, World 程式指的是只在計算機螢幕上輸出「Hello, World!」（意為「世界，你好！」）這行字元串的計算機程式。一般來說，這是每一種計算機程式語言中最基本、最簡單的程式，亦通常是初學者所編寫的第一個程式。它還可以用來確定該語言的編譯器、程式開發環境，以及執行環境是否已經安裝妥當。</p>
+<p>將輸出字元串 “Hello World” 作為第一個範例程式，現在已經成為程式語言學習的傳統。該程式因 Brian Kernighan 和丹尼斯·裡奇（Dennis M. Ritchie）所著的計算機程式設計教程《C 語言程式設計》（The C Programming Language）中使用而廣泛流傳；但這本書並不是 “Hello World” 的濫觴，雖然這是一個普遍存在的錯誤認知。</p>
+<p>「Hello World」範常式式最早出現於 1972 年，由貝爾實驗室成 員 Brian Kernighan 撰寫的內部技術文件《Introduction to the Language B》之中。不久同作者於 1974 年所撰寫的《Programming in C: A Tutorial》，也延用這個範例；而以本文件擴編改寫的《C 語言程式設計》也保留了這個範例程式。</p>
+<p>起初，”hello, world” 程式的標準列印內容必須滿足「全小寫，無驚嘆號，逗點後需空一格」。不過沿用至今，完全恪守傳統的反而罕見。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>為了驗證程式的正確性，大多數的題目多會提供輸入資料。你的程式必須讀入輸入資料，再依據你讀到的資料求出所要求的結果並將之輸出。你看不到這些輸入的資料，所以你也無法預測要輸出什麼結果，因此你的程式必須依照題目的要求來計算。但是作為學習程式設計的第一題，你的程式不需要讀入任何的資料，當然也不需要依據輸入的資料來計算，只需要輸出一個固定的字串就可以了。</p>
+<blockquote>
+<p>無</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請輸出「hello, world」文字 (不含「」)。</p>
+<blockquote>
+<p>hello, world</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的 hello, world。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h6 id="AC-1ms-92KB"><a href="#AC-1ms-92KB" class="headerlink" title="AC (1ms, 92KB)"></a>AC (1ms, 92KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"hello, world"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="d478: 共同的數 - 簡易版" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -748,165 +904,6 @@ _______
       <div class="hidden-content">
         <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h6 id="AC-2ms-80KB"><a href="#AC-2ms-80KB" class="headerlink" title="AC (2ms, 80KB)"></a>AC (2ms, 80KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n &amp; <span class="number">1</span> ? n - <span class="number">1</span> : n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d124: 3的倍數" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d124: 3的倍數
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d124/">
-        <p class="title-text" title="d124: 3的倍數">d124: 3的倍數</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-28
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>20XX 年，pascal 語言有多了一種新的整型 int128。它能夠運算 10000 位的超大數據。</p>
-<p>今天我們的任務就是：輸入一個類型為　 int128 　的數字　ｎ　（-10^10001&lt;=n&lt;=10^10001）。</p>
-<p>判斷它是否為 3 的倍數。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入檔中有多個數據，每組數據佔一行，是輸入的數 n 。</p>
-<blockquote>
-<p>3<br>-7<br>0</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出 n 是否為 3 的倍數。</p>
-<p>若是，輸出 yes ；若不是，輸出 no 。</p>
-<blockquote>
-<p>yes<br>no<br>yes</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>由於當一數的各位數字和為 3 的倍數時，該數即為 3 的倍數，所以將輸入的字元加總起來和 3 取餘即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> input[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span>, input) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; input[i]; i++)</span><br><span class="line">            sum += input[i] - <span class="string">'0'</span>;</span><br><span class="line">        <span class="built_in">puts</span>(sum % <span class="number">3</span> ? <span class="string">"no"</span> : <span class="string">"yes"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d244: 一堆石頭" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d244: 一堆石頭
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d244/">
-        <p class="title-text" title="d244: 一堆石頭">d244: 一堆石頭</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/">Hash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-28
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>可愛的潘潘有著一堆石頭，每顆石頭上面都有一個正整數編號。接著，她又利用複製機器把每顆石頭都複製了兩個，而編號當然跟原來那個一樣。</p>
-<p>可是有一天，她不小心掉了一顆石頭，現在她想要找出她掉的那一顆石頭的編號。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>只有一筆測資給你她現在所擁有的石頭的編號，用空格分開。</p>
-<p>當然，個數一定是三的倍數減一個。</p>
-<blockquote>
-<p>9 8 6 9 8 2 3 5 2 1 6 8 1 5 1 2 3 3 5 9</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出她掉的那一顆石頭的編號。</p>
-<blockquote>
-<p>6</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>讀入資料後查表判斷是有有儲存過，然後會出現以下任一種情況</p>
-<ol>
-<li>沒儲存過 &rarr; 將資料存到末項之後一個元素，次數設為 1 ，陣列長度 + 1</li>
-<li>有儲存過，次數為 1 &rarr; 將次數 + 1</li>
-<li>有儲存過，次數為 2 &rarr; 將元素和末項交換，將陣列長度 - 1 代表該筆資料作廢</li>
-</ol>
-<p>按照上表對應處理所有元素，由於只會有一組只有兩個，剩下的都會有 3 個，而 3 個石頭又會觸發狀態 3，所以最後不管兩個石頭的那組原本在哪都會被換到首項，因此輸出時不用再遍歷一次，直接輸出即可。</p>
-<p>下面另外提供一個雜湊表版本的，雜湊版本在能克服測資更大更極端的情況，不過由於本題測資不強所以耗時反而比陣列版更久就是了。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h2 id="陣列版"><a href="#陣列版" class="headerlink" title="陣列版"></a>陣列版</h2><h5 id="AC-6ms-1-1MB"><a href="#AC-6ms-1-1MB" class="headerlink" title="AC (6ms, 1.1MB)"></a>AC (6ms, 1.1MB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> stone[BUFSIZE], cont[BUFSIZE];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZE], * now = buffer + BUFSIZE, * end = buffer + BUFSIZE;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZE)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZE, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> tmp, len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (readUInt(&amp;tmp))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (stone[i] == tmp)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (cont[i] == <span class="number">2</span>)</span><br><span class="line">                    stone[i] = stone[--len], cont[i] = cont[len];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    cont[i]++;</span><br><span class="line">                <span class="keyword">goto</span> end;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stone[len] = tmp, cont[len++] = <span class="number">1</span>;</span><br><span class="line">    end:;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, stone[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="雜湊表版"><a href="#雜湊表版" class="headerlink" title="雜湊表版"></a>雜湊表版</h2><h5 id="AC-9ms-1-1MB"><a href="#AC-9ms-1-1MB" class="headerlink" title="AC (9ms, 1.1MB)"></a>AC (9ms, 1.1MB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUKCNT 9887</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUKSIZ 1000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> Key, Value, Next;</span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> buckets[BUKCNT], freeBuk, lastNode;</span><br><span class="line">Node dict[BUKSIZ];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZE], * now = buffer + BUFSIZE, * end = buffer + BUFSIZE;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZE)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZE, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setNode</span><span class="params">(<span class="keyword">int</span> Key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> targetBuk = Key % <span class="number">9887</span>, currNode = buckets[targetBuk];</span><br><span class="line">    <span class="keyword">while</span> (currNode)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (dict[currNode].Key == Key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dict[currNode].Value == <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> del = dict[currNode].Next;</span><br><span class="line">                dict[currNode] = dict[del];</span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="keyword">if</span> (del)</span><br><span class="line">                &#123;</span><br><span class="line">                    dict[del].Next = freeBuk;</span><br><span class="line">                    freeBuk = del;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dict[currNode].Value++;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        currNode = dict[currNode].Next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (freeBuk)</span><br><span class="line">        currNode = freeBuk, freeBuk = dict[freeBuk].Next;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        currNode = ++lastNode;</span><br><span class="line">    dict[currNode].Next = buckets[targetBuk];</span><br><span class="line">    buckets[targetBuk] = currNode;</span><br><span class="line">    dict[currNode].Key = Key;</span><br><span class="line">    dict[currNode].Value = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getAns</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> currNode;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; BUKCNT; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        currNode = buckets[i];</span><br><span class="line">        <span class="keyword">while</span> (currNode)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dict[currNode].Value == <span class="number">2</span>)</span><br><span class="line">                <span class="keyword">return</span> dict[currNode].Key;</span><br><span class="line">            currNode = dict[currNode].Next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">while</span> (readUInt(&amp;tmp))</span><br><span class="line">        setNode(tmp);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, getAns());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
