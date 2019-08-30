@@ -98,6 +98,206 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="Naukri Local Judge Mod" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/本地測試模組/" title="本地測試模組 (1)">
+          <div class="meta-list-link-text">
+            本地測試模組
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            Naukri Local Judge Mod
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/本地測試模組/Naukri Local Judge Mod/">
+        <p class="title-text" title="Naukri Local Judge Mod">Naukri Local Judge Mod</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mod/">Mod</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-20
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="開始使用"><a href="#開始使用" class="headerlink" title="開始使用"></a>開始使用</h1><h2 id="這是什麼-能做什麼"><a href="#這是什麼-能做什麼" class="headerlink" title="這是什麼? 能做什麼?"></a>這是什麼? 能做什麼?</h2><p>這是一個 C/C++的本地 Judge 模組，它可以在輸入結束後自動幫你比對測資，免除線上判斷時的麻煩和等待時間。</p>
+<p>他能夠幫助你：</p>
+<ol>
+<li>取消 4996 警告(scanf()等函式的不安全警告)</li>
+<li>取消 scanf() 不接受回傳值時的警告</li>
+<li>本地 Judge (支援 Tolerant 、 Strictly 、 Special 三種模式)</li>
+<li>簡單的效能評估</li>
+</ol>
+      <div class="hidden-content">
+        <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>以下為在 Visual Studio 安裝的流程</p>
+<ol>
+<li><p><a href="https://github.com/naukri7707/Naukri-OJ-Mod/releases" target="_blank" rel="noopener">下載</a>本模組</p>
+</li>
+<li><p>新增一個空白專案，並在專案中加入一個名為 main 的.c 或.cpp 檔</p>
+</li>
+<li><p>新增 include 目錄到專案</p>
+<blockquote>
+<p>專案 &rarr; 屬性 &rarr; C/C++ &rarr; 一般 &rarr; 其他 Include 目錄 &rarr; 指定模組資料夾</p>
+</blockquote>
+</li>
+<li><p>把模組中的 systemInput.txt、systemOutput.txt、userOutput.txt 移動至專案資料夾 (你寫程式的.c/.cpp 檔那裡)。</p>
+<blockquote>
+<p>以 Project 專案為例，在 Project/Project/ 這層會看到 main.c，把 3 個 txt 檔丟到這裡。</p>
+</blockquote>
+</li>
+<li><p>如果使用的是 cpp，將模組中全部的.c 檔改為.cpp。</p>
+</li>
+</ol>
+<h3 id="侵入式安裝"><a href="#侵入式安裝" class="headerlink" title="侵入式安裝"></a>侵入式安裝</h3><p>這步驟不會為你添加任何實質性的功能，但可以在寫程式時不用再引入本模組的標頭檔，從而獲得更好的使用體驗，但如果除了 Online Judge 之外還要寫其他 C/C++的程式則不建議使用。</p>
+<ol>
+<li><p>先備份好 stdio.h 避免出錯。</p>
+</li>
+<li><p>做完以上述動作後，開啟 main.c 輸出</p>
+<blockquote>
+<p>#include &lt;stdio.h&gt;</p>
+</blockquote>
+</li>
+<li><p>在上面右鍵 &rarr; 前往&lt;stdio.h&gt;</p>
+</li>
+<li><p>滑到最下面，在#endif 上加上</p>
+<blockquote>
+<p>#include &lt;naukri.h&gt;</p>
+</blockquote>
+</li>
+</ol>
+<p>變成</p>
+<blockquote>
+<p>… (其他在上面的程式碼)  </p>
+<p>#include &lt;naukri.h&gt;  </p>
+<p>#endif</p>
+</blockquote>
+<ol start="4">
+<li>儲存，如果你的 Visual Studio 沒有該資料夾的存取權限他會提示你另存新檔，把它存到桌面在手動貼到該資料夾覆蓋即可。<br>資料夾可以在 stdio.h 頁籤上右鍵 &rarr; 開啟收納資料夾找到。</li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>選好 Judge 模式(參見<a href="#判斷模式">判斷模式</a>)，在#include &lt;stdio.h&gt; 下引入 naukri.h 變成</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;naukri.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>即可使用，上傳至 OJ 時記得刪掉 #include &lt;naukri.h&gt; 就可以了。<br>若為侵入式安裝則不必引入(除非你不會用到 stdio.h)，像沒安裝模組時一樣寫程式即可。</p>
+<p>若你使用的是 cpp，iostream 和 cstdio 內部都會引入 stdio.h。</p>
+<h3 id="情境範例"><a href="#情境範例" class="headerlink" title="情境範例"></a>情境範例</h3><p>請先閱讀下方的<a href="#巨集與定義">巨集與定義</a></p>
+<h4 id="已經有輸入和正確的輸出"><a href="#已經有輸入和正確的輸出" class="headerlink" title="已經有輸入和正確的輸出"></a>已經有輸入和正確的輸出</h4><ol>
+<li>在 FILE_INPUT 放輸入，在 FILE_COMPARE 放正確的輸出</li>
+<li>定義 IO 模式為 F_TF (FILE_INPUT 輸入、終端 + FILE_OUTPUT 輸出)</li>
+<li>將 CMPMODE 設為 2 (或將函式 main() return 2)</li>
+<li>開始運行。</li>
+</ol>
+<h4 id="已經有輸入和正確的程式碼"><a href="#已經有輸入和正確的程式碼" class="headerlink" title="已經有輸入和正確的程式碼"></a>已經有輸入和正確的程式碼</h4><ol>
+<li>在 FILE_INPUT 放輸入</li>
+<li>定義 IO 模式為 F_TF (FILE_INPUT 輸入、終端 + FILE_OUTPUT 輸出)</li>
+<li>將 CMPMODE 設為 3 (或將函式 main() return 3)</li>
+<li>開始運行。</li>
+</ol>
+<h4 id="只有正確的程式碼，想用終端機測試"><a href="#只有正確的程式碼，想用終端機測試" class="headerlink" title="只有正確的程式碼，想用終端機測試"></a>只有正確的程式碼，想用終端機測試</h4><ol>
+<li>定義 IO 模式為 T_TF (終端輸入、終端 + FILE_OUTPUT 輸出)</li>
+<li>將 CMPMODE 設為 3 (或將函式 main() return 3)</li>
+<li>開始運行，輸入自定義測資。 (也可以將自定義測資放到 FILE_INPUT 用 “已經有輸入和正確的程式碼” 判斷)</li>
+</ol>
+<h4 id="什麼都沒有，只是想使用包裝過的函式"><a href="#什麼都沒有，只是想使用包裝過的函式" class="headerlink" title="什麼都沒有，只是想使用包裝過的函式"></a>什麼都沒有，只是想使用包裝過的函式</h4><ol>
+<li>定義 IO 模式為 T_T (終端輸入、終端輸出)</li>
+<li>將 CMPMODE 設為 1 (或將函式 main() return 1)</li>
+<li>開始運行。</li>
+</ol>
+<h2 id="巨集與定義"><a href="#巨集與定義" class="headerlink" title="巨集與定義"></a>巨集與定義</h2><h3 id="判斷模式"><a href="#判斷模式" class="headerlink" title="判斷模式"></a>判斷模式</h3><p>比較時的預設參數。</p>
+<h4 id="CMPMODE"><a href="#CMPMODE" class="headerlink" title="CMPMODE"></a>CMPMODE</h4><p>定義預設的 Judge 的方式，而 main.c 的 return 值可以用來覆蓋這個預設模式(也就是如果 return 不為 0 則以 return 值為準)</p>
+<blockquote>
+<p>0 = 隨意(若 return 亦為 0 則不進行比較)<br>1 = 不進行比較<br>2 = 使用 <a href="#FILE-COMPARE">FILE_COMPARE</a> 儲存的答案比較<br>3 = 使用 judge.c 計算出的答案比較 (這個模式只有在使用 <a href="#FILE-INPUT">FILE_INPUT</a> 作為輸入時才能使用)<br>4 = 自動判斷，如果輸入來自終端機 = 2, 來自檔案 = 3</p>
+</blockquote>
+<h4 id="STRICTLYMODE"><a href="#STRICTLYMODE" class="headerlink" title="STRICTLYMODE"></a>STRICTLYMODE</h4><p>嚴格比對模式，當 STRICTLYMODE 為 0 時代表關閉，亦即是寬容(Tolerant)模式，為 1 時開啟則是嚴格(Strictly)模式，預設值為 0</p>
+<h4 id="TLE"><a href="#TLE" class="headerlink" title="TLE"></a>TLE</h4><p>定義超時時間限制，以毫秒為單位，預設值為 1000 ms<br>注意！它不會在你超時時跳出程式，只會在印出判斷結果時提醒你超時了。</p>
+<h3 id="文件位置"><a href="#文件位置" class="headerlink" title="文件位置"></a>文件位置</h3><p>輸入輸出檔存放位置，可在 naukri.h 進行自定義修改</p>
+<h4 id="FILE-INPUT"><a href="#FILE-INPUT" class="headerlink" title="FILE_INPUT"></a>FILE_INPUT</h4><p>輸入檔位置，預設值為 input.txt</p>
+<h4 id="FILE-OUTPUT"><a href="#FILE-OUTPUT" class="headerlink" title="FILE_OUTPUT"></a>FILE_OUTPUT</h4><p>使用者輸出檔位置，預設值為 output.txt</p>
+<h4 id="FILE-COMPARE"><a href="#FILE-COMPARE" class="headerlink" title="FILE_COMPARE"></a>FILE_COMPARE</h4><p>比對用檔案位置，也是判斷程式輸出檔，預設值為 compare.txt</p>
+<h3 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h3><p>這部分僅供模組使用，若無客製化需求只要注意不要誤用關鍵字即可。</p>
+<h4 id="stdin"><a href="#stdin" class="headerlink" title="stdin"></a>stdin</h4><p>當輸入選擇 FILE_INPUT 時會覆寫 stdio.h 對 stdin 的定義。</p>
+<p>本巨集僅用於將 freed() 等未被包裝的輸入函式指向正確的輸入位置，在被包裝的函式中，內部會強制將流導向定義的 fileIn 或 termIn 。</p>
+<h4 id="termIn"><a href="#termIn" class="headerlink" title="termIn"></a>termIn</h4><p>終端輸入流</p>
+<h4 id="termOut"><a href="#termOut" class="headerlink" title="termOut"></a>termOut</h4><p>終端輸出流</p>
+<h4 id="termErr"><a href="#termErr" class="headerlink" title="termErr"></a>termErr</h4><p>終端錯誤流</p>
+<h4 id="fileIn"><a href="#fileIn" class="headerlink" title="fileIn"></a>fileIn</h4><p>檔案輸入流</p>
+<h4 id="fileOut"><a href="#fileOut" class="headerlink" title="fileOut"></a>fileOut</h4><p>檔案輸出流</p>
+<h4 id="fileCmp"><a href="#fileCmp" class="headerlink" title="fileCmp"></a>fileCmp</h4><p>檔案比對流</p>
+<h3 id="IO-修正"><a href="#IO-修正" class="headerlink" title="IO 修正"></a>IO 修正</h3><h4 id="LFFIX"><a href="#LFFIX" class="headerlink" title="LFFIX"></a>LFFIX</h4><p>定義是否將 gets(),fgets() 讀入字串末端的換行符號 (&#39;\n&#39;) 移除</p>
+<blockquote>
+<p>0 = 不移除字串尾的換行符號<br>1 = 移除字串尾的換行符號</p>
+</blockquote>
+<h3 id="IO-模式"><a href="#IO-模式" class="headerlink" title="IO 模式"></a>IO 模式</h3><p>使用 wrapper 包裝平常會使用到的輸入輸出方式。<br>IO 模式是預設為 F_TF，你可以在 naukri.h 進行更改，若只是要暫時的更改做測試則在 main.c 的 #include &lt;naukri.h&gt; 之前定義你要的模式 Ex:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F_TF</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;naukri.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>就會變成 F_TF 模式。</p>
+<h4 id="NO-WRAPPER"><a href="#NO-WRAPPER" class="headerlink" title="NO_WRAPPER"></a>NO_WRAPPER</h4><p>不包裝，也就是使用原生的 IO 模式</p>
+<h4 id="T-T"><a href="#T-T" class="headerlink" title="T_T"></a>T_T</h4><p>使用終端機作為輸入，並將結果輸出至終端機，和不包裝一樣，差別在它能讓不接受回傳值時的警告消失。</p>
+<h4 id="T-F"><a href="#T-F" class="headerlink" title="T_F"></a>T_F</h4><p>使用終端機作為輸入，並將結果輸出至 FILE_OUTPUT。</p>
+<h4 id="T-TF"><a href="#T-TF" class="headerlink" title="T_TF"></a>T_TF</h4><p>使用終端機作為輸入，並將結果輸出至終端機和 FILE_COMPARE。</p>
+<h4 id="F-T"><a href="#F-T" class="headerlink" title="F_T"></a>F_T</h4><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機。</p>
+<h4 id="F-F"><a href="#F-F" class="headerlink" title="F_F"></a>F_F</h4><p>使用 FILE_INPUT 作為輸入，並將結果輸出至 FILE_OUTPUT。</p>
+<h4 id="F-TF"><a href="#F-TF" class="headerlink" title="F_TF"></a>F_TF</h4><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機和 FILE_OUTPUT。</p>
+<h4 id="F-C"><a href="#F-C" class="headerlink" title="F_C"></a>F_C</h4><p>使用 FILE_INPUT 作為輸入，並將結果輸出至 FILE_COMPARE，這是給 judge.c 使用的巨集。</p>
+<h4 id="F-TC"><a href="#F-TC" class="headerlink" title="F_TC"></a>F_TC</h4><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機和 FILE_COMPARE，這是給 judge.c 使用的巨集。</p>
+<h3 id="被包裝的函式"><a href="#被包裝的函式" class="headerlink" title="被包裝的函式"></a>被包裝的函式</h3><p>除了輸入輸出(參照<a href="#IO-模式">IO 模式</a>)位置外，他們不會對你的程式造成任何影響，你可以像沒有包裝時一樣使用他們。但要注意為了讓模組能夠正常的運行，這些被包裝的函式可能會產生額外的運算。</p>
+<ul>
+<li>scanf(_Format, …)</li>
+<li>gets(_Buffer)</li>
+<li>fgets(_Buffer, _MaxCount, _Stream)</li>
+<li>getchar()</li>
+<li>printf(_Format, …)</li>
+<li>puts(_Buffer)</li>
+<li>putchar(_Character)</li>
+</ul>
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><ul>
+<li><p>judge.c 最上方會有預設的引入，這是使用程式碼進行判斷時的必要引入，請不要將它刪掉，如果不慎誤刪在 naukri.h 最底部有一個被註解掉的備份可以還原。</p>
+</li>
+<li><p>時間判斷是使用 CPU 的 clock 數來計算，因此在終端機等候輸入和使用中斷點 Debug 的時都會被計入，若想要獲得較正確的時間評估請使用 FILE_INPUT 做輸入並關閉所有中斷點。</p>
+</li>
+<li><p>模組中使用的全域函式或變數皆以雙底線開頭、單底線結尾(__func_())，是為了避免和使用者定義的函式衝到，請不要使用這種命名方式。</p>
+</li>
+<li><p>main.c 的 main() 會被用巨集定義成 __main_()、 judge.c 的 main() 則會被定義成 __judge_()，這些是為了先載入模組的必要定義，模組載入後會自己呼叫 __main_() 和 __judge_() ，不必擔心。</p>
+</li>
+<li><p>如果 main.c 和 judge.c 的變數或函式撞名，系統會報錯並顯示該變數(函式)已經在 judge.obj 定義過了，這時候只要把 judge.c 裡面的撞名變數(函式)前面加上 static 前綴即可。</p>
+</li>
+</ul>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="d527: 程式設計師的面試問題(三)" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -800,91 +1000,6 @@
       <div class="hidden-content">
         <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h6 id="AC-1ms-92KB"><a href="#AC-1ms-92KB" class="headerlink" title="AC (1ms, 92KB)"></a>AC (1ms, 92KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"hello, world"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d478: 共同的數 - 簡易版" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d478: 共同的數 - 簡易版
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d478/">
-        <p class="title-text" title="d478: 共同的數 - 簡易版">d478: 共同的數 - 簡易版</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>因為學長覺得 d136 太可怕，所以出一題簡單版的 XD</p>
-<p>小潘跟小花都有很多個正整數，自己的數不會有重覆出現的，而且都是遞增排列。</p>
-<p>現在她們想要知道，兩個人的數有幾個重覆的呢？</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有兩個數字 n,m。 (1&lt;=n&lt;=100,1&lt;=m&lt;=10000)</p>
-<p>接著共有 n 筆測資，每筆測資共有兩行，分別代表兩個人擁有的數，每行共有 m 個數。</p>
-<p>所有數字都不大於 2<sup>3</sup>-1。</p>
-<blockquote>
-<p>2 6<br>1 5 6 8 9 13<br>3 4 5 7 8 11<br>4 6 7 14 16 23<br>6 9 12 13 16 23</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每筆測資請輸出一個數字，</p>
-<p>代表兩個人的數有幾個重覆的。</p>
-<blockquote>
-<p>2<br>3</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>兩陣列皆為遞增排列，所以不用排序直接從頭開始比較比較兩陣列</p>
-<ul>
-<li>若相同，數量 + 1，兩陣列索引都加一</li>
-<li>若不同，值較小的陣列索引加一</li>
-</ul>
-<p>當某一陣列數字用完了就跳出，得到的數量就是答案。</p>
-<p>本題輸入測資頗大，做輸入優化可以省不少時間。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h6 id="AC-21ms-1-1MB"><a href="#AC-21ms-1-1MB" class="headerlink" title="AC (21ms, 1.1MB)"></a>AC (21ms, 1.1MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE 1048576</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10010</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> lhs[MAX], rhs[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZE], * now = buffer + BUFSIZE, * end = buffer + BUFSIZE;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZE)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZE, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, l, r, count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">    &#123;</span><br><span class="line">        count = l = r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            readUInt(&amp;lhs[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            readUInt(&amp;rhs[i]);</span><br><span class="line">        <span class="keyword">for</span> (;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[l] &lt; rhs[r])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (++l == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (rhs[r] &lt; lhs[l])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (++r == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (++l == m) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (++r == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

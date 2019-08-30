@@ -151,6 +151,8 @@
 <li>本地 Judge (支援 Tolerant 、 Strictly 、 Special 三種模式)</li>
 <li>簡單的效能評估</li>
 </ol>
+<a id="more"></a>
+
 <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>以下為在 Visual Studio 安裝的流程</p>
 <ol>
 <li><p><a href="https://github.com/naukri7707/Naukri-OJ-Mod/releases" target="_blank" rel="noopener">下載</a>本模組</p>
@@ -235,7 +237,9 @@
 <h4 id="FILE-INPUT"><a href="#FILE-INPUT" class="headerlink" title="FILE_INPUT"></a>FILE_INPUT</h4><p>輸入檔位置，預設值為 input.txt</p>
 <h4 id="FILE-OUTPUT"><a href="#FILE-OUTPUT" class="headerlink" title="FILE_OUTPUT"></a>FILE_OUTPUT</h4><p>使用者輸出檔位置，預設值為 output.txt</p>
 <h4 id="FILE-COMPARE"><a href="#FILE-COMPARE" class="headerlink" title="FILE_COMPARE"></a>FILE_COMPARE</h4><p>比對用檔案位置，也是判斷程式輸出檔，預設值為 compare.txt</p>
-<h3 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h3><p>這部分僅供模組使用，若無客製化需求只要注意不要使用到關鍵字即可。</p>
+<h3 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h3><p>這部分僅供模組使用，若無客製化需求只要注意不要誤用關鍵字即可。</p>
+<h4 id="stdin"><a href="#stdin" class="headerlink" title="stdin"></a>stdin</h4><p>當輸入選擇 FILE_INPUT 時會覆寫 stdio.h 對 stdin 的定義。</p>
+<p>本巨集僅用於將 freed() 等未被包裝的輸入函式指向正確的輸入位置，在被包裝的函式中，內部會強制將流導向定義的 fileIn 或 termIn 。</p>
 <h4 id="termIn"><a href="#termIn" class="headerlink" title="termIn"></a>termIn</h4><p>終端輸入流</p>
 <h4 id="termOut"><a href="#termOut" class="headerlink" title="termOut"></a>termOut</h4><p>終端輸出流</p>
 <h4 id="termErr"><a href="#termErr" class="headerlink" title="termErr"></a>termErr</h4><p>終端錯誤流</p>
@@ -274,7 +278,7 @@
 </li>
 <li><p>時間判斷是使用 CPU 的 clock 數來計算，因此在終端機等候輸入和使用中斷點 Debug 的時都會被計入，若想要獲得較正確的時間評估請使用 FILE_INPUT 做輸入並關閉所有中斷點。</p>
 </li>
-<li><p>模組中的全域函式皆為以雙底線開頭、單底線結尾(__func_())，是為了避免和使用者定義的函式衝到，為模組使用，請不要使用他們。</p>
+<li><p>模組中使用的全域函式或變數皆以雙底線開頭、單底線結尾(__func_())，是為了避免和使用者定義的函式衝到，請不要使用這種命名方式。</p>
 </li>
 <li><p>main.c 的 main() 會被用巨集定義成 __main_()、 judge.c 的 main() 則會被定義成 __judge_()，這些是為了先載入模組的必要定義，模組載入後會自己呼叫 __main_() 和 __judge_() ，不必擔心。</p>
 </li>

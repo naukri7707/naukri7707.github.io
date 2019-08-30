@@ -98,7 +98,7 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="d073: 分組報告" class="post">
+<article id="d086: 態度之重要的證明" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -121,7 +121,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            d073: 分組報告
+            d086: 態度之重要的證明
           </div>
         </a>
       </li>
@@ -130,8 +130,8 @@
   <div class="post-inner">
     <header class="title">
       
-      <a class="link" href="/線上解題/ZeroJudge/d073/">
-        <p class="title-text" title="d073: 分組報告">d073: 分組報告</p>
+      <a class="link" href="/線上解題/ZeroJudge/d086/">
+        <p class="title-text" title="d086: 態度之重要的證明">d086: 態度之重要的證明</p>
       </a>
       
       <div class="separator"></div>
@@ -145,163 +145,22 @@
     </header>
     
     <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>電腦課要同學分組做期末報告，分組的方式為依座號順序，每 3 個人一組。如：1, 2, 3 為第一組，4, 5, 6 為第二組….以此類推。輸入同學的座號，請判斷他在哪一組。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>今天我們如果將 a=1,b=2,c=3….以此類推下去，<br>將單字裡的每個文字依照上面規則轉換成數字再相加起來的話。<br>知識(KNOWLEDGE)只有 96 分，<br>努力(HARDWORK)只有 98 分，<br>但態度(ATTITUDE)卻是 100 分。</p>
+<p>風台高中的 Norton 看到了上面的文章後並不相信，<br>他想把它們真的加起來看看，<br>以找到一個字可以反駁這個「態度最重要」的理論<br>但卻討厭換來換去的過程，<br>請幫他寫個程式方便他去做運算。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，含有一個正整數 n，代表同學的座號。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入英文單字，大小寫不限，當輸入 0 的時候就結束程式。<br>長度最長為 200 個字。<br>請參照 Sample Input。</p>
 <blockquote>
-<p>7</p>
+<p>hardwork<br>KNOWLEDGE<br>aTtitUdE<br>C++<br>0</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出該同學的組別。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出將英文單字依照題目的規則轉換成數字後相加的結果，如果中間參雜怪異的符號，請輸出 Fail；但是英文字母的大小寫並不會影響結果，也就是說 A 和 a 所代表的值是相同<br>的。請參照 Sample Output。</p>
 <blockquote>
-<p>3</p>
+<p>98<br>96<br>100<br>Fail</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>每 3 人一組所以要除以 3，但因為 1,2 除 3 是餘 0，3 除 3 是餘 1 會不在同組，所以每個數字都加上 2 讓他們會在同一組。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>遍歷輸入字串，將總分依題意加上對應的分數，遍歷結束後輸出即可。</p>
       <div class="hidden-content">
         <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-116KB"><a href="#AC-2ms-116KB" class="headerlink" title="AC (2ms, 116KB)"></a>AC (2ms, 116KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (n + <span class="number">2</span>) / <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d072: 文文的求婚--續集 (Case 版)" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d072: 文文的求婚--續集 (Case 版)
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d072/">
-        <p class="title-text" title="d072: 文文的求婚--續集 (Case 版)">d072: 文文的求婚--續集 (Case 版)</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-26
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>承 a004，珊珊終於學成歸國了，文文的考驗時刻也到了。走出了迎客大廳，珊珊問：「What type of year was I born in?」文文很有自信的回答：「閏年！」可是珊珊卻說：「No, It was a LEAP YEAR!」看來文文要娶到珊珊，還得先把英文練一練。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的第一行有一個整數 n。接下來的 n 行每行有一個正整數 y，代表珊珊生日的西元年份。</p>
-<blockquote>
-<p>4<br>1992<br>1993<br>1900<br>2000</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於所輸入的每個 y，要各別輸出一行。每一行由「Case i: 」開頭，其中的 i 代表第 i 筆測試資料，若 y 是閏年，請於該行接著輸出「a leap year」，否則請輸出「a normal year」。請參閱範例輸出。</p>
-<blockquote>
-<p>Case 1: a leap year<br>Case 2: a normal year<br>Case 3: a normal year<br>Case 4: a leap year</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> kase, y;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kase);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= kase; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;y);</span><br><span class="line">        <span class="keyword">if</span> (!(y % <span class="number">400</span>) || !(y % <span class="number">4</span>) &amp;&amp; (y % <span class="number">100</span>))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: a leap year\n"</span>, i);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: a normal year\n"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d071: 文文的求婚--續集 (EOF 版)" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d071: 文文的求婚--續集 (EOF 版)
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d071/">
-        <p class="title-text" title="d071: 文文的求婚--續集 (EOF 版)">d071: 文文的求婚--續集 (EOF 版)</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-26
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>承 a004，珊珊終於學成歸國了，文文的考驗時刻也到了。走出了迎客大廳，珊珊問：「What type of year was I born in?」文文很有自信的回答：「閏年！」可是珊珊卻說：「No, It was a LEAP YEAR!」看來文文要娶到珊珊，還得先把英文練一練。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入有若干行。輸入的每一行有一個正整數 y，代表珊珊生日的西元年份。輸入以 EOF 作為結束。</p>
-<blockquote>
-<p>1992<br>1993<br>1900<br>2000</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於所輸入的每個 y，要各別輸出一行。若 y 是閏年，請於該行輸出「a leap year」，否則請輸出「a normal year」。</p>
-<blockquote>
-<p>a leap year<br>a normal year<br>a normal year<br>a leap year</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;y) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!(y % <span class="number">400</span>) || !(y % <span class="number">4</span>) &amp;&amp; (y % <span class="number">100</span>))</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a leap year"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a normal year"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> a = <span class="string">'a'</span> - <span class="number">1</span>, A = <span class="string">'A'</span> - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> score;</span><br><span class="line"><span class="keyword">char</span> input[<span class="number">200</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span>, input) == <span class="number">1</span> &amp;&amp; !(input[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; input[<span class="number">1</span>] == <span class="string">'\0'</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        score = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; input[i]; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (input[i] &gt;= <span class="string">'a'</span> &amp;&amp; input[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">                score += input[i] - a;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (input[i] &gt;= <span class="string">'A'</span> &amp;&amp; input[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">                score += input[i] - A;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"Fail"</span>);</span><br><span class="line">                score = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (score)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, score);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
@@ -373,77 +232,6 @@
       <div class="hidden-content">
         <hr>
 <h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-76KB"><a href="#AC-2ms-76KB" class="headerlink" title="AC (2ms, 76KB)"></a>AC (2ms, 76KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;y) == <span class="number">1</span> &amp;&amp; y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!(y % <span class="number">400</span>) || !(y % <span class="number">4</span>) &amp;&amp; (y % <span class="number">100</span>))</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a leap year"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a normal year"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d069: 文文的求婚--續集 (n 行版)" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d069: 文文的求婚--續集 (n 行版)
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d069/">
-        <p class="title-text" title="d069: 文文的求婚--續集 (n 行版)">d069: 文文的求婚--續集 (n 行版)</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-26
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>承 a004，珊珊終於學成歸國了，文文的考驗時刻也到了。走出了迎客大廳，珊珊問：「What type of year was I born in?」文文很有自信的回答：「閏年！」可是珊珊卻說：「No, It was a LEAP YEAR!」看來文文要娶到珊珊，還得先把英文練一練。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的第一行有一個整數 n。接下來的 n 行每行有一個正整數 y，代表珊珊生日的西元年份。</p>
-<blockquote>
-<p>4<br>1992<br>1993<br>1900<br>2000</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於所輸入的每個 y，要各別輸出一行。若 y 是閏年，請於該行輸出「a leap year」，否則請輸出「a normal year」。</p>
-<blockquote>
-<p>a leap year<br>a normal year<br>a normal year<br>a leap year</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> kase, y;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kase);</span><br><span class="line">    <span class="keyword">while</span> (kase--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;y);</span><br><span class="line">        <span class="keyword">if</span> (!(y % <span class="number">400</span>) || !(y % <span class="number">4</span>) &amp;&amp; (y % <span class="number">100</span>))</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a leap year"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a normal year"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
@@ -525,6 +313,219 @@
   </div>
 </article>
 
+<article id="d066: 上學去吧！" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d066: 上學去吧！
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d066/">
+        <p class="title-text" title="d066: 上學去吧！">d066: 上學去吧！</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-26
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>板橋高中規定同學必須在 7:30 以前到校早自習，最後一堂課則在 17:00 下課。給你現在的時間，請判斷現在是不是必須在學校的時間。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，其中含有兩個由空隔開的整數 hh 及 mm，hh:mm 則代表現在的時間 (24 小時制)。</p>
+<blockquote>
+<p>17 00</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>如果現在是上學時間，請輸出「At School」，否則請輸出「Off School」</p>
+<blockquote>
+<p>Off School</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的多重判斷。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-88KB"><a href="#AC-2ms-88KB" class="headerlink" title="AC (2ms, 88KB)"></a>AC (2ms, 88KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;h, &amp;m);</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">7</span> &amp;&amp; m &gt;= <span class="number">30</span> || h &gt; <span class="number">7</span> &amp;&amp; h &lt; <span class="number">17</span>)</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"At School"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Off School"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d069: 文文的求婚--續集 (n 行版)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d069: 文文的求婚--續集 (n 行版)
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d069/">
+        <p class="title-text" title="d069: 文文的求婚--續集 (n 行版)">d069: 文文的求婚--續集 (n 行版)</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-26
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>承 a004，珊珊終於學成歸國了，文文的考驗時刻也到了。走出了迎客大廳，珊珊問：「What type of year was I born in?」文文很有自信的回答：「閏年！」可是珊珊卻說：「No, It was a LEAP YEAR!」看來文文要娶到珊珊，還得先把英文練一練。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入的第一行有一個整數 n。接下來的 n 行每行有一個正整數 y，代表珊珊生日的西元年份。</p>
+<blockquote>
+<p>4<br>1992<br>1993<br>1900<br>2000</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>對於所輸入的每個 y，要各別輸出一行。若 y 是閏年，請於該行輸出「a leap year」，否則請輸出「a normal year」。</p>
+<blockquote>
+<p>a leap year<br>a normal year<br>a normal year<br>a leap year</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> kase, y;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kase);</span><br><span class="line">    <span class="keyword">while</span> (kase--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;y);</span><br><span class="line">        <span class="keyword">if</span> (!(y % <span class="number">400</span>) || !(y % <span class="number">4</span>) &amp;&amp; (y % <span class="number">100</span>))</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a leap year"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"a normal year"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d064: ㄑㄧˊ 數？" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (185)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (184)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d064: ㄑㄧˊ 數？
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d064/">
+        <p class="title-text" title="d064: ㄑㄧˊ 數？">d064: ㄑㄧˊ 數？</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-26
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>英文的 Odd 是「奇怪」的意思，Odd Number 當然就是「奇怪的數字」簡稱「奇數」。問題是「奇數」倒底是唸成「ㄐㄧ數」或是「ㄑㄧ ˊ 數」呢？</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，其中含有一個整數 i。</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>如果 i 是奇數，輸出 Odd；如果 i 是偶數，則輸出 Even。</p>
+<blockquote>
+<p>Odd</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">puts</span>(n &amp; <span class="number">1</span> ? <span class="string">"Odd"</span> : <span class="string">"Even"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="d067: 文文的求婚--續集 (1 行版)" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -596,7 +597,7 @@
   </div>
 </article>
 
-<article id="d066: 上學去吧！" class="post">
+<article id="d063: 0 與 1" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -619,7 +620,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            d066: 上學去吧！
+            d063: 0 與 1
           </div>
         </a>
       </li>
@@ -628,8 +629,8 @@
   <div class="post-inner">
     <header class="title">
       
-      <a class="link" href="/線上解題/ZeroJudge/d066/">
-        <p class="title-text" title="d066: 上學去吧！">d066: 上學去吧！</p>
+      <a class="link" href="/線上解題/ZeroJudge/d063/">
+        <p class="title-text" title="d063: 0 與 1">d063: 0 與 1</p>
       </a>
       
       <div class="separator"></div>
@@ -643,21 +644,22 @@
     </header>
     
     <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>板橋高中規定同學必須在 7:30 以前到校早自習，最後一堂課則在 17:00 下課。給你現在的時間，請判斷現在是不是必須在學校的時間。</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>文文上了他的第一堂電腦概論，老師說電腦內部是由很多的小開關來組成：1 代表開、0 代表關。於是聰明的文文便瞭解了，原來我們平常使用電燈開關就是把 1 變成 0、0 變成 1 嘛！</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，其中含有兩個由空隔開的整數 hh 及 mm，hh:mm 則代表現在的時間 (24 小時制)。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，含有一個為 0 或 1 的整數。</p>
 <blockquote>
-<p>17 00</p>
+<p>1</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>如果現在是上學時間，請輸出「At School」，否則請輸出「Off School」</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸入為 0 則輸出 1；輸入為 1 則輸出 0。</p>
 <blockquote>
-<p>Off School</p>
+<p>0</p>
 </blockquote>
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p>你能不用 if 指令，只用算術或關係運算子做出這題嗎？</p>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的多重判斷。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>利用 邏輯 not(&#39;!&#39;)運算子 0 會變 1、1 會變 0 的特性來取帶 if 判斷。</p>
       <div class="hidden-content">
         <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-88KB"><a href="#AC-2ms-88KB" class="headerlink" title="AC (2ms, 88KB)"></a>AC (2ms, 88KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;h, &amp;m);</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">7</span> &amp;&amp; m &gt;= <span class="number">30</span> || h &gt; <span class="number">7</span> &amp;&amp; h &lt; <span class="number">17</span>)</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"At School"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Off School"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-84KB"><a href="#AC-2ms-84KB" class="headerlink" title="AC (2ms, 84KB)"></a>AC (2ms, 84KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, !n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
@@ -738,7 +740,7 @@
   </div>
 </article>
 
-<article id="d064: ㄑㄧˊ 數？" class="post">
+<article id="d060: 還要等多久啊？" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -761,7 +763,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            d064: ㄑㄧˊ 數？
+            d060: 還要等多久啊？
           </div>
         </a>
       </li>
@@ -770,8 +772,8 @@
   <div class="post-inner">
     <header class="title">
       
-      <a class="link" href="/線上解題/ZeroJudge/d064/">
-        <p class="title-text" title="d064: ㄑㄧˊ 數？">d064: ㄑㄧˊ 數？</p>
+      <a class="link" href="/線上解題/ZeroJudge/d060/">
+        <p class="title-text" title="d060: 還要等多久啊？">d060: 還要等多久啊？</p>
       </a>
       
       <div class="separator"></div>
@@ -785,21 +787,21 @@
     </header>
     
     <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>英文的 Odd 是「奇怪」的意思，Odd Number 當然就是「奇怪的數字」簡稱「奇數」。問題是「奇數」倒底是唸成「ㄐㄧ數」或是「ㄑㄧ ˊ 數」呢？</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>文文又想打電話給珊珊，可是這次他碰到了另一個問題。珊珊說他們學校每堂課 50 分鐘，下課的時間都是整點過後 25 分，休息 10 鐘後再上下一節課。文文不想打擾珊珊上課，也不想才剛打通電話她就要上課去了，因此他決定一定要在剛好 25 分的時候打電話給她。給你現在的時間的分，請你幫他算算看還要等多久才能打電話給珊珊？</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，其中含有一個整數 i。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，包含現在時間的分 m (0 ≤ m ≤ 59)。</p>
 <blockquote>
-<p>1</p>
+<p>20</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>如果 i 是奇數，輸出 Odd；如果 i 是偶數，則輸出 Even。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出還要等幾分鐘文文才能打電話。</p>
 <blockquote>
-<p>Odd</p>
+<p>5</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的條件判斷。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>時間為 25 分但輸入可能大於 25，所以再加上 60 避免負值出現，所以用 85 減掉 n 之後和 60 取餘即可。</p>
       <div class="hidden-content">
         <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">puts</span>(n &amp; <span class="number">1</span> ? <span class="string">"Odd"</span> : <span class="string">"Even"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-120KB"><a href="#AC-2ms-120KB" class="headerlink" title="AC (2ms, 120KB)"></a>AC (2ms, 120KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (<span class="number">85</span> - n) % <span class="number">60</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">
