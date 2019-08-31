@@ -10,7 +10,7 @@
   <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Title & Icon -->
   
-  <title>d460: 山六九之旅 | Naukri&#39;s Blog</title>
+  <title>d555: 平面上的極大點 | Naukri&#39;s Blog</title>
   
   
   <link rel="icon" href="/img/favicon.ico">
@@ -94,7 +94,7 @@
 </header>
   <div class="wrapper main-body">
     <main id="main">
-      <article id="d460: 山六九之旅" class="post">
+      <article id="d555: 平面上的極大點" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
@@ -117,7 +117,7 @@
       <li class="meta-list-item">
         <a class="meta-list-link current-link">
           <div class="meta-list-link-text">
-            d460: 山六九之旅
+            d555: 平面上的極大點
           </div>
         </a>
       </li>
@@ -127,42 +127,55 @@
     <header class="title">
       
       <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="d460: 山六九之旅">d460: 山六九之旅</p>
+      <p class="title-text" title="d555: 平面上的極大點">d555: 平面上的極大點</p>
       
       <div class="separator"></div>
       <div class="info">
         
         <time class="time">
           <i class="far fa-calendar-alt"></i>
-          2019-08-29
+          2019-08-31
         </time>
       </div>
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小華每年都會到「山六九」主題樂園去玩，但是隨著年齡的增加，每年要買的門票也不太一樣。給你小華的年齡，請你告訴我他今年的門票多少錢？</p>
-<p>「山六九」主題樂園的票價表如下：</p>
-<p>0 ~ 5 歲兒童免票</p>
-<p>兒童票 (6 ~ 11 歲)：590 元</p>
-<p>青少年票 (12 ~ 17 歲)：790 元</p>
-<p>成人票 (18 ~ 59 歲)：890 元</p>
-<p>敬老票 (60 歲以上)：399 元</p>
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>在平面上如果有兩個點 ( x , y ) 與 ( a , b ),我們說 ( x , y ) 支配(Dominate)了</p>
+<p>( a , b )這就是指 x ≧ a 而且 y ≧ b；用圖來看就是 ( a , b ) 座落在以 ( x , y ) 為右上角的<br>一點無的區域中。</p>
+<p>對於平面上的任意一個有限點集合而言，一定存在有若干個點，它們不會被</p>
+<p>集合中的內一點所支配，這些個數就構成一個所謂的極大集合。請寫一個程式，<br>讀入一個新的集合，找出這個集合中的極大值。</p>
+<p>※簡單的說 若找不到一點在 ( x , y ) 的右上方,則 ( x , y ) 就要輸出</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，內含一個整數 a (0≤a≤2147483647) 代表小華的年齡。</p>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每個測資的第一行有一個數字 N ( 1 ≦ N ≦ 50,0000 )，代表接下來有 N 行，<br>每行上有兩個數字 x , y ( 0 ≦ X,Y ≦ 100000 )<br>分別代表一點的 X 軸座標，與 Y 軸座標。</p>
 <blockquote>
-<p>15</p>
+<p>11<br>0 8<br>1 10<br>3 4<br>4 6<br>4 9<br>5 8<br>6 9<br>7 5<br>8 7<br>9 8<br>10 6</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>依「山六九」的票價表，輸出一個整數，代表小華今年的門票價格。</p>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請依照 X 軸的大小,由小輸出至大,剩餘的請參考 Sample Out。</p>
 <blockquote>
-<p>790</p>
+<p>Case 1:<br>Dominate Point: 4<br>(1,10)<br>(6,9)<br>(9,8)<br>(10,6)</p>
 </blockquote>
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p><img src="https://zerojudge.tw/ShowImage?id=318" alt="img1"></p>
 <hr>
-<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p>你可以只用算術及關係運算子，而不用 if、switch、或 ? : 來寫出這題嗎？ (這是「挑戰」而不是「限制」，因為出題者不是系統管理員，不能限制你用這些指令。)</p>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>利用關係運算子成立時為 1 ，不成立時為 0 的特性用乘法判斷。</p>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><ol>
+<li><p>最極端的點 (x 或 y 最大的點) 必為支配點，因為沒有其他點比他的 x(或 y)大。</p>
+</li>
+<li><p>如果要判斷 a 點是否支配於 b 點，只要判斷 a 點的 x 和 y 是否皆小於 b 點即可。</p>
+</li>
+</ol>
+<p>所以藉由第一個規則，就可以先找出第一個支配點，再用第二個規則找出不被已知支配點支配的新支配點，如此循環找査直到所有點都被判斷過即可。</p>
+<p>Ex:</p>
+<ol>
+<li>x 最大 (暫稱他為第一支配點)</li>
+<li>x 比第一支配點的 x 還小，但 y 比第一支配點的 y 大 (暫稱他為第二支配點)</li>
+<li>x 比第二支配點的 x 還小，但 y 比第二支配點的 y 大 (暫稱他為第三支配點)</li>
+<li>x 比第三支配點的 x 還小，但 y 比第三支配點的 y 大</li>
+<li>…</li>
+</ol>
+<p>而由於已知第一支配點的 x 為本組數列之最大值，故判斷時只需要判斷 y 即可。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, (n &gt;= <span class="number">6</span> &amp;&amp; n &lt; <span class="number">12</span>) * <span class="number">590</span> + (n &gt;= <span class="number">12</span> &amp;&amp; n &lt; <span class="number">18</span>) * <span class="number">790</span></span><br><span class="line">        + (n &gt;= <span class="number">18</span> &amp;&amp; n &lt; <span class="number">60</span>) * <span class="number">890</span> + (n &gt;= <span class="number">60</span>) * <span class="number">399</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-0-2s-7-7MB"><a href="#AC-0-2s-7-7MB" class="headerlink" title="AC (0.2s, 7.7MB)"></a>AC (0.2s, 7.7MB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 500000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">&#125; Point;</span><br><span class="line"></span><br><span class="line">Point <span class="built_in">list</span>[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Point* lhs, <span class="keyword">const</span>  Point* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*rhs).x != (*lhs).x ? (*rhs).x - (*lhs).x : (*rhs).y - (*lhs).y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, len, yMax;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> kase = <span class="number">1</span>; <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>; kase++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;<span class="built_in">list</span>[i].x, &amp;<span class="built_in">list</span>[i].y);</span><br><span class="line">        qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(Point), cmp);</span><br><span class="line">        yMax = <span class="built_in">list</span>[<span class="number">0</span>].y, len = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">list</span>[i].y &gt; yMax)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">list</span>[len++] = <span class="built_in">list</span>[i];</span><br><span class="line">                yMax = <span class="built_in">list</span>[i].y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d:\nDominate Point: %d\n"</span>, kase, len);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; ~i; i--)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"(%d,%d)\n"</span>, <span class="built_in">list</span>[i].x, <span class="built_in">list</span>[i].y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
