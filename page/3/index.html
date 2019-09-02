@@ -98,12 +98,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="d491: 我也愛偶數 (swap 版)" class="post">
+<article id="d555: 平面上的極大點" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -111,7 +111,374 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d555: 平面上的極大點
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/d555/">
+        <p class="title-text" title="d555: 平面上的極大點">d555: 平面上的極大點</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-31
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容-d555-平面上的極"><a href="#內容-d555-平面上的極" class="headerlink" title="內容 d555: 平面上的極"></a>內容 d555: 平面上的極</h1><p>在平面上如果有兩個點 ( x , y ) 與 ( a , b ),我們說 ( x , y ) 支配(Dominate)了</p>
+<p>( a , b )這就是指 x ≧ a 而且 y ≧ b；用圖來看就是 ( a , b ) 座落在以 ( x , y ) 為右上角的<br>一點無的區域中。</p>
+<p>對於平面上的任意一個有限點集合而言，一定存在有若干個點，它們不會被</p>
+<p>集合中的內一點所支配，這些個數就構成一個所謂的極大集合。請寫一個程式，<br>讀入一個新的集合，找出這個集合中的極大值。</p>
+<p>※簡單的說 若找不到一點在 ( x , y ) 的右上方,則 ( x , y ) 就要輸出</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每個測資的第一行有一個數字 N ( 1 ≦ N ≦ 50,0000 )，代表接下來有 N 行，<br>每行上有兩個數字 x , y ( 0 ≦ X,Y ≦ 100000 )<br>分別代表一點的 X 軸座標，與 Y 軸座標。</p>
+<blockquote>
+<p>11<br>0 8<br>1 10<br>3 4<br>4 6<br>4 9<br>5 8<br>6 9<br>7 5<br>8 7<br>9 8<br>10 6</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請依照 X 軸的大小,由小輸出至大,剩餘的請參考 Sample Out。</p>
+<blockquote>
+<p>Case 1:<br>Dominate Point: 4<br>(1,10)<br>(6,9)<br>(9,8)<br>(10,6)</p>
+</blockquote>
+<h1 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h1><p><img src="https://zerojudge.tw/ShowImage?id=318" alt="img1"></p>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><ol>
+<li><p>最極端的點 (x 或 y 最大的點) 必為支配點，因為沒有其他點比他的 x(或 y)大。</p>
+</li>
+<li><p>如果要判斷 a 點是否支配於 b 點，只要判斷 a 點的 x 和 y 是否皆小於 b 點即可。</p>
+</li>
+</ol>
+<p>所以藉由第一個規則，就可以先找出第一個支配點，再用第二個規則找出不被已知支配點支配的新支配點，如此循環找査直到所有點都被判斷過即可。</p>
+<p>Ex:</p>
+<ol>
+<li>x 最大 (暫稱他為第一支配點)</li>
+<li>x 比第一支配點的 x 還小，但 y 比第一支配點的 y 大 (暫稱他為第二支配點)</li>
+<li>x 比第二支配點的 x 還小，但 y 比第二支配點的 y 大 (暫稱他為第三支配點)</li>
+<li>x 比第三支配點的 x 還小，但 y 比第三支配點的 y 大</li>
+<li>…</li>
+</ol>
+<p>而由於已知第一支配點的 x 為本組數列之最大值，故判斷時只需要判斷 y 即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-0-2s-7-7MB"><a href="#AC-0-2s-7-7MB" class="headerlink" title="AC (0.2s, 7.7MB)"></a>AC (0.2s, 7.7MB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 500000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">&#125; Point;</span><br><span class="line"></span><br><span class="line">Point <span class="built_in">list</span>[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Point* lhs, <span class="keyword">const</span>  Point* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*rhs).x != (*lhs).x ? (*rhs).x - (*lhs).x : (*rhs).y - (*lhs).y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, len, yMax;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> kase = <span class="number">1</span>; <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>; kase++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;<span class="built_in">list</span>[i].x, &amp;<span class="built_in">list</span>[i].y);</span><br><span class="line">        qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(Point), cmp);</span><br><span class="line">        yMax = <span class="built_in">list</span>[<span class="number">0</span>].y, len = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">list</span>[i].y &gt; yMax)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">list</span>[len++] = <span class="built_in">list</span>[i];</span><br><span class="line">                yMax = <span class="built_in">list</span>[i].y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d:\nDominate Point: %d\n"</span>, kase, len);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; ~i; i--)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"(%d,%d)\n"</span>, <span class="built_in">list</span>[i].x, <span class="built_in">list</span>[i].y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id=" 模板表" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+             模板表
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/模板庫/模板表/">
+        <p class="title-text" title=" 模板表"> 模板表</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h2 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h2><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="字串賦值"><a href="#字串賦值" class="headerlink" title="字串賦值"></a><a href="/模板庫/字串賦值/">字串賦值</a></h2><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h2><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
+<h2 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h2><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
+
+    </div>
+    
+  </div>
+</article>
+
+<article id="[模板] 字串賦值" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 字串賦值
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/模板庫/字串賦值/">
+        <p class="title-text" title="[模板] 字串賦值">[模板] 字串賦值</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-30
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="setInt"><a href="#setInt" class="headerlink" title="setInt()"></a>setInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">13</span>], * st = tmp + <span class="number">12</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h2 id="setUInt"><a href="#setUInt" class="headerlink" title="setUInt()"></a>setUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">11</span>], * st = tmp + <span class="number">10</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="setLongLong"><a href="#setLongLong" class="headerlink" title="setLongLong()"></a>setLongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setLongLong</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">22</span>], * st = tmp + <span class="number">21</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="setULongLong"><a href="#setULongLong" class="headerlink" title="setULongLong()"></a>setULongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setULongLong</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">22</span>], * st = tmp + <span class="number">21</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><h3 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h3><p>本字串用來接收字串化後的數值。</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>本參數為要輸出的整數</p>
+<h3 id="suffix"><a href="#suffix" class="headerlink" title="suffix"></a>suffix</h3><p>本參數為串接在整數後面的一個後綴字元，若無後墜請輸入 0 (或 &#39;\0&#39;)</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>該函數返回最後一個格式化數字的下一位元指標，如果含有後綴則在後綴的下一位。</p>
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">11</span>], * st = tmp + <span class="number">10</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">13</span>], * st = tmp + <span class="number">12</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> input[<span class="number">10000</span>], * st = input;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> v = <span class="number">1L</span>L &lt;&lt; <span class="number">31</span>;</span><br><span class="line">    st = setInt(st, <span class="number">2147483647</span>, <span class="string">' '</span>);</span><br><span class="line">    st = setInt(st, v, <span class="string">'\n'</span>);</span><br><span class="line">    st = setInt(st, <span class="number">-2147483647</span>, <span class="string">' '</span>);</span><br><span class="line">    <span class="built_in">puts</span>(input);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h4><blockquote>
+<p>2147483647 -2147483648<br>-2147483647</p>
+</blockquote>
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><p>無</p>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="[模板] 字串取值" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 字串取值
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/模板庫/字串取值/">
+        <p class="title-text" title="[模板] 字串取值">[模板] 字串取值</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="getInt"><a href="#getInt" class="headerlink" title="getInt()"></a>getInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*buffer == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h2 id="getUInt"><a href="#getUInt" class="headerlink" title="getUInt()"></a>getUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getLongLong"><a href="#getLongLong" class="headerlink" title="getLongLong()"></a>getLongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getLongLong</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">long</span> <span class="keyword">long</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*buffer == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getULongLong"><a href="#getULongLong" class="headerlink" title="getULongLong()"></a>getULongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getULongLong</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="getDouble"><a href="#getDouble" class="headerlink" title="getDouble()"></a>getDouble()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getDouble</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">double</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> nag;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*buffer == <span class="string">'-'</span>)</span><br><span class="line">        nag = <span class="number">1</span>, *dst = *++buffer ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        nag = <span class="number">0</span>, *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = *dst * <span class="number">10</span> + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">if</span> (*buffer == <span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">register</span> <span class="keyword">double</span> m = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst += (*buffer ^ <span class="string">'0'</span>) * (m *= <span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nag)* dst = -*dst;</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><h3 id="buffer"><a href="#buffer" class="headerlink" title="buffer"></a>buffer</h3><p>本參數為來源字串。</p>
+<h3 id="dst"><a href="#dst" class="headerlink" title="dst"></a>dst</h3><p>本參數用來接收格式化後的數值。</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>該函數返回最後一個格式化數字的下一位元指標，如果過濾字元時檢索到空字元 (&#39;\0&#39;)，則返回一個空指標。</p>
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span>* <span class="title">getInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*buffer &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (!*buffer++) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (*buffer == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *++buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = *buffer ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*++buffer &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (*buffer ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> buffer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> input[<span class="number">1000</span>] = <span class="string">"123 20 0 -17"</span>, * st = input;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">while</span> (st = getInt(&amp;val, st))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h4><blockquote>
+<p>123<br>20<br>0<br>-17</p>
+</blockquote>
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><p>為了加快速度，過濾字元時使用 (ch &lt; &#39;0&#39; (有號為&#39;-&#39;))、判斷數字使用 (ch &gt;= &#39;0&#39;) 作為字元判斷依據如果字串中包含不符合條件的字元請自行修改判斷式或採用以下嚴格判斷的方式避免錯誤。</p>
+<h4 id="過濾字元"><a href="#過濾字元" class="headerlink" title="過濾字元"></a>過濾字元</h4><p>有號</p>
+<blockquote>
+<p>(((ch = *buffer++) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;) &amp;&amp; ch != &#39;-&#39;)</p>
+</blockquote>
+<p>無號</p>
+<blockquote>
+<p>((ch = *buffer++) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;)</p>
+</blockquote>
+<h4 id="判斷數字"><a href="#判斷數字" class="headerlink" title="判斷數字"></a>判斷數字</h4><blockquote>
+<p>((ch = *buffer++) &gt;= &#39;0&#39; &amp;&amp; ch &lt;= &#39;9&#39;)</p>
+</blockquote>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="[模板] 輸出優化" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 輸出優化
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/模板庫/輸出優化/">
+        <p class="title-text" title="[模板] 輸出優化">[模板] 輸出優化</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-30
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><h2 id="putInt"><a href="#putInt" class="headerlink" title="putInt()"></a>putInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">13</span>], * st = buffer + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h2 id="putUInt"><a href="#putUInt" class="headerlink" title="putUInt()"></a>putUInt()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putUInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">12</span>], * st = buffer + <span class="number">10</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="putLongLong"><a href="#putLongLong" class="headerlink" title="putLongLong()"></a>putLongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putLongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">22</span>], * st = buffer + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="putULongLong"><a href="#putULongLong" class="headerlink" title="putULongLong()"></a>putULongLong()</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putULongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">22</span>], * st = buffer + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>本參數為要輸出的整數</p>
+<h3 id="suffix"><a href="#suffix" class="headerlink" title="suffix"></a>suffix</h3><p>本參數為串接在整數後面的一個後墜字元，若無後墜請輸入 0 (或 &#39;\0&#39;)</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>本函式無返回值</p>
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">13</span>], * st = buffer + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = (<span class="keyword">unsigned</span> <span class="keyword">int</span>)(src = ~src + <span class="number">1</span>) / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">1</span> &lt;&lt; <span class="number">31</span>;</span><br><span class="line">    putInt(<span class="number">30</span>, <span class="string">' '</span>);</span><br><span class="line">    putInt(<span class="number">2147483647</span>, <span class="string">'\n'</span>);</span><br><span class="line">    putInt(min, <span class="string">'\0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h4><blockquote>
+<p>30 2147483647<br>-2147483648</p>
+</blockquote>
+<h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><p>無</p>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d491: 我也愛偶數 (swap 版)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -174,7 +541,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -182,7 +549,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -252,7 +619,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -260,7 +627,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -374,7 +741,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -382,7 +749,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -445,7 +812,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (204)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -453,7 +820,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (203)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -511,394 +878,6 @@
   </div>
 </article>
 
-<article id="a001: 哈囉" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            a001: 哈囉
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/a001/">
-        <p class="title-text" title="a001: 哈囉">a001: 哈囉</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-01
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>學習所有程式語言的第一個練習題<br>請寫一個程式，可以讀入指定的字串，並且輸出指定的字串。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入指定的文字</p>
-<blockquote>
-<p>world<br>C++<br>mary</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出指定的文字</p>
-<blockquote>
-<p>hello, world<br>hello, C++<br>hello, mary</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的輸入輸出</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-88KB"><a href="#AC-2ms-88KB" class="headerlink" title="AC (2ms, 88KB)"></a>AC (2ms, 88KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span> , s) == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"hello, %s\n"</span>, s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d461: 班際籃球賽" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d461: 班際籃球賽
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d461/">
-        <p class="title-text" title="d461: 班際籃球賽">d461: 班際籃球賽</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>又到了一年一度班際籃球賽的季節了，今年有 10 個班級組隊參加，比賽採單淘汰制，學校所排的賽程如下：</p>
-<p><img src="https://zerojudge.tw/ShowImage?id=298" alt="img1" title="圖1"></p>
-<p>為了公平起見，學校在排賽程時，有兩個規定：</p>
-<ol>
-<li><p>每個隊伍要取得冠軍所需贏得的比賽場數的差異不能大於一場。例如 101 贏 3 場可以獲得冠軍，但是 102 卻必須贏 4 場才可以獲得冠軍，其差異沒有大於一場。</p>
-</li>
-<li><p>每一場比賽的兩個隊伍必須由兩個隊數差異不大於一隊的組別所產生。例如 101, 102, 103 這三隊所產生的優勝隊伍必須和 104, 105 這兩隊所產生的隊伍比賽，兩邊所包含的隊伍數差異不大於一隊。</p>
-</li>
-</ol>
-<p>在這兩個規則下，請幫忙計算如果有 n 個隊伍報名參賽，至少必須舉辦幾場比賽才能產生一個冠軍隊伍。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，包含一個整數 n，代表報名參賽的隊伍數目。</p>
-<blockquote>
-<p>10</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請輸出一個整數，代表至少必須舉辦幾場比賽。</p>
-<blockquote>
-<p>9</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>題目中的規定並不是很重要，本題重點是單淘汰制，所以每比一場賽，就會有一組被淘汰。</p>
-<p>而要產生冠軍，就只能將其他組都淘汰剩下一組，那根據上面一場比賽一個淘汰的邏輯，要產生冠軍的總賽數 = 總組數 - 1，所以將輸入 - 1 輸出即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d471: 0 與 1 的遊戲" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d471: 0 與 1 的遊戲
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d471/">
-        <p class="title-text" title="d471: 0 與 1 的遊戲">d471: 0 與 1 的遊戲</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>有 1 個 bit，可以表示 0 與 1。</p>
-<p>有 2 個 bit，可以表示 00，01，10，11。</p>
-<p>有 n 個 bit，請產生所有 n 個 bit 所能表示的 2 進位數字。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每行一個數字 n ( 0 &lt; n &lt; 15 )</p>
-<p>代表 n 個 bit</p>
-<blockquote>
-<p>1<br>2</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請參考範例輸出</p>
-<blockquote>
-<p>0<br>1<br>00<br>01<br>10<br>11</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>用 DFS 窮舉目標位元數的所有 2 進制可能性即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-3ms-76KB"><a href="#AC-3ms-76KB" class="headerlink" title="AC (3ms, 76KB)"></a>AC (3ms, 76KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">char</span> ans[<span class="number">16</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> lv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lv == n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(ans);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans[lv] = <span class="string">'0'</span>;</span><br><span class="line">    dfs(lv + <span class="number">1</span>);</span><br><span class="line">    ans[lv] = <span class="string">'1'</span>;</span><br><span class="line">    dfs(lv + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ans[n] = <span class="number">0</span>;</span><br><span class="line">        dfs(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d478: 共同的數 - 簡易版" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d478: 共同的數 - 簡易版
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d478/">
-        <p class="title-text" title="d478: 共同的數 - 簡易版">d478: 共同的數 - 簡易版</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>因為學長覺得 d136 太可怕，所以出一題簡單版的 XD</p>
-<p>小潘跟小花都有很多個正整數，自己的數不會有重覆出現的，而且都是遞增排列。</p>
-<p>現在她們想要知道，兩個人的數有幾個重覆的呢？</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>第一行有兩個數字 n,m。 (1&lt;=n&lt;=100,1&lt;=m&lt;=10000)</p>
-<p>接著共有 n 筆測資，每筆測資共有兩行，分別代表兩個人擁有的數，每行共有 m 個數。</p>
-<p>所有數字都不大於 2<sup>3</sup>-1。</p>
-<blockquote>
-<p>2 6<br>1 5 6 8 9 13<br>3 4 5 7 8 11<br>4 6 7 14 16 23<br>6 9 12 13 16 23</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每筆測資請輸出一個數字，</p>
-<p>代表兩個人的數有幾個重覆的。</p>
-<blockquote>
-<p>2<br>3</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>兩陣列皆為遞增排列，所以不用排序直接從頭開始比較比較兩陣列</p>
-<ul>
-<li>若相同，數量 + 1，兩陣列索引都加一</li>
-<li>若不同，值較小的陣列索引加一</li>
-</ul>
-<p>當某一陣列數字用完了就跳出，得到的數量就是答案。</p>
-<p>本題輸入測資頗大，做輸入優化可以省不少時間。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-21ms-1-1MB"><a href="#AC-21ms-1-1MB" class="headerlink" title="AC (21ms, 1.1MB)"></a>AC (21ms, 1.1MB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZE 1048576</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10010</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> lhs[MAX], rhs[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZE], * now = buffer + BUFSIZE, * end = buffer + BUFSIZE;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZE)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZE, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, l, r, count;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">    &#123;</span><br><span class="line">        count = l = r = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            readUInt(&amp;lhs[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            readUInt(&amp;rhs[i]);</span><br><span class="line">        <span class="keyword">for</span> (;;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[l] &lt; rhs[r])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (++l == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (rhs[r] &lt; lhs[l])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (++r == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (++l == m) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (++r == m) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d483: hello, world" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d483: hello, world
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/d483/">
-        <p class="title-text" title="d483: hello, world">d483: hello, world</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>Hello, World 程式指的是只在計算機螢幕上輸出「Hello, World!」（意為「世界，你好！」）這行字元串的計算機程式。一般來說，這是每一種計算機程式語言中最基本、最簡單的程式，亦通常是初學者所編寫的第一個程式。它還可以用來確定該語言的編譯器、程式開發環境，以及執行環境是否已經安裝妥當。</p>
-<p>將輸出字元串 “Hello World” 作為第一個範例程式，現在已經成為程式語言學習的傳統。該程式因 Brian Kernighan 和丹尼斯·裡奇（Dennis M. Ritchie）所著的計算機程式設計教程《C 語言程式設計》（The C Programming Language）中使用而廣泛流傳；但這本書並不是 “Hello World” 的濫觴，雖然這是一個普遍存在的錯誤認知。</p>
-<p>「Hello World」範常式式最早出現於 1972 年，由貝爾實驗室成 員 Brian Kernighan 撰寫的內部技術文件《Introduction to the Language B》之中。不久同作者於 1974 年所撰寫的《Programming in C: A Tutorial》，也延用這個範例；而以本文件擴編改寫的《C 語言程式設計》也保留了這個範例程式。</p>
-<p>起初，”hello, world” 程式的標準列印內容必須滿足「全小寫，無驚嘆號，逗點後需空一格」。不過沿用至今，完全恪守傳統的反而罕見。</p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>為了驗證程式的正確性，大多數的題目多會提供輸入資料。你的程式必須讀入輸入資料，再依據你讀到的資料求出所要求的結果並將之輸出。你看不到這些輸入的資料，所以你也無法預測要輸出什麼結果，因此你的程式必須依照題目的要求來計算。但是作為學習程式設計的第一題，你的程式不需要讀入任何的資料，當然也不需要依據輸入的資料來計算，只需要輸出一個固定的字串就可以了。</p>
-<blockquote>
-<p>無</p>
-</blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請輸出「hello, world」文字 (不含「」)。</p>
-<blockquote>
-<p>hello, world</p>
-</blockquote>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單的 hello, world。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-1ms-92KB"><a href="#AC-1ms-92KB" class="headerlink" title="AC (1ms, 92KB)"></a>AC (1ms, 92KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"hello, world"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
@@ -915,7 +894,7 @@
     
     <div class="content">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.57px;">DFS</a> <a href="/tags/DP/" style="font-size: 17.14px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 15.71px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 14.29px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14.29px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 12.86px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.43px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 12.86px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/模板/" style="font-size: 15.71px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.43px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 14.29px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 11.43px;">背包問題</a> <a href="/tags/質數/" style="font-size: 12.86px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.57px;">DFS</a> <a href="/tags/DP/" style="font-size: 17.14px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 15.71px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 14.29px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 14.29px;">位元運算</a> <a href="/tags/基數排序/" style="font-size: 14.29px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.43px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 12.86px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/模板/" style="font-size: 15.71px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.43px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 14.29px;">流程控制</a> <a href="/tags/背包問題/" style="font-size: 11.43px;">背包問題</a> <a href="/tags/質數/" style="font-size: 12.86px;">質數</a>
     </div>
   </div>
 </div>
@@ -929,7 +908,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">199</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">198</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">204</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">203</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
