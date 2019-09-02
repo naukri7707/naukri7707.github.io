@@ -98,12 +98,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="b911: 我想跟Kevin借筷子系列4" class="post">
+<article id="b897: 10219 - Find the ways !" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -111,7 +111,112 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b897: 10219 - Find the ways !
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link" href="/線上解題/ZeroJudge/b897/">
+        <p class="title-text" title="b897: 10219 - Find the ways !">b897: 10219 - Find the ways !</p>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-21
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>一個美國人、一個法國人、和一個英國人來到了孟加拉的首都達卡。他們搭計乘車去觀光。三個觀光客聊起了城市的景觀。那個美國人為紐約的高聳建築感到騎傲。他對朋友們吹噓：「你知道帝國大廈只花了三個月就蓋好了嗎？」</p>
+<p>「真的？」法國人說：「巴黎的艾菲爾鐵塔一個月就蓋好了呢！」(然而事實上，鐵塔於 1887 年一月動工。40 個工程師和設計師在艾菲爾的指導下工作了兩年。鐵塔於 1989 年三月完成。)</p>
+<p>「真有趣！」英國人說：「倫敦的白金漢宮兩個星期就蓋好了！」</p>
+<p>這時計程車經過了一個大型貧民窟 (然而，在孟加拉我們稱之為 Bostii)。「那是什麼？什麼時候蓋的？」英國人問那孟加拉司機。</p>
+<p>「我不知道！」司機回答說：「昨天還沒看到呀！」。</p>
+<p>在孟加拉，非法貧民窟的存在一直是個大問題。政府一直試著拆除這些貧民窟並將其中居民正式安置於市郊的重劃區。但是他們找不到任何的方法來拆除這些貧民窟！</p>
+<p>現在，你能想像你是貧民窟的拆除者嗎？要將 k 個貧民窟中的 n 個貧民窟拆除有幾種方法？假設有 10 個貧民窟，你獲准拆除其中的 5 個，你有 252 個方式，這只是個 3 位數字。你的工作就是找出拆除貧民窟的方法數是幾位數字。</p>
+<hr>
+<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入檔含有一筆或多筆測資。</p>
+<p>每筆測資一行，含有兩個整數 n (n ≥ 1) 及 k (1 ≤ k ≤ n)。</p>
+<blockquote>
+<p>20 5<br>100 10<br>200 15</p>
+</blockquote>
+<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>針對每筆測資，輸出一個所要求的數字於一行。這個數字可存於一個整數，也就是它小於 2<sup>31</sup> − 1。</p>
+<blockquote>
+<p>5<br>14<br>23</p>
+</blockquote>
+<hr>
+<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>數學題，有 3 個重點公式</p>
+<ol>
+<li>Log(a * b) = Log(a) + Log(b)</li>
+<li>Log(a / b) = Log(a) - Log(b)</li>
+<li>n 的位數 = Floor(Log<sub>10</sub>n) + 1</li>
+</ol>
+<p>然後如以下範例展開</p>
+<p>以 10! / 4! 為例，將階層展開</p>
+<blockquote>
+<p>(10 _ 9 _ 8 _ 7) / (6 _ 5 _ 4 _ 3)</p>
+</blockquote>
+<p>取 Log</p>
+<blockquote>
+<p>Log<sub>10</sub>(10 _ 9 _ 8 _ 7 / 4 _ 3 _ 2 _ 1)</p>
+</blockquote>
+<p>因為公式 1 和 2 所以可以再將它展開成</p>
+<blockquote>
+<p>(Log<sub>10</sub>10 + Log<sub>10</sub>9 + Log<sub>10</sub>8 + Log<sub>10</sub>7) - (Log<sub>10</sub>4 + Log<sub>10</sub>3 + Log<sub>10</sub>2 + Log<sub>10</sub>1)</p>
+</blockquote>
+<p>又因為公式 3 所以位數就是</p>
+<blockquote>
+<p>Floor(Log<sub>10</sub>10 + Log<sub>10</sub>9 + Log<sub>10</sub>8 + Log<sub>10</sub>7 - Log<sub>10</sub>4 - Log<sub>10</sub>3 - Log<sub>10</sub>2 - Log<sub>10</sub>1) + 1</p>
+</blockquote>
+<p>計算結果</p>
+<blockquote>
+<p>Floor(1 + 0.954 + 0.903 + 0.845 - 0.602 - 0.477 - 0.301 - 0) + 1<br>= Floor(2.322) + 1 = 2 + 1 = 3<br>就能得到它的位數了。</p>
+</blockquote>
+<p>接下來就是簡單的把公式轉換成程式碼，取階層時記得取小的那區即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-66ms-176KB"><a href="#AC-66ms-176KB" class="headerlink" title="AC (66ms, 176KB)"></a>AC (66ms, 176KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">double</span> <span class="built_in">log</span>;</span><br><span class="line">    <span class="keyword">int</span> n, k, max;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;k, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">log</span> = <span class="number">0</span>, max = n &lt; k - n ? n : k - n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++)</span><br><span class="line">            <span class="built_in">log</span> += <span class="built_in">log10</span>(k - i) - <span class="built_in">log10</span>(i + <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (<span class="keyword">int</span>)<span class="built_in">log</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="b911: 我想跟Kevin借筷子系列4" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -189,7 +294,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -197,7 +302,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -265,7 +370,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -273,7 +378,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -341,7 +446,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -349,7 +454,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -425,7 +530,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -433,7 +538,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -514,7 +619,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -522,7 +627,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -588,7 +693,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -596,7 +701,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -659,7 +764,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -667,7 +772,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -791,7 +896,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (199)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -799,7 +904,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (198)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -869,84 +974,6 @@
   </div>
 </article>
 
-<article id="b757. 頸美椰子樹" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (198)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (197)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b757. 頸美椰子樹
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link" href="/線上解題/ZeroJudge/b757/">
-        <p class="title-text" title="b757. 頸美椰子樹">b757. 頸美椰子樹</p>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-21
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>PA 頸美椰子樹<br>頸美女中是一所追求漂亮脖子的好學校，裡頭的夯夯是一個擁有傲人身材的高二生。</p>
-<p>「景美椰子樹，是夯夯的大腿，是夯夯的手臂」</p>
-<p>大腿、手臂，雖然都很粗，但在 GOOGLE 地圖上還是能發現其中明顯的差異。<br>最近夯夯也到了想減肥的花樣年紀了，<br>假設，大腿半徑瘦下來 R，手臂半徑瘦下來 r，<br>我們可以立出標準式: R = (r*9)/5 + 32<br>很巧的，這也是華氏跟攝氏的轉換公式，<br>剛剛我們正量完夯夯的手臂瘦下了 r 公尺<br>由於大腿實在太粗了不好測量，想請學弟用程式幫我們算算他的大腿瘦了多少</p>
-<p><img src="https://zerojudge.tw/ShowImage?id=904" alt="img1" title="圖1"></p>
-<hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>輸入只有一行，一個數字 r (0&lt;=r&lt;=100)</p>
-<p>※輸入中可能有浮點數</p>
-<blockquote>
-<p>100</p>
-</blockquote>
-<p>49</p>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>輸出 R</p>
-<blockquote>
-<p>212</p>
-</blockquote>
-<p>120.2</p>
-<hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>作者沒給輸出格式，本題要用 %g 輸出</p>
-<p>知道是 %g 後就是基本四則的水題。</p>
-      <div class="hidden-content">
-        <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %lf"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%g\n"</span>, (n * <span class="number">9</span>) / <span class="number">5</span> + <span class="number">32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/12/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/14/">&raquo;</a>
@@ -977,7 +1004,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">198</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">197</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">199</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">198</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
