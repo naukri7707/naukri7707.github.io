@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>d583: 幼稚的企鵝 | Naukri&#39;s Blog</title>
+  
   <!-- JQuery -->
   <script src="/lib/jquery.min.js"></script>
   <!-- Font Awesome -->
   <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Title & Icon -->
-  
-  <title>d583: 幼稚的企鵝 | Naukri&#39;s Blog</title>
-  
   
   <link rel="icon" href="/img/favicon.ico">
   
@@ -126,8 +125,7 @@
   <div class="post-inner">
     <header class="title">
       
-      <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="d583: 幼稚的企鵝">d583: 幼稚的企鵝</p>
+      <h1 class="title-text" title="d583: 幼稚的企鵝">d583: 幼稚的企鵝</h1>
       
       <div class="separator"></div>
       <div class="info">
@@ -140,22 +138,22 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小企鵝總是天真可愛，但擺脫不了幾分幼稚。<br>現在企鵝幼稚園的企鵝老師要小企鵝任意排隊。<br>而小企鵝們卻很堅持要照老師給他們的座號來排隊，<br>偏偏有的小企鵝就是會忘記自己的座號亂排，<br>於是可以想見的是一群短鳥喙的小企鵝爭吵互啄的景象了…</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小企鵝總是天真可愛，但擺脫不了幾分幼稚。<br>現在企鵝幼稚園的企鵝老師要小企鵝任意排隊。<br>而小企鵝們卻很堅持要照老師給他們的座號來排隊，<br>偏偏有的小企鵝就是會忘記自己的座號亂排，<br>於是可以想見的是一群短鳥喙的小企鵝爭吵互啄的景象了…</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>本題有 2 個測資點，每個 50 分，每個測資點有多組測資。<br>每組測資的第一行有整數 n(1&lt;=n&lt;=100000)代表有幾隻企鵝。<br>第二行則有 n 個數字的數列代表每隻企鵝的座號，並且座號必定有 1~n 不重覆。</p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>本題有 2 個測資點，每個 50 分，每個測資點有多組測資。<br>每組測資的第一行有整數 n(1&lt;=n&lt;=100000)代表有幾隻企鵝。<br>第二行則有 n 個數字的數列代表每隻企鵝的座號，並且座號必定有 1~n 不重覆。</p>
 <blockquote>
 <p>10<br>9 5 10 4 3 6 1 2 7 8<br>30<br>30 29 28 27 26 25 10 11 12 13 15 14 16 19 18 17 20 24 23 22 21 8 9 7 6 5 3 4 2 1</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請由小到大輸出已經排序的數列。</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請由小到大輸出已經排序的數列。</p>
 <blockquote>
 <p>1 2 3 4 5 6 7 8 9 10<br>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>簡單得排序，排序量很大，使用 quicksort 排序。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單得排序，排序量很大，使用 quicksort 排序。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-33ms-616KB"><a href="#AC-33ms-616KB" class="headerlink" title="AC (33ms, 616KB)"></a>AC (33ms, 616KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, i, j;</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* lhs, <span class="keyword">const</span> <span class="keyword">int</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*lhs) - (*rhs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">list</span>[i]);</span><br><span class="line">        qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="built_in">list</span>[i]);</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-33ms-616KB"><a href="#AC-33ms-616KB" class="headerlink" title="AC (33ms, 616KB)"></a>AC (33ms, 616KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, i, j;</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* lhs, <span class="keyword">const</span> <span class="keyword">int</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (*lhs) - (*rhs);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">list</span>[i]);</span><br><span class="line">        qsort(<span class="built_in">list</span>, n, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="built_in">list</span>[i]);</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -199,83 +197,82 @@
       索引
     </a>
     
-    <div class="content">
-    
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      <div class="content">
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      </div>
+    </div>
+    <div class="post-progress">
+      <span class="post-progress-gotop" onclick="goTop()">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+      <span class="post-progress-rate">
+        0%
+      </span>
+      <span class="post-progress-gobot" onclick="goBot()">
+        <i class="fas fa-chevron-down"></i>
+      </span>
     </div>
   </div>
-  <div class="post-progress">
-    <span class="post-progress-gotop" onclick="goTop()">
-    <i class="fas fa-chevron-up"></i>
-    </span>
-    <span class="post-progress-rate">
-      0%
-    </span>
-    <span class="post-progress-gobot" onclick="goBot()">
-    <i class="fas fa-chevron-down"></i>
-    </span>
-  </div>
-</div>
-<script>
-  const $toc = $($(".post-toc").parent());
-  const $rate = $(".post-progress-rate");
-  const width = $toc.width();
-  var pos = $toc.offset();
+  <script>
+    const $toc = $($(".post-toc").parent());
+    const $rate = $(".post-progress-rate");
+    const width = $toc.width();
+    var pos = $toc.offset();
 
-  setTOCPosition();
-  
-  $(window).scroll(function () {
     setTOCPosition();
-    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
-    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
-  });
 
-   $('.widget').each(function () {
-    $(this).find('.title').click(function () {
-      $content = $(this).siblings('.content');
-      if ($content.css('display') === 'none') {
-        $content.slideDown(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
+    $(window).scroll(function () {
+      setTOCPosition();
+      var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+      $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+    });
+
+    $('.widget').each(function () {
+      $(this).find('.title').click(function () {
+        $content = $(this).siblings('.content');
+        if ($content.css('display') === 'none') {
+          $content.slideDown(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+        else {
+          $content.slideUp(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+      });
+    });
+
+    function setTOCPosition() {
+      if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({ 'position': 'fixed', 'top': '3rem', 'width': width });
       }
       else {
-        $content.slideUp(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
-      }
-    });
-  });
-
-  function setTOCPosition() {
-    if ($(window).scrollTop() + 55 > pos.top) {
-        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
-    }
-    else {
         $toc.css('top', 0).css('position', 'relative');
+      }
     }
-  }
 
-  function goTop () {
-    $("html,body").animate(
-      {
-        scrollTop: 0
-      },
-      "fast", "swing"
-    );
-  }
+    function goTop() {
+      $("html,body").animate(
+        {
+          scrollTop: 0
+        },
+        "fast", "swing"
+      );
+    }
 
-  function goBot () {
-    $("html,body").animate(
-      {
-        scrollTop: $('body').height() - $(window).height()
-      },
-      "fast", "swing"
-    );
-  }
-</script>
-
+    function goBot() {
+      $("html,body").animate(
+        {
+          scrollTop: $('body').height() - $(window).height()
+        },
+        "fast", "swing"
+      );
+    }
+  </script>
 
     </aside>
   </div>

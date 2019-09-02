@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>d098: Stringstream運用練習(C++) | Naukri&#39;s Blog</title>
+  
   <!-- JQuery -->
   <script src="/lib/jquery.min.js"></script>
   <!-- Font Awesome -->
   <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Title & Icon -->
-  
-  <title>d098: Stringstream運用練習(C++) | Naukri&#39;s Blog</title>
-  
   
   <link rel="icon" href="/img/favicon.ico">
   
@@ -126,8 +125,7 @@
   <div class="post-inner">
     <header class="title">
       
-      <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="d098: Stringstream運用練習(C++)">d098: Stringstream運用練習(C++)</p>
+      <h1 class="title-text" title="d098: Stringstream運用練習(C++)">d098: Stringstream運用練習(C++)</h1>
       
       <div class="separator"></div>
       <div class="info">
@@ -143,23 +141,23 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>小明為了要保證資料傳輸的隱密性，為檔案設置了一個加密金鑰，並且將金鑰藏進了一個檔案裡。收到檔案的小風得知要解譯出他所使用的加密金鑰，必須將檔案裡所有不含非數字的單字找出，加起來就是加密金鑰。可是，要求出這個金鑰，如果自己慢慢加實在是太慢了，所以請你寫一個程式來幫助他吧！</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小明為了要保證資料傳輸的隱密性，為檔案設置了一個加密金鑰，並且將金鑰藏進了一個檔案裡。收到檔案的小風得知要解譯出他所使用的加密金鑰，必須將檔案裡所有不含非數字的單字找出，加起來就是加密金鑰。可是，要求出這個金鑰，如果自己慢慢加實在是太慢了，所以請你寫一個程式來幫助他吧！</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>每組測資有一行，內含多個單字，每個單字之間會以空格作分隔(每一行的前後都有可能有空格，且分隔單字的空格可能不只一個)。</p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每組測資有一行，內含多個單字，每個單字之間會以空格作分隔(每一行的前後都有可能有空格，且分隔單字的空格可能不只一個)。</p>
 <blockquote>
 <p>zerojudge 萬歲<br>1a6f 6 65afd 15s 1sa 12 115</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>請求出所有僅含數字的單字，並且加總後輸出。這些數字的總和不會超過 2 的 16 次方。</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請求出所有僅含數字的單字，並且加總後輸出。這些數字的總和不會超過 2 的 16 次方。</p>
 <blockquote>
 <p>0<br>133</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>先實作一個字串轉整的函式，如果讀到非數字字元回傳 0 ，若皆為數字則回傳轉換後的數字。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>先實作一個字串轉整的函式，如果讀到非數字字元回傳 0 ，若皆為數字則回傳轉換後的數字。</p>
 <p>將測資用空白分割成各筆資料，再用上面實作的函式轉換各筆資料並將其加入總和，測資結束後輸出總和即可。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-80KB"><a href="#AC-2ms-80KB" class="headerlink" title="AC (2ms, 80KB)"></a>AC (2ms, 80KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sum;</span><br><span class="line"><span class="keyword">char</span> input[<span class="number">1000</span>], * tok;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(<span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; src[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (src[i] &gt;= <span class="string">'0'</span> &amp;&amp; src[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">            res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + (src[i] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (gets(input) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = <span class="number">0</span>, tok = strtok(input, <span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">while</span> (tok != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += getInt(tok);</span><br><span class="line">            tok = strtok(<span class="literal">NULL</span>, <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-80KB"><a href="#AC-2ms-80KB" class="headerlink" title="AC (2ms, 80KB)"></a>AC (2ms, 80KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> sum;</span><br><span class="line"><span class="keyword">char</span> input[<span class="number">1000</span>], * tok;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(<span class="keyword">char</span> src[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; src[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (src[i] &gt;= <span class="string">'0'</span> &amp;&amp; src[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">            res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + (src[i] - <span class="string">'0'</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (gets(input) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum = <span class="number">0</span>, tok = strtok(input, <span class="string">" "</span>);</span><br><span class="line">        <span class="keyword">while</span> (tok != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += getInt(tok);</span><br><span class="line">            tok = strtok(<span class="literal">NULL</span>, <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -203,83 +201,82 @@
       索引
     </a>
     
-    <div class="content">
-    
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      <div class="content">
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      </div>
+    </div>
+    <div class="post-progress">
+      <span class="post-progress-gotop" onclick="goTop()">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+      <span class="post-progress-rate">
+        0%
+      </span>
+      <span class="post-progress-gobot" onclick="goBot()">
+        <i class="fas fa-chevron-down"></i>
+      </span>
     </div>
   </div>
-  <div class="post-progress">
-    <span class="post-progress-gotop" onclick="goTop()">
-    <i class="fas fa-chevron-up"></i>
-    </span>
-    <span class="post-progress-rate">
-      0%
-    </span>
-    <span class="post-progress-gobot" onclick="goBot()">
-    <i class="fas fa-chevron-down"></i>
-    </span>
-  </div>
-</div>
-<script>
-  const $toc = $($(".post-toc").parent());
-  const $rate = $(".post-progress-rate");
-  const width = $toc.width();
-  var pos = $toc.offset();
+  <script>
+    const $toc = $($(".post-toc").parent());
+    const $rate = $(".post-progress-rate");
+    const width = $toc.width();
+    var pos = $toc.offset();
 
-  setTOCPosition();
-  
-  $(window).scroll(function () {
     setTOCPosition();
-    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
-    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
-  });
 
-   $('.widget').each(function () {
-    $(this).find('.title').click(function () {
-      $content = $(this).siblings('.content');
-      if ($content.css('display') === 'none') {
-        $content.slideDown(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
+    $(window).scroll(function () {
+      setTOCPosition();
+      var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+      $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+    });
+
+    $('.widget').each(function () {
+      $(this).find('.title').click(function () {
+        $content = $(this).siblings('.content');
+        if ($content.css('display') === 'none') {
+          $content.slideDown(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+        else {
+          $content.slideUp(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+      });
+    });
+
+    function setTOCPosition() {
+      if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({ 'position': 'fixed', 'top': '3rem', 'width': width });
       }
       else {
-        $content.slideUp(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
-      }
-    });
-  });
-
-  function setTOCPosition() {
-    if ($(window).scrollTop() + 55 > pos.top) {
-        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
-    }
-    else {
         $toc.css('top', 0).css('position', 'relative');
+      }
     }
-  }
 
-  function goTop () {
-    $("html,body").animate(
-      {
-        scrollTop: 0
-      },
-      "fast", "swing"
-    );
-  }
+    function goTop() {
+      $("html,body").animate(
+        {
+          scrollTop: 0
+        },
+        "fast", "swing"
+      );
+    }
 
-  function goBot () {
-    $("html,body").animate(
-      {
-        scrollTop: $('body').height() - $(window).height()
-      },
-      "fast", "swing"
-    );
-  }
-</script>
-
+    function goBot() {
+      $("html,body").animate(
+        {
+          scrollTop: $('body').height() - $(window).height()
+        },
+        "fast", "swing"
+      );
+    }
+  </script>
 
     </aside>
   </div>

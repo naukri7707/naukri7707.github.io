@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>b701: 我的領土有多大 | Naukri&#39;s Blog</title>
+  
   <!-- JQuery -->
   <script src="/lib/jquery.min.js"></script>
   <!-- Font Awesome -->
   <script src="/lib/fontawesome/all.min.js"></script>
   <!-- Title & Icon -->
-  
-  <title>b701: 我的領土有多大 | Naukri&#39;s Blog</title>
-  
   
   <link rel="icon" href="/img/favicon.ico">
   
@@ -126,8 +125,7 @@
   <div class="post-inner">
     <header class="title">
       
-      <!-- TODO 標題過長完整顯示 -->
-      <p class="title-text" title="b701: 我的領土有多大">b701: 我的領土有多大</p>
+      <h1 class="title-text" title="b701: 我的領土有多大">b701: 我的領土有多大</h1>
       
       <div class="separator"></div>
       <div class="info">
@@ -143,19 +141,19 @@
     </header>
     
     <div class="content">
-      <h1 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h1><p>安安國是個島國，有大小不等的小島，身為地政首長的你想要瞭解每個島嶼的面積，以及每個島嶼的極點，如極北、極南、極東、極西。</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>安安國是個島國，有大小不等的小島，身為地政首長的你想要瞭解每個島嶼的面積，以及每個島嶼的極點，如極北、極南、極東、極西。</p>
 <p>現在你手上有 0、1 構成的地圖檔，0 代表海洋，1 代表陸地。陸地沒有相連的各視為獨立的小島</p>
 <p>有一點點相連的，則視為同一小島</p>
 <p>依照土地所在的位置，由北而南、由西而東順序顯示</p>
 <p>請完成您的任務。</p>
 <hr>
-<h1 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h1><p>前面兩個數字 16 &lt;=X&lt;=512 16 &lt;=Y&lt;=512</p>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>前面兩個數字 16 &lt;=X&lt;=512 16 &lt;=Y&lt;=512</p>
 <p>分別代表地圖資料的 X 軸及 Y 軸長度</p>
 <p>下方的地圖用 0 代表海洋，1 代表陸地。</p>
 <blockquote>
 <p>16 16<br>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0<br>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0<br>0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0<br>0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0<br>0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0<br>0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0<br>0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0<br>0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0<br>0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0<br>0 0 0 0 0 0 1 1 0 1 0 0 0 0 0 0<br>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0<br>0 0 0 0 1 0 0 0 0 0 1 1 0 0 0 0<br>0 0 1 0 1 0 0 0 0 1 1 1 1 1 0 0<br>0 0 1 1 1 0 0 0 0 0 1 1 0 0 0 0<br>0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0<br>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</p>
 </blockquote>
-<h1 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h1><p>每一塊土地輸出五個數字</p>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>每一塊土地輸出五個數字</p>
 <p>W N E S A</p>
 <p>分別代表極西、極北、極東、極南、面積</p>
 <p>依照土地所在的位置，由上而下、由左而右順序顯示</p>
@@ -163,11 +161,11 @@
 <p>4 2 12 9 36<br>2 11 4 14 7<br>9 11 13 13 9</p>
 </blockquote>
 <hr>
-<h1 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h1><p>用迴圈找到陸地之後就用 DFS 由該地開始遍歷整個島，並將遍歷到的地方都改成海，如此一來於該次遍歷結束後整個島都會變成海，即可避免重複判斷到同一個島。</p>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>用迴圈找到陸地之後就用 DFS 由該地開始遍歷整個島，並將遍歷到的地方都改成海，如此一來於該次遍歷結束後整個島都會變成海，即可避免重複判斷到同一個島。</p>
 <a id="more"></a>
 
 <hr>
-<h1 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h1><h5 id="AC-2ms-156KB"><a href="#AC-2ms-156KB" class="headerlink" title="AC (2ms, 156KB)"></a>AC (2ms, 156KB)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">515</span>][<span class="number">515</span>], x, y, r, l, u, d, a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> y, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    <span class="built_in">map</span>[y][x] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y][x - <span class="number">1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y, x - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (l &gt; x - <span class="number">1</span>)</span><br><span class="line">            l = x - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y][x + <span class="number">1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y, x + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (r &lt; x + <span class="number">1</span>)</span><br><span class="line">            r = x + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y + <span class="number">1</span>][x])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y + <span class="number">1</span>, x);</span><br><span class="line">        <span class="keyword">if</span> (d &lt; y + <span class="number">1</span>)</span><br><span class="line">            d = y + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y - <span class="number">1</span>][x])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y - <span class="number">1</span>, x);</span><br><span class="line">        <span class="keyword">if</span> (u &gt; y - <span class="number">1</span>)</span><br><span class="line">            u = y - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;x, &amp;y) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= y; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= x; j++)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">map</span>[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= y; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= x; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">map</span>[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    l = j, u = i, r = j, d = i, a = <span class="number">0</span>;</span><br><span class="line">                    <span class="built_in">map</span>[i][j] = <span class="number">0</span>;</span><br><span class="line">                    dfs(i, j);</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d\n"</span>, l - <span class="number">1</span>, u - <span class="number">1</span>, r - <span class="number">1</span>, d - <span class="number">1</span>, a);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-156KB"><a href="#AC-2ms-156KB" class="headerlink" title="AC (2ms, 156KB)"></a>AC (2ms, 156KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">515</span>][<span class="number">515</span>], x, y, r, l, u, d, a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> y, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    a++;</span><br><span class="line">    <span class="built_in">map</span>[y][x] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y][x - <span class="number">1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y, x - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (l &gt; x - <span class="number">1</span>)</span><br><span class="line">            l = x - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y][x + <span class="number">1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y, x + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (r &lt; x + <span class="number">1</span>)</span><br><span class="line">            r = x + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y + <span class="number">1</span>][x])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y + <span class="number">1</span>, x);</span><br><span class="line">        <span class="keyword">if</span> (d &lt; y + <span class="number">1</span>)</span><br><span class="line">            d = y + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">map</span>[y - <span class="number">1</span>][x])</span><br><span class="line">    &#123;</span><br><span class="line">        dfs(y - <span class="number">1</span>, x);</span><br><span class="line">        <span class="keyword">if</span> (u &gt; y - <span class="number">1</span>)</span><br><span class="line">            u = y - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;x, &amp;y) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= y; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= x; j++)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">map</span>[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= y; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= x; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">map</span>[i][j])</span><br><span class="line">                &#123;</span><br><span class="line">                    l = j, u = i, r = j, d = i, a = <span class="number">0</span>;</span><br><span class="line">                    <span class="built_in">map</span>[i][j] = <span class="number">0</span>;</span><br><span class="line">                    dfs(i, j);</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d\n"</span>, l - <span class="number">1</span>, u - <span class="number">1</span>, r - <span class="number">1</span>, d - <span class="number">1</span>, a);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -211,83 +209,82 @@
       索引
     </a>
     
-    <div class="content">
-    
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      <div class="content">
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a></li></ol>
+      </div>
+    </div>
+    <div class="post-progress">
+      <span class="post-progress-gotop" onclick="goTop()">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+      <span class="post-progress-rate">
+        0%
+      </span>
+      <span class="post-progress-gobot" onclick="goBot()">
+        <i class="fas fa-chevron-down"></i>
+      </span>
     </div>
   </div>
-  <div class="post-progress">
-    <span class="post-progress-gotop" onclick="goTop()">
-    <i class="fas fa-chevron-up"></i>
-    </span>
-    <span class="post-progress-rate">
-      0%
-    </span>
-    <span class="post-progress-gobot" onclick="goBot()">
-    <i class="fas fa-chevron-down"></i>
-    </span>
-  </div>
-</div>
-<script>
-  const $toc = $($(".post-toc").parent());
-  const $rate = $(".post-progress-rate");
-  const width = $toc.width();
-  var pos = $toc.offset();
+  <script>
+    const $toc = $($(".post-toc").parent());
+    const $rate = $(".post-progress-rate");
+    const width = $toc.width();
+    var pos = $toc.offset();
 
-  setTOCPosition();
-  
-  $(window).scroll(function () {
     setTOCPosition();
-    var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
-    $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
-  });
 
-   $('.widget').each(function () {
-    $(this).find('.title').click(function () {
-      $content = $(this).siblings('.content');
-      if ($content.css('display') === 'none') {
-        $content.slideDown(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
+    $(window).scroll(function () {
+      setTOCPosition();
+      var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+      $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+    });
+
+    $('.widget').each(function () {
+      $(this).find('.title').click(function () {
+        $content = $(this).siblings('.content');
+        if ($content.css('display') === 'none') {
+          $content.slideDown(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+        else {
+          $content.slideUp(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+      });
+    });
+
+    function setTOCPosition() {
+      if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({ 'position': 'fixed', 'top': '3rem', 'width': width });
       }
       else {
-        $content.slideUp(400 , function () {
-          pos = $toc.offset();
-          setTOCPosition();
-        });
-      }
-    });
-  });
-
-  function setTOCPosition() {
-    if ($(window).scrollTop() + 55 > pos.top) {
-        $toc.css({'position':'fixed' , 'top':'3rem' , 'width': width});
-    }
-    else {
         $toc.css('top', 0).css('position', 'relative');
+      }
     }
-  }
 
-  function goTop () {
-    $("html,body").animate(
-      {
-        scrollTop: 0
-      },
-      "fast", "swing"
-    );
-  }
+    function goTop() {
+      $("html,body").animate(
+        {
+          scrollTop: 0
+        },
+        "fast", "swing"
+      );
+    }
 
-  function goBot () {
-    $("html,body").animate(
-      {
-        scrollTop: $('body').height() - $(window).height()
-      },
-      "fast", "swing"
-    );
-  }
-</script>
-
+    function goBot() {
+      $("html,body").animate(
+        {
+          scrollTop: $('body').height() - $(window).height()
+        },
+        "fast", "swing"
+      );
+    }
+  </script>
 
     </aside>
   </div>
