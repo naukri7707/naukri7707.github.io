@@ -97,12 +97,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="d559: 班號" class="post">
+<article id="d561: 被秒殺的四捨五入" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -110,7 +110,78 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d561: 被秒殺的四捨五入
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="link title-text" href="/線上解題/ZeroJudge/d561/" title="d561: 被秒殺的四捨五入">
+        d561: 被秒殺的四捨五入
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-01
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>拿氣溫來說，攝氏 15 度和攝氏 15.05 度的差距對人來說差異實在不大，有了數學概數的觀念，我們可以透過四捨五入法來得到一個數字的估計值，進而方便統計。<br>現在請你將一些小數利用程式來四捨五入。</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>共計三個測資點，每個測資檔中有多行小數 n(-1&lt;=n&lt;=1)，至多小數點以下有 100 位數</p>
+<blockquote>
+<p>1.00000<br>0.5<br>0.715<br>0.1234567890<br>-0.995</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出四捨五入至小數點以下第二位的結果</p>
+<blockquote>
+<p>1.00<br>0.50<br>0.72<br>0.12<br>-1.00</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的字串處理，注意當測資小於 -0.005 時要輸出 0.000 而不是 -0.00。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buffer[<span class="number">110</span>], * num;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %s"</span>, buffer) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        num = buffer[<span class="number">0</span>] == <span class="string">'-'</span> ? buffer + <span class="number">1</span> : buffer;</span><br><span class="line">        <span class="keyword">if</span> (num[<span class="number">3</span>] == <span class="string">'\0'</span>)</span><br><span class="line">            num[<span class="number">3</span>] = <span class="string">'0'</span>, num[<span class="number">4</span>] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (num[<span class="number">4</span>] &gt;= <span class="string">'5'</span>)</span><br><span class="line">            num[<span class="number">3</span>]++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; ~i; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] &gt; <span class="string">'9'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (num[i - <span class="number">1</span>] == <span class="string">'.'</span>) num[i - <span class="number">2</span>]++;</span><br><span class="line">                <span class="keyword">else</span> num[i - <span class="number">1</span>]++;</span><br><span class="line">                num[i] = <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        num[<span class="number">4</span>] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="built_in">puts</span>((num[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; num[<span class="number">2</span>] == <span class="string">'0'</span> &amp;&amp; num[<span class="number">3</span>] == <span class="string">'0'</span>) ? <span class="string">"0.00"</span> : buffer);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d559: 班號" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -173,7 +244,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -181,7 +252,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -264,7 +335,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -272,7 +343,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -340,7 +411,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -348,7 +419,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -411,7 +482,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -419,7 +490,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -533,7 +604,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -541,7 +612,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -611,7 +682,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -619,7 +690,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -682,7 +753,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -690,7 +761,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -753,7 +824,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (224)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -761,7 +832,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (223)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -819,77 +890,6 @@
   </div>
 </article>
 
-<article id="d490: 我也愛偶數" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d490: 我也愛偶數
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="link title-text" href="/線上解題/ZeroJudge/d490/" title="d490: 我也愛偶數">
-        d490: 我也愛偶數
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>文文愛偶數，無獨有「偶」地，珊珊也愛偶數。珊珊除了收藏偶數以外，每次她收到一些數字時，她還會把其中的偶數挑出來把玩並予以加總。今天珊珊又收到了一個範圍的連續整數，請問這次她從這段數字中所收集到的偶數的總和是多少？</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入只有一行，其中含有兩個由空白隔開的整數 a, b (0 ≤ a ≤ b ≤ 2147483647)。</p>
-<blockquote>
-<p>2 5</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出一個整數，代表 a 與 b 之間 (含 a 與 b) 所有偶數的和，(答案會 ≤ 2147483647)。</p>
-<blockquote>
-<p>6</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>觀念承接 <a href="/線上解題/ZeroJudge/d485">d485</a> ，這題就是再用梯形公式算出總和即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-116KB"><a href="#AC-2ms-116KB" class="headerlink" title="AC (2ms, 116KB)"></a>AC (2ms, 116KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    n += (n &amp; <span class="number">1</span>), m -= (m &amp; <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ((n + m) * ((m - n) / <span class="number">2</span> + <span class="number">1</span>)) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/6/">&raquo;</a>
@@ -906,7 +906,7 @@
     
     <div class="content">
     
-      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.75px;">DFS</a> <a href="/tags/DP/" style="font-size: 17.5px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 15px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 13.75px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 16.25px;">位元運算</a> <a href="/tags/函式指標/" style="font-size: 10px;">函式指標</a> <a href="/tags/基數排序/" style="font-size: 13.75px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.25px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.75px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/映射/" style="font-size: 12.5px;">映射</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.25px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 13.75px;">流程控制</a> <a href="/tags/短路求值/" style="font-size: 10px;">短路求值</a> <a href="/tags/背包問題/" style="font-size: 12.5px;">背包問題</a> <a href="/tags/質數/" style="font-size: 12.5px;">質數</a>
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.75px;">DFS</a> <a href="/tags/DP/" style="font-size: 17.5px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 15px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 15px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 16.25px;">位元運算</a> <a href="/tags/函式指標/" style="font-size: 10px;">函式指標</a> <a href="/tags/基數排序/" style="font-size: 13.75px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.25px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.75px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/映射/" style="font-size: 12.5px;">映射</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.25px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 13.75px;">流程控制</a> <a href="/tags/短路求值/" style="font-size: 10px;">短路求值</a> <a href="/tags/背包問題/" style="font-size: 12.5px;">背包問題</a> <a href="/tags/質數/" style="font-size: 12.5px;">質數</a>
     </div>
   </div>
 </div>
@@ -920,7 +920,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">223</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">222</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">224</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">223</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
