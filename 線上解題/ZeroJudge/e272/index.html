@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>e272: gcd(Fm,Fn) | Naukri&#39;s Blog</title>
+  
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="e272: gcd(Fm,Fn)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (223)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (222)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            e272: gcd(Fm,Fn)
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <h1 class="title-text" title="e272: gcd(Fm,Fn)">e272: gcd(Fm,Fn)</h1>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-04
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給你 n,m,求 gcd(Fm,Fn)</p>
+<p>*Fx 代表 Fibonacci 數列第 x 項</p>
+<p>2019/6/8 時限調降至 0.5s</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入有多行</p>
+<p>每行有 m,n 兩數(m,n&lt;=10000)</p>
+<blockquote>
+<p>1 2<br>3 6</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>答案(保證可以用 unsigned long long 存)</p>
+<blockquote>
+<p>1<br>2</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>假設要求 GCD(f(25),f(20))，先展開 f(25)</p>
+<blockquote>
+<p>= [1 * f(25-1)] + [1 * f(25-2)] ( f(m-1) = f(m-2) + f(m-3) )<br>= [2 * f(25-2)] + [1 * f(25-3)]<br>= [3 * f(25-3)] + [2 * f(25-4)] ( 2 * f(m-2) = [2 * ( f(m-3) + f(m-4) )] = 2 * f(m-3) + 2 * f(m-4) )<br>= [5 * f(25-4)] + [3 * f(25-5)]<br>= [8 * f(25-5)] + [5 * f(25-6)]</p>
+</blockquote>
+<p>這時候可以發現兩件事</p>
+<ol>
+<li><p>觀察*號左邊發現剛好會是費式數列，所以轉換成公式</p>
+<blockquote>
+<p>f(m) = [f(m-n+1) * f(n)] + [f(m-n) * f(n-1)]</p>
+</blockquote>
+<p>所以上面的式子就能轉換成 [f(6) * f(20)] + [f(5) * f(19)]</p>
+</li>
+<li><p>8 * f(20) 必為 f(20) 倍數，所以不必討論，也就是說接下來只需討論 &#39;+&#39; 右側的 f(5) * f(19) 和 f(20) 的最大功倍數，而此時因為 f(n) 和 f(n-1) 必定互質的關係 f(19) 也不必討論，只要求 GCD(f(5) , f(20)) 即可。</p>
+</li>
+</ol>
+<p>把以上兩個結論總和成一個公式 :</p>
+<blockquote>
+<p>GCD(f(m) , f(n)) = GCD(f(m-n) , f(n))</p>
+</blockquote>
+<p>然後發現每次轉換都會得到一組比較小的 GCD(f(m),f(n))，所以繼續用開頭的方式轉換新的 GCD(f(5),f(20))</p>
+<ol>
+<li><p>展開 f(20) = [f(16) * f(5)] + [f(15) * f(4)]<br>轉換後變成 : GCD((f(15) , f(5))</p>
+</li>
+<li><p>展開 f(15) = [f(11) * f(5)] + [f(10) * f(4)]<br>轉換後變成 : GCD(f(10) , f(5))</p>
+</li>
+<li><p>展開 f(10) = [f(6) * f(5)] + [f(5) * f(4)]<br>轉換後變成 : GCD(f(5) , f(5)) = f(5) = 5</p>
+</li>
+</ol>
+<p>然後就會發現 GCD(f(m),f(n)) 就是再求 f(GCD(m,n))…</p>
+<p>而題目保證答案可以用 unsigned long long 存，而費式數列第 94 項會超出 unsigned long long 的範圍，所以先建好 1~93 的費式數列表，之後查 F[GCD(m,n)] 輸出即可。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="正常版"><a href="#正常版" class="headerlink" title="正常版"></a>正常版</h3><h6 id="AC-40ms-88KB"><a href="#AC-40ms-88KB" class="headerlink" title="AC (40ms, 88KB)"></a>AC (40ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) (x)^=((y)^=((x)^=(y)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 94</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> F[MAX] = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">GCD</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; MAX; ++i)</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%llu\n"</span>, F[GCD(m, n)]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="AC-15ms-1MB"><a href="#AC-15ms-1MB" class="headerlink" title="AC (15ms, 1MB)"></a>AC (15ms, 1MB)</h6><h3 id="IO-優化版"><a href="#IO-優化版" class="headerlink" title="IO 優化版"></a>IO 優化版</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) (x)^=((y)^=((x)^=(y)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 94</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> F[MAX] = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putULongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">22</span>], * st = buffer + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">GCD</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; MAX; ++i)</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">while</span> (readUInt(&amp;n), readUInt(&amp;m))</span><br><span class="line">        putULongLong(F[GCD(m, n)], <span class="string">'\n'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 18.75px;">DFS</a> <a href="/tags/DP/" style="font-size: 17.5px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 10px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 15px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 13.75px;">IO優化</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/位元運算/" style="font-size: 16.25px;">位元運算</a> <a href="/tags/函式指標/" style="font-size: 10px;">函式指標</a> <a href="/tags/基數排序/" style="font-size: 13.75px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.25px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.75px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/映射/" style="font-size: 12.5px;">映射</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/河內塔/" style="font-size: 11.25px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 13.75px;">流程控制</a> <a href="/tags/短路求值/" style="font-size: 10px;">短路求值</a> <a href="/tags/背包問題/" style="font-size: 12.5px;">背包問題</a> <a href="/tags/質數/" style="font-size: 12.5px;">質數</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">223</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">222</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+      <div class="content">
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#內容"><span class="toc-text">內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸入"><span class="toc-text">輸入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#輸出"><span class="toc-text">輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解題思路"><span class="toc-text">解題思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整程式碼"><span class="toc-text">完整程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正常版"><span class="toc-text">正常版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO-優化版"><span class="toc-text">IO 優化版</span></a></li></ol></li></ol>
+      </div>
+    </div>
+    <div class="post-progress">
+      <span class="post-progress-gotop" onclick="goTop()">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+      <span class="post-progress-rate">
+        0%
+      </span>
+      <span class="post-progress-gobot" onclick="goBot()">
+        <i class="fas fa-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+  <script>
+    const $toc = $($(".post-toc").parent());
+    const $rate = $(".post-progress-rate");
+    const width = $toc.width();
+    var pos = $toc.offset();
+
+    setTOCPosition();
+
+    $(window).scroll(function () {
+      setTOCPosition();
+      var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+      $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+    });
+
+    $('.widget').each(function () {
+      $(this).find('.title').click(function () {
+        $content = $(this).siblings('.content');
+        if ($content.css('display') === 'none') {
+          $content.slideDown(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+        else {
+          $content.slideUp(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+      });
+    });
+
+    function setTOCPosition() {
+      if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({ 'position': 'fixed', 'top': '3rem', 'width': width });
+      }
+      else {
+        $toc.css('top', 0).css('position', 'relative');
+      }
+    }
+
+    function goTop() {
+      $("html,body").animate(
+        {
+          scrollTop: 0
+        },
+        "fast", "swing"
+      );
+    }
+
+    function goBot() {
+      $("html,body").animate(
+        {
+          scrollTop: $('body').height() - $(window).height()
+        },
+        "fast", "swing"
+      );
+    }
+  </script>
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>
