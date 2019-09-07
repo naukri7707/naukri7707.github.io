@@ -189,44 +189,47 @@ body {
   padding-left: 15px;
 }
 .post>.post-inner>.content table tbody tr:nth-child(even) {
-  background-color: rgba(32,32,32,0.7);
+  background-color: rgba(32,32,32,0.5);
 }
 .post>.post-inner>.content table tbody tr:nth-child(odd) {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
 }
 .post>.post-inner>.content ol,
 .post>.post-inner>.content ul {
   width: inherit;
   overflow-x: auto;
-  margin-left: 0;
-  margin-right: 10px;
+  margin: auto 0;
+  padding-right: 10px;
   border-left: 6px solid #42f472;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
+}
+.post>.post-inner>.content ol p,
+.post>.post-inner>.content ul p {
+  margin: 10px 0;
 }
 .post>.post-inner>.content blockquote {
   width: inherit;
   overflow-x: auto;
-  margin-left: 0;
-  margin-right: 10px;
+  margin: auto 0;
+  padding-left: 15px;
+  padding-right: 10px;
   border-left: 6px solid #428bca;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
 }
 .post>.post-inner>.content blockquote >p {
-  margin: 5px 0;
-  padding-left: 15px;
+  margin: 10px 0;
 }
 .post>.post-inner>.content .highlight {
   font-size: 0.9em;
   margin: auto 0;
-  overflow: auto;
+  width: 100%;
 }
 .post>.post-inner>.content .highlight >table {
+  width: inherit;
   border-left: 0;
 }
-.post>.post-inner>.content .highlight pre {
-  margin: 0;
-}
 .post>.post-inner>.content .highlight .gutter {
+  display: none;
   background-color: #232323;
   border-right: 1.5px solid #707070;
 }
@@ -236,11 +239,10 @@ body {
   padding-right: 5px;
 }
 .post>.post-inner>.content .highlight .code {
-  padding-left: 0;
   position: relative;
   background: #1e1e1e;
-  width: 100%;
-  overflow: hidden;
+  width: inherit;
+  padding-left: 0px;
 }
 .post>.post-inner>.content .highlight .code .copy-button {
   position: absolute;
@@ -261,80 +263,85 @@ body {
   color: #232323;
   font-style: bold;
 }
-.post>.post-inner>.content .highlight .code .line {
+.post>.post-inner>.content .highlight .code pre {
+  margin: 0;
+  width: inherit;
+}
+.post>.post-inner>.content .highlight .code pre .line {
+  padding-left: 10px;
   color: #d4d4d4;
   width: 100%;
-  padding-left: 10px;
-  padding-right: 70px;
   display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
-.post>.post-inner>.content .highlight .code .line:hover {
+.post>.post-inner>.content .highlight .code pre .line:hover {
   background-color: #3e404a;
 }
-.post>.post-inner>.content .highlight .code .keyword {
+.post>.post-inner>.content .highlight .code pre .keyword {
   color: #569cd6;
 }
-.post>.post-inner>.content .highlight .code .built_in {
+.post>.post-inner>.content .highlight .code pre .built_in {
   color: #9cdcfe;
 }
-.post>.post-inner>.content .highlight .code .type {
+.post>.post-inner>.content .highlight .code pre .type {
   color: #4ec9b0;
 }
-.post>.post-inner>.content .highlight .code .literal {
+.post>.post-inner>.content .highlight .code pre .literal {
   color: #499cd6;
 }
-.post>.post-inner>.content .highlight .code .number {
+.post>.post-inner>.content .highlight .code pre .number {
   color: #b5cea8;
 }
-.post>.post-inner>.content .highlight .code .string {
+.post>.post-inner>.content .highlight .code pre .string {
   color: #ce9178;
 }
-.post>.post-inner>.content .highlight .code .class {
+.post>.post-inner>.content .highlight .code pre .class {
   color: #4ec9b0;
 }
-.post>.post-inner>.content .highlight .code .function {
+.post>.post-inner>.content .highlight .code pre .function {
   color: #dcdcaa;
 }
-.post>.post-inner>.content .highlight .code .title {
+.post>.post-inner>.content .highlight .code pre .title {
   color: #dcdcaa;
 }
-.post>.post-inner>.content .highlight .code .params {
+.post>.post-inner>.content .highlight .code pre .params {
   color: #9cdcfe;
 }
-.post>.post-inner>.content .highlight .code .comment {
+.post>.post-inner>.content .highlight .code pre .comment {
   color: #6a9955;
 }
-.post>.post-inner>.content .highlight .code .meta {
+.post>.post-inner>.content .highlight .code pre .meta {
   color: #c586c0;
 }
-.post>.post-inner>.content .highlight .code .meta-keyword {
+.post>.post-inner>.content .highlight .code pre .meta-keyword {
   color: #c586c0;
 }
-.post>.post-inner>.content .highlight .code .meta-string {
+.post>.post-inner>.content .highlight .code pre .meta-string {
   color: #ce9178;
 }
-.post>.post-inner>.content .highlight .code .name {
+.post>.post-inner>.content .highlight .code pre .name {
   color: #569cd6;
 }
-.post>.post-inner>.content .highlight .code .attr {
+.post>.post-inner>.content .highlight .code pre .attr {
   color: #9cdcfe;
 }
-.post>.post-inner>.content .highlight .code .attribute {
+.post>.post-inner>.content .highlight .code pre .attribute {
   color: #9cdcfe;
 }
-.post>.post-inner>.content .highlight .code .selector-tag {
+.post>.post-inner>.content .highlight .code pre .selector-tag {
   color: #d7ba7d;
 }
-.post>.post-inner>.content .highlight .code .selector-id {
+.post>.post-inner>.content .highlight .code pre .selector-id {
   color: #d7ba7d;
 }
-.post>.post-inner>.content .highlight .code .selector-class {
+.post>.post-inner>.content .highlight .code pre .selector-class {
   color: #d7ba7d;
 }
-.post>.post-inner>.content .highlight .code .selector-attr {
+.post>.post-inner>.content .highlight .code pre .selector-attr {
   color: #dc6d36;
 }
-.post>.post-inner>.content .highlight .code .selector-pseudo {
+.post>.post-inner>.content .highlight .code pre .selector-pseudo {
   color: #dc6d36;
 }
 #error404 {
@@ -412,7 +419,7 @@ body {
 }
 .archives {
   padding: 30px;
-  overflow: hidden;
+  overflow: auto;
 }
 .archives .archive-list-title {
   font-size: 48px;
