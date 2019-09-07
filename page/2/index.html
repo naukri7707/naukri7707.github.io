@@ -97,12 +97,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="e339: 前綴和練習" class="post">
+<article id="e340: 差分練習" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -110,7 +110,83 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            e340: 差分練習
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/e340/">
+        <h1 class="title-text" title="e340: 差分練習">e340: 差分練習</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-05
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給定一陣列 B，請輸出這個陣列的差分陣列 A。</p>
+<p>定義 1 : 當 B[i]為 A[0]+A[1]+…A[i]，B 陣列為 A 陣列的前綴和。</p>
+<p>定義 2 : 當 B 陣列為 A 陣列的前綴和，A 陣列為 B 陣列的差分陣列。</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入的第一行有一個整數 N (1 &lt;= N &lt;= 200000)，代表 B 陣列大小。</p>
+<p>第二行有 N 個整數以空白分隔，依序表示 B[0], B[1], B[2] … B[N-1]。</p>
+<p>陣列中數字的絕對值不會超過 10^9。</p>
+<blockquote>
+<p>5<br>1 2 3 4 5</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出一行，其中有 N 個整數以空白分隔，依序表示 A[0], A[1], A[2] … A[N-1]。</p>
+<blockquote>
+<p>1 1 1 1 1</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>和<a href="/線上解題/ZeroJudge/e339">上一題</a>差不多，改成用一個整數紀錄上一個元素，輸出當前元素減去上一個元素即可。</p>
+<p>一樣不用做 IO 優化也能過。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-23ms-1-1MB"><a href="#AC-23ms-1-1MB" class="headerlink" title="AC (23ms, 1.1MB)"></a>AC (23ms, 1.1MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readInt</span><span class="params">(<span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">13</span>], * st = buffer + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">int</span> prev = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%*lld"</span>);</span><br><span class="line">    <span class="keyword">while</span> (readInt(&amp;tmp))</span><br><span class="line">        putInt((tmp - prev), <span class="string">' '</span>), prev = tmp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="e339: 前綴和練習" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -178,7 +254,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -186,7 +262,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -277,7 +353,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -285,7 +361,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -358,7 +434,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -366,7 +442,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -435,7 +511,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -443,7 +519,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -515,7 +591,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -523,7 +599,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -608,7 +684,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -616,7 +692,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -685,7 +761,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -693,7 +769,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -772,7 +848,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -780,7 +856,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -845,111 +921,6 @@
   </div>
 </article>
 
-<article id="e272: gcd(Fm,Fn)" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            e272: gcd(Fm,Fn)
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/e272/">
-        <h1 class="title-text" title="e272: gcd(Fm,Fn)">e272: gcd(Fm,Fn)</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-09-04
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給你 n,m,求 gcd(Fm,Fn)</p>
-<p>*Fx 代表 Fibonacci 數列第 x 項</p>
-<p>2019/6/8 時限調降至 0.5s</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入有多行</p>
-<p>每行有 m,n 兩數(m,n&lt;=10000)</p>
-<blockquote>
-<p>1 2<br>3 6</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>答案(保證可以用 unsigned long long 存)</p>
-<blockquote>
-<p>1<br>2</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>假設要求 GCD(f(25),f(20))，先展開 f(25)</p>
-<blockquote>
-<p>= [1 * f(25-1)] + [1 * f(25-2)] ( f(m-1) = f(m-2) + f(m-3) )<br>= [2 * f(25-2)] + [1 * f(25-3)]<br>= [3 * f(25-3)] + [2 * f(25-4)] ( 2 * f(m-2) = [2 * ( f(m-3) + f(m-4) )] = 2 * f(m-3) + 2 * f(m-4) )<br>= [5 * f(25-4)] + [3 * f(25-5)]<br>= [8 * f(25-5)] + [5 * f(25-6)]</p>
-</blockquote>
-<p>這時候可以發現兩件事</p>
-<ol>
-<li><p>觀察*號左邊發現剛好會是費式數列，所以轉換成公式</p>
-<blockquote>
-<p>f(m) = [f(m-n+1) * f(n)] + [f(m-n) * f(n-1)]</p>
-</blockquote>
-<p>所以上面的式子就能轉換成 [f(6) * f(20)] + [f(5) * f(19)]</p>
-</li>
-<li><p>8 * f(20) 必為 f(20) 倍數，所以不必討論，也就是說接下來只需討論 &#39;+&#39; 右側的 f(5) * f(19) 和 f(20) 的最大功倍數，而此時因為 f(n) 和 f(n-1) 必定互質的關係 f(19) 也不必討論，只要求 GCD(f(5) , f(20)) 即可。</p>
-</li>
-</ol>
-<p>把以上兩個結論總和成一個公式 :</p>
-<blockquote>
-<p>GCD(f(m) , f(n)) = GCD(f(m-n) , f(n))</p>
-</blockquote>
-<p>然後發現每次轉換都會得到一組比較小的 GCD(f(m),f(n))，所以繼續用開頭的方式轉換新的 GCD(f(5),f(20))</p>
-<ol>
-<li><p>展開 f(20) = [f(16) * f(5)] + [f(15) * f(4)]<br>轉換後變成 : GCD((f(15) , f(5))</p>
-</li>
-<li><p>展開 f(15) = [f(11) * f(5)] + [f(10) * f(4)]<br>轉換後變成 : GCD(f(10) , f(5))</p>
-</li>
-<li><p>展開 f(10) = [f(6) * f(5)] + [f(5) * f(4)]<br>轉換後變成 : GCD(f(5) , f(5)) = f(5) = 5</p>
-</li>
-</ol>
-<p>然後就會發現 GCD(f(m),f(n)) 就是再求 f(GCD(m,n))…</p>
-<p>而題目保證答案可以用 unsigned long long 存，而費式數列第 94 項會超出 unsigned long long 的範圍，所以先建好 1~93 的費式數列表，之後查 F[GCD(m,n)] 輸出即可。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h3 id="正常版"><a href="#正常版" class="headerlink" title="正常版"></a>正常版</h3><h6 id="AC-40ms-88KB"><a href="#AC-40ms-88KB" class="headerlink" title="AC (40ms, 88KB)"></a>AC (40ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) (x)^=((y)^=((x)^=(y)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 94</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> F[MAX] = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">GCD</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; MAX; ++i)</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%llu\n"</span>, F[GCD(m, n)]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="AC-15ms-1MB"><a href="#AC-15ms-1MB" class="headerlink" title="AC (15ms, 1MB)"></a>AC (15ms, 1MB)</h6><h3 id="IO-優化版"><a href="#IO-優化版" class="headerlink" title="IO 優化版"></a>IO 優化版</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) (x)^=((y)^=((x)^=(y)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 94</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> F[MAX] = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putULongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">22</span>], * st = buffer + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">GCD</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; MAX; ++i)</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>];</span><br><span class="line">    <span class="keyword">while</span> (readUInt(&amp;n), readUInt(&amp;m))</span><br><span class="line">        putULongLong(F[GCD(m, n)], <span class="string">'\n'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
@@ -980,7 +951,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">238</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">237</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">239</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">238</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>

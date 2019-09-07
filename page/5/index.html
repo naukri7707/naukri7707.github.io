@@ -97,12 +97,90 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="d637: 路過的鴨duck" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d637: 路過的鴨duck
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/d637/">
+        <h1 class="title-text" title="d637: 路過的鴨duck">d637: 路過的鴨duck</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包問題/">背包問題</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-02
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>有一天<br>有一隻路過的鴨 duck</p>
+<p>牠…太餓結果就死了囧…</p>
+<p>當他到天國的時候，<br>遇到了先前駕崩的鴨子王(duck king)，<br>牠變成了管理鴨子靈魂的神(duck king god，簡稱 duckingod)</p>
+<p>duckingod 生前是一隻非常聰明的神鴨，<br>所以 duckingod 給這隻路過的鴨一個復活的機會。<br>給牠一袋鴨飼料，裡面的每顆飼料有不同的體積和飽足感<br>只要路過的鴨能夠在有限的食量內吃得最飽，<br>那牠就能復活了！</p>
+<p>快寫個程式幫幫路過的鴨吧！呱呱呱！</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每個測資點僅一組測資，不必 EOF 讀檔。<br>第一行有正整數 n(1&lt;n&lt;=10000)表示有 n 顆鴨飼料<br>接下來的 n 行，每行有 ab 兩個正整數，<br>a 代表這顆鴨飼料的體積，b 代表飽足感(1&lt;=a&lt;=100 , 1&lt;=b&lt;=5000)<br>並且鴨子最多可以吃滿 100 體積的飼料。</p>
+<blockquote>
+<p>6<br>10 8<br>25 25<br>65 75<br>25 29<br>25 17<br>15 20</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出這袋鴨飼料能帶給路過的鴨的最大飽足感！</p>
+<blockquote>
+<p>112</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>經典的背包問題，飼料不能重複使用所以每種飼料從最大(100)飽足感 DP 到最小(飼料)飽足感。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-4ms-116KB"><a href="#AC-4ms-116KB" class="headerlink" title="AC (4ms, 116KB)"></a>AC (4ms, 116KB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> DP[<span class="number">101</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;a, &amp;b);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= a; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (DP[i] &lt; DP[i - a] + b)</span><br><span class="line">                DP[i] = DP[i - a] + b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, DP[<span class="number">100</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="Naukri Local Judge Mod" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -351,7 +429,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -359,7 +437,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -422,7 +500,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -430,7 +508,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -497,7 +575,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -505,7 +583,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -570,7 +648,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -578,7 +656,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -644,7 +722,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -652,7 +730,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -716,7 +794,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -724,7 +802,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -787,7 +865,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (239)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -795,7 +873,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (238)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -875,87 +953,6 @@
   </div>
 </article>
 
-<article id="d574: 節約符咒" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (238)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (237)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d574: 節約符咒
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/d574/">
-        <h1 class="title-text" title="d574: 節約符咒">d574: 節約符咒</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-09-01
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>梅蘭城的法師們研究出了一種魔法道具：符咒。<br>即便是未曾學習魔法的人，<br>只要念出符咒上獨特的咒語就能施展特定魔法，<br>並且該咒語的魔力就會消失。</p>
-<p>現在為了訓練新進的法師，需要使用大量的符咒。<br>但是梅蘭城(不事生產的)法師們並不會造紙這種技術，必須從首都艾克隆購買。</p>
-<p>在紙張有限的情況下，<br>必須按照特定的規則來記述這些為數龐大的咒語才行。<br>假設有一張地震術符咒的內容是：aaabb<br>咒語是由三個 a 和兩個 b 所組成，所以在符咒上的記述內容必須改成：3a2b<br>並且咒語的每個字都是有順序的，假如符咒治癒術是 xxxyywwyy 的話，必須記作 3x2y2w2y，”y”的部分不能記作 4y<br>如果採取這個格式後沒有得到咒文的節約，那麼就選擇直接使用原本的咒語就可以了。</p>
-<p>然而…</p>
-<p>越強的法術寫出來的咒文就會越臭長！快寫個程式幫助魔法師節約咒文吧！<br>(他們總是基於好奇喜歡對電腦這東西施展破壞性的閃電魔法，所以沒人知道怎麼寫程式。)</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>共計 10 個測資點。</p>
-<p>每個測資點只有一組測試資料。<br>第一行有正整數 n(1&lt;=n&lt;=10000000)，表示原本咒文的長度(以字元為單位)<br>第二行則是咒文的內容連續的 n 個字元。<br>其中咒文的字元是由小寫字母所組成。</p>
-<blockquote>
-<p>20<br>aaaaabbbbbcccccaabba</p>
-<p>3<br>abc</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>如果簡化過的咒文長度小於原咒文，則輸出簡化版本<br>如果簡化後和原咒文字數相同甚至更多，則輸出原咒文</p>
-<blockquote>
-<p>5a5b5c2a2b1a</p>
-<p>abc</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的字串處理。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-28ms-6-6MB"><a href="#AC-28ms-6-6MB" class="headerlink" title="AC (28ms, 6.6MB)"></a>AC (28ms, 6.6MB)</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10000000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> input[MAX], output[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">setUInt</span><span class="params">(<span class="keyword">char</span> buffer[], <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> tmp[<span class="number">11</span>], * st = tmp + <span class="number">10</span>, *res = buffer - <span class="number">1</span>;</span><br><span class="line">    *st = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="keyword">while</span> (*++res = *st++)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">if</span> (suffix)* res++ = suffix;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, count;</span><br><span class="line">    <span class="keyword">char</span> curr, * oTop;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %s"</span>, &amp;n, input) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        curr = input[<span class="number">0</span>], count = <span class="number">1</span>, oTop = output;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (curr == input[i])</span><br><span class="line">                count++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                oTop = setUInt(oTop, count, curr);</span><br><span class="line">                curr = input[i], count = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        oTop = setUInt(oTop, count, curr);</span><br><span class="line">        <span class="built_in">puts</span>(oTop - output &lt; n ? output : input);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/6/">&raquo;</a>
@@ -986,7 +983,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">238</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">237</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">239</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">238</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
