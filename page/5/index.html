@@ -97,12 +97,12 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id="d827: 買鉛筆" class="post">
+<article id="d985: Gran Turismo 5" class="post">
   <div class="post-meta">
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -110,7 +110,241 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d985: Gran Turismo 5
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/d985/">
+        <h1 class="title-text" title="d985: Gran Turismo 5">d985: Gran Turismo 5</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-03
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>最近，</p>
+<p>學姊籌錢買了一片 Gran Turismo 5 回家做賽車夢，</p>
+<p>又另外買了 G27 方向盤，</p>
+<p>但在賽車場上的表現始終不如人意。</p>
+<p><img src="https://zerojudge.tw/ShowImage?id=437" alt="img1"></p>
+<p>“車，不是這麼開的。”</p>
+<p>說完爸爸接過了方向盤，</p>
+<p>將記錄一次又一次的刷新。</p>
+<p>給你每一圈的時間紀錄，</p>
+<p>請算出 Best Lap 與平均時間。</p>
+<p>我一定要成為車神！</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>第一行有一個數字 N (0 &lt; N ≤ 10)</p>
+<p>代表接下來有 N 組測試資料</p>
+<p>每組測試資料第一行有一個數字 M (0 &lt; M ≤ 100)</p>
+<p>接著有 M 行資料</p>
+<p>每行兩個數字 A, B (0 ≤ A, B ≤ 60)</p>
+<p>代表該圈所花費時間為 A 分 B 秒</p>
+<blockquote>
+<p>3<br>4<br>1 54<br>2 02<br>1 58<br>1 50<br>3<br>1 23<br>1 42<br>1 37<br>5<br>3 00<br>2 56<br>3 04<br>2 50<br>3 01</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>Track X:</p>
+<p>Best Lap: X minute(s) X second(s).</p>
+<p>Average: X minute(s) X second(s).</p>
+<p>Average 為整數，小數部份無條件捨去</p>
+<p>詳請參考範例測資</p>
+<blockquote>
+<p>Track 1:<br>Best Lap: 1 minute(s) 50 second(s).<br>Average: 1 minute(s) 56 second(s).</p>
+<p>Track 2:<br>Best Lap: 1 minute(s) 23 second(s).<br>Average: 1 minute(s) 34 second(s).</p>
+<p>Track 3:<br>Best Lap: 2 minute(s) 50 second(s).<br>Average: 2 minute(s) 58 second(s).</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>將時間轉成秒來比較，取得最佳和平均秒數後再將秒格式化回去輸出即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> track, lap, time, best, sum, min, sec;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;track) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= track; t++)</span><br><span class="line">        &#123;</span><br><span class="line">            best = <span class="number">999999</span>, sum = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;lap);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; lap; l++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;min, &amp;sec);</span><br><span class="line">                time = min * <span class="number">60</span> + sec;</span><br><span class="line">                <span class="keyword">if</span> (time &lt; best)</span><br><span class="line">                    best = time;</span><br><span class="line">                sum += time;</span><br><span class="line">            &#125;</span><br><span class="line">            sum /= lap;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Track %d:\n"</span>, t);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Best Lap: %d minute(s) %d second(s).\n"</span>, best / <span class="number">60</span>, best % <span class="number">60</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Average: %d minute(s) %d second(s).\n\n"</span>, sum / <span class="number">60</span>, sum % <span class="number">60</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d984: 棄保效應" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d984: 棄保效應
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/d984/">
+        <h1 class="title-text" title="d984: 棄保效應">d984: 棄保效應</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-03
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>台灣的選舉法令禁止各陣營及媒體在投票日前的一個星期內公佈民調結果，其中最重要的一個因素是要避免「棄保效應」。所謂的「棄保效應」是指選民在得知自己所支持的候選人當選無望時，有可能會把票投給其他比較可能當選的人，以免浪費了自己的一票。假設某選舉有三位候選人來競選一個職位，在「棄保效應」發揮到極致的情形下，所有民調第三名的候選人的支持者都會把票投民調第二名的候選人，也就是他們都會「棄三保二」。給你 A, B, C 三個候選人的支持者人數，請判斷誰會當選？</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入有若干筆測試資料，每筆一行。每行有三個以空白隔開的整數 a, b, c 代表候選人 A, B, C 的支持者人數，0 ≤ a, b, c ≤ 2147483647。你可以假設在「棄保效應」之後，不會有相同票數的情形發生。</p>
+<blockquote>
+<p>3 4 5<br>1 3 5</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出將會當選的人是 A, B 或 C。</p>
+<blockquote>
+<p>B<br>C</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>只有 3 個人，用巢狀 if 判斷即可，注意人數相加會超過 int 範圍要使用 unsigned 或 long long。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-1ms-88KB"><a href="#AC-1ms-88KB" class="headerlink" title="AC (1ms, 88KB)"></a>AC (1ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a, b, c;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %lld %lld %lld"</span>, &amp;a, &amp;b, &amp;c) == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b &amp;&amp; a &gt; c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a &gt; b + c)<span class="built_in">puts</span>(<span class="string">"A"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (b &gt; c)<span class="built_in">puts</span>(<span class="string">"B"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"C"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (b &gt; a &amp;&amp; b &gt; c)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (b &gt; a + c)<span class="built_in">puts</span>(<span class="string">"B"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (a &gt; c)<span class="built_in">puts</span>(<span class="string">"A"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"C"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (c &gt; a + b)<span class="built_in">puts</span>(<span class="string">"C"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (a &gt; b)<span class="built_in">puts</span>(<span class="string">"A"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"B"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d881: 作業苦多" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d881: 作業苦多
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/d881/">
+        <h1 class="title-text" title="d881: 作業苦多">d881: 作業苦多</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-03
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>學校作業何其多~~老二為此苦惱了許久，現在又有一份數學作業，他想節省時間，所以想找一個程式來解決此問題，你能幫嗎?詳細題目如下:<br>計算一級數<br>每項的差形成一個等差數列<br>每一題給定一等差數列的公差<br>此等數列有 50 項，第一項為 1<br>輸出此數列和(1+到 50 項)<br>例如輸入為 1(此為各項差形成的等差級數的公差)<br>答案要輸出 1+2+4+7+11+……(到 50 項)<br>若輸入為 2<br>答案要輸出 1+2+5+10+17+26+37…… (到五十項)</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每次輸入一個測資 d，代表公差(d&lt;=100)</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出級數和(1+到 50 項)</p>
+<blockquote>
+<p>20875</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>用迴圈模擬題目算式算道第 50 項輸出即可。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-1ms-72KB"><a href="#AC-1ms-72KB" class="headerlink" title="AC (1ms, 72KB)"></a>AC (1ms, 72KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, now, ans, gap;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        now = gap = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++)</span><br><span class="line">            ans += now, now += gap, gap += n;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="d827: 買鉛筆" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -173,7 +407,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -181,7 +415,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -251,7 +485,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -259,7 +493,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -347,7 +581,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -355,7 +589,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -432,7 +666,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -440,7 +674,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -522,7 +756,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -530,7 +764,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -615,7 +849,7 @@
     <ul class="meta-list">
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (249)">
           <div class="meta-list-link-text">
             線上解題
           </div>
@@ -623,7 +857,7 @@
       </li>
       
       <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (248)">
           <div class="meta-list-link-text">
             ZeroJudge
           </div>
@@ -684,333 +918,6 @@
   </div>
 </article>
 
-<article id="d637: 路過的鴨duck" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (245)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d637: 路過的鴨duck
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/d637/">
-        <h1 class="title-text" title="d637: 路過的鴨duck">d637: 路過的鴨duck</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包問題/">背包問題</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-09-02
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>有一天<br>有一隻路過的鴨 duck</p>
-<p>牠…太餓結果就死了囧…</p>
-<p>當他到天國的時候，<br>遇到了先前駕崩的鴨子王(duck king)，<br>牠變成了管理鴨子靈魂的神(duck king god，簡稱 duckingod)</p>
-<p>duckingod 生前是一隻非常聰明的神鴨，<br>所以 duckingod 給這隻路過的鴨一個復活的機會。<br>給牠一袋鴨飼料，裡面的每顆飼料有不同的體積和飽足感<br>只要路過的鴨能夠在有限的食量內吃得最飽，<br>那牠就能復活了！</p>
-<p>快寫個程式幫幫路過的鴨吧！呱呱呱！</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每個測資點僅一組測資，不必 EOF 讀檔。<br>第一行有正整數 n(1&lt;n&lt;=10000)表示有 n 顆鴨飼料<br>接下來的 n 行，每行有 ab 兩個正整數，<br>a 代表這顆鴨飼料的體積，b 代表飽足感(1&lt;=a&lt;=100 , 1&lt;=b&lt;=5000)<br>並且鴨子最多可以吃滿 100 體積的飼料。</p>
-<blockquote>
-<p>6<br>10 8<br>25 25<br>65 75<br>25 29<br>25 17<br>15 20</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>請輸出這袋鴨飼料能帶給路過的鴨的最大飽足感！</p>
-<blockquote>
-<p>112</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>經典的背包問題，飼料不能重複使用所以每種飼料從最大(100)飽足感 DP 到最小(飼料)飽足感。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-4ms-116KB"><a href="#AC-4ms-116KB" class="headerlink" title="AC (4ms, 116KB)"></a>AC (4ms, 116KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> DP[<span class="number">101</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;a, &amp;b);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= a; i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (DP[i] &lt; DP[i - a] + b)</span><br><span class="line">                DP[i] = DP[i - a] + b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, DP[<span class="number">100</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="Naukri Local Judge Mod" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (246)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/本地測試模組/" title="本地測試模組 (1)">
-          <div class="meta-list-link-text">
-            本地測試模組
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            Naukri Local Judge Mod
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/本地測試模組/Naukri Local Judge Mod/">
-        <h1 class="title-text" title="Naukri Local Judge Mod">Naukri Local Judge Mod</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mod/">Mod</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-20
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="開始使用"><a href="#開始使用" class="headerlink" title="開始使用"></a>開始使用</h2><h3 id="這是什麼-能做什麼"><a href="#這是什麼-能做什麼" class="headerlink" title="這是什麼? 能做什麼?"></a>這是什麼? 能做什麼?</h3><p>這是一個 C/C++的本地 Judge 模組，它可以在輸入結束後自動幫你比對測資，免除線上判斷時的麻煩和等待時間。</p>
-<p>他能夠幫助你：</p>
-<ol>
-<li>取消 4996 警告(scanf()等函式的不安全警告)</li>
-<li>取消 scanf() 不接受回傳值時的警告</li>
-<li>本地 Judge (支援 Tolerant 、 Strictly 、 Special 三種模式)</li>
-<li>簡單的效能評估</li>
-</ol>
-      <div class="hidden-content">
-        <h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>以下為在 Visual Studio 安裝的流程</p>
-<ol>
-<li><p><a href="https://github.com/naukri7707/Naukri-OJ-Mod/releases" target="_blank" rel="noopener">下載</a>本模組</p>
-</li>
-<li><p>新增一個空白專案，並在專案中加入一個名為 main 的.c 或.cpp 檔</p>
-</li>
-<li><p>新增 include 目錄到專案</p>
-<blockquote>
-<p>專案 &rarr; 屬性 &rarr; C/C++ &rarr; 一般 &rarr; 其他 Include 目錄 &rarr; 指定模組資料夾</p>
-</blockquote>
-</li>
-<li><p>把模組中的 systemInput.txt、systemOutput.txt、userOutput.txt 移動至專案資料夾 (你寫程式的.c/.cpp 檔那裡)。</p>
-<blockquote>
-<p>以 Project 專案為例，在 Project/Project/ 這層會看到 main.c，把 3 個 txt 檔丟到這裡。</p>
-</blockquote>
-</li>
-<li><p>如果使用的是 cpp，將模組中全部的.c 檔改為.cpp。</p>
-</li>
-</ol>
-<h4 id="侵入式安裝"><a href="#侵入式安裝" class="headerlink" title="侵入式安裝"></a>侵入式安裝</h4><p>這步驟不會為你添加任何實質性的功能，但可以在寫程式時不用再引入本模組的標頭檔，從而獲得更好的使用體驗，但如果除了 Online Judge 之外還要寫其他 C/C++的程式則不建議使用。</p>
-<ol>
-<li><p>先備份好 stdio.h 避免出錯。</p>
-</li>
-<li><p>做完以上述動作後，開啟 main.c 輸出</p>
-<blockquote>
-<p>#include &lt;stdio.h&gt;</p>
-</blockquote>
-</li>
-<li><p>在上面右鍵 &rarr; 前往&lt;stdio.h&gt;</p>
-</li>
-<li><p>滑到最下面，在#endif 上加上</p>
-<blockquote>
-<p>#include &lt;naukri.h&gt;</p>
-</blockquote>
-<p>變成</p>
-<blockquote>
-<p>… (其他在上面的程式碼)<br>#include &lt;naukri.h&gt;<br>#endif</p>
-</blockquote>
-</li>
-<li><p>儲存，如果你的 Visual Studio 沒有該資料夾的存取權限他會提示你另存新檔，把它存到桌面在手動貼到該資料夾覆蓋即可。<br>資料夾可以在 stdio.h 頁籤上右鍵 &rarr; 開啟收納資料夾找到。</p>
-</li>
-</ol>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>選好 Judge 模式(參見<a href="#判斷模式">判斷模式</a>)，在#include &lt;stdio.h&gt; 下引入 naukri.h 變成</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;naukri.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>即可使用，上傳至 OJ 時記得刪掉 #include &lt;naukri.h&gt; 就可以了。<br>若為侵入式安裝則不必引入(除非你不會用到 stdio.h)，像沒安裝模組時一樣寫程式即可。</p>
-<p>若你使用的是 cpp，iostream 和 cstdio 內部都會引入 stdio.h。</p>
-<h4 id="情境範例"><a href="#情境範例" class="headerlink" title="情境範例"></a>情境範例</h4><p>請先閱讀下方的<a href="#巨集與定義">巨集與定義</a></p>
-<h5 id="已經有輸入和正確的輸出"><a href="#已經有輸入和正確的輸出" class="headerlink" title="已經有輸入和正確的輸出"></a>已經有輸入和正確的輸出</h5><ol>
-<li>在 FILE_INPUT 放輸入，在 FILE_COMPARE 放正確的輸出</li>
-<li>定義 IO 模式為 F_TF (FILE_INPUT 輸入、終端 + FILE_OUTPUT 輸出)</li>
-<li>將 CMPMODE 設為 2 (或將函式 main() return 2)</li>
-<li>開始運行。</li>
-</ol>
-<h5 id="已經有輸入和正確的程式碼"><a href="#已經有輸入和正確的程式碼" class="headerlink" title="已經有輸入和正確的程式碼"></a>已經有輸入和正確的程式碼</h5><ol>
-<li>在 FILE_INPUT 放輸入</li>
-<li>定義 IO 模式為 F_TF (FILE_INPUT 輸入、終端 + FILE_OUTPUT 輸出)</li>
-<li>將 CMPMODE 設為 3 (或將函式 main() return 3)</li>
-<li>開始運行。</li>
-</ol>
-<h5 id="只有正確的程式碼，想用終端機測試"><a href="#只有正確的程式碼，想用終端機測試" class="headerlink" title="只有正確的程式碼，想用終端機測試"></a>只有正確的程式碼，想用終端機測試</h5><ol>
-<li>定義 IO 模式為 T_TF (終端輸入、終端 + FILE_OUTPUT 輸出)</li>
-<li>將 CMPMODE 設為 3 (或將函式 main() return 3)</li>
-<li>開始運行，輸入自定義測資。 (也可以將自定義測資放到 FILE_INPUT 用 “已經有輸入和正確的程式碼” 判斷)</li>
-</ol>
-<h5 id="什麼都沒有，只是想使用包裝過的函式"><a href="#什麼都沒有，只是想使用包裝過的函式" class="headerlink" title="什麼都沒有，只是想使用包裝過的函式"></a>什麼都沒有，只是想使用包裝過的函式</h5><ol>
-<li>定義 IO 模式為 T_T (終端輸入、終端輸出)</li>
-<li>將 CMPMODE 設為 1 (或將函式 main() return 1)</li>
-<li>開始運行。</li>
-</ol>
-<h3 id="巨集與定義"><a href="#巨集與定義" class="headerlink" title="巨集與定義"></a>巨集與定義</h3><h4 id="判斷模式"><a href="#判斷模式" class="headerlink" title="判斷模式"></a>判斷模式</h4><p>比較時的預設參數。</p>
-<h5 id="CMPMODE"><a href="#CMPMODE" class="headerlink" title="CMPMODE"></a>CMPMODE</h5><p>定義預設的 Judge 的方式，而 main.c 的 return 值可以用來覆蓋這個預設模式(也就是如果 return 不為 0 則以 return 值為準)</p>
-<blockquote>
-<p>0 = 隨意(若 return 亦為 0 則不進行比較)<br>1 = 不進行比較<br>2 = 使用 <a href="#FILE-COMPARE">FILE_COMPARE</a> 儲存的答案比較<br>3 = 使用 judge.c 計算出的答案比較 (這個模式只有在使用 <a href="#FILE-INPUT">FILE_INPUT</a> 作為輸入時才能使用)<br>4 = 自動判斷，如果輸入來自終端機 = 2, 來自檔案 = 3</p>
-</blockquote>
-<h5 id="STRICTLYMODE"><a href="#STRICTLYMODE" class="headerlink" title="STRICTLYMODE"></a>STRICTLYMODE</h5><p>嚴格比對模式，當 STRICTLYMODE 為 0 時代表關閉，亦即是寬容(Tolerant)模式，為 1 時開啟則是嚴格(Strictly)模式，預設值為 0</p>
-<h5 id="TLE"><a href="#TLE" class="headerlink" title="TLE"></a>TLE</h5><p>定義超時時間限制，以毫秒為單位，預設值為 1000 ms<br>注意！它不會在你超時時跳出程式，只會在印出判斷結果時提醒你超時了。</p>
-<h4 id="文件位置"><a href="#文件位置" class="headerlink" title="文件位置"></a>文件位置</h4><p>輸入輸出檔存放位置，可在 naukri.h 進行自定義修改</p>
-<h5 id="FILE-INPUT"><a href="#FILE-INPUT" class="headerlink" title="FILE_INPUT"></a>FILE_INPUT</h5><p>輸入檔位置，預設值為 input.txt</p>
-<h5 id="FILE-OUTPUT"><a href="#FILE-OUTPUT" class="headerlink" title="FILE_OUTPUT"></a>FILE_OUTPUT</h5><p>使用者輸出檔位置，預設值為 output.txt</p>
-<h5 id="FILE-COMPARE"><a href="#FILE-COMPARE" class="headerlink" title="FILE_COMPARE"></a>FILE_COMPARE</h5><p>比對用檔案位置，也是判斷程式輸出檔，預設值為 compare.txt</p>
-<h4 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h4><p>這部分僅供模組使用，若無客製化需求只要注意不要誤用關鍵字即可。</p>
-<h5 id="stdin"><a href="#stdin" class="headerlink" title="stdin"></a>stdin</h5><p>當輸入選擇 FILE_INPUT 時會覆寫 stdio.h 對 stdin 的定義。</p>
-<p>本巨集僅用於將 freed() 等未被包裝的輸入函式指向正確的輸入位置，在被包裝的函式中，內部會強制將流導向定義的 fileIn 或 termIn 。</p>
-<h5 id="termIn"><a href="#termIn" class="headerlink" title="termIn"></a>termIn</h5><p>終端輸入流</p>
-<h5 id="termOut"><a href="#termOut" class="headerlink" title="termOut"></a>termOut</h5><p>終端輸出流</p>
-<h5 id="termErr"><a href="#termErr" class="headerlink" title="termErr"></a>termErr</h5><p>終端錯誤流</p>
-<h5 id="fileIn"><a href="#fileIn" class="headerlink" title="fileIn"></a>fileIn</h5><p>檔案輸入流</p>
-<h5 id="fileOut"><a href="#fileOut" class="headerlink" title="fileOut"></a>fileOut</h5><p>檔案輸出流</p>
-<h5 id="fileCmp"><a href="#fileCmp" class="headerlink" title="fileCmp"></a>fileCmp</h5><p>檔案比對流</p>
-<h4 id="IO-修正"><a href="#IO-修正" class="headerlink" title="IO 修正"></a>IO 修正</h4><h5 id="LFFIX"><a href="#LFFIX" class="headerlink" title="LFFIX"></a>LFFIX</h5><p>定義是否將 gets(),fgets() 讀入字串末端的換行符號 (&#39;\n&#39;) 移除</p>
-<blockquote>
-<p>0 = 不移除字串尾的換行符號<br>1 = 移除字串尾的換行符號</p>
-</blockquote>
-<h4 id="IO-模式"><a href="#IO-模式" class="headerlink" title="IO 模式"></a>IO 模式</h4><p>使用 wrapper 包裝平常會使用到的輸入輸出方式。<br>IO 模式是預設為 F_TF，你可以在 naukri.h 進行更改，若只是要暫時的更改做測試則在 main.c 的 #include &lt;naukri.h&gt; 之前定義你要的模式 Ex:</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F_TF</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;naukri.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>就會變成 F_TF 模式。</p>
-<h5 id="NO-WRAPPER"><a href="#NO-WRAPPER" class="headerlink" title="NO_WRAPPER"></a>NO_WRAPPER</h5><p>不包裝，也就是使用原生的 IO 模式</p>
-<h5 id="T-T"><a href="#T-T" class="headerlink" title="T_T"></a>T_T</h5><p>使用終端機作為輸入，並將結果輸出至終端機，和不包裝一樣，差別在它能讓不接受回傳值時的警告消失。</p>
-<h5 id="T-F"><a href="#T-F" class="headerlink" title="T_F"></a>T_F</h5><p>使用終端機作為輸入，並將結果輸出至 FILE_OUTPUT。</p>
-<h5 id="T-TF"><a href="#T-TF" class="headerlink" title="T_TF"></a>T_TF</h5><p>使用終端機作為輸入，並將結果輸出至終端機和 FILE_OUTPUT。</p>
-<h5 id="F-T"><a href="#F-T" class="headerlink" title="F_T"></a>F_T</h5><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機。</p>
-<h5 id="F-F"><a href="#F-F" class="headerlink" title="F_F"></a>F_F</h5><p>使用 FILE_INPUT 作為輸入，並將結果輸出至 FILE_OUTPUT。</p>
-<h5 id="F-TF"><a href="#F-TF" class="headerlink" title="F_TF"></a>F_TF</h5><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機和 FILE_OUTPUT。</p>
-<h5 id="F-C"><a href="#F-C" class="headerlink" title="F_C"></a>F_C</h5><p>使用 FILE_INPUT 作為輸入，並將結果輸出至 FILE_COMPARE，這是給 judge.c 使用的巨集。</p>
-<h5 id="F-TC"><a href="#F-TC" class="headerlink" title="F_TC"></a>F_TC</h5><p>使用 FILE_INPUT 作為輸入，並將結果輸出至終端機和 FILE_COMPARE，這是給 judge.c 使用的巨集。</p>
-<h4 id="被包裝的函式"><a href="#被包裝的函式" class="headerlink" title="被包裝的函式"></a>被包裝的函式</h4><p>除了輸入輸出(參照<a href="#IO-模式">IO 模式</a>)位置外，他們不會對你的程式造成任何影響，你可以像沒有包裝時一樣使用他們。但要注意為了讓模組能夠正常的運行，這些被包裝的函式可能會產生額外的運算。</p>
-<ul>
-<li>scanf(_Format, …)</li>
-<li>gets(_Buffer)</li>
-<li>fgets(_Buffer, _MaxCount, _Stream)</li>
-<li>getchar()</li>
-<li>printf(_Format, …)</li>
-<li>puts(_Buffer)</li>
-<li>putchar(_Character)</li>
-</ul>
-<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ul>
-<li><p>judge.c 最上方會有預設的引入，這是使用程式碼進行判斷時的必要引入，請不要將它刪掉，如果不慎誤刪在 naukri.h 最底部有一個被註解掉的備份可以還原。</p>
-</li>
-<li><p>時間判斷是使用 CPU 的 clock 數來計算，因此在終端機等候輸入和使用中斷點 Debug 的時都會被計入，若想要獲得較正確的時間評估請使用 FILE_INPUT 做輸入並關閉所有中斷點。</p>
-</li>
-<li><p>模組中使用的全域函式或變數皆以雙底線開頭、單底線結尾(__func_())，是為了避免和使用者定義的函式衝到，請不要使用這種命名方式。</p>
-</li>
-<li><p>main.c 的 main() 會被用巨集定義成 __main_()、 judge.c 的 main() 則會被定義成 __judge_()，這些是為了先載入模組的必要定義，模組載入後會自己呼叫 __main_() 和 __judge_() ，不必擔心。</p>
-</li>
-<li><p>如果 main.c 和 judge.c 的變數或函式撞名，系統會報錯並顯示該變數(函式)已經在 judge.obj 定義過了，這時候只要把 judge.c 裡面的撞名變數(函式)前面加上 static 前綴即可。</p>
-</li>
-</ul>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id=" 模板表" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (5)">
-          <div class="meta-list-link-text">
-            模板庫
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-             模板表
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/模板庫/模板表/">
-        <h1 class="title-text" title=" 模板表"> 模板表</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-27
-        </time>
-      </div>
-    </header>
-    
-    <div class="content">
-      <h3 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h3><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
-<h3 id="字串賦值"><a href="#字串賦值" class="headerlink" title="字串賦值"></a><a href="/模板庫/字串賦值/">字串賦值</a></h3><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
-<h3 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h3><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
-<h3 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h3><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
-
-    </div>
-    
-  </div>
-</article>
-
 
 <div class="index-pagination">
   <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/6/">&raquo;</a>
@@ -1041,7 +948,7 @@
     
     <div class="content">
     
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">246</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">245</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">249</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">248</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 </div>
