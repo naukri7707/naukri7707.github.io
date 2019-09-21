@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>[模板] Queue(佇列) | Naukri&#39;s Blog</title>
+  
+  <!-- JQuery -->
+  <script src="/lib/jquery.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="/lib/fontawesome/all.min.js"></script>
+  <!-- Title & Icon -->
+  
+  <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <!-- MyStyle -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- LayoutBehavior -->
+  <script src="/js/layoutBehavior.js"></script>
+  <!-- PostBehavior -->
+  <script src="/js/postBehavior.js"></script>
+</head>
+
+<body id="layout">
+  
+  <!-- 背景 -->
+  
+  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+  
+  <nav id="navbar" class="banner-style">
+  <div class="navbar-list wrapper">
+    <div class="nav-item-avatar">
+      <img src="/img/gitcat.png" alt="avatar" onmousedown="return false;">
+    </div>
+    <div class="nav-item-links-left">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a class="item-link" href="/">
+      首頁
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a class="item-link" href="/archives">
+      歸檔
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+    <div class="nav-item-links-right">
+      
+<ul class="links">
+  
+  <li class="item">
+    
+    <a href="https://zerojudge.tw/UserStatistic?id=47443" title="ZeroJudge">
+      <i class="item-link fas fa-code"></i>
+    </a>
+    
+  </li>
+  
+  <li class="item">
+    
+    <a href="https://github.com/naukri7707" title="Github">
+      <i class="item-link fab fa-github"></i>
+    </a>
+    
+  </li>
+  
+</ul>
+    </div>
+  </div>
+</nav>
+  <div id="messageField">
+    <p>Test Message</p>
+  </div>
+  <header id="header">
+  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <div class="banner-inner">
+    <div class="banner-title">
+    Naukri&#39;s Blog
+    </div>
+  </div>
+</header>
+  <div class="wrapper main-body">
+    <main id="main">
+      <article id="[模板] Queue(佇列)" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (7)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] Queue(佇列)
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <h1 class="title-text" title="[模板] Queue(佇列)">[模板] Queue(佇列)</h1>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/">Queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-09-21
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="Queue-主結構"><a href="#Queue-主結構" class="headerlink" title="Queue 主結構"></a>Queue 主結構</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ENTSIZ 1024</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Data</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="comment">/* your data here */</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* _<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Node* front, * last;</span><br><span class="line">&#125;Queue;</span><br><span class="line"></span><br><span class="line">Node entries[ENTSIZ], * entry = entries, * freeBuk;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">register</span> Queue* que, <span class="keyword">register</span> Node val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (freeBuk)</span><br><span class="line">    &#123;</span><br><span class="line">        Node* tmp = freeBuk-&gt;_next;</span><br><span class="line">        *freeBuk = val, freeBuk-&gt;_next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (que-&gt;last)  que-&gt;last = que-&gt;last-&gt;_next = freeBuk;</span><br><span class="line">        <span class="keyword">else</span> que-&gt;front = que-&gt;last = freeBuk;</span><br><span class="line">        freeBuk = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *entry = val;</span><br><span class="line">        <span class="keyword">if</span> (que-&gt;last) que-&gt;last = que-&gt;last-&gt;_next = entry++;</span><br><span class="line">        <span class="keyword">else</span> que-&gt;front = que-&gt;last = entry++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> Node <span class="title">pop</span><span class="params">(<span class="keyword">register</span> Queue* que)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node* tmp = que-&gt;front;</span><br><span class="line">    que-&gt;front = que-&gt;front-&gt;_next;</span><br><span class="line">    tmp-&gt;_next = freeBuk;</span><br><span class="line">    <span class="keyword">return</span> *(freeBuk = tmp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<hr>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本組模板為佇列模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間，本模板可同時宣告並使用複數個 <a href="/模板庫/Stack/">stack</a> 和 queue，而只須保證資料結構相同且元素總數不超過定義上限即可。</p>
+<h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>本結構為資料的進入點，其中 struct Data 為供使用者存取資料的結構，_next 則是保證結構正運作的必要參數，請不要任意更改它除非你清楚了解它的作用。</p>
+<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h4><p>本結構為佇列的主結構，使用他來宣告一個新的佇列。</p>
+<h3 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h3><h4 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h4><p>本函式會新增一筆資料至目標堆疊的最末端。</p>
+<h5 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h5><h6 id="stk-Queue"><a href="#stk-Queue" class="headerlink" title="stk (Queue*)"></a>stk (Queue*)</h6><p>本參數為目標佇列。</p>
+<h6 id="val-Node"><a href="#val-Node" class="headerlink" title="val (Node)"></a>val (Node)</h6><p>本參數為存入目標佇列最末端的元素。</p>
+<h5 id="回傳值"><a href="#回傳值" class="headerlink" title="回傳值"></a>回傳值</h5><p>本函式無回傳值。</p>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h4><p>本函式會將目標佇列最前端的資料取出並回傳該元素。</p>
+<h6 id="stk-Queue-1"><a href="#stk-Queue-1" class="headerlink" title="stk (Queue*)"></a>stk (Queue*)</h6><p>本參數為目標佇列。</p>
+<h5 id="回傳值-1"><a href="#回傳值-1" class="headerlink" title="回傳值"></a>回傳值</h5><p>本函式回傳目標佇列最前端的元素。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="ENTSIZ"><a href="#ENTSIZ" class="headerlink" title="ENTSIZ"></a>ENTSIZ</h4><p>此巨集用來定義元素的數量上限。</p>
+<h2 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ENTSIZ 1024</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Data</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* _<span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Node* front, * last;</span><br><span class="line">&#125;Queue;</span><br><span class="line"></span><br><span class="line">Node entries[ENTSIZ], * entry = entries, * freeBuk;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">register</span> Queue* que, <span class="keyword">register</span> Node val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (freeBuk)</span><br><span class="line">    &#123;</span><br><span class="line">        Node* tmp = freeBuk-&gt;_next;</span><br><span class="line">        *freeBuk = val, freeBuk-&gt;_next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span> (que-&gt;last)  que-&gt;last = que-&gt;last-&gt;_next = freeBuk;</span><br><span class="line">        <span class="keyword">else</span> que-&gt;front = que-&gt;last = freeBuk;</span><br><span class="line">        freeBuk = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *entry = val;</span><br><span class="line">        <span class="keyword">if</span> (que-&gt;last) que-&gt;last = que-&gt;last-&gt;_next = entry++;</span><br><span class="line">        <span class="keyword">else</span> que-&gt;front = que-&gt;last = entry++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> Node <span class="title">pop</span><span class="params">(<span class="keyword">register</span> Queue* que)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node* tmp = que-&gt;front;</span><br><span class="line">    que-&gt;front = que-&gt;front-&gt;_next;</span><br><span class="line">    tmp-&gt;_next = freeBuk;</span><br><span class="line">    <span class="keyword">return</span> *(freeBuk = tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Queue <span class="built_in">queue</span> = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    Node n = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;</span><br><span class="line">    push(&amp;<span class="built_in">queue</span>, n);</span><br><span class="line">    n.b = <span class="number">2</span>;</span><br><span class="line">    push(&amp;<span class="built_in">queue</span>, n);</span><br><span class="line">    push(&amp;<span class="built_in">queue</span>, pop(&amp;<span class="built_in">queue</span>));</span><br><span class="line">    n.b = <span class="number">3</span>;</span><br><span class="line">    push(&amp;<span class="built_in">queue</span>, n);</span><br><span class="line">    n = pop(&amp;<span class="built_in">queue</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d\n"</span>, n.a, n.b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d\n"</span>, <span class="built_in">queue</span>.front-&gt;a, <span class="built_in">queue</span>.front-&gt;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%d\n"</span>, <span class="built_in">queue</span>.last-&gt;a, <span class="built_in">queue</span>.last-&gt;b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h5><blockquote>
+<p>0,2<br>0,1<br>0,3</p>
+</blockquote>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ul>
+<li><p>如果自定義資料較大，你應該將存取方式改為使用指標，並透過映射的方式存取資料來減少記憶體的操作次數。</p>
+</li>
+<li><p>在區域變數裡宣告新的 Queue 時必須將其初始化</p>
+<blockquote>
+<p>Queue queue = { 0 };</p>
+</blockquote>
+<p>否則會因為存取違規而出現 runtime error;</p>
+</li>
+<li><p>如果要同時使用 Stack 和 Queue，請將兩者的 push() 和 pop() 函式用不同名字區隔開來。</p>
+</li>
+<li><p>測試階段，謹慎使用。</p>
+</li>
+</ul>
+<h2 id="更新紀錄"><a href="#更新紀錄" class="headerlink" title="更新紀錄"></a>更新紀錄</h2><p>無</p>
+
+    </div>
+    
+  </div>
+</article>
+    </main>
+    <aside id="sidebar" class="sidebar">
+      
+<div class="widget">
+  <div class="tag-cloud">
+    <a class="title">
+      標籤雲
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <a href="/tags/BFS/" style="font-size: 11.25px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/C-C/" style="font-size: 10px;">C/C++</a> <a href="/tags/DFS/" style="font-size: 20px;">DFS</a> <a href="/tags/DP/" style="font-size: 16.25px;">DP</a> <a href="/tags/Dijkstra/" style="font-size: 11.25px;">Dijkstra</a> <a href="/tags/EPS/" style="font-size: 10px;">EPS</a> <a href="/tags/Hash/" style="font-size: 13.75px;">Hash</a> <a href="/tags/IO優化/" style="font-size: 18.75px;">IO優化</a> <a href="/tags/LCA/" style="font-size: 10px;">LCA</a> <a href="/tags/Mod/" style="font-size: 10px;">Mod</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Tarjan/" style="font-size: 10px;">Tarjan</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/並查集/" style="font-size: 10px;">並查集</a> <a href="/tags/位元運算/" style="font-size: 17.5px;">位元運算</a> <a href="/tags/函式指標/" style="font-size: 10px;">函式指標</a> <a href="/tags/基數排序/" style="font-size: 12.5px;">基數排序</a> <a href="/tags/堆積排序/" style="font-size: 10px;">堆積排序</a> <a href="/tags/大數/" style="font-size: 11.25px;">大數</a> <a href="/tags/字串處理/" style="font-size: 20px;">字串處理</a> <a href="/tags/建表/" style="font-size: 13.75px;">建表</a> <a href="/tags/後序式/" style="font-size: 10px;">後序式</a> <a href="/tags/快速冪/" style="font-size: 10px;">快速冪</a> <a href="/tags/插入排序/" style="font-size: 10px;">插入排序</a> <a href="/tags/映射/" style="font-size: 11.25px;">映射</a> <a href="/tags/模板/" style="font-size: 15px;">模板</a> <a href="/tags/河內塔/" style="font-size: 13.75px;">河內塔</a> <a href="/tags/流程控制/" style="font-size: 12.5px;">流程控制</a> <a href="/tags/短路求值/" style="font-size: 10px;">短路求值</a> <a href="/tags/背包問題/" style="font-size: 11.25px;">背包問題</a> <a href="/tags/質數/" style="font-size: 11.25px;">質數</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="categories">
+    <a class="title">
+      分類目錄
+    </a>
+    
+    <div class="content" style="display:none">
+    
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/模板庫/">模板庫</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/">線上解題</a><span class="category-list-count">252</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/ZeroJudge/">ZeroJudge</a><span class="category-list-count">251</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/線上解題/本地測試模組/">本地測試模組</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="widget">
+  <div class="post-toc">
+    <a class="title">
+      索引
+    </a>
+    
+      <div class="content">
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-text">模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Queue-主結構"><span class="toc-text">Queue 主結構</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#結構"><span class="toc-text">結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node"><span class="toc-text">Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Queue"><span class="toc-text">Queue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函式"><span class="toc-text">函式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-text">push()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pop"><span class="toc-text">pop()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ENTSIZ"><span class="toc-text">ENTSIZ</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#實例"><span class="toc-text">實例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事項"><span class="toc-text">注意事項</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新紀錄"><span class="toc-text">更新紀錄</span></a></li></ol>
+      </div>
+    </div>
+    <div class="post-progress">
+      <span class="post-progress-gotop" onclick="goTop()">
+        <i class="fas fa-chevron-up"></i>
+      </span>
+      <span class="post-progress-rate">
+        0%
+      </span>
+      <span class="post-progress-gobot" onclick="goBot()">
+        <i class="fas fa-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+  <script>
+    const $toc = $($(".post-toc").parent());
+    const $rate = $(".post-progress-rate");
+    const width = $toc.width();
+    var pos = $toc.offset();
+
+    setTOCPosition();
+
+    $(window).scroll(function () {
+      setTOCPosition();
+      var r = $(window).scrollTop() * 100 / ($('body').height() - $(window).height());
+      $rate.text((r > 99 ? 100 : r < 1 ? 0 : r.toFixed(1)) + '%');
+    });
+
+    $('.widget').each(function () {
+      $(this).find('.title').click(function () {
+        $content = $(this).siblings('.content');
+        if ($content.css('display') === 'none') {
+          $content.slideDown(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+        else {
+          $content.slideUp(400, function () {
+            pos = $toc.offset();
+            setTOCPosition();
+          });
+        }
+      });
+    });
+
+    function setTOCPosition() {
+      if ($(window).scrollTop() + 55 > pos.top) {
+        $toc.css({ 'position': 'fixed', 'top': '3rem', 'width': width });
+      }
+      else {
+        $toc.css('top', 0).css('position', 'relative');
+      }
+    }
+
+    function goTop() {
+      $("html,body").animate(
+        {
+          scrollTop: 0
+        },
+        "fast", "swing"
+      );
+    }
+
+    function goBot() {
+      $("html,body").animate(
+        {
+          scrollTop: $('body').height() - $(window).height()
+        },
+        "fast", "swing"
+      );
+    }
+  </script>
+
+    </aside>
+  </div>
+  <footer id="footer">
+  <div class="wrapper">
+    <div class="copyright">
+      &copy; 2019 Theme by <a href="https://github.com/naukri7707/hexo-theme-naukri">Naukri</a> -
+      Powered by <a href="https://hexo.io/">Hexo</a>.
+    </div>
+  </div>
+</footer>
+  
+</body>
+
+</html>
