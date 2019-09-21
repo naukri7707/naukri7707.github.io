@@ -97,60 +97,6 @@
   <div class="wrapper main-body">
     <main id="main">
       
-<article id=" 模板列表" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (7)">
-          <div class="meta-list-link-text">
-            模板庫
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-             模板列表
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/模板庫/模板列表/">
-        <h1 class="title-text" title=" 模板列表"> 模板列表</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-27
-        </time>
-      </div>
-    </header>
-    
-    <div class="content">
-      <h2 id="字串處理"><a href="#字串處理" class="headerlink" title="字串處理"></a>字串處理</h2><h5 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h5><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
-<h5 id="字串賦值"><a href="#字串賦值" class="headerlink" title="字串賦值"></a><a href="/模板庫/字串賦值/">字串賦值</a></h5><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
-<h2 id="IO-優化"><a href="#IO-優化" class="headerlink" title="IO 優化"></a>IO 優化</h2><h5 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h5><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
-<h5 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h5><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
-<h2 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h2><h5 id="Stack-堆疊"><a href="#Stack-堆疊" class="headerlink" title="Stack(堆疊)"></a><a href="/模板庫/Stack/">Stack(堆疊)</a></h5><p>本組模板為堆疊模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間。</p>
-<h5 id="Queue-佇列"><a href="#Queue-佇列" class="headerlink" title="Queue(佇列)"></a><a href="/模板庫/Queue/">Queue(佇列)</a></h5><p>本組模板為佇列模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間。</p>
-
-    </div>
-    
-  </div>
-</article>
-
 <article id="[模板] Queue(佇列)" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -198,7 +144,7 @@
         <hr>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本組模板為佇列模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間，本模板可同時宣告並使用複數個 <a href="/模板庫/Stack/">stack</a> 和 queue，而只須保證資料結構相同且元素總數不超過定義上限即可。</p>
 <h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>本結構為資料的進入點，其中 struct Data 為供使用者存取資料的結構，_next 則是保證結構正運作的必要參數，請不要任意更改它除非你清楚了解它的作用。</p>
-<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h4><p>本結構為佇列的主結構，使用他來宣告一個新的佇列。</p>
+<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h4><p>本結構為佇列的主結構，使用他來宣告一個新的佇列，結構中的 front 和 last 指標分別恆指向該佇列的最前和最末端元素。</p>
 <h3 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h3><h4 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h4><p>本函式會新增一筆資料至目標堆疊的最末端。</p>
 <h5 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h5><h6 id="stk-Queue"><a href="#stk-Queue" class="headerlink" title="stk (Queue*)"></a>stk (Queue*)</h6><p>本參數為目標佇列。</p>
 <h6 id="val-Node"><a href="#val-Node" class="headerlink" title="val (Node)"></a>val (Node)</h6><p>本參數為存入目標佇列最末端的元素。</p>
@@ -283,7 +229,7 @@
         <hr>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本組模板為堆疊模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間，本模板可同時宣告並使用複數個 stack 和 <a href="/模板庫/Queue/">queue</a>，而只須保證資料結構相同且元素總數不超過定義上限即可。</p>
 <h3 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>本結構為資料的進入點，其中 struct Data 為供使用者存取資料的結構，_next 則是保證結構正運作的必要參數，請不要任意更改它除非你清楚了解它的作用。</p>
-<h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><p>本結構為堆疊的主結構，使用他來宣告一個新的堆疊。</p>
+<h4 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h4><p>本結構為堆疊的主結構，使用他來宣告一個新的堆疊，結構中的 top 指標恆指向該堆疊最頂端的元素。</p>
 <h3 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h3><h4 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h4><p>本函式會新增一筆資料至目標堆疊的頂端。</p>
 <h5 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h5><h6 id="stk-Stack"><a href="#stk-Stack" class="headerlink" title="stk (Stack*)"></a>stk (Stack*)</h6><p>本參數為目標堆疊。</p>
 <h6 id="val-Node"><a href="#val-Node" class="headerlink" title="val (Node)"></a>val (Node)</h6><p>本參數為存入目標堆疊頂層的元素。</p>
@@ -310,6 +256,60 @@
     </div>
     <div class="more">
       <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id=" 模板列表" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (7)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+             模板列表
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/模板庫/模板列表/">
+        <h1 class="title-text" title=" 模板列表"> 模板列表</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content">
+      <h2 id="字串處理"><a href="#字串處理" class="headerlink" title="字串處理"></a>字串處理</h2><h5 id="字串取值"><a href="#字串取值" class="headerlink" title="字串取值"></a><a href="/模板庫/字串取值/">字串取值</a></h5><p>本組模板為字串轉數字模板，使用此模板取代 sscanf() 可以大幅減少從字串取得數組的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h5 id="字串賦值"><a href="#字串賦值" class="headerlink" title="字串賦值"></a><a href="/模板庫/字串賦值/">字串賦值</a></h5><p>本組模板為整數轉字串模板，使用此模板取代 sprintf() 可以大幅將整數打印到字串的時間，此外本模板內建指針偏移，可以節省使用 strlen() 偏移指針的開銷。</p>
+<h2 id="IO-優化"><a href="#IO-優化" class="headerlink" title="IO 優化"></a>IO 優化</h2><h5 id="輸入優化"><a href="#輸入優化" class="headerlink" title="輸入優化"></a><a href="/模板庫/輸入優化/">輸入優化</a></h5><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間。</p>
+<h5 id="輸出優化"><a href="#輸出優化" class="headerlink" title="輸出優化"></a><a href="/模板庫/輸出優化/">輸出優化</a></h5><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
+<h2 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h2><h5 id="Stack-堆疊"><a href="#Stack-堆疊" class="headerlink" title="Stack(堆疊)"></a><a href="/模板庫/Stack/">Stack(堆疊)</a></h5><p>本組模板為堆疊模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間。</p>
+<h5 id="Queue-佇列"><a href="#Queue-佇列" class="headerlink" title="Queue(佇列)"></a><a href="/模板庫/Queue/">Queue(佇列)</a></h5><p>本組模板為佇列模板，在已知元素數量上限時使用此模板可以省去動態宣告記憶體的時間。</p>
+
     </div>
     
   </div>
