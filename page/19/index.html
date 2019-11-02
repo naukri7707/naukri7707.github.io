@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,82 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="b860: 獨角蟲進化計算器" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b860: 獨角蟲進化計算器
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/b860/">
+        <h1 class="title-text" title="b860: 獨角蟲進化計算器">b860: 獨角蟲進化計算器</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/流程控制/">流程控制</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-21
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>在 Pokémon Go 遊戲中，獨角蟲 (Weedle) 是滿地爬的常見寶可夢。儘管稀有性不足，但是因為它只要 12 顆糖果就可以進化，所以常常被玩家大量補捉並進化，以賺取每次進化所得到的 500 XP 經驗值。</p>
+<p>在遊戲中，每補獲一隻獨角蟲可以得到 3 顆糖果，每傳送一隻獨角蟲或是它所進化成的鐵殼蛹 (Kakuna) 給教授可以得到 1 顆糖果，每完成一隻獨角蟲的進化也可以得到一顆糖果。</p>
+<p>給你文文目前所擁有的糖果及獨角蟲數量，(假設文文已經把所有的鐵殼蛹或由它再進化而成的大針蜂 (Beedrill)傳送給教授以換取糖果了，而且他會留下足夠的獨角蟲以儘可能進行最多的進化)，請你幫他計算一下他現在可以完成幾隻獨角蟲的進化。</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入只有一行，含有糖果數量 c (0 ≤ c ≤ 30000)、及所擁有的獨角蟲數量 w (0 ≤ w ≤ 10000)。</p>
+<blockquote>
+<p>19 5</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出可進化的獨角蟲數量。</p>
+<blockquote>
+<p>2</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>小麻煩的流程控制，記得在沒糖果的時候還可以拿獨角仙去換。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> candy, weedle, kakuna, count, min;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;candy, &amp;weedle) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        kakuna = count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            min = candy / <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">if</span> (weedle &lt; min)</span><br><span class="line">                min = weedle;</span><br><span class="line">            <span class="keyword">if</span> (min)</span><br><span class="line">            &#123;</span><br><span class="line">                candy -= <span class="number">11</span> * min;</span><br><span class="line">                weedle -= min;</span><br><span class="line">                kakuna += min;</span><br><span class="line">                count += min;</span><br><span class="line">            &#125;</span><br><span class="line">            candy += kakuna;</span><br><span class="line">            kakuna = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (candy &lt; <span class="number">12</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                weedle -= <span class="number">12</span> - candy;</span><br><span class="line">                candy = <span class="number">12</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">while</span> (weedle &gt; <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="b836: kevin戀愛攻略系列題-2 說好的霸王花呢??" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -817,138 +889,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) x^=(y^=(x^=y))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        m %= n;</span><br><span class="line">        SWAP(m, n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  x1, x2, y1, y2, g, a, b, c, d;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d %d %d"</span>, &amp;x1, &amp;x2, &amp;y1, &amp;y2) == <span class="number">4</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        a = (y1 - x1) * (y1 - x1);</span><br><span class="line">        b = (y2 - x2);</span><br><span class="line">        g = gcd(a, b);</span><br><span class="line">        b /= g;</span><br><span class="line">        a /= g;</span><br><span class="line">        c = <span class="number">-2</span> * b * x1;</span><br><span class="line">        d = b * x1 * x1 + a * x2;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%dy = %dx^2 + %dx + %d\n"</span>, a, b, c, d);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="b592: The Tower of Hanoi" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b592: The Tower of Hanoi
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/b592/">
-        <h1 class="title-text" title="b592: The Tower of Hanoi">b592: The Tower of Hanoi</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/河內塔/">河內塔</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-19
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <blockquote>
-<p>本題和 <a href="/線上解題/ZeroJudge/a268/" title="a268">a268</a> 基本上是同一題，只是那題測資比較變態要取 MOD，但題目是敘述是中文，可以移駕過去看完題目再回來解。</p>
-</blockquote>
-<h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>The Tower of Hanoi problem is a popular one in computer science. Brieﬂy speaking, the problem is to transfer all the disks from peg-A to peg-C using peg-B as intermediate one in such a way that at no stage a larger disk is above a smaller disk. The minimum number of moves is required for this task.</p>
-<p>It is so well studied that one can find the sequence of moves for smaller number of disks such as 3 or 4. A trivial computer program can find the case of large number of disks also. Here we have made your task little bit difcult by making the problem more ﬂexible. Here the disks can be placed in any peg initially.</p>
-<p>If more than one disk is in a certain peg, then they will be in a valid arrangement (larger disk will not be on smaller ones). We will give you two such arrangements of disks. Your task is to find out the minimum number of moves which will transform the first arrangement into the second one. Of course you always have to maintain the constraint that smaller disks must be upon the larger ones.</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>The input data consists of several test cases. Each test case contains three lines.</p>
-<p>The first line contains a positive number n, 1 &lt;= n &lt;= 30, which denotes the number of disks. The two arrangements are denoted by the next two lines. Each arrangement will be represented by n integers. The value of integer is 1, 2 or 3, which denote the disk is placed in peg-A, peg-B and peg-C respectively. For example, if the i-th (1 &lt;= i &lt;= n) integer is 1, the i-th disk is in peg-A. The figure shown below is an example of test case. It can be described as follows and the minimum number of moves is 6.</p>
-<p>4<br>1 1 1 1<br>1 2 2 1</p>
-<p><img src="https://zerojudge.tw/ShowImage?id=881" alt="img1" title="圖1"></p>
-<p>Input is terminated by a case where the value of n is zero. This case should not be processed.</p>
-<blockquote>
-<p>4<br>1 1 1 1<br>1 2 2 1<br>3<br>1 1 1<br>2 2 2<br>3<br>1 2 3<br>3 2 1<br>4<br>1 1 1 1<br>1 1 1 1<br>0</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>For each test case, output the minimum number of moves as specified in the problem statement.</p>
-<blockquote>
-<p>6<br>7<br>3<br>0</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>本題要使用 DP 來做，所以先我們把規律整理好。</p>
-<h3 id="河內塔的規律"><a href="#河內塔的規律" class="headerlink" title="河內塔的規律"></a>河內塔的規律</h3><ol>
-<li><p>由於大盤絕不在小盤上面的關係，所以每一柱都會是排序好的，只是中間會有空缺。</p>
-</li>
-<li><p>當你要將一個高度為 n 的塔完整地從 A 柱移動至 B 柱時的最少步驟必為 2<sup>n</sup> - 1<br>Ex: 移動高度為 3 的塔</p>
-<blockquote>
-<p>零　　　　一　　　　二　　　三　　　　四　　　　五　　　　六　　　七<br>1 x x 　　 x x x 　　 x x x 　　 x x x 　　 x x x 　　 x x x 　　 x x x 　　 x 1 x<br>2 x x 　　 2 x x 　　 x x x 　　 x x 1 　　 x x 1 　　 x x x 　　 x 2 x 　　 x 2 x<br>3 x x 　　 3 1 x 　　 3 1 2 　　 3 x 2 　　 x 3 2 　　 1 3 2 　　 1 3 x 　　 x 3 x</p>
-<p>會是 2<sup>n</sup>-1 是因為每要移動高度為 n 的塔，都必須先把高度為 n-1 的塔搬開，移動盤子 n，再把搬開的 n-1 塔般回 n 上，而要移動盤子 n-1 又要移動 n-2 塔…以此類推直到 n 為盤子 1 時，移動他只需要一步(上面沒有盤子了)，接者再逆推回去<br>n = 2 塔：[塔 1] + 1 + [塔 1] = 1 + 1 + 1 = 3、<br>n = 3 塔：[塔 2] + 1 + [塔 2] = 3 + 1 + 3 = 7、<br>n = 4 塔：[塔 3] + 1 + [塔 3] = 7 + 1 + 7 = 15、<br>之後以此類推 ([]為移動該塔的步驟數)<br>然後就能發現 塔 n = 2<sup>n-1</sup> * 2 + 1 也就等於 2<sup>n</sup> - 1。</p>
-</blockquote>
-</li>
-<li><p>想移動下面的盤子一定要先把上面的盤子都移開，所以最下面的盤子一定是最後一個動的。</p>
-</li>
-<li><p>因為河內塔只有三根柱子、且大盤不能放到小盤上，所以如果你要把第 n 盤從 A 柱移動到 B 柱時，那你就必須要把所有比 n 還小的盤子都放到 C 柱上，換句話說，所有比 n 小的盤子都必須要移動到不是盤子 n 原本的柱或目標柱(也就是剩下的那柱)，而如果 n 原本的柱子就是目標柱，那就要把比 n 小的盤子堆到 n 所在的柱子上，維持塔的完整性，這樣之後下面的盤子才動的了。</p>
-</li>
-<li><p>承 1 和 4，既然已經排序好、且比 n 小的都在 C 柱上，那 C 柱就一定會有一個 n-1 的子塔(從 n-1 ~ 1，排好、且中間無空缺的塔)</p>
-</li>
-</ol>
-<h3 id="規律分析"><a href="#規律分析" class="headerlink" title="規律分析"></a>規律分析</h3><ol>
-<li><p>因為最下面的最後才能動，所以 DP 要由上而下</p>
-</li>
-<li><p>每要移動 n 就會把 n 以上的盤子堆成一座 n-1 的子塔</p>
-</li>
-<li><p>隨著不斷的 DP，要移動的就越底層，子塔就會越高</p>
-</li>
-<li><p>n 子塔的位子要在 不是 n+1 盤子的位子或目的地的最後一處，如果盤子的位置和目的地相同，那 n 子塔則也要和他們在相同位子，這裡有個技巧，用如果用 1,2,3 來表示柱子，這時候</p>
-<blockquote>
-<p>[n 子塔的位子] = 6 - [n-1 盤當前位子] - [n-1 盤目標位子]</p>
-</blockquote>
-<p>至於原因…因為 1 + 2 + 3 = 6，所以 6 減任意兩數(柱)就必然會剩下最後一個沒被用到的數(柱)，而當 6 - 2 - 2 時輸出為 2，一樣符合條件，不過 當前位子 = 目標位子 的情況在實作時都會在前面被過濾掉就是了。</p>
-</li>
-<li><p>所以 DP 要做的就是從底部開始找出每層的目標位置，再從頂部開始把每層移動至目標位置 (子塔會在配合移動時越建越高，最後高度必是底部 - 1 ~ 1)。</p>
-</li>
-</ol>
-<p>到此為止是快速求出混亂河內塔還原回一個完整塔所需步驟的方法，但根據題目的目標也可能是混亂的，所以排好之後又要打亂，但好消息是打亂遠比還原輕鬆得多，從底部開始，如果”盤 n”的目標柱跟當前柱不一樣，就把”塔 n-1”搬到剩下的柱，把”盤 n”移至目標位置，如此反覆直到最頂層即可。</p>
-<h3 id="一些雜項"><a href="#一些雜項" class="headerlink" title="一些雜項"></a>一些雜項</h3><ol>
-<li><p>本題 DP 的其實就是這 4 個部分 : 做好的子塔的高度和位置、要移動的盤子的初始位置和目標位置，然後從上到下排好、再從下到上放到目標位置。</p>
-</li>
-<li><p>從頂層開始起始陣列有可能會連續好幾個一樣<br>Ex:</p>
-<blockquote>
-<p>1 x x<br>2 x x<br>3 x x<br>x 4 x<br>x x 5</p>
-<p>這時候直接把 3 開始當子塔可以省掉一些判斷時間。</p>
-</blockquote>
-</li>
-<li><p>從底部開始陣列有可能起始位置 = 目標位置，這些都是不用排的，一樣可以在開始過濾掉。</p>
-</li>
-<li><p>雖然上面多次提到要移動子塔，但由於子塔一定只會在某一柱上，所以不用真的把陣列的元素都改到子塔位置，用一個元素代表子塔位置即可。</p>
-</li>
-<li><p>河內塔邏輯比較複雜，多用紙筆模擬幾次情境會比較好理解上述的規律和流程。</p>
-</li>
-</ol>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-1ms-88KB"><a href="#AC-1ms-88KB" class="headerlink" title="AC (1ms, 88KB)"></a>AC (1ms, 88KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> steps;</span><br><span class="line"><span class="keyword">int</span> step[<span class="number">35</span>], n, base;</span><br><span class="line"><span class="keyword">char</span> now[<span class="number">35</span>], to[<span class="number">35</span>], end[<span class="number">35</span>], curr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; i++)</span><br><span class="line">        step[i] = <span class="number">1</span> &lt;&lt; i;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span> &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        steps = <span class="number">0</span>, base = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;now[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;end[i]);</span><br><span class="line">        <span class="keyword">while</span> (now[n] == end[n] &amp;&amp; n)</span><br><span class="line">            n--;</span><br><span class="line">        <span class="keyword">if</span> (n)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (now[base + <span class="number">1</span>] == now[<span class="number">1</span>] &amp;&amp; base &lt; n - <span class="number">1</span>)</span><br><span class="line">                base++;</span><br><span class="line">            to[n] = end[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt; <span class="number">1</span>; i--)</span><br><span class="line">                to[i - <span class="number">1</span>] = now[i] == to[i] ? to[i] : <span class="number">6</span> - now[i] - to[i];</span><br><span class="line">            curr = now[base];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = base + <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (now[i] == to[i]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (now[i] + to[i] + curr == <span class="number">6</span>)</span><br><span class="line">                    steps++;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    steps += step[base], base = i - <span class="number">1</span>, curr = <span class="number">6</span> - now[i] - to[i];</span><br><span class="line">            &#125;</span><br><span class="line">            curr = to[n - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = base; i; i--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (curr == end[i]) <span class="keyword">continue</span>;</span><br><span class="line">                curr = <span class="number">6</span> - curr - end[i];</span><br><span class="line">                steps += step[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%llu\n"</span>, steps);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

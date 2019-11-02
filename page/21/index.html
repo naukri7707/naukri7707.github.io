@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,81 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="b373: [福州19中]車廂重組" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b373: [福州19中]車廂重組
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/b373/">
+        <h1 class="title-text" title="b373: [福州19中]車廂重組">b373: [福州19中]車廂重組</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-14
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>車廂重組 carry</p>
+<p>【問題描述】</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在一個舊式的火車站旁邊有一座橋，其橋面可以繞河中心的橋墩水平旋轉。一個車站的職工發現橋的長度最多能容納兩節車廂，如果將橋旋轉 180 度，則可以把相鄰兩節車廂的位置交換，用這種方法可以重新排列車廂的順序。於是他就負責用這座橋將進站的車廂按車廂號從小到大排列。他退休後，火車站決定將這一工作自動化，其中一項重要的工作是編一個程序，輸入初始的車廂順序，計算最少用多少步就能將車廂排序。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;車廂編號從 1 開始。</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入文件有兩行數據，第一行是車廂總數 N（不大於 10000），第二行是 N 個不同的數表示初始的車廂順序，每 2 個數之間用一個空格隔開。</p>
+<blockquote>
+<p>4<br>4 3 2 1</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>一個數據，是最少的旋轉次數。</p>
+<blockquote>
+<p>6</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>因為橋一次只能換兩節車廂，所以其實就是在問 bubble sort(氣泡排序) 的交換次數，實作氣泡排序並在交換時紀錄次數即可。</p>
+<p>這題也可以用 merge sort(合併排序) 來做，時間複雜度可以從 O(n<sup>2</sup>) 降到 O(nlogn)，但由於測資過弱所以沒有具體意義。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-3ms-124KB"><a href="#AC-3ms-124KB" class="headerlink" title="AC (3ms, 124KB)"></a>AC (3ms, 124KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) x^=(y^=(x^=y))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> index[<span class="number">10000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, max, count;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        max = n - <span class="number">1</span>, count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;index[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; max - i; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (index[j] &gt; index[j + <span class="number">1</span>])</span><br><span class="line">                    SWAP(index[j], index[j + <span class="number">1</span>]), count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="b367: 翻轉世界" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -816,78 +887,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-196KB"><a href="#AC-2ms-196KB" class="headerlink" title="AC (2ms, 196KB)"></a>AC (2ms, 196KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 47000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> primeList[<span class="number">5000</span>], pLen;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* lhs, <span class="keyword">const</span> <span class="keyword">int</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *lhs - *rhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SetPrimeList</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> isNot[MAX] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    primeList[pLen++] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; MAX; i += <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isNot[i])<span class="keyword">continue</span>;</span><br><span class="line">        primeList[pLen++] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i &lt;&lt; <span class="number">1</span>; j &lt; MAX; j += i)</span><br><span class="line">            isNot[j] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; MAX)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span>* item = (<span class="keyword">int</span>*)bsearch(&amp;n, primeList, pLen, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">        <span class="keyword">return</span> (item != <span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, max = <span class="built_in">sqrt</span>(n); primeList[i] &lt;= max; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!(n % primeList[i]))</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    SetPrimeList();</span><br><span class="line">    <span class="keyword">int</span> n, ans;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isPrime(n))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; n &gt; <span class="number">1</span>; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span> (!(n % primeList[i]))</span><br><span class="line">                &#123;</span><br><span class="line">                    n /= primeList[i];</span><br><span class="line">                    ans += primeList[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="a738: 最大公約數" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            a738: 最大公約數
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/a738/">
-        <h1 class="title-text" title="a738: 最大公約數">a738: 最大公約數</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-13
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小海豚要上初中了，也會了一點程序設計。海豚爸爸想起大約 30 年前上高一的時候自己第一次摸電腦。現在難以想像一下那種心情，那時候一個中國大陸一個大學畢業生（很稀罕的哦）月工資只有 60 元 RMB，而一台蘋果 II 要 6000 元 RMB。海豚爸爸有生以來輸入電腦的第一個程序，就是“最大公約數”。</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>每行 2 個數 a, b 0 &lt; a, b &lt; 1000000000</p>
-<p>EOF 結束</p>
-<blockquote>
-<p>30 24<br>2 4</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對每對 a,b 輸出其最大公約數</p>
-<blockquote>
-<p>6<br>2</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>和<a href="/線上解題/ZeroJudge/a024/" title="a024">這題</a>完全一樣，用輾轉相除法做。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SWAP(x, y) \</span></span><br><span class="line">    x = x ^ y,     \</span><br><span class="line">    y = x ^ y,     \</span><br><span class="line">    x = x ^ y</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;m, &amp;n) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (n)</span><br><span class="line">        &#123;</span><br><span class="line">            m %= n;</span><br><span class="line">            SWAP(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

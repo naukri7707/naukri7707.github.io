@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,77 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="d511: 小明的作業" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            d511: 小明的作業
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/d511/">
+        <h1 class="title-text" title="d511: 小明的作業">d511: 小明的作業</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-29
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小明這學期的數學課教到了三角形，於是老師給了他們一個作業，這個星期一到星期五每個人上學時都要帶三根樹枝到學校來，如果那三根樹枝可以構成一個三角形，那天就可以加一分。給你小明所帶樹枝的長度，請你幫他看看他可以加幾分？</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入一共有 5 行，每行有 3 個整數，代表當天小明所帶的樹枝的長度。</p>
+<blockquote>
+<p>1 2 3<br>2 4 6<br>3 4 5<br>5 3 2<br>1 3 5</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出一個整數，代表小明可以加幾分。</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的迴圈 + 排序 + 條件判斷。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* lhs, <span class="keyword">const</span> <span class="keyword">int</span>* rhs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *lhs - *rhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">3</span>], ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> h = <span class="number">0</span>; h &lt; <span class="number">5</span>; h++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;<span class="built_in">list</span>[i]);</span><br><span class="line">        qsort(<span class="built_in">list</span>, <span class="number">3</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">list</span>[<span class="number">0</span>] + <span class="built_in">list</span>[<span class="number">1</span>] &gt; <span class="built_in">list</span>[<span class="number">2</span>]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="d498: 我不說髒話" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -771,84 +838,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="d460: 山六九之旅" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            d460: 山六九之旅
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/d460/">
-        <h1 class="title-text" title="d460: 山六九之旅">d460: 山六九之旅</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-29
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>小華每年都會到「山六九」主題樂園去玩，但是隨著年齡的增加，每年要買的門票也不太一樣。給你小華的年齡，請你告訴我他今年的門票多少錢？</p>
-<p>「山六九」主題樂園的票價表如下：</p>
-<p>0 ~ 5 歲兒童免票</p>
-<p>兒童票 (6 ~ 11 歲)：590 元</p>
-<p>青少年票 (12 ~ 17 歲)：790 元</p>
-<p>成人票 (18 ~ 59 歲)：890 元</p>
-<p>敬老票 (60 歲以上)：399 元</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入只有一行，內含一個整數 a (0≤a≤2147483647) 代表小華的年齡。</p>
-<blockquote>
-<p>15</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>依「山六九」的票價表，輸出一個整數，代表小華今年的門票價格。</p>
-<blockquote>
-<p>790</p>
-</blockquote>
-<hr>
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>你可以只用算術及關係運算子，而不用 if、switch、或 ? : 來寫出這題嗎？ (這是「挑戰」而不是「限制」，因為出題者不是系統管理員，不能限制你用這些指令。)</p>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>利用關係運算子成立時為 1 ，不成立時為 0 的特性用乘法判斷。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-104KB"><a href="#AC-2ms-104KB" class="headerlink" title="AC (2ms, 104KB)"></a>AC (2ms, 104KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, (n &gt;= <span class="number">6</span> &amp;&amp; n &lt; <span class="number">12</span>) * <span class="number">590</span> + (n &gt;= <span class="number">12</span> &amp;&amp; n &lt; <span class="number">18</span>) * <span class="number">790</span></span><br><span class="line">        + (n &gt;= <span class="number">18</span> &amp;&amp; n &lt; <span class="number">60</span>) * <span class="number">890</span> + (n &gt;= <span class="number">60</span>) * <span class="number">399</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

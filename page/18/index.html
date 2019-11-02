@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,77 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="b969: hello, everyone" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            b969: hello, everyone
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/b969/">
+        <h1 class="title-text" title="b969: hello, everyone">b969: hello, everyone</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-22
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給你一串人名，請你一一向他們問好。</p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入只有二行。第一行含有要問候的人名，人名之間以空白隔開，人名中不含空白。第二行含有問候語。</p>
+<blockquote>
+<p>john mary jacob david<br>hello</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對於每一個所提供的人名，請輸出 問候語 + “, “ + 人名 於一行。請參考範例輸出。</p>
+<blockquote>
+<p>hello, john<br>hello, mary<br>hello, jacob<br>hello, david</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的字串處理。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> name[MAX], hello[MAX], * hs, * h;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fgets(name, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    fgets(hello, MAX, <span class="built_in">stdin</span>);</span><br><span class="line">    h = hello + <span class="built_in">strlen</span>(hello);</span><br><span class="line">    *h++ = <span class="string">','</span>, * h++ = <span class="string">' '</span>;</span><br><span class="line">    hs = h;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; name[i]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (name[i] == <span class="string">' '</span>)</span><br><span class="line">            * h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello), h = hs;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            *h++ = name[i];</span><br><span class="line">    &#125;</span><br><span class="line">    *h = <span class="string">'\0'</span>, <span class="built_in">puts</span>(hello);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="b944: 好想上廁所(男廁篇)" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -859,82 +926,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-112KB"><a href="#AC-2ms-112KB" class="headerlink" title="AC (2ms, 112KB)"></a>AC (2ms, 112KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x, y, yee;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;x, &amp;y);</span><br><span class="line">        yee = <span class="number">100</span> - x - y;</span><br><span class="line">        <span class="keyword">if</span> (yee &lt;= <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">"evil!!"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (yee &lt;= <span class="number">30</span>) <span class="built_in">puts</span>(<span class="string">"sad!"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (yee &lt;= <span class="number">60</span>) <span class="built_in">puts</span>(<span class="string">"hmm~~"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (yee &lt; <span class="number">100</span>) <span class="built_in">puts</span>(<span class="string">"Happyyummy"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"evil!!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="b860: 獨角蟲進化計算器" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            b860: 獨角蟲進化計算器
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/b860/">
-        <h1 class="title-text" title="b860: 獨角蟲進化計算器">b860: 獨角蟲進化計算器</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <i class="fas fa-tags"></i>
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/流程控制/">流程控制</a></li></ul>
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-21
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>在 Pokémon Go 遊戲中，獨角蟲 (Weedle) 是滿地爬的常見寶可夢。儘管稀有性不足，但是因為它只要 12 顆糖果就可以進化，所以常常被玩家大量補捉並進化，以賺取每次進化所得到的 500 XP 經驗值。</p>
-<p>在遊戲中，每補獲一隻獨角蟲可以得到 3 顆糖果，每傳送一隻獨角蟲或是它所進化成的鐵殼蛹 (Kakuna) 給教授可以得到 1 顆糖果，每完成一隻獨角蟲的進化也可以得到一顆糖果。</p>
-<p>給你文文目前所擁有的糖果及獨角蟲數量，(假設文文已經把所有的鐵殼蛹或由它再進化而成的大針蜂 (Beedrill)傳送給教授以換取糖果了，而且他會留下足夠的獨角蟲以儘可能進行最多的進化)，請你幫他計算一下他現在可以完成幾隻獨角蟲的進化。</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入只有一行，含有糖果數量 c (0 ≤ c ≤ 30000)、及所擁有的獨角蟲數量 w (0 ≤ w ≤ 10000)。</p>
-<blockquote>
-<p>19 5</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出可進化的獨角蟲數量。</p>
-<blockquote>
-<p>2</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>小麻煩的流程控制，記得在沒糖果的時候還可以拿獨角仙去換。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-100KB"><a href="#AC-2ms-100KB" class="headerlink" title="AC (2ms, 100KB)"></a>AC (2ms, 100KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> candy, weedle, kakuna, count, min;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;candy, &amp;weedle) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        kakuna = count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            min = candy / <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">if</span> (weedle &lt; min)</span><br><span class="line">                min = weedle;</span><br><span class="line">            <span class="keyword">if</span> (min)</span><br><span class="line">            &#123;</span><br><span class="line">                candy -= <span class="number">11</span> * min;</span><br><span class="line">                weedle -= min;</span><br><span class="line">                kakuna += min;</span><br><span class="line">                count += min;</span><br><span class="line">            &#125;</span><br><span class="line">            candy += kakuna;</span><br><span class="line">            kakuna = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (candy &lt; <span class="number">12</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                weedle -= <span class="number">12</span> - candy;</span><br><span class="line">                candy = <span class="number">12</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">while</span> (weedle &gt; <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

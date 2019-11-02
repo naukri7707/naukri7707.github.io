@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,93 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="c560: SF 愛運動" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
+          <div class="meta-list-link-text">
+            線上解題
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
+          <div class="meta-list-link-text">
+            ZeroJudge
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            c560: SF 愛運動
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/線上解題/ZeroJudge/c560/">
+        <h1 class="title-text" title="c560: SF 愛運動">c560: SF 愛運動</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-24
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>一年一度的 101 大樓爬樓梯競賽始報名囉，喜歡運動的 StillFantasy (以下簡稱 SF ) 毫不猶豫的馬上報名參加。</p>
+<p>現在 101 大樓共有 N 階樓梯，每個參賽者都必須從第 0 階走到最後一階（也就是第 N 階），且主辦單位在某些階樓梯設有休息站（一定要剛好走到那階樓梯），提供礦泉水及 Kinder 巧克力 等零食給選手補充體力。</p>
+<p>聰明的 SF 想了一個絕對能贏的方法 :</p>
+<ol>
+<li><p>每步可以選擇走三階（EX 0 -&gt; 3）或走一階（EX 0 -&gt; 1 ）</p>
+</li>
+<li><p>必須到每個休息站休息及吃一個 Kinder 以維持體力。</p>
+</li>
+</ol>
+<p>現在無聊的 CTF 想知道 SF 完成比賽的方法數，請你寫個程式幫助 CTF 算出答案。<br><img src="https://images.pexels.com/photos/260566/pexels-photo-260566.jpeg?cs=srgb&dl=architecture-buildings-business-260566.jpg" alt="img1"></p>
+<hr>
+<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>第一行共兩個數字 n 跟 m ，分別代表 101 大樓的階梯總數及休息站的數量。</p>
+<p>(1 &lt;= n &lt;= 100000 , 0 &lt;= m &lt; n)</p>
+<p>接下來一行共 m 個數字 a [ i ] ( 1 &lt;= a [ i ] &lt; n ) ，代表每個休息站所在的階梯，且 a [ i ] &lt; a [ i + 1]。</p>
+<blockquote>
+<p>5 1<br>3</p>
+</blockquote>
+<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出一個數，代表 SF 完成比賽的方法數。</p>
+<p>答案可能很大，請 mod 1000000007 。</p>
+<blockquote>
+<p>2</p>
+</blockquote>
+<hr>
+<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p><a href="/線上解題/ZeroJudge/c547/">c574</a> 的進化版，不知道移動方法數怎麼算的可以參考那篇，這邊就是把原本的兩步改成三步。</p>
+<p>這題的目標是到所有的休息站吃到所有的 Kinder，所以取起點到第一個休息站、第一個休息站到第二個、二到三…倒數第一個到終點的移動距離，查表找到對應的階梯移動方法，將它們數相乘即為答案。</p>
+      <div class="hidden-content">
+        <hr>
+<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-11ms-500KB"><a href="#AC-11ms-500KB" class="headerlink" title="AC (11ms, 500KB)"></a>AC (11ms, 500KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100001</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> DP[MAX] = &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span> &#125;, n, m, kinder, pKinder;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt; MAX; i++)</span><br><span class="line">        DP[i] = (DP[i - <span class="number">1</span>] + DP[i - <span class="number">3</span>]) % MOD;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;kinder);</span><br><span class="line">        ans = (ans * DP[kinder - pKinder]) % MOD;</span><br><span class="line">        pKinder = kinder;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, (ans * DP[n - pKinder]) % MOD);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="c548: Boook 愛鴿子" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -815,83 +898,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-76KB"><a href="#AC-2ms-76KB" class="headerlink" title="AC (2ms, 76KB)"></a>AC (2ms, 76KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">    <span class="keyword">char</span> s;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %c %d"</span>, &amp;a, &amp;s, &amp;b) == <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">switch</span> (s)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a + b);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a - b);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a * b);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a / b);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="c381: 聖經密碼" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            c381: 聖經密碼
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/c381/">
-        <h1 class="title-text" title="c381: 聖經密碼">c381: 聖經密碼</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-08-24
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>1980 年代，以色列希伯來大學的數學家 Eliyahu Rips 和物理學家 Doron Witstum 利用電腦高速計算對比 (一套精密的數學運算模式)，挑選聖經時代以來的 32 位知名人物，結果發現他們的名字和出生與死亡日期在《創世記》中都是編在一起的。後來他們把整本希伯來文聖經原文去除了所有字間距，連貫成總長 304805 個字 (因為根據傳說，摩西從上帝手中接受的聖經就是「字字相連，無一中斷」)，採用電腦跳躍碼方式，在字串中尋找名字、單詞和詞組，最終找到了一系列相關信息。</p>
-<p>現在，你也拿到了另一個不知名的古文獻，其中含有 n 個單字，你的任務是要把文中的文字「字字相連」，再依電腦所提供的 m 個整數 A1, A2, …, Am，從這個長字串找出第 A1, A2, …, Am 個字母併成一個單字。</p>
-<p>例如<br>所收到的文獻為：the quick brown fox jumps over the lazy dog<br>連接成一個長字串：thequickbrownfoxjumpsoverthelazydog<br>電腦提供的線索為：33, 11, 34, 19, 21, 33, 30, 32<br>所併成的單字：doomsday</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入檔中有多組測試資料。</p>
-<p>每組測試資料的第一行是兩個正整數 n(&lt;1000001), m(&lt;101)。接下來的 n 行每行有一個英文單字，每個單字的長度不超過 100。最後一行有 m 個以空白隔開的正整數，所提供的數字不會超過字串的總長度。</p>
-<p>當 n, m 均為 0 表示檔案結束，不須處理這組輸入。</p>
-<blockquote>
-<p>9 8<br>the<br>quick<br>brown<br>fox<br>jumps<br>over<br>the<br>lazy<br>dog<br>33 11 34 19 21 33 30 32<br>0 0</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>對於每組測試資料，請輸出所擷取的文字於一行。</p>
-<blockquote>
-<p>doomsday</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>簡單的字串串接，因為資料龐大所以用一指標指向輸入位址，用 gets() 讀取輸入，再用 strlen() 取得該次輸入長度，將原指標和其相加即為下次輸入位置。</p>
-<p>輸入完後查表輸出即可。</p>
-<p>注意！ Visual Studio 等較新的編譯器會將 gets() 讀入字串時會將&#39;\n&#39;字元保留，但 ZeroJudge 不會。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-13ms-4-9MB"><a href="#AC-13ms-4-9MB" class="headerlink" title="AC (13ms, 4.9MB)"></a>AC (13ms, 4.9MB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> <span class="built_in">list</span>[<span class="number">60000010</span>], ans[<span class="number">101</span>], * input;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, tmp;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">" %d %d"</span>, &amp;n, &amp;m) == <span class="number">2</span> &amp;&amp; n + m)</span><br><span class="line">    &#123;</span><br><span class="line">        getchar();</span><br><span class="line">        input = <span class="built_in">list</span>;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            gets(input);</span><br><span class="line">            input += <span class="built_in">strlen</span>(input);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">" %d"</span>, &amp;tmp);</span><br><span class="line">            ans[i] = <span class="built_in">list</span>[tmp - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        ans[m] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">puts</span>(ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

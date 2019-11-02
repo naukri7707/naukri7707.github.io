@@ -26,11 +26,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -87,7 +83,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -97,6 +93,179 @@
   <div class="wrapper main-body">
     <main id="main">
       
+<article id="[模板] 輸出優化" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (8)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 輸出優化
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/模板庫/輸出優化/">
+        <h1 class="title-text" title="[模板] 輸出優化">[模板] 輸出優化</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-30
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="putInt"><a href="#putInt" class="headerlink" title="putInt()"></a>putInt()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> tmp[<span class="number">13</span>];</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span>* st = tmp + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h3 id="putUInt"><a href="#putUInt" class="headerlink" title="putUInt()"></a>putUInt()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putUInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> tmp[<span class="number">12</span>];</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span>* st = tmp + <span class="number">10</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="putLongLong"><a href="#putLongLong" class="headerlink" title="putLongLong()"></a>putLongLong()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putLongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> tmp[<span class="number">22</span>];</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span>* st = tmp + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="putULongLong"><a href="#putULongLong" class="headerlink" title="putULongLong()"></a>putULongLong()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putULongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> tmp[<span class="number">22</span>];</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span>* st = tmp + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本組模板為輸出優化模板，使用此模板取代 printf() 可以大幅印出資料的時間。</p>
+<h3 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h3><h4 id="src"><a href="#src" class="headerlink" title="src"></a>src</h4><p>本參數為要輸出的整數</p>
+<h4 id="suffix"><a href="#suffix" class="headerlink" title="suffix"></a>suffix</h4><p>本參數為串接在整數後面的一個後墜字元，若無後墜請輸入 0 (或 &#39;\0&#39;)</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>本函式無返回值</p>
+<h3 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> tmp[<span class="number">13</span>];</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span>* st = tmp + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = (src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>)) | <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min = <span class="number">1</span> &lt;&lt; <span class="number">31</span>;</span><br><span class="line">    putInt(<span class="number">30</span>, <span class="string">' '</span>);</span><br><span class="line">    putInt(<span class="number">2147483647</span>, <span class="string">'\n'</span>);</span><br><span class="line">    putInt(min, <span class="string">'\0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="編譯運行結果"><a href="#編譯運行結果" class="headerlink" title="編譯運行結果"></a>編譯運行結果</h5><blockquote>
+<p>30 2147483647<br>-2147483648</p>
+</blockquote>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ul>
+<li><p>在 32 位元架構下的編譯器，由於不需要做右移處理所以 int 的速度一般會比 short 來的更快 (或至少一樣快)，所以在記憶體空間足夠的請況下，保持使用 int 是比較好的選擇。</p>
+</li>
+<li><p>如果要追求更高的效率請自行宣告緩衝區並使用<a href="/模板庫/字串賦值/">字串賦值</a>串接做批次輸出。</p>
+</li>
+</ul>
+<h2 id="更新紀錄"><a href="#更新紀錄" class="headerlink" title="更新紀錄"></a>更新紀錄</h2><h5 id="2019-9-6"><a href="#2019-9-6" class="headerlink" title="2019-9-6"></a>2019-9-6</h5><ul>
+<li>將轉正移至單獨一行避免 ZJ 編譯器出錯</li>
+<li>整數轉字元用 &#39;|&#39; 取代 &#39;+&#39; 提升效率</li>
+<li>buffer 改成靜態減少宣告時間</li>
+</ul>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
+<article id="[模板] 輸入優化" class="post">
+  <div class="post-meta">
+    <ul class="meta-list">
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link" href="/categories/模板庫/" title="模板庫 (8)">
+          <div class="meta-list-link-text">
+            模板庫
+          </div>
+        </a>
+      </li>
+      
+      <li class="meta-list-item">
+        <a class="meta-list-link current-link">
+          <div class="meta-list-link-text">
+            [模板] 輸入優化
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="post-inner">
+    <header class="title">
+      
+      <a class="title-link" href="/模板庫/輸入優化/">
+        <h1 class="title-text" title="[模板] 輸入優化">[模板] 輸入優化</h1>
+      </a>
+      
+      <div class="separator"></div>
+      <div class="info">
+        
+        <i class="fas fa-tags"></i>
+        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO優化/">IO優化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字串處理/">字串處理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板/">模板</a></li></ul>
+        
+        <time class="time">
+          <i class="far fa-calendar-alt"></i>
+          2019-08-27
+        </time>
+      </div>
+    </header>
+    
+    <div class="content  toc-article">
+      <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="readChar"><a href="#readChar" class="headerlink" title="readChar()"></a>readChar()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="readInt"><a href="#readInt" class="headerlink" title="readInt()"></a>readInt()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <div class="hidden-content">
+        <h3 id="readUInt"><a href="#readUInt" class="headerlink" title="readUInt()"></a>readUInt()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readUInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="readLongLong"><a href="#readLongLong" class="headerlink" title="readLongLong()"></a>readLongLong()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readLongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="readULongLong"><a href="#readULongLong" class="headerlink" title="readULongLong()"></a>readULongLong()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readULongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="readDouble"><a href="#readDouble" class="headerlink" title="readDouble()"></a>readDouble()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">readDouble</span><span class="params">(<span class="keyword">register</span> <span class="keyword">double</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch, nag;</span><br><span class="line">    <span class="keyword">while</span> (((ch = readChar()) &lt; <span class="string">'-'</span>))</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">        nag = <span class="number">1</span>, *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        nag = <span class="number">0</span>, *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">        * dst = *dst * <span class="number">10</span> + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'.'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">register</span> <span class="keyword">double</span> m = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst += (ch ^ <span class="string">'0'</span>) * (m *= <span class="number">0.1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nag)* dst = -*dst;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本組模板為輸入優化模板，使用此模板取代 scanf() 可以大幅減少從資料流取得數組的時間，本組模板所有函式皆需要透過 <a href="#readChar">readChar()</a> 完成，請在使用時一併引入。</p>
+<h3 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h3><h4 id="BUFSIZ"><a href="#BUFSIZ" class="headerlink" title="BUFSIZ"></a>BUFSIZ</h4><p>此巨集用來定義緩衝區大小。</p>
+<h4 id="dst"><a href="#dst" class="headerlink" title="dst"></a>dst</h4><p>本參數用來接收格式化後的數值。</p>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>若讀取到字元 -1 (EOF) 回傳 0，否則回傳 1。</p>
+<h3 id="實例"><a href="#實例" class="headerlink" title="實例"></a>實例</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>);</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">while</span> (readInt(&amp;val))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><ul>
+<li><p>在 32 位元架構下的編譯器，由於不需要做右移處理所以 int 的速度一般會比 short 來的更快 (或至少一樣快)，所以在記憶體空間足夠的請況下，保持使用 int 是比較好的選擇。</p>
+</li>
+<li><p>為了加快速度，過濾字元時使用 (ch &lt; &#39;0&#39; (有號為&#39;-&#39;))、判斷數字使用 (ch &gt;= &#39;0&#39;) 作為字元判斷依據如果字串中包含不符合條件的字元請自行修改判斷式或採用以下嚴格判斷的方式避免錯誤。</p>
+<p>有號</p>
+<blockquote>
+<p>(((ch = readChar()) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;) &amp;&amp; ch != &#39;-&#39;)</p>
+</blockquote>
+<p>無號</p>
+<blockquote>
+<p>((ch = readChar()) &lt; &#39;0&#39; || ch &gt; &#39;9&#39;)</p>
+</blockquote>
+<p>判斷數字</p>
+<blockquote>
+<p>((ch = readChar()) &gt;= &#39;0&#39; &amp;&amp; ch &lt;= &#39;9&#39;)</p>
+</blockquote>
+</li>
+<li><p>如果情況允許，使用整數型態模擬浮點運算，因為整數型態運算速度遠高於浮點，且不會有失真問題。</p>
+</li>
+</ul>
+<h2 id="更新紀錄"><a href="#更新紀錄" class="headerlink" title="更新紀錄"></a>更新紀錄</h2><h5 id="2019-9-6"><a href="#2019-9-6" class="headerlink" title="2019-9-6"></a>2019-9-6</h5><ul>
+<li>傳入參數改為 register</li>
+</ul>
+      </div>
+    </div>
+    <div class="more">
+      <a class="more-button" onclick="readMore()">閱讀更多</a>
+    </div>
+    
+  </div>
+</article>
+
 <article id="e378: 撞來撞去" class="post">
   <div class="post-meta">
     <ul class="meta-list">
@@ -876,158 +1045,6 @@
       <div class="hidden-content">
         <hr>
 <h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-2ms-108KB"><a href="#AC-2ms-108KB" class="headerlink" title="AC (2ms, 108KB)"></a>AC (2ms, 108KB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> w, h;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %lf %lf"</span>, &amp;w, &amp;h);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.1lf"</span>, (w * <span class="number">10000</span>) / (h * h));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="e340: 差分練習" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            e340: 差分練習
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/e340/">
-        <h1 class="title-text" title="e340: 差分練習">e340: 差分練習</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-09-05
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給定一陣列 B，請輸出這個陣列的差分陣列 A。</p>
-<p>定義 1 : 當 B[i]為 A[0]+A[1]+…A[i]，B 陣列為 A 陣列的前綴和。</p>
-<p>定義 2 : 當 B 陣列為 A 陣列的前綴和，A 陣列為 B 陣列的差分陣列。</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入的第一行有一個整數 N (1 &lt;= N &lt;= 200000)，代表 B 陣列大小。</p>
-<p>第二行有 N 個整數以空白分隔，依序表示 B[0], B[1], B[2] … B[N-1]。</p>
-<p>陣列中數字的絕對值不會超過 10^9。</p>
-<blockquote>
-<p>5<br>1 2 3 4 5</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出一行，其中有 N 個整數以空白分隔，依序表示 A[0], A[1], A[2] … A[N-1]。</p>
-<blockquote>
-<p>1 1 1 1 1</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>和<a href="/線上解題/ZeroJudge/e339">上一題</a>差不多，改成用一個整數紀錄上一個元素，輸出當前元素減去上一個元素即可。</p>
-<p>一樣不用做 IO 優化也能過。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-23ms-1-1MB"><a href="#AC-23ms-1-1MB" class="headerlink" title="AC (23ms, 1.1MB)"></a>AC (23ms, 1.1MB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readInt</span><span class="params">(<span class="keyword">int</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putInt</span><span class="params">(<span class="keyword">register</span> <span class="keyword">int</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">13</span>], * st = buffer + <span class="number">11</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">int</span> prev = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%*lld"</span>);</span><br><span class="line">    <span class="keyword">while</span> (readInt(&amp;tmp))</span><br><span class="line">        putInt((tmp - prev), <span class="string">' '</span>), prev = tmp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      </div>
-    </div>
-    <div class="more">
-      <a class="more-button" onclick="readMore()">閱讀更多</a>
-    </div>
-    
-  </div>
-</article>
-
-<article id="e339: 前綴和練習" class="post">
-  <div class="post-meta">
-    <ul class="meta-list">
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/" title="線上解題 (252)">
-          <div class="meta-list-link-text">
-            線上解題
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link" href="/categories/線上解題/ZeroJudge/" title="ZeroJudge (251)">
-          <div class="meta-list-link-text">
-            ZeroJudge
-          </div>
-        </a>
-      </li>
-      
-      <li class="meta-list-item">
-        <a class="meta-list-link current-link">
-          <div class="meta-list-link-text">
-            e339: 前綴和練習
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="post-inner">
-    <header class="title">
-      
-      <a class="title-link" href="/線上解題/ZeroJudge/e339/">
-        <h1 class="title-text" title="e339: 前綴和練習">e339: 前綴和練習</h1>
-      </a>
-      
-      <div class="separator"></div>
-      <div class="info">
-        
-        <time class="time">
-          <i class="far fa-calendar-alt"></i>
-          2019-09-05
-        </time>
-      </div>
-    </header>
-    
-    <div class="content  toc-article">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>給定一陣列 A，請輸出這個陣列的前綴和陣列 B。</p>
-<p>定義 : 當 B[i]為 A[0]+A[1]+…A[i]，B 陣列為 A 陣列的前綴和。</p>
-<hr>
-<h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入的第一行有一個整數 N (1 &lt;= N &lt;= 200000)，代表 A 陣列大小。</p>
-<p>第二行有 N 個整數以空白分隔，依序表示 A[0], A[1], A[2] … A[N-1]。</p>
-<p>陣列中數字的絕對值不會超過 10^9。</p>
-<blockquote>
-<p>5<br>1 2 3 4 5</p>
-</blockquote>
-<h2 id="輸出"><a href="#輸出" class="headerlink" title="輸出"></a>輸出</h2><p>輸出一行，其中有 N 個整數以空白分隔，依序表示 B[0], B[1], B[2] … B[N-1]。</p>
-<blockquote>
-<p>1 3 6 10 15</p>
-</blockquote>
-<hr>
-<h2 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h2><p>就是將自己和前面的所有項目加起來，所以用一個整數去累加，然後不斷輸出該整數即可。</p>
-<p>注意！累加的總數可能是負值也會超過 int 上限，要使用 long long。</p>
-<p>本題不做 IO 優化也能過。</p>
-      <div class="hidden-content">
-        <hr>
-<h2 id="完整程式碼"><a href="#完整程式碼" class="headerlink" title="完整程式碼"></a>完整程式碼</h2><h6 id="AC-21ms-1-1MB"><a href="#AC-21ms-1-1MB" class="headerlink" title="AC (21ms, 1.1MB)"></a>AC (21ms, 1.1MB)</h6><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFSIZ 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readChar</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buffer[BUFSIZ], * now = buffer + BUFSIZ, * end = buffer + BUFSIZ;</span><br><span class="line">    <span class="keyword">if</span> (now == end)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (end &lt; buffer + BUFSIZ)</span><br><span class="line">            <span class="keyword">return</span> EOF;</span><br><span class="line">        end = (buffer + fread(buffer, <span class="number">1</span>, BUFSIZ, <span class="built_in">stdin</span>));</span><br><span class="line">        now = buffer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *now++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">readLongLong</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span>* dst)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">while</span> ((ch = readChar()) &lt; <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">if</span> (ch == EOF) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *dst = readChar() ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">        *dst = ~*dst + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        *dst = ch ^ <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> ((ch = readChar()) &gt;= <span class="string">'0'</span>)</span><br><span class="line">            * dst = (*dst &lt;&lt; <span class="number">3</span>) + (*dst &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">putLongLong</span><span class="params">(<span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> src, <span class="keyword">const</span> <span class="keyword">char</span> suffix)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> div;</span><br><span class="line">    <span class="keyword">char</span> buffer[<span class="number">22</span>], * st = buffer + <span class="number">20</span>;</span><br><span class="line">    *st = suffix, * (st + <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (src &lt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        src = ~src + <span class="number">1</span>;</span><br><span class="line">        *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (src = div)</span><br><span class="line">            * (--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        *(--st) = <span class="string">'-'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">            *(--st) = src - ((div = src / <span class="number">10</span>) &lt;&lt; <span class="number">3</span>) - (div &lt;&lt; <span class="number">1</span>) + <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span> (src = div);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fputs</span>(st, <span class="built_in">stdout</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">register</span> <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%*lld"</span>);</span><br><span class="line">    <span class="keyword">while</span> (readLongLong(&amp;tmp))</span><br><span class="line">        putLongLong((sum += tmp), <span class="string">' '</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
     </div>
     <div class="more">

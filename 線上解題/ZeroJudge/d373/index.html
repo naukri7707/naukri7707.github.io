@@ -23,11 +23,7 @@
   <script src="/js/postBehavior.js"></script>
 </head>
 
-<body id="layout">
-  
-  <!-- 背景 -->
-  
-  <img id="layout-background" src="/img/winxp.jpg" onmousedown="return false;" alt="background">
+<body id="layout" style="background-image: url(/img/winxp.jpg);">
   
   <nav id="navbar" class="banner-style">
   <div class="navbar-list wrapper">
@@ -84,7 +80,7 @@
     <p>Test Message</p>
   </div>
   <header id="header">
-  <img class="banner-img" src="/img/banner.png" onmousedown="return false" alt="headerImage">
+  <img class="banner-img" src="/img/banner.jpg" onmousedown="return false" alt="headerImage">
   <div class="banner-inner">
     <div class="banner-title">
     Naukri&#39;s Blog
@@ -141,7 +137,7 @@
     </header>
     
     <div class="content">
-      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>這個問題跟傳統的老鼠走迷宮問題不太一樣，給定一個四方形的格點空間<br>x 座標與 y 座標由左下角原點以 0 開始往右和往上遞增，裡面有一個區域是鼠窩，另外有一個區域是乳酪屋<br>此外還有很多障礙物是用來阻擋鼠輩的橫行，也就是障礙物是不可穿越的。<br>在此空間裡可能沒有路可以從鼠窩走到乳酪屋，此種情況你必須回報沒有路徑<br>如果有路可以連接鼠窩跟乳酪屋的話，你必須算出從鼠窩走到乳酪屋的最短路徑。<br>老鼠的每一步只能往四個方向走:上、下、左、右，不能走對角方向。出發點與終點可以是鼠窩與乳酪屋的任何一個位置。<br>以圖一為例，鼠窩到乳酪屋的最短距離為 15，由鼠窩裡圓圈所標示的點(10,2)往左出發走到乳酪屋中圓圈所標示的點(1,8)。<br>鼠窩與乳酪屋的形狀一定是一條直線，障礙物可以是一點可以是一條直線也可以是一個矩形區域<br>圖一中的障礙物是由三個點與兩條直線所構成，分別為點(2,6)、(3,5)、與(4,4)和線(4,3)<del>(7,3)與(7,4)</del>(7,9)。<br>在找尋最短路徑時，不要只派遣一隻老鼠出任務，這樣會累死這隻可憐的倒霉鼠的。</p>
+      <h2 id="內容"><a href="#內容" class="headerlink" title="內容"></a>內容</h2><p>這個問題跟傳統的老鼠走迷宮問題不太一樣，給定一個四方形的格點空間<br>x 座標與 y 座標由左下角原點以 0 開始往右和往上遞增，裡面有一個區域是鼠窩，另外有一個區域是乳酪屋<br>此外還有很多障礙物是用來阻擋鼠輩的橫行，也就是障礙物是不可穿越的。<br>在此空間裡可能沒有路可以從鼠窩走到乳酪屋，此種情況你必須回報沒有路徑<br>如果有路可以連接鼠窩跟乳酪屋的話，你必須算出從鼠窩走到乳酪屋的最短路徑。<br>老鼠的每一步只能往四個方向走:上、下、左、右，不能走對角方向。出發點與終點可以是鼠窩與乳酪屋的任何一個位置。<br>以圖一為例，鼠窩到乳酪屋的最短距離為 15，由鼠窩裡圓圈所標示的點(10,2)往左出發走到乳酪屋中圓圈所標示的點(1,8)。<br>鼠窩與乳酪屋的形狀一定是一條直線，障礙物可以是一點可以是一條直線也可以是一個矩形區域<br>圖一中的障礙物是由三個點與兩條直線所構成，分別為點(2,6)、(3,5)、與(4,4)和線(4,3)~(7,3)與(7,4)~(7,9)。<br>在找尋最短路徑時，不要只派遣一隻老鼠出任務，這樣會累死這隻可憐的倒霉鼠的。</p>
 <p><img src="https://zerojudge.tw/images/problems/d373.jpg" alt="img1"></p>
 <hr>
 <h2 id="輸入"><a href="#輸入" class="headerlink" title="輸入"></a>輸入</h2><p>輸入的第一行為兩個整數，描述方形格點空間的大小，第一個表示行的數目，第二個表示列的數目<br>在此問題中行和列的數目都不會超過 1000 (&lt;=1000)。<br>接下來“.mb”表示後面用兩點來描述鼠窩的位置，每個點先 x 座標再 y 座標，兩個點沒有固定的先後排序。<br>接下來“.cb”表示後面用兩點來描述乳酪屋的位置，兩個點也沒有固定的先後排序。<br>最後“.bb”表示後面開始每一行描述一個障礙物的位置，不管是一點還是一條線都是用兩點來表示<br>最後以“.be”表示結束。</p>
